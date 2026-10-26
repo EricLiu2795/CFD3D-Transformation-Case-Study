@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/home/junkun/genesis-transform-experiment/venv/bin/python",
+    "-B",
+    "/home/junkun/genesis-transform-experiment/tools/anonymous/distance.py",
+    "--run",
+    "/home/junkun/genesis-transform-experiment/record/run.json",
+    "--ref",
+    "5943ae78be7334888b7f7b1f4622f9cf61626a2c",
+    "--at",
+    "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+    "--label",
+    "independent-final-001"
+  ],
+  "scope": "Independent static analysis after rawfreeze; official all didnotreachitsdistance stage; no models/compilers/GPU/sourcewrites"
+}

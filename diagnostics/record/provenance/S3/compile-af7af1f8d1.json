@@ -1,0 +1,41 @@
+{
+ "tool": "batch-compile",
+ "generated": "2026-10-26T02:01:20-04:00",
+ "checks": [
+  {
+   "id": "compile.impact",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 TUs compiled in 0 builds (); 3 files no build compiles",
+   "findings": [
+    {
+     "file": "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/boundary_conditions.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/poisson_sor.cpp",
+     "detail": "no build compiles this file"
+    }
+   ],
+   "data": {
+    "compiled": [],
+    "preprocessed": 0,
+    "uncovered": {},
+    "unknown": [
+     "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+     "src/CfdSolver/serial/boundary_conditions.cpp",
+     "src/CfdSolver/serial/poisson_sor.cpp"
+    ]
+   }
+  }
+ ],
+ "verdict": "pass",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "a3ec92ae49cadf025381b350f9981f88a5a1f48d",
+ "head": "af7af1f8d1c6512b8be89a9833c31c9808602c74"
+}

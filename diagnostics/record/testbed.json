@@ -1,0 +1,81 @@
+{
+  "name": "cfd3d-full-source-sm120",
+  "project_dirs": [
+    "src"
+  ],
+  "external_dirs": [
+    "/usr/include",
+    "/usr/local/cuda-13.2/include"
+  ],
+  "commands_tree": "/home/junkun/genesis-transform-experiment/worktree",
+  "env": {
+    "PATH": "/home/junkun/genesis-transform-experiment/bin:/home/junkun/genesis-transform-experiment/venv/bin:/usr/local/cuda-13.2/bin:/usr/bin:/bin",
+    "TREE": "{tree}",
+    "RECORD": "/home/junkun/genesis-transform-experiment/record",
+    "OMP_NUM_THREADS": "1",
+    "LD_LIBRARY_PATH": "/usr/lib/wsl/lib:/usr/local/cuda-13.2/lib64",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "parse": {
+    "attribute_macros": [
+      "__global__",
+      "__device__",
+      "__host__",
+      "__shared__",
+      "__constant__",
+      "__managed__",
+      "__forceinline__"
+    ],
+    "extensions": [
+      ".cpp",
+      ".H",
+      ".h",
+      ".hpp",
+      ".hh",
+      ".cc",
+      ".cxx",
+      ".cu",
+      ".c",
+      ".inl"
+    ]
+  },
+  "builds": [
+    {
+      "name": "cpu-reference",
+      "kind": "cpu",
+      "cwd": "work/cpu-reference",
+      "commands": {
+        "file": "compile_commands.json",
+        "format": "compile_commands"
+      },
+      "exe": "cfd3d"
+    },
+    {
+      "name": "cuda-fma",
+      "kind": "gpu",
+      "cwd": "work/cuda-fma",
+      "commands": {
+        "file": "compile_commands.json",
+        "format": "compile_commands"
+      },
+      "exe": "cfd3d"
+    },
+    {
+      "name": "cuda-no-fma",
+      "kind": "gpu",
+      "cwd": "work/cuda-no-fma",
+      "commands": {
+        "file": "compile_commands.json",
+        "format": "compile_commands"
+      },
+      "exe": "cfd3d"
+    }
+  ],
+  "scripts": {
+    "check": "/usr/bin/python3 -B /home/junkun/genesis-transform-experiment/public/testbed.py check --run-contract /home/junkun/genesis-transform-experiment/record/run.json --tree \"$TREE\" --files {files}",
+    "validate": "/usr/bin/python3 -B /home/junkun/genesis-transform-experiment/public/testbed.py validate --run-contract /home/junkun/genesis-transform-experiment/record/run.json --tree \"$TREE\"",
+    "rebuild": "/usr/bin/python3 -B /home/junkun/genesis-transform-experiment/public/testbed.py rebuild --run-contract /home/junkun/genesis-transform-experiment/record/run.json --tree \"$TREE\" --builds {builds}",
+    "gpu_build": "/usr/bin/python3 -B /home/junkun/genesis-transform-experiment/public/testbed.py gpu-build --run-contract /home/junkun/genesis-transform-experiment/record/run.json --tree \"$TREE\" --builds {builds}",
+    "generate": "/usr/bin/python3 -B /home/junkun/genesis-transform-experiment/public/testbed.py generate --run-contract /home/junkun/genesis-transform-experiment/record/run.json --tree {tree} --out {out}"
+  }
+}

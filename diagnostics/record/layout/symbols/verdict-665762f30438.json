@@ -1,0 +1,123 @@
+{
+ "t": "2026-10-26T00:40:51",
+ "at": "665762f304386d792e8795817a7b46af166002ec",
+ "layout.symbols": {
+  "status": "fail",
+  "summary": "3 executables compared, 27 differences",
+  "findings": [
+   {
+    "build": "cpu-reference",
+    "detail": "symbol gained: T CfdSolver::~CfdSolver()"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol lost: T __device_stub__Z18setHBoundariesCudaiiiPdS_(int, int, int, double*, double*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol lost: T __device_stub__Z25setMountainBoundariesCudaiiiPdS_S_Pj(int, int, int, double*, double*, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol lost: T __device_stub__Z26setInternalTBoundariesCudaiiiPdPj(int, int, int, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol lost: T __device_stub__Z28setSingleTowerBoundariesCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol lost: T __device_stub__Z29setDrivenCavityBoundariesCudaiiiPd(int, int, int, double*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol lost: T __device_stub__Z29setFlowOverStepBoundariesCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol gained: T CfdSolver::~CfdSolver()"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol gained: T __device_stub__Z15setHBordersCudaiiiPdS_(int, int, int, double*, double*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol gained: T __device_stub__Z25assignMountainBordersCudaiiiPdS_S_Pj(int, int, int, double*, double*, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol gained: T __device_stub__Z26assignInternalTBordersCudaiiiPdPj(int, int, int, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol gained: T __device_stub__Z28assignSingleTowerBordersCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol gained: T __device_stub__Z29assignDrivenCavityBordersCudaiiiPd(int, int, int, double*)"
+   },
+   {
+    "build": "cuda-fma",
+    "detail": "symbol gained: T __device_stub__Z29assignFlowOverStepBordersCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol lost: T __device_stub__Z18setHBoundariesCudaiiiPdS_(int, int, int, double*, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol lost: T __device_stub__Z25setMountainBoundariesCudaiiiPdS_S_Pj(int, int, int, double*, double*, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol lost: T __device_stub__Z26setInternalTBoundariesCudaiiiPdPj(int, int, int, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol lost: T __device_stub__Z28setSingleTowerBoundariesCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol lost: T __device_stub__Z29setDrivenCavityBoundariesCudaiiiPd(int, int, int, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol lost: T __device_stub__Z29setFlowOverStepBoundariesCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol gained: T CfdSolver::~CfdSolver()"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol gained: T __device_stub__Z15setHBordersCudaiiiPdS_(int, int, int, double*, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol gained: T __device_stub__Z25assignMountainBordersCudaiiiPdS_S_Pj(int, int, int, double*, double*, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol gained: T __device_stub__Z26assignInternalTBordersCudaiiiPdPj(int, int, int, double*, unsigned int*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol gained: T __device_stub__Z28assignSingleTowerBordersCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol gained: T __device_stub__Z29assignDrivenCavityBordersCudaiiiPd(int, int, int, double*)"
+   },
+   {
+    "build": "cuda-no-fma",
+    "detail": "symbol gained: T __device_stub__Z29assignFlowOverStepBordersCudaiiiPdS_S_(int, int, int, double*, double*, double*)"
+   }
+  ]
+ },
+ "layout.compiled-set": {
+  "status": "pass",
+  "summary": "0 differences in the compiled sets",
+  "findings": []
+ }
+}

@@ -1,0 +1,3660 @@
+diff --git a/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp b/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
+index 72bcdcc..631c3fa 100644
+--- a/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
++++ b/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
+@@ -266,60 +266,62 @@ void setInternalUBordersMpi(
+     for (int i = il; i <= iu-1; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int R_count = 0;
+                 int L_count = 0;
+                 int R1_count = 0;
+                 int L1_count = 0;
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i, j, k)] = Real(0);
+-                        R_count = 1;
+-                    }
++                if (B_R(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i, j, k)] = Real(0);
++                    R_count = 1;
++                }
+ 
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i - 1, j, k)] = Real(0);
+-                        L_count = 1;
+-                    }
++                if (B_L(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i - 1, j, k)] = Real(0);
++                    L_count = 1;
++                }
+ 
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_U(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
++                        L1_count = 1;
+                     }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
++                        R1_count = 1;
++                    }
++                }
+ 
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_D(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
++                        L1_count = 1;
+                     }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
++                        R1_count = 1;
++                    }
++                }
+ 
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
+-                        }
++                if (B_B(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
+                     }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
++                    }
++                }
+ 
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+-                        }
++                if (B_F(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
++                    }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+                     }
+                 }
+             }
+@@ -335,60 +337,62 @@ void setInternalVBordersMpi(
+     for (int i = il; i <= iu; i++) {
+         for (int j = jl; j <= ju-1; j++) {
+             for (int k = kl; k <= ku; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int U_count = 0;
+                 int D_count = 0;
+                 int U1_count = 0;
+                 int D1_count = 0;
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        V[LINV(i, j, k)] = Real(0);
+-                        U_count = 1;
+-                    }
++                if (B_U(Flag[LINFLAG(i, j, k)])) {
++                    V[LINV(i, j, k)] = Real(0);
++                    U_count = 1;
++                }
+ 
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        V[LINV(i, j - 1, k)] = Real(0);
+-                        D_count = 1;
+-                    }
++                if (B_D(Flag[LINFLAG(i, j, k)])) {
++                    V[LINV(i, j - 1, k)] = Real(0);
++                    D_count = 1;
++                }
+ 
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i + 1, j - 1, k)];
+-                            D1_count = 0;
+-                        }
+-                        if (U_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i + 1, j, k)];
+-                            U1_count = 0;
+-                        }
++                if (B_R(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i + 1, j - 1, k)];
++                        D1_count = 0;
+                     }
++                    if (U_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i + 1, j, k)];
++                        U1_count = 0;
++                    }
++                }
+ 
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i - 1, j - 1, k)];
+-                            D1_count = 0;
+-                        }
+-                        if (U_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i - 1, j, k)];
+-                            U1_count = 0;
+-                        }
++                if (B_L(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i - 1, j - 1, k)];
++                        D1_count = 0;
+                     }
++                    if (U_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i - 1, j, k)];
++                        U1_count = 0;
++                    }
++                }
+ 
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0 && D1_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k - 1)];
+-                        }
+-                        if (U_count == 0 && U1_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i, j, k - 1)];
+-                        }
++                if (B_B(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0 && D1_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k - 1)];
+                     }
++                    if (U_count == 0 && U1_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i, j, k - 1)];
++                    }
++                }
+ 
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0 && D1_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k + 1)];
+-                        }
+-                        if (U_count == 0 && U1_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i, j, k + 1)];
+-                        }
++                if (B_F(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0 && D1_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k + 1)];
++                    }
++                    if (U_count == 0 && U1_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i, j, k + 1)];
+                     }
+                 }
+             }
+@@ -521,9 +525,12 @@ void setInternalTBordersMpi(
+ void setBorderValuesMpi(
+         Real T_h, Real T_c,
+         int imax, int jmax, int kmax,
+-        int il, int iu, int jl, int ju, int kl, int ku,
++        const MpiSubdomainBounds &bounds,
+         Real *U, Real *V, Real *W, Real *T,
+         FlagType *Flag) {
++    const int il = bounds.il, iu = bounds.iu;
++    const int jl = bounds.jl, ju = bounds.ju;
++    const int kl = bounds.kl, ku = bounds.ku;
+     setLeftRightBordersMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
+     setDownUpBordersMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
+     setFrontBackBordersMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
+diff --git a/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp b/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp
+index 95cf40d..3d5e24f 100644
+--- a/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp
++++ b/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp
+@@ -5,10 +5,14 @@
+ #include <string>
+ #include "Defines.hpp"
+ 
++struct MpiSubdomainBounds {
++    int il, iu, jl, ju, kl, ku;
++};
++
+ void setBorderValuesMpi(
+         Real T_h, Real T_c,
+         int imax, int jmax, int kmax,
+-        int il, int iu, int jl, int ju, int kl, int ku,
++        const MpiSubdomainBounds &bounds,
+         Real *U, Real *V, Real *W, Real *T,
+         FlagType *Flag);
+ 
+diff --git a/src/CfdSolver/Mpi/CfdSolverMpi.cpp b/src/CfdSolver/Mpi/CfdSolverMpi.cpp
+index 6a646a2..8de9cc8 100644
+--- a/src/CfdSolver/Mpi/CfdSolverMpi.cpp
++++ b/src/CfdSolver/Mpi/CfdSolverMpi.cpp
+@@ -18,12 +18,12 @@ CfdSolverMpi::CfdSolverMpi(
+     this->kl = kl;
+     this->ku = ku;
+     this->localRank = localRank;
+-    this->peerL = peerL;
+-    this->peerR = peerR;
+-    this->peerD = peerD;
+-    this->peerU = peerU;
+-    this->peerB = peerB;
+-    this->peerF = peerF;
++    this->neighbors.left = peerL;
++    this->neighbors.right = peerR;
++    this->neighbors.down = peerD;
++    this->neighbors.up = peerU;
++    this->neighbors.back = peerB;
++    this->neighbors.front = peerF;
+ }
+ 
+ void CfdSolverMpi::initialize(
+@@ -117,7 +117,7 @@ CfdSolverMpi::~CfdSolverMpi() {
+ }
+ 
+ void CfdSolverMpi::setBoundaryValues() {
+-    setBorderValuesMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
++    setBorderValuesMpi(T_h, T_c, imax, jmax, kmax, {il, iu, jl, ju, kl, ku}, U, V, W, T, Flag);
+ }
+ 
+ void CfdSolverMpi::setBoundaryValuesScenarioSpecific() {
+@@ -136,7 +136,8 @@ void CfdSolverMpi::calculateTemperature() {
+     T_prev = temp;
+     computeTemperatureMpi(
+             Re, Pr, alpha, dt, dx, dy, dz, imax, jmax, kmax, il, iu, jl, ju, kl, ku,
+-            peerL, peerR, peerD, peerU, peerB, peerF, haloOut, haloIn, U, V, W, T, T_prev, Flag);
++            neighbors.left, neighbors.right, neighbors.down, neighbors.up, neighbors.back, neighbors.front,
++            haloOut, haloIn, U, V, W, T, T_prev, Flag);
+ }
+ 
+ void CfdSolverMpi::calculateFgh() {
+@@ -145,7 +146,7 @@ void CfdSolverMpi::calculateFgh() {
+ }
+ 
+ void CfdSolverMpi::calculateRs() {
+-    computeRsMpi(dt, dx, dy, dz, imax, jmax, kmax, il, iu, jl, ju, kl, ku, F, G, H, RS);
++    computeRsMpi(dx, dy, dz, dt, imax, jmax, kmax, il, iu, jl, ju, kl, ku, F, G, H, RS);
+ }
+ 
+ 
+@@ -153,13 +154,15 @@ void CfdSolverMpi::executeSorSolver() {
+     relaxSolverMpi(
+             localRank, omg, eps, itermax, linearSystemSolverType, shallWriteOutput,
+             dx, dy, dz, imax, jmax, kmax, il, iu, jl, ju, kl, ku,
+-            peerL, peerR, peerD, peerU, peerB, peerF, haloOut, haloIn, P, P_prev, RS, Flag);
++            neighbors.left, neighbors.right, neighbors.down, neighbors.up, neighbors.back, neighbors.front,
++            haloOut, haloIn, P, P_prev, RS, Flag);
+ }
+ 
+ void CfdSolverMpi::calculateUvw() {
+     computeVelocityMpi(
+             dt, dx, dy, dz, imax, jmax, kmax, il, iu, jl, ju, kl, ku,
+-            peerL, peerR, peerD, peerU, peerB, peerF, haloOut, haloIn, U, V, W, F, G, H, P, Flag);
++            neighbors.left, neighbors.right, neighbors.down, neighbors.up, neighbors.back, neighbors.front,
++            haloOut, haloIn, U, V, W, F, G, H, P, Flag);
+ }
+ 
+ void CfdSolverMpi::getDataForOutput(Real *U, Real *V, Real *W, Real *P, Real *T) {
+diff --git a/src/CfdSolver/Mpi/CfdSolverMpi.hpp b/src/CfdSolver/Mpi/CfdSolverMpi.hpp
+index d32c911..0a209c8 100644
+--- a/src/CfdSolver/Mpi/CfdSolverMpi.hpp
++++ b/src/CfdSolver/Mpi/CfdSolverMpi.hpp
+@@ -4,6 +4,10 @@
+ 
+ #include "CfdSolver/solver_interface.hpp"
+ 
++struct NeighborRanks {
++    int left, right, down, up, back, front;
++};
++
+ class CfdSolverMpi : public CfdSolver {
+ public:
+     CfdSolverMpi(
+@@ -49,7 +53,8 @@ private:
+     int itermax;
+     int imax, jmax, kmax;
+     int il, iu, jl, ju, kl, ku;
+-    int localRank, peerL, peerR, peerD, peerU, peerB, peerF;
++    int localRank;
++    NeighborRanks neighbors;
+     Real dx, dy, dz;
+     Real *U, *V, *W, *P, *P_prev, *T, *T_prev, *F, *G, *H, *RS;
+     FlagType *Flag;
+diff --git a/src/CfdSolver/Mpi/MpiHelpers.cpp b/src/CfdSolver/Mpi/MpiHelpers.cpp
+index 0f62372..7083133 100644
+--- a/src/CfdSolver/Mpi/MpiHelpers.cpp
++++ b/src/CfdSolver/Mpi/MpiHelpers.cpp
+@@ -5,11 +5,14 @@
+ 
+ void mpiStartup(
+         int argc, char **argv,
+-        int partsAlongI, int jSplit, int kSplit, int imax, int jmax, int kmax,
++        const MpiDecomposition &decomposition, int imax, int jmax, int kmax,
+         int &localRank, int &il, int &iu, int &jl, int &ju, int &kl, int &ku,
+         int &peerL, int &peerR, int &peerD, int &peerU, int &peerB, int &peerF,
+         int &rankCoordI, int &rankCoordJ, int &rankCoordK, int &partCount)
+ {
++    const int partsAlongI = decomposition.partsAlongI;
++    const int jSplit = decomposition.jSplit, kSplit = decomposition.kSplit;
++
+     DCI_Init(&argc, &argv);
+     DCI_Comm_size(DCI_COMM_WORLD, &partCount);
+     DCI_Comm_rank(DCI_COMM_WORLD, &localRank);
+@@ -58,7 +61,7 @@ void mpiStartup(
+     rankCoordK = localRank / (partsAlongI*jSplit);
+ }
+ 
+-void mpiAssignRange(int numElements, int processCount, int localRank, int &lower, int &upper) {
++MpiIndexRange mpiAssignRange(int processCount, int localRank, int numElements) {
+     const int k = processCount;
+     const int n = numElements;
+     const int a = n / k;
+@@ -66,12 +69,10 @@ void mpiAssignRange(int numElements, int processCount, int localRank, int &lower
+     const int pivotCount = a == b ? 0 : (n - k*b)/(a - b);
+ 
+     if (localRank < pivotCount) {
+-        lower = localRank * a + 1;
+-        upper = (localRank + 1) * a;
+-    } else {
+-        lower = pivotCount * a + (localRank - pivotCount) * b + 1;
+-        upper = pivotCount * a + (localRank - pivotCount + 1) * b;
++        return {localRank * a + 1, (localRank + 1) * a};
+     }
++    return {pivotCount * a + (localRank - pivotCount) * b + 1,
++            pivotCount * a + (localRank - pivotCount + 1) * b};
+ }
+ 
+ void mpiSwapCellData(
+diff --git a/src/CfdSolver/Mpi/MpiHelpers.hpp b/src/CfdSolver/Mpi/MpiHelpers.hpp
+index 5e6b717..229a91f 100644
+--- a/src/CfdSolver/Mpi/MpiHelpers.hpp
++++ b/src/CfdSolver/Mpi/MpiHelpers.hpp
+@@ -5,14 +5,22 @@
+ #include "mpi.h"
+ #include "Defines.hpp"
+ 
++struct MpiDecomposition {
++    int partsAlongI, jSplit, kSplit;
++};
++
++struct MpiIndexRange {
++    int lower, upper;
++};
++
+ void mpiStartup(
+         int argc, char **argv,
+-        int partsAlongI, int jSplit, int kSplit, int imax, int jmax, int kmax,
++        const MpiDecomposition &decomposition, int imax, int jmax, int kmax,
+         int &localRank, int &il, int &iu, int &jl, int &ju, int &kl, int &ku,
+         int &peerL, int &peerR, int &peerD, int &peerU, int &peerB, int &peerF,
+         int &rankCoordI, int &rankCoordJ, int &rankCoordK, int &partCount);
+ 
+-void mpiAssignRange(int numElements, int processCount, int localRank, int &lower, int &upper);
++MpiIndexRange mpiAssignRange(int processCount, int localRank, int numElements);
+ 
+ void mpiSwapCellData(
+         Real *PT, int il, int iu, int jl, int ju, int kl, int ku,
+diff --git a/src/CfdSolver/Mpi/SorSolverMpi.cpp b/src/CfdSolver/Mpi/SorSolverMpi.cpp
+index 864969a..1db10cf 100644
+--- a/src/CfdSolver/Mpi/SorSolverMpi.cpp
++++ b/src/CfdSolver/Mpi/SorSolverMpi.cpp
+@@ -12,6 +12,7 @@ void relaxSolverIterationMpi(
+         int imax, int jmax, int kmax, int il, int iu, int jl, int ju, int kl, int ku,
+         int peerL, int peerR, int peerD, int peerU, int peerB, int peerF, Real *haloOut, Real *haloIn,
+         Real *P, Real *P_prev, Real *RS, FlagType *Flag, Real &residual) {
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+     if (kl == 1) {
+         for (int i = il; i <= iu; i++) {
+             for (int j = jl; j <= ju; j++) {
+@@ -57,6 +58,11 @@ void relaxSolverIterationMpi(
+         }
+     }
+ 
++    static bool (*const faceConnected[])(unsigned int) = {B_R, B_L, B_U, B_D, B_B, B_F};
++    static const int faceDi[] = { 1, -1,  0,  0,  0,  0};
++    static const int faceDj[] = { 0,  0,  1, -1,  0,  0};
++    static const int faceDk[] = { 0,  0,  0,  0, -1,  1};
++
+     for (int i = il; i <= iu; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+@@ -64,34 +70,11 @@ void relaxSolverIterationMpi(
+                 Real P_prev = Real(0);
+ 
+                 if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k + 1)];
+-                        numDirectFlag++;
++                    for (int n = 0; n < 6; n++) {
++                        if (faceConnected[n](Flag[LINFLAG(i, j, k)])) {
++                            P_prev += P[LINP(i + faceDi[n], j + faceDj[n], k + faceDk[n])];
++                            numDirectFlag++;
++                        }
+                     }
+ 
+                     if (numDirectFlag == 0) {
+@@ -122,9 +105,9 @@ void relaxSolverIterationMpi(
+                 for (int k = kl; k <= ku; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/(dx*dx)
+-                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/(dy*dy)
+-                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/(dz*dz)
++                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/dx2
++                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/dy2
++                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/dz2
+                                 - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -136,9 +119,9 @@ void relaxSolverIterationMpi(
+                 for (int k = kl; k <= ku; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])) {
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P_prev[LINP(i,j,k)] + coeff *
+-                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/(dx*dx)
+-                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/(dy*dy)
+-                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/(dz*dz)
++                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/dx2
++                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/dy2
++                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/dz2
+                                  - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -157,9 +140,9 @@ void relaxSolverIterationMpi(
+             for (int k = kl; k <= ku; k++) {
+                 if (isWet(Flag[LINFLAG(i,j,k)])){
+                     residual += SQR(
+-                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/(dx*dx)
+-                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/(dy*dy)
+-                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/(dz*dz)
++                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/dx2
++                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/dy2
++                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/dz2
+                              - RS[LINRS(i,j,k)]
+                     );
+                     fluidCellCount++;
+diff --git a/src/CfdSolver/Mpi/UvwMpi.cpp b/src/CfdSolver/Mpi/UvwMpi.cpp
+index 294c946..f148035 100644
+--- a/src/CfdSolver/Mpi/UvwMpi.cpp
++++ b/src/CfdSolver/Mpi/UvwMpi.cpp
+@@ -21,41 +21,40 @@ void computeFluxMpi(
+          uw_x,vw_y,ww_z;
+     
+     Real Dx = 1/dx, Dy = 1/dy, Dz = 1/dz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
++
++    auto donorCellFlux = [](Real D, Real conv_hi, Real val_hi, Real conv_lo, Real val_lo,
++            Real diff_hi, Real diff_lo, Real alpha) {
++        return Real(0.25)*D*(
++                conv_hi*val_hi - conv_lo*val_lo +
++                alpha*(
++                        std::abs(conv_hi)*diff_hi - std::abs(conv_lo)*diff_lo
++                )
++        );
++    };
+ 
+     for (int i = il-1; i <= iu; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i+1,j,k)])){
+-                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/(dx*dx);
+-                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/(dy*dy);
+-                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/(dz*dz);
+-
+-                    uu_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/dx2;
++                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/dy2;
++                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/dz2;
+ 
+-                    uv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uu_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i,j,k)], U[LINU(i-1,j,k)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i+1,j,k)], U[LINU(i-1,j,k)]-U[LINU(i,j,k)], alpha);
+ 
+-                    uw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uv_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)], U[LINU(i,j-1,k)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i,j+1,k)], U[LINU(i,j-1,k)]-U[LINU(i,j,k)], alpha);
++
++                    uw_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)], U[LINU(i,j,k-1)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i,j,k+1)], U[LINU(i,j,k-1)]-U[LINU(i,j,k)], alpha);
+ 
+                     F[LINF(i,j,k)] = U[LINU(i,j,k)] + dt * (
+                             (1/Re)*(u_xx+u_yy+u_zz)-
+@@ -75,36 +74,24 @@ void computeFluxMpi(
+         for (int j = jl-1; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j+1,k)])){
+-                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/(dx*dx);
+-                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/(dy*dy);
+-                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/(dz*dz);
+-
+-                    uv_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/dx2;
++                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/dy2;
++                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/dz2;
+ 
+-                    vv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    uv_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)], V[LINV(i-1,j,k)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i+1,j,k)], V[LINV(i-1,j,k)]-V[LINV(i,j,k)], alpha);
+ 
+-                    vw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    vv_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j,k)], V[LINV(i,j-1,k)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i,j+1,k)], V[LINV(i,j-1,k)]-V[LINV(i,j,k)], alpha);
++
++                    vw_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)], V[LINV(i,j,k-1)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i,j,k+1)], V[LINV(i,j-1,k)]-V[LINV(i,j,k)], alpha);
+ 
+                     G[LING(i,j,k)] = V[LINV(i,j,k)] + dt * (
+                             (1/Re)*(v_xx+v_yy+v_zz)-
+@@ -124,36 +111,24 @@ void computeFluxMpi(
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl-1; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j,k+1)])){
+-                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/(dx*dx);
+-                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/(dy*dy);
+-                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/(dz*dz);
+-
+-                    uw_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/dx2;
++                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/dy2;
++                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/dz2;
+ 
+-                    vw_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    uw_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)], W[LINW(i-1,j,k)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i+1,j,k)], W[LINW(i-1,j,k)]-W[LINW(i,j,k)], alpha);
+ 
+-                    ww_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    vw_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)], W[LINW(i,j-1,k)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i,j+1,k)], W[LINW(i,j-1,k)]-W[LINW(i,j,k)], alpha);
++
++                    ww_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j,k)], W[LINW(i,j,k-1)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i,j,k+1)], W[LINW(i,j,k-1)]-W[LINW(i,j,k)], alpha);
+ 
+                     H[LINH(i,j,k)] = W[LINW(i,j,k)] +  dt * (
+                             (1/Re)*(w_xx+w_yy+w_zz)-
+@@ -217,7 +192,7 @@ void computeFluxMpi(
+ }
+ 
+ void computeRsMpi(
+-        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
++        Real dx, Real dy, Real dz, Real dt, int imax, int jmax, int kmax,
+         int il, int iu, int jl, int ju, int kl, int ku,
+         const Real *F, const Real *G, const Real *H, Real *RS) {
+     for (int i = il; i <= iu; i++) {
+@@ -335,46 +310,40 @@ void computeTemperatureMpi(
+         int peerL, int peerR, int peerD, int peerU, int peerB, int peerF, Real *haloOut, Real *haloIn,
+         Real *U, Real *V, Real *W, Real *T, const Real *T_prev, FlagType *Flag) {
+     Real uT_x, vT_y, wT_z, T_xx, T_yy, T_zz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
++
++    auto advectTemperature = [](Real d, Real vel_c, Real vel_m, Real T_m, Real T_c, Real T_p, Real alpha) {
++        return 1 / d * (
++                vel_c * ((T_c + T_p) / 2) -
++                vel_m * ((T_m + T_c) / 2) +
++                alpha * (
++                        std::abs(vel_c)*((T_c - T_p) / 2) -
++                        std::abs(vel_m)*((T_m - T_c) / 2)
++                )
++        );
++    };
+ 
+     for (int i = il; i <= iu; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)])){
+-                    uT_x = 1 / dx * (
+-                            U[LINU(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i + 1, j, k)]) / 2) -
+-                            U[LINU(i - 1, j, k)] * ((T_prev[LINT(i - 1, j, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(U[LINU(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i + 1, j, k)]) / 2) -
+-                                    std::abs(U[LINU(i - 1, j, k)])*((T_prev[LINT(i - 1, j, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    uT_x = advectTemperature(dx, U[LINU(i, j, k)], U[LINU(i - 1, j, k)],
++                            T_prev[LINT(i - 1, j, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i + 1, j, k)], alpha);
+ 
+-                    vT_y = 1 / dy * (
+-                            V[LINV(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j + 1, k)]) / 2) -
+-                            V[LINV(i, j - 1, k)] * ((T_prev[LINT(i, j - 1, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(V[LINV(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j + 1, k)]) / 2) -
+-                                    std::abs(V[LINV(i, j - 1, k)])*((T_prev[LINT(i, j - 1, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    vT_y = advectTemperature(dy, V[LINV(i, j, k)], V[LINV(i, j - 1, k)],
++                            T_prev[LINT(i, j - 1, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j + 1, k)], alpha);
+ 
+-                    wT_z = 1 / dz * (
+-                            W[LINW(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k + 1)]) / 2) -
+-                            W[LINW(i, j, k - 1)] * ((T_prev[LINT(i, j, k - 1)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(W[LINW(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j, k + 1)]) / 2) -
+-                                    std::abs(W[LINW(i, j, k - 1)])*((T_prev[LINT(i, j, k - 1)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    wT_z = advectTemperature(dz, W[LINW(i, j, k)], W[LINW(i, j, k - 1)],
++                            T_prev[LINT(i, j, k - 1)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j, k + 1)], alpha);
+ 
+                     T_xx =
+-                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / (dx*dx);
++                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / dx2;
+ 
+                     T_yy =
+-                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / (dy*dy);
++                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / dy2;
+ 
+                     T_zz =
+-                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / (dz*dz);
++                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / dz2;
+ 
+                     T[LINT(i, j, k)] = T_prev[LINT(i, j, k)] + dt * (
+                             (1 / (Re*Pr))*(T_xx + T_yy + T_zz) -
+diff --git a/src/CfdSolver/Mpi/UvwMpi.hpp b/src/CfdSolver/Mpi/UvwMpi.hpp
+index d8565f4..24547d0 100644
+--- a/src/CfdSolver/Mpi/UvwMpi.hpp
++++ b/src/CfdSolver/Mpi/UvwMpi.hpp
+@@ -11,7 +11,7 @@ void computeFluxMpi(
+         Real *U, Real *V, Real *W, const Real *T, Real *F, Real *G, Real *H, FlagType *Flag);
+ 
+ void computeRsMpi(
+-        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
++        Real dx, Real dy, Real dz, Real dt, int imax, int jmax, int kmax,
+         int il, int iu, int jl, int ju, int kl, int ku,
+         const Real *F, const Real *G, const Real *H, Real *RS);
+ 
+diff --git a/src/CfdSolver/Opencl/ClInterface.cpp b/src/CfdSolver/Opencl/ClInterface.cpp
+index d8acff0..98762cf 100644
+--- a/src/CfdSolver/Opencl/ClInterface.cpp
++++ b/src/CfdSolver/Opencl/ClInterface.cpp
+@@ -106,6 +106,10 @@ cl::Program ClInterface::importProgramFromBinaryFile(const char *filename)
+ {
+     cl::Program::Binaries binaries;
+     std::ifstream ifile(filename, std::ifstream::binary);
++    if (!ifile.is_open()) {
++        std::cerr << "ERROR in importProgramFromBinaryFile: Couldn't open file \"" << filename << "\"." << std::endl;
++        exit(1);
++    }
+     ifile.seekg(0, std::ios::end);
+     std::streampos size = ifile.tellg();
+     ifile.seekg(0, std::ios::beg);
+diff --git a/src/CfdSolver/Opencl/OpenclFlags.hpp b/src/CfdSolver/Opencl/OpenclFlags.hpp
+index bbf1806..610be34 100644
+--- a/src/CfdSolver/Opencl/OpenclFlags.hpp
++++ b/src/CfdSolver/Opencl/OpenclFlags.hpp
+@@ -38,6 +38,5 @@ inline bool B_B(unsigned int flag) { return (flag >> 9) & 1; }
+ inline bool B_F(unsigned int flag) { return (flag >> 10) & 1; }
+ inline bool isHeated(unsigned int flag) { return (flag >> 11) & 1; }
+ inline bool isChilled(unsigned int flag) { return (flag >> 12) & 1; }
+-inline bool isLinked(unsigned int flag) { return (flag >> 13) & 1; }
+ 
+ #endif
+diff --git a/src/CfdSolver/cell_flags.cpp b/src/CfdSolver/cell_flags.cpp
+index 04cb5d0..3c5c5a0 100644
+--- a/src/CfdSolver/cell_flags.cpp
++++ b/src/CfdSolver/cell_flags.cpp
+@@ -3,23 +3,25 @@
+ #include "IO/geometry_io.hpp"
+ #include "CfdSolver/cell_flags.hpp"
+ 
+-void resizeNearest(
++std::vector<uint32_t> resizeNearest(
+         const std::vector<uint32_t> valuesSrc,
+         int widthSrc,
+         int heightSrc,
+         int depthSrc,
+-        std::vector<uint32_t> &valuesDst,
+         int widthDst,
+         int heightDst,
+         int depthDst
+ ) {
+     assert(widthSrc >= 3 && heightSrc >= 3 && depthSrc >= 3 && widthDst >= 3 && heightDst >= 3 && depthDst >= 3);
+     size_t size = static_cast<size_t>(widthDst * heightDst * depthDst);
++    std::vector<uint32_t> valuesDst;
+     valuesDst.resize(size);
+ 
+     if (widthSrc == widthDst && heightSrc == heightDst && depthSrc == depthDst) {
+-        memcpy(&valuesDst.front(), &valuesSrc.front(), sizeof(uint32_t) * size);
+-        return;
++        if (size != 0) {
++            memcpy(&valuesDst.front(), &valuesSrc.front(), sizeof(uint32_t) * size);
++        }
++        return valuesDst;
+     }
+ 
+     for (int x = 0; x <= 1; x++) {
+@@ -75,6 +77,8 @@ void resizeNearest(
+             }
+         }
+     }
++
++    return valuesDst;
+ }
+ 
+ void initFlagNoBarriers(const std::string &scenarioName, int imax, int jmax, int kmax, FlagType *&Flag) {
+@@ -126,7 +130,7 @@ void initFlagFromShapeFile(const std::string &scenarioName, const std::string &s
+     std::vector<uint32_t> shapeValuesRead = loadGeometryData(shapeFilename, width, height, depth);
+     std::vector<uint32_t> shapeValues;
+     if (imax+2 != width || jmax+2 != height || kmax+2 != depth) {
+-        resizeNearest(shapeValuesRead, width, height, depth, shapeValues, imax+2, jmax+2, kmax+2);
++        shapeValues = resizeNearest(shapeValuesRead, width, height, depth, imax+2, jmax+2, kmax+2);
+     } else {
+         shapeValues = shapeValuesRead;
+     }
+diff --git a/src/CfdSolver/cell_flags.hpp b/src/CfdSolver/cell_flags.hpp
+index aec28f1..39b9856 100644
+--- a/src/CfdSolver/cell_flags.hpp
++++ b/src/CfdSolver/cell_flags.hpp
+@@ -18,7 +18,6 @@ inline bool B_D(unsigned int flag) { return (flag >> 7) & 1 ; }
+ inline bool B_R(unsigned int flag) { return (flag >> 6) & 1 ; }
+ 
+ inline bool B_L(unsigned int flag) { return (flag >> 5) & 1 ; }
+-inline bool isLinked(unsigned int flag) { return (flag >> 13) & 1; }
+ inline bool isChilled(unsigned int flag) { return (flag >> 12) & 1; }
+ 
+ inline bool isHeated(unsigned int flag) { return (flag >> 11) & 1; }
+diff --git a/src/CfdSolver/cuda/boundary_kernels.cu b/src/CfdSolver/cuda/boundary_kernels.cu
+index e378f68..62a6a32 100644
+--- a/src/CfdSolver/cuda/boundary_kernels.cu
++++ b/src/CfdSolver/cuda/boundary_kernels.cu
+@@ -3,12 +3,17 @@
+ #include "../../Defines.hpp"
+ #include "CfdSolver/cuda/cuda_runtime_check.hpp"
+ 
++static __device__ inline void computeInteriorCellIndex(int &i, int &j, int &k) {
++    i = blockIdx.z * blockDim.z + threadIdx.z + 1;
++    j = blockIdx.y * blockDim.y + threadIdx.y + 1;
++    k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++}
++
+ __global__ void assignInternalUBordersCuda(
+         int imax, int jmax, int kmax,
+         Real *U, FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+ 
+     if (i <= imax - 1 && j <= jmax && k <= kmax){
+         int R_count = 0;
+@@ -74,9 +79,8 @@ __global__ void assignInternalVBordersCuda(
+     int imax, int jmax, int kmax,
+     Real *V,
+     FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+ 
+     if (i <= imax && j <= jmax - 1 && k <= kmax){
+         int U_count = 0;
+@@ -142,66 +146,69 @@ __global__ void assignInternalWBordersCuda(
+     int imax, int jmax, int kmax,
+     Real *W,
+     FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+ 
+-    if (i <= imax && j <= jmax && k <= kmax - 1){        
+-        int F_count = 0;
+-        int B_count = 0;
+-        int F1_count = 0;
+-        int B1_count = 0;
++    if (i > imax || j > jmax || k > kmax - 1) {
++        return;
++    }
+ 
+-        if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-            if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                W[LINW(i, j, k - 1)] = Real(0);
+-                B_count = 1;
+-            }
++    int F_count = 0;
++    int B_count = 0;
++    int F1_count = 0;
++    int B1_count = 0;
+ 
+-            if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                W[LINW(i, j, k)] = Real(0);
+-                F_count = 1;
+-            }
++    if (isWet(Flag[LINFLAG(i, j, k)])) {
++        return;
++    }
+ 
+-            if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i + 1, j, k - 1)];
+-                    B1_count = 1;
+-                }
+-                if (F_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i + 1, j, k)];
+-                    F1_count = 1;
+-                }
+-            }
++    if (B_B(Flag[LINFLAG(i, j, k)])) {
++        W[LINW(i, j, k - 1)] = Real(0);
++        B_count = 1;
++    }
+ 
+-            if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i - 1, j, k - 1)];
+-                    B1_count = 1;
+-                }
+-                if (F_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i - 1, j, k)];
+-                    F1_count = 1;
+-                }
+-            }
++    if (B_F(Flag[LINFLAG(i, j, k)])) {
++        W[LINW(i, j, k)] = Real(0);
++        F_count = 1;
++    }
+ 
+-            if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0 && B1_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i, j + 1, k - 1)];
+-                }
+-                if (F_count == 0 && F1_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i, j + 1, k)];
+-                }
+-            }
++    if (B_R(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i + 1, j, k - 1)];
++            B1_count = 1;
++        }
++        if (F_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i + 1, j, k)];
++            F1_count = 1;
++        }
++    }
+ 
+-            if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0 && B1_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i, j - 1, k - 1)];
+-                }
+-                if (F_count == 0 && F1_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i, j - 1, k)];
+-                }
+-            }
++    if (B_L(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i - 1, j, k - 1)];
++            B1_count = 1;
++        }
++        if (F_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i - 1, j, k)];
++            F1_count = 1;
++        }
++    }
++
++    if (B_U(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0 && B1_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i, j + 1, k - 1)];
++        }
++        if (F_count == 0 && F1_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i, j + 1, k)];
++        }
++    }
++
++    if (B_D(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0 && B1_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i, j - 1, k - 1)];
++        }
++        if (F_count == 0 && F1_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i, j - 1, k)];
+         }
+     }
+ }
+@@ -210,52 +217,55 @@ __global__ void assignInternalTBordersCuda(
+     int imax, int jmax, int kmax,
+     Real *T,
+     FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+     
+-    if (i <= imax && j <= jmax && k <= kmax){
+-        int numDirectFlag = 0;
+-        Real T_prev = Real(0);
++    if (i > imax || j > jmax || k > kmax) {
++        return;
++    }
+ 
+-        if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-            if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i + 1, j, k)];
+-                numDirectFlag++;
+-            }
++    int numDirectFlag = 0;
++    Real T_prev = Real(0);
+ 
+-            if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i - 1, j, k)];
+-                numDirectFlag++;
+-            }
++    if (isWet(Flag[LINFLAG(i, j, k)])) {
++        return;
++    }
+ 
+-            if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j + 1, k)];
+-                numDirectFlag++;
+-            }
++    if (B_R(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i + 1, j, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j - 1, k)];
+-                numDirectFlag++;
+-            }
++    if (B_L(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i - 1, j, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j, k - 1)];
+-                numDirectFlag++;
+-            }
++    if (B_U(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j + 1, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j, k + 1)];
+-                numDirectFlag++;
+-            }
++    if (B_D(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j - 1, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (numDirectFlag == 0) {
+-                T[LINT(i,j,k)] = 0;
+-            } else {
+-                T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
+-            }
+-        }
+-    }    
++    if (B_B(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j, k - 1)];
++        numDirectFlag++;
++    }
++
++    if (B_F(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j, k + 1)];
++        numDirectFlag++;
++    }
++
++    if (numDirectFlag == 0) {
++        T[LINT(i,j,k)] = 0;
++    } else {
++        T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
++    }
+ }
+ 
+ __global__ void assignLeftRightBordersCuda(
+diff --git a/src/CfdSolver/cuda/cuda_runtime_check.hpp b/src/CfdSolver/cuda/cuda_runtime_check.hpp
+index d741373..afb4800 100644
+--- a/src/CfdSolver/cuda/cuda_runtime_check.hpp
++++ b/src/CfdSolver/cuda/cuda_runtime_check.hpp
+@@ -15,7 +15,6 @@ __device__ inline bool B_B(unsigned int flag) { return (flag >> 9) & 1; }
+ __device__ inline bool B_F(unsigned int flag) { return (flag >> 10) & 1; }
+ __device__ inline bool isHeated(unsigned int flag) { return (flag >> 11) & 1; }
+ __device__ inline bool isChilled(unsigned int flag) { return (flag >> 12) & 1; }
+-__device__ inline bool isLinked(unsigned int flag) { return (flag >> 13) & 1; }
+ 
+ #ifndef EXPAND_STRING
+ #define MAKE_STRING(x) #x
+diff --git a/src/CfdSolver/serial/boundary_conditions.cpp b/src/CfdSolver/serial/boundary_conditions.cpp
+index dfc63da..3e41a06 100644
+--- a/src/CfdSolver/serial/boundary_conditions.cpp
++++ b/src/CfdSolver/serial/boundary_conditions.cpp
+@@ -2,69 +2,92 @@
+ #include "CfdSolver/serial/boundary_conditions.hpp"
+ #include "CfdSolver/cell_flags.hpp"
+ 
++namespace {
++
++Real temperatureBorderValue(FlagType flag, Real T_h, Real T_c, Real T_interior) {
++    if (isHeated(flag)) {
++        return 2 * T_h - T_interior;
++    } else if (isChilled(flag)) {
++        return 2 * T_c - T_interior;
++    } else {
++        return T_interior;
++    }
++}
++
++}
++
++struct FieldView {
++    Real *values;
++    int imax, jmax, kmax;
++};
++
++using ComponentField = FieldView;
+ 
+ void assignInternalUBordersCpp(
+-        int imax, int jmax, int kmax,
+-        Real *U,
++        const ComponentField &field,
+         FlagType *Flag) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *U = field.values;
+     #pragma omp parallel for
+     for (int i = 1; i <= imax-1; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int R_count = 0;
+                 int L_count = 0;
+                 int R1_count = 0;
+                 int L1_count = 0;
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i, j, k)] = Real(0);
+-                        R_count = 1;
+-                    }
++                if (B_R(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i, j, k)] = Real(0);
++                    R_count = 1;
++                }
+ 
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i - 1, j, k)] = Real(0);
+-                        L_count = 1;
+-                    }
++                if (B_L(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i - 1, j, k)] = Real(0);
++                    L_count = 1;
++                }
+ 
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_U(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
++                        L1_count = 1;
+                     }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
++                        R1_count = 1;
++                    }
++                }
+ 
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_D(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
++                        L1_count = 1;
+                     }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
++                        R1_count = 1;
++                    }
++                }
+ 
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
+-                        }
++                if (B_B(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
+                     }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
++                    }
++                }
+ 
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+-                        }
++                if (B_F(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
++                    }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+                     }
+                 }
+             }
+@@ -73,9 +96,10 @@ void assignInternalUBordersCpp(
+ }
+ 
+ void assignInternalVBordersCpp(
+-        int imax, int jmax, int kmax,
+-        Real *V,
++        const ComponentField &field,
+         FlagType *Flag) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *V = field.values;
+     #pragma omp parallel for
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax-1; j++) {
+@@ -142,9 +166,10 @@ void assignInternalVBordersCpp(
+ }
+ 
+ void assignInternalWBordersCpp(
+-        int imax, int jmax, int kmax,
+-        Real *W,
++        const ComponentField &field,
+         FlagType *Flag) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *W = field.values;
+     #pragma omp parallel for
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+@@ -211,52 +236,45 @@ void assignInternalWBordersCpp(
+ }
+ 
+ void assignInternalTBordersCpp(
+-        int imax, int jmax, int kmax,
+-        Real *T,
++        const ComponentField &field,
+         FlagType *Flag) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *T = field.values;
++    struct NeighborTap {
++        bool (*isConnected)(unsigned int);
++        int di, dj, dk;
++    };
++    static const NeighborTap temperatureNeighbors[] = {
++        {B_R,  1,  0,  0},
++        {B_L, -1,  0,  0},
++        {B_U,  0,  1,  0},
++        {B_D,  0, -1,  0},
++        {B_B,  0,  0, -1},
++        {B_F,  0,  0,  1},
++    };
++
+     #pragma omp parallel for
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int numDirectFlag = 0;
+                 Real T_prev = Real(0);
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j, k + 1)];
++                for (const NeighborTap &tap : temperatureNeighbors) {
++                    if (tap.isConnected(Flag[LINFLAG(i, j, k)])) {
++                        T_prev = T[LINT(i + tap.di, j + tap.dj, k + tap.dk)];
+                         numDirectFlag++;
+                     }
++                }
+ 
+-                    if (numDirectFlag == 0) {
+-                        T[LINT(i,j,k)] = 0;
+-                    } else {
+-                        T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
+-                    }
++                if (numDirectFlag == 0) {
++                    T[LINT(i,j,k)] = 0;
++                } else {
++                    T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
+                 }
+             }     
+         }
+@@ -299,21 +317,9 @@ void assignLeftRightBordersCpp(
+                 W[LINW(imax+1,j,k)] = W[LINW(imax,j,k)];
+             }
+ 
+-            if (isHeated(Flag[LINFLAG(0,j,k)])) {
+-                T[LINT(0,j,k)] = 2 * T_h - T[LINT(1,j,k)];
+-            } else if (isChilled(Flag[LINFLAG(0,j,k)])) {
+-                T[LINT(0,j,k)] = 2 * T_c - T[LINT(1,j,k)];
+-            } else {
+-                T[LINT(0,j,k)] = T[LINT(1,j,k)];
+-            }
++            T[LINT(0,j,k)] = temperatureBorderValue(Flag[LINFLAG(0,j,k)], T_h, T_c, T[LINT(1,j,k)]);
+ 
+-            if (isHeated(Flag[LINFLAG(imax+1,j,k)])) {
+-                T[LINT(imax+1,j,k)] = 2 * T_h - T[LINT(imax,j,k)];
+-            }  else if (isChilled(Flag[LINFLAG(imax+1,j,k)])) {
+-                T[LINT(imax+1,j,k)] = 2 * T_c - T[LINT(imax,j,k)];
+-            } else {
+-                T[LINT(imax+1,j,k)] = T[LINT(imax,j,k)];
+-            }
++            T[LINT(imax+1,j,k)] = temperatureBorderValue(Flag[LINFLAG(imax+1,j,k)], T_h, T_c, T[LINT(imax,j,k)]);
+         }
+     }
+ }
+@@ -354,21 +360,9 @@ void assignDownUpBordersCpp(
+                 W[LINW(i,jmax+1,k)] = W[LINW(i,jmax,k)];
+             }
+ 
+-            if (isHeated(Flag[LINFLAG(i,0,k)])) {
+-                T[LINT(i,0,k)] = 2 * T_h - T[LINT(i,1,k)];
+-            } else if (isChilled(Flag[LINFLAG(i,0,k)])) {
+-                T[LINT(i,0,k)] = 2 * T_c - T[LINT(i,1,k)];
+-            } else {
+-                T[LINT(i,0,k)] = T[LINT(i,1,k)];
+-            }
++            T[LINT(i,0,k)] = temperatureBorderValue(Flag[LINFLAG(i,0,k)], T_h, T_c, T[LINT(i,1,k)]);
+ 
+-            if (isHeated(Flag[LINFLAG(i,jmax+1,k)])) {
+-                T[LINT(i,jmax+1,k)] = 2 * T_h - T[LINT(i,jmax,k)];
+-            } else if (isChilled(Flag[LINFLAG(i,jmax+1,k)])) {
+-                T[LINT(i,jmax+1,k)] = 2 * T_c - T[LINT(i,jmax,k)];
+-            } else {
+-                T[LINT(i,jmax+1,k)] = T[LINT(i,jmax,k)];
+-            }
++            T[LINT(i,jmax+1,k)] = temperatureBorderValue(Flag[LINFLAG(i,jmax+1,k)], T_h, T_c, T[LINT(i,jmax,k)]);
+         }
+     }
+ }
+@@ -413,25 +407,9 @@ void assignFrontBackBordersCpp(
+                 W[LINW(i,j,kmax)] = W[LINW(i,j,kmax-1)];
+             }
+ 
+-            if (isHeated(Flag[LINFLAG(i,j,0)])) {
+-                T[LINT(i,j,0)] = 2 * T_h - T[LINT(i,j,1)];
+-            }
+-            else if (isChilled(Flag[LINFLAG(i,j,0)])) {
+-                T[LINT(i,j,0)] = 2 * T_c - T[LINT(i,j,1)];
+-            }
+-            else {
+-                T[LINT(i,j,0)] = T[LINT(i,j,1)];
+-            }
++            T[LINT(i,j,0)] = temperatureBorderValue(Flag[LINFLAG(i,j,0)], T_h, T_c, T[LINT(i,j,1)]);
+ 
+-            if (isHeated(Flag[LINFLAG(i,j,kmax+1)])) {
+-                T[LINT(i,j,kmax+1)] = 2 * T_h - T[LINT(i,j,kmax)];
+-            }
+-            else if (isChilled(Flag[LINFLAG(i,j,kmax+1)])) {
+-                T[LINT(i,j,kmax+1)] = 2 * T_c - T[LINT(i,j,kmax)];
+-            }
+-            else {
+-                T[LINT(i,j,kmax+1)] = T[LINT(i,j,kmax)];
+-            }
++            T[LINT(i,j,kmax+1)] = temperatureBorderValue(Flag[LINFLAG(i,j,kmax+1)], T_h, T_c, T[LINT(i,j,kmax)]);
+         }
+     }
+ }
+@@ -444,8 +422,8 @@ void assignBorderValuesCpp(
+     assignLeftRightBordersCpp(T_h, T_c, imax, jmax, kmax, U, V, W, T, Flag);
+     assignDownUpBordersCpp(T_h, T_c, imax, jmax, kmax, U, V, W, T, Flag);
+     assignFrontBackBordersCpp(T_h, T_c, imax, jmax, kmax, U, V, W, T, Flag);
+-    assignInternalUBordersCpp(imax, jmax, kmax, U,Flag);
+-    assignInternalVBordersCpp(imax, jmax, kmax, V,Flag);
+-    assignInternalWBordersCpp(imax, jmax, kmax, W,Flag);
+-    assignInternalTBordersCpp(imax, jmax, kmax, T,Flag);
++    assignInternalUBordersCpp({U, imax, jmax, kmax}, Flag);
++    assignInternalVBordersCpp({V, imax, jmax, kmax}, Flag);
++    assignInternalWBordersCpp({W, imax, jmax, kmax}, Flag);
++    assignInternalTBordersCpp({T, imax, jmax, kmax}, Flag);
+ }
+diff --git a/src/CfdSolver/serial/boundary_conditions.hpp b/src/CfdSolver/serial/boundary_conditions.hpp
+index 1c19060..885486a 100644
+--- a/src/CfdSolver/serial/boundary_conditions.hpp
++++ b/src/CfdSolver/serial/boundary_conditions.hpp
+@@ -5,6 +5,10 @@
+ #include <string>
+ #include "Defines.hpp"
+ 
++struct GridDimensions {
++    int imax, jmax, kmax;
++};
++
+ void assignBorderValuesCpp(
+         Real T_h, Real T_c,
+         int imax, int jmax, int kmax,
+@@ -13,7 +17,7 @@ void assignBorderValuesCpp(
+ 
+ void assignScenarioBorderValuesCpp(
+         const std::string &scenarioName,
+-        int imax, int jmax, int kmax,
++        const GridDimensions &grid,
+         Real *U, Real *V, Real *W,
+         FlagType *Flag);
+ 
+diff --git a/src/CfdSolver/serial/momentum_eqs.cpp b/src/CfdSolver/serial/momentum_eqs.cpp
+index 429bd9b..1aab712 100644
+--- a/src/CfdSolver/serial/momentum_eqs.cpp
++++ b/src/CfdSolver/serial/momentum_eqs.cpp
+@@ -5,6 +5,33 @@
+ #include "CfdSolver/serial/momentum_eqs.hpp"
+ #include "CfdSolver/cell_flags.hpp"
+ 
++namespace {
++
++struct Advection {
++    static Real donorCellFlux(Real D, Real conv_hi, Real val_hi, Real diff_hi,
++            Real conv_lo, Real val_lo, Real diff_lo, Real alpha) {
++        return Real(0.25)*D*(
++                conv_hi*val_hi - conv_lo*val_lo +
++                alpha*(
++                        std::abs(conv_hi)*diff_hi - std::abs(conv_lo)*diff_lo
++                )
++        );
++    }
++
++    static Real advectTemperature(Real d, Real alpha, Real vel_c, Real vel_m, Real T_m, Real T_c, Real T_p) {
++        return 1 / d * (
++                vel_c * ((T_c + T_p) / 2) -
++                vel_m * ((T_m + T_c) / 2) +
++                alpha * (
++                        std::abs(vel_c)*((T_c - T_p) / 2) -
++                        std::abs(vel_m)*((T_m - T_c) / 2)
++                )
++        );
++    }
++};
++
++}
++
+ void computeRsCpp(
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *F, Real *G, Real *H, Real *RS) {
+@@ -21,9 +48,13 @@ void computeRsCpp(
+ }
+ 
+ void computeFghCpp(
+-        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,
++        const MomentumConstants &constants,
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag) {
++    const Real Re = constants.Re;
++    const Real GX = constants.GX, GY = constants.GY, GZ = constants.GZ;
++    const Real alpha = constants.alpha, beta = constants.beta;
++
+     Real u_xx,u_yy,u_zz,
+          v_xx,v_yy,v_zz,
+          w_xx,w_yy,w_zz;
+@@ -33,43 +64,29 @@ void computeFghCpp(
+          uw_x,vw_y,ww_z;
+     
+     Real Dx = 1/dx, Dy = 1/dy, Dz = 1/dz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+ 
+     #pragma omp parallel for private(u_xx, u_yy, u_zz, uu_x, uv_y, uw_z) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, Dx, Dy, Dz, dt, Re, alpha, beta, GX, U, V, W, T, F, Flag)
++    shared(imax, jmax, kmax, dx2, dy2, dz2, Dx, Dy, Dz, dt, Re, alpha, beta, GX, U, V, W, T, F, Flag)
+     for (int i = 1; i <= imax-1; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i+1,j,k)])){
+-                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/(dx*dx);
+-                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/(dy*dy);
+-                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/(dz*dz);
+-
+-                    uu_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/dx2;
++                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/dy2;
++                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/dz2;
+ 
+-                    uv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uu_x = Advection::donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i+1,j,k)], U[LINU(i,j,k)]-U[LINU(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i,j,k)], U[LINU(i-1,j,k)]+U[LINU(i,j,k)], U[LINU(i-1,j,k)]-U[LINU(i,j,k)], alpha);
+ 
+-                    uw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uv_y = Advection::donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j+1,k)], U[LINU(i,j,k)]-U[LINU(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)], U[LINU(i,j-1,k)]+U[LINU(i,j,k)], U[LINU(i,j-1,k)]-U[LINU(i,j,k)], alpha);
++
++                    uw_z = Advection::donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j,k+1)], U[LINU(i,j,k)]-U[LINU(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)], U[LINU(i,j,k-1)]+U[LINU(i,j,k)], U[LINU(i,j,k-1)]-U[LINU(i,j,k)], alpha);
+ 
+                     F[LINF(i,j,k)] = U[LINU(i,j,k)] + dt * (
+                             (1/Re)*(u_xx+u_yy+u_zz)-
+@@ -86,41 +103,26 @@ void computeFghCpp(
+     }
+ 
+     #pragma omp parallel for private(v_xx, v_yy, v_zz, uv_x, vv_y, vw_z) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, Dx, Dy, Dz, dt, Re, alpha, beta, GY, U, V, W, T, G, Flag)
++    shared(imax, jmax, kmax, dx2, dy2, dz2, Dx, Dy, Dz, dt, Re, alpha, beta, GY, U, V, W, T, G, Flag)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax-1; j++) {
+             for (int k = 1; k <= kmax; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j+1,k)])){
+-                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/(dx*dx);
+-                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/(dy*dy);
+-                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/(dz*dz);
+-
+-                    uv_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/dx2;
++                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/dy2;
++                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/dz2;
+ 
+-                    vv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    uv_x = Advection::donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i+1,j,k)], V[LINV(i,j,k)]-V[LINV(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)], V[LINV(i-1,j,k)]+V[LINV(i,j,k)], V[LINV(i-1,j,k)]-V[LINV(i,j,k)], alpha);
+ 
+-                    vw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    vv_y = Advection::donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j+1,k)], V[LINV(i,j,k)]-V[LINV(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j,k)], V[LINV(i,j-1,k)]+V[LINV(i,j,k)], V[LINV(i,j-1,k)]-V[LINV(i,j,k)], alpha);
++
++                    vw_z = Advection::donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j,k+1)], V[LINV(i,j,k)]-V[LINV(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)], V[LINV(i,j,k-1)]+V[LINV(i,j,k)], V[LINV(i,j,k-1)]-V[LINV(i,j,k)], alpha);
+ 
+                     G[LING(i,j,k)] = V[LINV(i,j,k)] + dt * (
+                             (1/Re)*(v_xx+v_yy+v_zz)-
+@@ -137,41 +139,26 @@ void computeFghCpp(
+     }
+ 
+     #pragma omp parallel for private(w_xx, w_yy, w_zz, uw_x, vw_y, ww_z) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, Dx, Dy, Dz, dt, Re, alpha, beta, GZ, U, V, W, T, H, Flag)
++    shared(imax, jmax, kmax, dx2, dy2, dz2, Dx, Dy, Dz, dt, Re, alpha, beta, GZ, U, V, W, T, H, Flag)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax-1; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j,k+1)])){
+-                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/(dx*dx);
+-                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/(dy*dy);
+-                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/(dz*dz);
+-
+-                    uw_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/dx2;
++                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/dy2;
++                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/dz2;
+ 
+-                    vw_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    uw_x = Advection::donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i+1,j,k)], W[LINW(i,j,k)]-W[LINW(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)], W[LINW(i-1,j,k)]+W[LINW(i,j,k)], W[LINW(i-1,j,k)]-W[LINW(i,j,k)], alpha);
+ 
+-                    ww_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    vw_y = Advection::donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j+1,k)], W[LINW(i,j,k)]-W[LINW(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)], W[LINW(i,j-1,k)]+W[LINW(i,j,k)], W[LINW(i,j-1,k)]-W[LINW(i,j,k)], alpha);
++
++                    ww_z = Advection::donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j,k+1)], W[LINW(i,j,k)]-W[LINW(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j,k)], W[LINW(i,j,k-1)]+W[LINW(i,j,k)], W[LINW(i,j,k-1)]-W[LINW(i,j,k)], alpha);
+ 
+                     H[LINH(i,j,k)] = W[LINW(i,j,k)] +  dt * (
+                             (1/Re)*(w_xx+w_yy+w_zz)-
+@@ -256,48 +243,31 @@ void computeTemperatureCpp(
+         int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W, Real *T, Real *T_prev, FlagType *Flag) {
+     Real uT_x, vT_y, wT_z, T_xx, T_yy, T_zz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+ 
+     #pragma omp parallel for private(uT_x, vT_y, wT_z, T_xx, T_yy, T_zz) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, dt, Re, Pr, alpha, U, V, W, T, T_prev, Flag)
++    shared(imax, jmax, kmax, dx, dy, dz, dx2, dy2, dz2, dt, Re, Pr, alpha, U, V, W, T, T_prev, Flag)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)])){
+-                    uT_x = 1 / dx * (
+-                            U[LINU(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i + 1, j, k)]) / 2) -
+-                            U[LINU(i - 1, j, k)] * ((T_prev[LINT(i - 1, j, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(U[LINU(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i + 1, j, k)]) / 2) -
+-                                    std::abs(U[LINU(i - 1, j, k)])*((T_prev[LINT(i - 1, j, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    uT_x = Advection::advectTemperature(dx, alpha, U[LINU(i, j, k)], U[LINU(i - 1, j, k)],
++                            T_prev[LINT(i - 1, j, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i + 1, j, k)]);
+ 
+-                    vT_y = 1 / dy * (
+-                            V[LINV(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j + 1, k)]) / 2) -
+-                            V[LINV(i, j - 1, k)] * ((T_prev[LINT(i, j - 1, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(V[LINV(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j + 1, k)]) / 2) -
+-                                    std::abs(V[LINV(i, j - 1, k)])*((T_prev[LINT(i, j - 1, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    vT_y = Advection::advectTemperature(dy, alpha, V[LINV(i, j, k)], V[LINV(i, j - 1, k)],
++                            T_prev[LINT(i, j - 1, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j + 1, k)]);
+ 
+-                    wT_z = 1 / dz * (
+-                            W[LINW(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k + 1)]) / 2) -
+-                            W[LINW(i, j, k - 1)] * ((T_prev[LINT(i, j, k - 1)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(W[LINW(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j, k + 1)]) / 2) -
+-                                    std::abs(W[LINW(i, j, k - 1)])*((T_prev[LINT(i, j, k - 1)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    wT_z = Advection::advectTemperature(dz, alpha, W[LINW(i, j, k)], W[LINW(i, j, k - 1)],
++                            T_prev[LINT(i, j, k - 1)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j, k + 1)]);
+ 
+                     T_xx =
+-                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / (dx*dx);
++                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / dx2;
+ 
+                     T_yy =
+-                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / (dy*dy);
++                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / dy2;
+ 
+                     T_zz =
+-                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / (dz*dz);
++                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / dz2;
+ 
+                     T[LINT(i, j, k)] = T_prev[LINT(i, j, k)] + dt * (
+                             (1 / (Re*Pr))*(T_xx + T_yy + T_zz) -
+@@ -315,7 +285,7 @@ void computeDtCpp(
+         Real Re, Real Pr, Real tau,
+         Real &dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W,
+-        bool useTemperature) {
++        TemperatureHandling temperatureHandling) {
+     Real uPeak = Real(0.0), vPeak = Real(0.0), wPeak = Real(0.0);
+ 
+ #if _OPENMP >= 201107
+@@ -355,7 +325,7 @@ void computeDtCpp(
+         assert(uPeak * dt < dx);
+         assert(vPeak * dt < dy);
+         assert(wPeak * dt < dz);
+-        if (useTemperature){
++        if (temperatureHandling == TEMPERATURE_ENABLED){
+             assert(dt < (Re*Pr/2)*(1/((1/(dx*dx))+1/(dy*dy)+1/(dz*dz))));
+         }
+         return;
+@@ -365,7 +335,7 @@ void computeDtCpp(
+     dt = std::min(dt, dz / wPeak);
+     dt = std::min(dt, (Re / Real(2.0)) * (Real(1.0) / (Real(1.0) / (dx*dx) + Real(1.0) / (dy*dy)
+             + Real(1.0) / (dz*dz))));
+-    if (useTemperature){
++    if (temperatureHandling == TEMPERATURE_ENABLED){
+         dt = std::min(dt, (Re * Pr / Real(2.0)) * (Real(1.0) / (Real(1.0) / (dx*dx) + Real(1.0) / (dy*dy)
+                 + Real(1.0) / (dz*dz))));
+     }
+diff --git a/src/CfdSolver/serial/momentum_eqs.hpp b/src/CfdSolver/serial/momentum_eqs.hpp
+index 9450369..616f25e 100644
+--- a/src/CfdSolver/serial/momentum_eqs.hpp
++++ b/src/CfdSolver/serial/momentum_eqs.hpp
+@@ -4,8 +4,12 @@
+ 
+ #include "Defines.hpp"
+ 
++struct MomentumConstants {
++    Real Re, GX, GY, GZ, alpha, beta;
++};
++
+ void computeFghCpp(
+-        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,
++        const MomentumConstants &constants,
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag);
+ 
+@@ -13,11 +17,15 @@ void computeRsCpp(
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *F, Real *G, Real *H, Real *RS);
+ 
++enum TemperatureHandling {
++    TEMPERATURE_DISABLED, TEMPERATURE_ENABLED
++};
++
+ void computeDtCpp(
+         Real Re, Real Pr, Real tau,
+         Real &dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W,
+-        bool useTemperature);
++        TemperatureHandling temperatureHandling);
+ 
+ void computeUvwCpp(
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+diff --git a/src/CfdSolver/serial/poisson_sor.cpp b/src/CfdSolver/serial/poisson_sor.cpp
+index 99bc70f..dd844d9 100644
+--- a/src/CfdSolver/serial/poisson_sor.cpp
++++ b/src/CfdSolver/serial/poisson_sor.cpp
+@@ -9,6 +9,7 @@ void relaxSolverSweepCpp(
+         Real omg, Real dx, Real dy, Real dz, Real coeff, int imax, int jmax, int kmax,
+         LinearSystemSolverType linearSystemSolverType,
+         Real *P, Real *P_prev, Real *RS, FlagType *Flag, Real &residual) {
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+     #pragma omp parallel for shared(imax, jmax, kmax, P) default(none)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+@@ -33,7 +34,20 @@ void relaxSolverSweepCpp(
+         }
+     }
+ 
+-    #pragma omp parallel for shared(imax, jmax, kmax, P, Flag) default(none)
++    struct NeighborTap {
++        bool (*isConnected)(unsigned int);
++        int di, dj, dk;
++    };
++    static const NeighborTap pressureNeighbors[] = {
++        {B_R,  1,  0,  0},
++        {B_L, -1,  0,  0},
++        {B_U,  0,  1,  0},
++        {B_D,  0, -1,  0},
++        {B_B,  0,  0, -1},
++        {B_F,  0,  0,  1},
++    };
++
++    #pragma omp parallel for shared(imax, jmax, kmax, P, Flag, pressureNeighbors) default(none)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
+@@ -41,34 +55,11 @@ void relaxSolverSweepCpp(
+                 Real P_prev = Real(0);
+ 
+                 if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k + 1)];
+-                        numDirectFlag++;
++                    for (const NeighborTap &tap : pressureNeighbors) {
++                        if (tap.isConnected(Flag[LINFLAG(i, j, k)])) {
++                            P_prev += P[LINP(i + tap.di, j + tap.dj, k + tap.dk)];
++                            numDirectFlag++;
++                        }
+                     }
+ 
+                     if (numDirectFlag == 0) {
+@@ -101,9 +92,9 @@ void relaxSolverSweepCpp(
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/(dx*dx)
+-                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/(dy*dy)
+-                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/(dz*dz)
++                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/dx2
++                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/dy2
++                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/dz2
+                                 - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -111,15 +102,15 @@ void relaxSolverSweepCpp(
+         }
+     } else if (linearSystemSolverType == POISSON_RELAX_PARALLEL
+             || linearSystemSolverType == LINEAR_SOLVER_GAUSS_SEIDEL_PARALLEL) {
+-        #pragma omp parallel for shared(imax, jmax, kmax, dx, dy, dz, omg, coeff, P, P_prev, RS, Flag) default(none)
++        #pragma omp parallel for shared(imax, jmax, kmax, dx2, dy2, dz2, omg, coeff, P, P_prev, RS, Flag) default(none)
+         for (int i = 1; i <= imax; i++) {
+             for (int j = 1; j <= jmax; j++) {
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P_prev[LINP(i,j,k)] = (Real(1.0) - omg)*P[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i+1,j,k)])/(dx*dx)
+-                                + (P[LINP(i,j+1,k)])/(dy*dy)
+-                                + (P[LINP(i,j,k+1)])/(dz*dz)
++                                ((P[LINP(i+1,j,k)])/dx2
++                                + (P[LINP(i,j+1,k)])/dy2
++                                + (P[LINP(i,j,k+1)])/dz2
+                                 - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -131,23 +122,23 @@ void relaxSolverSweepCpp(
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P[LINP(i,j,k)] = P_prev[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i-1,j,k)])/(dx*dx)
+-                                 + (P[LINP(i,j-1,k)])/(dy*dy)
+-                                 + (P[LINP(i,j,k-1)])/(dz*dz));
++                                ((P[LINP(i-1,j,k)])/dx2
++                                 + (P[LINP(i,j-1,k)])/dy2
++                                 + (P[LINP(i,j,k-1)])/dz2);
+                     }
+                 }
+             }
+         }
+     } else if (linearSystemSolverType == LINEAR_SOLVER_JACOBI) {
+-        #pragma omp parallel for shared(imax, jmax, kmax, dx, dy, dz, omg, coeff, P, P_prev, RS, Flag) default(none)
++        #pragma omp parallel for shared(imax, jmax, kmax, dx2, dy2, dz2, omg, coeff, P, P_prev, RS, Flag) default(none)
+         for (int i = 1; i <= imax; i++) {
+             for (int j = 1; j <= jmax; j++) {
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])) {
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P_prev[LINP(i,j,k)] + coeff *
+-                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/(dx*dx)
+-                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/(dy*dy)
+-                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/(dz*dz)
++                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/dx2
++                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/dy2
++                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/dz2
+                                  - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -159,7 +150,7 @@ void relaxSolverSweepCpp(
+     residual = Real(0.0);
+     int fluidCellCount = 0;
+ #if _OPENMP >= 201107
+-    #pragma omp parallel for shared(imax, jmax, kmax, dx, dy, dz, P, RS, Flag) \
++    #pragma omp parallel for shared(imax, jmax, kmax, dx2, dy2, dz2, P, RS, Flag) \
+     reduction(+: residual) reduction(+: fluidCellCount) default(none)
+ #endif
+     for (int i = 1; i <= imax; i++) {
+@@ -167,9 +158,9 @@ void relaxSolverSweepCpp(
+             for (int k = 1; k <= kmax; k++) {
+                 if (isWet(Flag[LINFLAG(i,j,k)])){
+                     residual += SQR(
+-                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/(dx*dx)
+-                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/(dy*dy)
+-                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/(dz*dz)
++                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/dx2
++                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/dy2
++                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/dz2
+                              - RS[LINRS(i,j,k)]
+                     );
+                     fluidCellCount++;
+@@ -182,7 +173,7 @@ void relaxSolverSweepCpp(
+ }
+ 
+ void relaxSolverCpp(
+-        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, bool shallWriteOutput,
++        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, SolverLogging solverLogging,
+         Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *P, Real *P_prev, Real *RS, FlagType *Flag) {
+     if (linearSystemSolverType == POISSON_RELAX || linearSystemSolverType == POISSON_RELAX_PARALLEL) {
+@@ -203,7 +194,7 @@ void relaxSolverCpp(
+         it++;
+     }
+ 
+-    if (((residual > eps && it == itermax) || std::isnan(residual)) && shallWriteOutput) {
++    if (((residual > eps && it == itermax) || std::isnan(residual)) && solverLogging == SOLVER_LOG_WARNINGS) {
+         std::cerr << "\nSOR solver reached maximum number of iterations without converging (res: "
+                 << residual << ")." << std::endl;
+     }
+diff --git a/src/CfdSolver/serial/poisson_sor.hpp b/src/CfdSolver/serial/poisson_sor.hpp
+index 0b44b61..e5482fd 100644
+--- a/src/CfdSolver/serial/poisson_sor.hpp
++++ b/src/CfdSolver/serial/poisson_sor.hpp
+@@ -4,8 +4,12 @@
+ 
+ #include "Defines.hpp"
+ 
++enum SolverLogging {
++    SOLVER_LOG_SILENT, SOLVER_LOG_WARNINGS
++};
++
+ void relaxSolverCpp(
+-        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, bool shallWriteOutput,
++        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, SolverLogging solverLogging,
+         Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *P, Real *P_prev, Real *RS, FlagType *Flag);
+ 
+diff --git a/src/CfdSolver/serial/scenario_boundary.cpp b/src/CfdSolver/serial/scenario_boundary.cpp
+index f1ede47..22f8bb3 100644
+--- a/src/CfdSolver/serial/scenario_boundary.cpp
++++ b/src/CfdSolver/serial/scenario_boundary.cpp
+@@ -3,9 +3,10 @@
+ 
+ void assignScenarioBorderValuesCpp(
+         const std::string &scenarioName,
+-        int imax, int jmax, int kmax,
++        const GridDimensions &grid,
+         Real *U, Real *V, Real *W,
+         FlagType *Flag) {
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
+     if (scenarioName == "driven_cavity") {
+         #pragma omp parallel for
+         for (int i = 0; i <= imax; i++) {
+diff --git a/src/CfdSolver/serial/serial_solver.cpp b/src/CfdSolver/serial/serial_solver.cpp
+index 025d0eb..457e40b 100644
+--- a/src/CfdSolver/serial/serial_solver.cpp
++++ b/src/CfdSolver/serial/serial_solver.cpp
+@@ -33,9 +33,9 @@ void FluidSolverCpp::initialize(
+     this->imax = imax;
+     this->jmax = jmax;
+     this->kmax = kmax;
+-    this->dx = dx;
+-    this->dy = dy;
+-    this->dz = dz;
++    this->spacing.dx = dx;
++    this->spacing.dy = dy;
++    this->spacing.dz = dz;
+ 
+     this->U = new Real[(imax+1)*(jmax+2)*(kmax+2)];
+     this->V = new Real[(imax+2)*(jmax+1)*(kmax+2)];
+@@ -87,15 +87,16 @@ FluidSolverCpp::~FluidSolverCpp() {
+ }
+ 
+ void FluidSolverCpp::calculateFgh() {
+-    computeFghCpp(Re, GX, GY, GZ, alpha, beta, dt, dx, dy, dz, imax, jmax, kmax, U, V, W, T, F, G, H, Flag);
++    computeFghCpp({Re, GX, GY, GZ, alpha, beta}, dt, spacing.dx, spacing.dy, spacing.dz, imax, jmax, kmax, U, V, W, T, F, G, H, Flag);
+ }
+ 
+ void FluidSolverCpp::calculateRs() {
+-    computeRsCpp(dt, dx, dy, dz, imax, jmax, kmax, F, G, H, RS);
++    computeRsCpp(dt, spacing.dx, spacing.dy, spacing.dz, imax, jmax, kmax, F, G, H, RS);
+ }
+ 
+ Real FluidSolverCpp::calculateDt() {
+-    computeDtCpp(Re, Pr, tau, dt, dx, dy, dz, imax, jmax, kmax, U, V, W, useTemperature);
++    computeDtCpp(Re, Pr, tau, dt, spacing.dx, spacing.dy, spacing.dz, imax, jmax, kmax, U, V, W,
++            useTemperature ? TEMPERATURE_ENABLED : TEMPERATURE_DISABLED);
+     return dt;
+ }
+ 
+@@ -104,18 +105,19 @@ void FluidSolverCpp::calculateTemperature() {
+     Real *temp = T;
+     T = T_prev;
+     T_prev = temp;
+-    computeTemperatureCpp(Re, Pr, alpha, dt, dx, dy, dz, imax, jmax, kmax, U, V, W, T, T_prev, Flag);
++    computeTemperatureCpp(Re, Pr, alpha, dt, spacing.dx, spacing.dy, spacing.dz, imax, jmax, kmax, U, V, W, T, T_prev, Flag);
+ }
+ 
+ void FluidSolverCpp::calculateUvw() {
+-    computeUvwCpp(dt, dx, dy, dz, imax, jmax, kmax, U, V, W, F, G, H, P, Flag);
++    computeUvwCpp(dt, spacing.dx, spacing.dy, spacing.dz, imax, jmax, kmax, U, V, W, F, G, H, P, Flag);
+ }
+ 
+ 
+ void FluidSolverCpp::executeSorSolver() {
+     relaxSolverCpp(
+-            omg, eps, itermax, linearSystemSolverType, shallWriteOutput,
+-            dx, dy, dz, imax, jmax, kmax, P, P_prev, RS, Flag);
++            omg, eps, itermax, linearSystemSolverType,
++            shallWriteOutput ? SOLVER_LOG_WARNINGS : SOLVER_LOG_SILENT,
++            spacing.dx, spacing.dy, spacing.dz, imax, jmax, kmax, P, P_prev, RS, Flag);
+ }
+ 
+ void FluidSolverCpp::setBoundaryValues() {
+@@ -123,7 +125,7 @@ void FluidSolverCpp::setBoundaryValues() {
+ }
+ 
+ void FluidSolverCpp::setBoundaryValuesScenarioSpecific() {
+-    assignScenarioBorderValuesCpp(scenarioName, imax, jmax, kmax, U, V, W, Flag);
++    assignScenarioBorderValuesCpp(scenarioName, {imax, jmax, kmax}, U, V, W, Flag);
+ }
+ 
+ void FluidSolverCpp::getDataForOutput(Real *U, Real *V, Real *W, Real *P, Real *T) {
+diff --git a/src/CfdSolver/serial/serial_solver.hpp b/src/CfdSolver/serial/serial_solver.hpp
+index ce96aa1..7cf0b96 100644
+--- a/src/CfdSolver/serial/serial_solver.hpp
++++ b/src/CfdSolver/serial/serial_solver.hpp
+@@ -4,6 +4,10 @@
+ 
+ #include "CfdSolver/solver_interface.hpp"
+ 
++struct GridSpacing {
++    Real dx, dy, dz;
++};
++
+ class FluidSolverCpp : public CfdSolver {
+ public:
+     virtual void initialize(
+@@ -44,7 +48,7 @@ private:
+     bool useTemperature;
+     int itermax;
+     int imax, jmax, kmax;
+-    Real dx, dy, dz;
++    GridSpacing spacing;
+     Real *U, *V, *W , *P, *P_prev, *T, *T_prev, *F, *G, *H, *RS;
+     FlagType *Flag;
+ };
+diff --git a/src/Defines.hpp b/src/Defines.hpp
+index 1009ab7..ec7a7a1 100644
+--- a/src/Defines.hpp
++++ b/src/Defines.hpp
+@@ -47,7 +47,8 @@ typedef glm::vec<3, Real, glm::defaultp> fpvec3;
+ #define LINFLAG(i,j,k) ((i)*(jmax+2)*(kmax+2) + (j)*(kmax+2) + (k))
+ 
+ 
+-inline int divCeil(int x, int y) { return (x - 1) / y + 1; }
++template <typename T, typename U>
++inline T divCeil(T x, U y) { return (x - 1) / static_cast<T>(y) + 1; }
+ 
+ #define SUPPRESS_UNUSED(x) ((void)(x))
+ 
+diff --git a/src/IO/byte_streams.cpp b/src/IO/byte_streams.cpp
+index 652564f..f4cccd3 100644
+--- a/src/IO/byte_streams.cpp
++++ b/src/IO/byte_streams.cpp
+@@ -30,7 +30,9 @@ void ByteWriteStream::write(const void *data, size_t size)
+     }
+ 
+     assert(bufferSize + size <= capacity);
+-    memcpy(buffer + bufferSize, data, size);
++    if (size != 0) {
++        memcpy(buffer + bufferSize, data, size);
++    }
+     bufferSize += size;
+ }
+ 
+@@ -106,7 +108,9 @@ void ByteReadStream::read(void *data, size_t size)
+         std::cerr << "FATAL ERROR: ByteReadStream::read(void*, size_t)" << std::endl;
+         return;
+     }
+-    memcpy(data, buffer + readOffset, size);
++    if (size != 0) {
++        memcpy(data, buffer + readOffset, size);
++    }
+     readOffset += size;
+ }
+ 
+@@ -118,9 +122,8 @@ void ByteReadStream::read(std::string &str)
+         std::cerr << "FATAL ERROR: ByteReadStream::read(string&)" << std::endl;
+         return;
+     }
+-    char *charBuffer = new char[charCount + 1];
++    std::vector<char> charBuffer(charCount + 1);
+     charBuffer[charCount] = '\0';
+-    read((void*)charBuffer, charCount);
+-    str = charBuffer;
+-    delete[] charBuffer;
++    read((void*)charBuffer.data(), charCount);
++    str = charBuffer.data();
+ }
+diff --git a/src/IO/case_config.cpp b/src/IO/case_config.cpp
+index b320bd2..9b37509 100644
+--- a/src/IO/case_config.cpp
++++ b/src/IO/case_config.cpp
+@@ -102,12 +102,14 @@ int fetchIntSettingOrDefault(
+ 
+ void loadCaseConfigFromFile(
+         const std::string &caseFilename, std::string &scenarioName, std::string &shapeName,
+-        Real &tEnd, Real &dtWrite, Real &xLength, Real &yLength, Real &zLength,
+-        Real &xOrigin, Real &yOrigin, Real &zOrigin,
++        Real &tEnd, Real &dtWrite, DomainGeometry &geometry,
+         Real &UI, Real &VI, Real &WI, Real &PI, Real &TI, Real &GX, Real &GY, Real &GZ,
+         Real &Re, Real &Pr, Real &omg, Real &eps, int &itermax, Real &alpha, Real &beta, Real &dt, Real &tau,
+         bool &useTemperature, Real &T_h, Real &T_c,
+         int &imax, int &jmax, int &kmax, Real &dx, Real &dy, Real &dz) {
++    Real &xLength = geometry.xLength, &yLength = geometry.yLength, &zLength = geometry.zLength;
++    Real &xOrigin = geometry.xOrigin, &yOrigin = geometry.yOrigin, &zOrigin = geometry.zOrigin;
++
+     std::map<std::string, std::string> variables = readSettingsFile(caseFilename);
+ 
+     scenarioName = fetchStringSetting(variables, "scenario");
+diff --git a/src/IO/case_config.hpp b/src/IO/case_config.hpp
+index 5568b12..2fe541b 100644
+--- a/src/IO/case_config.hpp
++++ b/src/IO/case_config.hpp
+@@ -7,10 +7,14 @@
+ #include <vector>
+ #include "Defines.hpp"
+ 
++struct DomainGeometry {
++    Real xLength, yLength, zLength;
++    Real xOrigin, yOrigin, zOrigin;
++};
++
+ void loadCaseConfigFromFile(
+         const std::string &caseFilename, std::string &scenarioName, std::string &shapeName,
+-        Real &tEnd, Real &dtWrite, Real &xLength, Real &yLength, Real &zLength,
+-        Real &xOrigin, Real &yOrigin, Real &zOrigin,
++        Real &tEnd, Real &dtWrite, DomainGeometry &geometry,
+         Real &UI, Real &VI, Real &WI, Real &PI, Real &TI, Real &GX, Real &GY, Real &GZ,
+         Real &Re, Real &Pr, Real &omg, Real &eps, int &itermax, Real &alpha, Real &beta, Real &dt, Real &tau,
+         bool &useTemperature, Real &T_h, Real &T_c,
+diff --git a/src/IO/geometry_io.cpp b/src/IO/geometry_io.cpp
+index b8942f2..7704d41 100644
+--- a/src/IO/geometry_io.cpp
++++ b/src/IO/geometry_io.cpp
+@@ -7,7 +7,7 @@
+ const uint32_t GEOMETRY_FORMAT_REVISION = 1u;
+ 
+ void saveGeometryData(
+-        const std::string &shapeFilename, const std::vector<uint32_t> &values, int width, int height, int depth) {
++        const std::string &shapeFilename, int width, int height, int depth, const std::vector<uint32_t> &values) {
+     std::ofstream file(shapeFilename.c_str(), std::ofstream::binary);
+     if (!file.is_open()) {
+         std::cerr << "Error in saveGeometryData: File \"" + shapeFilename + "\" not found." << std::endl;
+@@ -23,6 +23,7 @@ void saveGeometryData(
+     stream.write((void*)&values.front(), sizeof(uint32_t)*values.size());
+ 
+     file.write((const char*)stream.getBuffer(), std::streamsize(stream.getSize()));
++    assert(file.good());
+     file.close();
+ }
+ 
+@@ -37,11 +38,15 @@ std::vector<uint32_t> loadGeometryData(
+     file.seekg(0, std::ifstream::end);
+     size_t size = file.tellg();
+     file.seekg(0);
+-    char *buffer = new char[size];
+-    file.read(buffer, std::streamsize(size));
++    std::vector<char> buffer(size);
++    file.read(buffer.data(), std::streamsize(size));
++    if (file.gcount() != std::streamsize(size)) {
++        std::cerr << "Error in loadGeometryData: Truncated file \"" << shapeFilename << "\"." << std::endl;
++        return {};
++    }
+     file.close();
+ 
+-    ByteReadStream stream(buffer, size);
++    ByteReadStream stream(static_cast<const void*>(buffer.data()), size);
+     uint32_t version;
+     stream.read(version);
+     if (version != GEOMETRY_FORMAT_REVISION) {
+diff --git a/src/IO/geometry_io.hpp b/src/IO/geometry_io.hpp
+index 2e17435..4302161 100644
+--- a/src/IO/geometry_io.hpp
++++ b/src/IO/geometry_io.hpp
+@@ -10,6 +10,6 @@ std::vector<uint32_t> loadGeometryData(
+         const std::string &shapeFilename, int &width, int &height, int &depth);
+ 
+ void saveGeometryData(
+-        const std::string &shapeFilename, const std::vector<uint32_t> &values, int width, int height, int depth);
++        const std::string &shapeFilename, int width, int height, int depth, const std::vector<uint32_t> &values);
+ 
+ #endif
+diff --git a/src/IO/netcdf_output.cpp b/src/IO/netcdf_output.cpp
+index 333164f..8e3fcc2 100644
+--- a/src/IO/netcdf_output.cpp
++++ b/src/IO/netcdf_output.cpp
+@@ -1,10 +1,14 @@
+ 
+ #include <iostream>
++#include <vector>
+ #include <netcdf.h>
+ #include "IO/netcdf_output.hpp"
+ 
+-bool NetCdfRecorder::setupRecorder(const std::string &filename,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) {
++bool NetCdfRecorder::setupRecorder(const std::string &filename, const OutputGrid &grid) {
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
++    const Real dx = grid.dx, dy = grid.dy, dz = grid.dz;
++    const Real xOrigin = grid.xOrigin, yOrigin = grid.yOrigin, zOrigin = grid.zOrigin;
++
+     this->imax = imax;
+     this->jmax = jmax;
+     this->kmax = kmax;
+@@ -156,7 +160,7 @@ void NetCdfRecorder::setTextAttribute(int varid, const std::string &name, const
+ void NetCdfRecorder::writeSnapshot(int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T,
+         FlagType *Flag) {
+     if (stepIndex == 0) {
+-        Real *geometrySamples = new Real[imax*jmax*kmax];
++        std::vector<Real> geometrySamples(imax*jmax*kmax);
+         #pragma omp parallel for shared(geometrySamples, Flag) default(none)
+         for (int i = 0; i < imax; i++) {
+             for (int j = 0; j < jmax; j++) {
+@@ -165,8 +169,7 @@ void NetCdfRecorder::writeSnapshot(int stepIndex, Real time, Real *U, Real *V, R
+                 }
+             }
+         }
+-        nc_put_var_fp(ncid, geometryHandle, geometrySamples);
+-        delete[] geometrySamples;
++        nc_put_var_fp(ncid, geometryHandle, geometrySamples.data());
+     }
+ 
+     #pragma omp parallel for shared(U, V, W) default(none)
+diff --git a/src/IO/netcdf_output.hpp b/src/IO/netcdf_output.hpp
+index 47fe96a..6330e48 100644
+--- a/src/IO/netcdf_output.hpp
++++ b/src/IO/netcdf_output.hpp
+@@ -14,8 +14,7 @@ public:
+ 
+     void setMpiBounds(int il, int iu, int jl, int ju, int kl, int ku) override;
+ 
+-    bool setupRecorder(const std::string &filename,
+-            int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) override;
++    bool setupRecorder(const std::string &filename, const OutputGrid &grid) override;
+     void writeSnapshot(
+             int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T, FlagType *Flag) override;
+ 
+diff --git a/src/IO/output_recorder.hpp b/src/IO/output_recorder.hpp
+index 6415da4..6c10450 100644
+--- a/src/IO/output_recorder.hpp
++++ b/src/IO/output_recorder.hpp
+@@ -5,6 +5,12 @@
+ #include <string>
+ #include "CfdSolver/cell_flags.hpp"
+ 
++struct OutputGrid {
++    int imax, jmax, kmax;
++    Real dx, dy, dz;
++    Real xOrigin, yOrigin, zOrigin;
++};
++
+ class OutputFileRecorder {
+ public:
+     virtual ~OutputFileRecorder() = default;
+@@ -13,8 +19,7 @@ public:
+ 
+     virtual void setMpiBounds(int il, int iu, int jl, int ju, int kl, int ku) = 0;
+ 
+-    virtual bool setupRecorder(const std::string &filename,
+-            int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) = 0;
++    virtual bool setupRecorder(const std::string &filename, const OutputGrid &grid) = 0;
+     virtual void writeSnapshot(
+             int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T, FlagType *Flag) = 0;
+ };
+diff --git a/src/IO/path_writer.cpp b/src/IO/path_writer.cpp
+index 78bdf05..3602f4f 100644
+--- a/src/IO/path_writer.cpp
++++ b/src/IO/path_writer.cpp
+@@ -1,4 +1,5 @@
+ 
++#include <algorithm>
+ #include <iostream>
+ #include <fstream>
+ #include <iomanip>
+@@ -8,7 +9,7 @@
+ 
+ const uint32_t PATH_FILE_VERSION = 1u;
+ 
+-bool writePathsToObj(const std::string &filename, const FlowCurves &flowCurves) {
++bool writePathsToObj(const std::string &filename, const PathCollection &flowCurves) {
+     std::ofstream file(filename.c_str(), std::ofstream::binary);
+     if (!file.is_open()) {
+         std::cerr << "Error in writeLinesToObjFile: File \"" + filename + "\" not found." << std::endl;
+@@ -53,7 +54,7 @@ bool writePathsToObj(const std::string &filename, const FlowCurves &flowCurves)
+     return true;
+ }
+ 
+-bool writePathsToBinary(const std::string &filename, const FlowCurves &flowCurves) {
++bool writePathsToBinary(const std::string &filename, const PathCollection &flowCurves) {
+     std::ofstream file(filename.c_str(), std::ofstream::binary);
+     if (!file.is_open()) {
+         std::cerr << "Error in writeLinesToBinLinesFile: File \"" + filename + "\" not found." << std::endl;
+@@ -78,9 +79,8 @@ bool writePathsToBinary(const std::string &filename, const FlowCurves &flowCurve
+ #ifdef FP_DOUBLE
+         std::vector<glm::vec3> floatPoints;
+         floatPoints.resize(activePath.positions.size());
+-        for (size_t i = 0; i < activePath.positions.size(); i++) {
+-            floatPoints[i] = glm::vec3(activePath.positions[i]);
+-        }
++        std::transform(activePath.positions.begin(), activePath.positions.end(), floatPoints.begin(),
++                [](const auto &position) { return glm::vec3(position); });
+         stream.write((void*)&floatPoints.front(), sizeof(glm::vec3)*pathPointCount);
+ #endif
+         assert(numAttributes == activePath.attributes.size());
+@@ -92,9 +92,8 @@ bool writePathsToBinary(const std::string &filename, const FlowCurves &flowCurve
+             const std::vector<double> &activeFieldDouble = activePath.attributes.at(fieldIndex);
+             std::vector<float> activeField;
+             activeField.resize(activeFieldDouble.size());
+-            for (size_t i = 0; i < activeFieldDouble.size(); i++) {
+-                activeField[i] = static_cast<float>(activeFieldDouble[i]);
+-            }
++            std::transform(activeFieldDouble.begin(), activeFieldDouble.end(), activeField.begin(),
++                    [](double value) { return static_cast<float>(value); });
+ #endif
+             assert(pathPointCount == activeField.size());
+             stream.write(activeField.data(), sizeof(float) * pathPointCount);
+@@ -102,6 +101,10 @@ bool writePathsToBinary(const std::string &filename, const FlowCurves &flowCurve
+     }
+ 
+     file.write((const char*)stream.getBuffer(), std::streamsize(stream.getSize()));
++    if (!file) {
++        std::cerr << "Error in writeLinesToBinLinesFile: Failed writing file \"" + filename + "\"." << std::endl;
++        return false;
++    }
+     file.close();
+     return true;
+ }
+diff --git a/src/IO/path_writer.hpp b/src/IO/path_writer.hpp
+index e2b7d72..489ee53 100644
+--- a/src/IO/path_writer.hpp
++++ b/src/IO/path_writer.hpp
+@@ -7,8 +7,10 @@
+ #include "Defines.hpp"
+ #include "ParticleTracer/particle_integrators.hpp"
+ 
+-bool writePathsToObj(const std::string &filename, const FlowCurves &flowCurves);
++typedef FlowCurves PathCollection;
+ 
+-bool writePathsToBinary(const std::string &filename, const FlowCurves &flowCurves);
++bool writePathsToObj(const std::string &filename, const PathCollection &flowCurves);
++
++bool writePathsToBinary(const std::string &filename, const PathCollection &flowCurves);
+ 
+ #endif
+diff --git a/src/IO/pgm_image.cpp b/src/IO/pgm_image.cpp
+index f249b98..4727f68 100644
+--- a/src/IO/pgm_image.cpp
++++ b/src/IO/pgm_image.cpp
+@@ -1,9 +1,23 @@
+ 
++#include <array>
++#include <fstream>
+ #include <iostream>
+ #include <cassert>
+ #include <cstring>
+ #include "IO/pgm_image.hpp"
+ 
++namespace {
++
++int scaleIndex(int dstIdx, int srcExtent, int dstExtent) {
++    return (dstIdx-1) * (srcExtent-2) / (dstExtent-2) + 1;
++}
++
++int mapNearestIndex(int dstIdx, int srcExtent, int dstExtent) {
++    return dstIdx * srcExtent / dstExtent;
++}
++
++}
++
+ void nearestNeighborScale2D(
+         const std::vector<unsigned int> &pixelsIn,
+         int widthSrc,
+@@ -17,34 +31,36 @@ void nearestNeighborScale2D(
+     pixelsOut.resize(size);
+ 
+     if (widthSrc == widthDst && heightSrc == heightDst) {
+-        memcpy(&pixelsOut.front(), &pixelsIn.front(), sizeof(unsigned int) * size);
++        if (size != 0) {
++            memcpy(&pixelsOut.front(), &pixelsIn.front(), sizeof(unsigned int) * size);
++        }
+         return;
+     }
+ 
+     for (int y = 0; y < heightDst; y++) {
+         for (int x = 0; x < widthDst; x++) {
+-            int srcX = x * widthSrc / widthDst;
+-            int fetchY = y * heightSrc / heightDst;
++            int srcX = mapNearestIndex(x, widthSrc, widthDst);
++            int fetchY = mapNearestIndex(y, heightSrc, heightDst);
+             pixelsOut[x*heightDst + y*widthDst] = pixelsIn[srcX*heightSrc + fetchY];
+         }
+     }
+ }
+ 
+-void nearestNeighborScalePgm2D(
++std::vector<unsigned int> nearestNeighborScalePgm2D(
+         const std::vector<unsigned int> &pixelsIn,
+         int widthSrc,
+         int heightSrc,
+-        std::vector<unsigned int> &pixelsOut,
+         int widthDst,
+         int heightDst
+ ) {
+     assert(widthSrc >= 3 && heightSrc >= 3 && widthDst >= 3 && heightDst >= 3);
+     size_t size = size_t(widthDst) * size_t(heightDst);
++    std::vector<unsigned int> pixelsOut;
+     pixelsOut.resize(size);
+ 
+     if (widthSrc == widthDst && heightSrc == heightDst) {
+         memcpy(&pixelsOut.front(), &pixelsIn.front(), sizeof(unsigned int) * size);
+-        return;
++        return pixelsOut;
+     }
+ 
+     pixelsOut[0*heightDst + 0] = pixelsIn[0*heightSrc + 0];
+@@ -53,63 +69,66 @@ void nearestNeighborScalePgm2D(
+     pixelsOut[(widthDst-1)*heightDst + heightDst-1] = pixelsIn[(widthSrc-1)*heightSrc + heightSrc-1];
+ 
+     for (int y = 1; y < heightDst-1; y++) {
+-        int fetchY = (y-1) * (heightSrc-2) / (heightDst-2) + 1;
++        int fetchY = scaleIndex(y, heightSrc, heightDst);
+         pixelsOut[0*heightDst + y] = pixelsIn[0*heightSrc + fetchY];
+         pixelsOut[(widthDst-1)*heightDst + y] = pixelsIn[(widthSrc-1)*heightSrc + fetchY];
+     }
+ 
+     for (int x = 1; x < widthDst-1; x++) {
+-        int srcX = (x-1) * (widthSrc-2) / (widthDst-2) + 1;
++        int srcX = scaleIndex(x, widthSrc, widthDst);
+         pixelsOut[x*heightDst + 0] = pixelsIn[srcX*heightSrc + 0];
+         pixelsOut[x*heightDst + heightDst-1] = pixelsIn[srcX*heightSrc + heightSrc-1];
+     }
+ 
+     for (int y = 1; y < heightDst-1; y++) {
+         for (int x = 1; x < widthDst-1; x++) {
+-            int srcX = (x-1) * (widthSrc-2) / (widthDst-2) + 1;
+-            int fetchY = (y-1) * (heightSrc-2) / (heightDst-2) + 1;
++            int srcX = scaleIndex(x, widthSrc, widthDst);
++            int fetchY = scaleIndex(y, heightSrc, heightDst);
+             pixelsOut[x*heightDst + y*widthDst] = pixelsIn[srcX*heightSrc + fetchY];
+         }
+     }
++
++    return pixelsOut;
+ }
+ 
+ std::vector<unsigned int> readPgmImage(const std::string &filename, int &width, int &height, int &levels) {
+-    FILE *file = nullptr;
+-    if ((file = fopen(filename.c_str(), "rb")) == nullptr) {
++    std::ifstream file(filename.c_str(), std::ifstream::binary);
++    if (!file.is_open()) {
+         std::cerr << "Cannot open file \"" << filename << "\"." << std::endl;
+         return {};
+     }
+ 
+-    char line[1024];
++    std::array<char, 1024> line;
+     std::vector<unsigned int> pgmResized;
+ 
+-    if (fread(line, 1, 3, file) != 3) {
+-        fclose(file);
++    file.read(line.data(), 3);
++    if (file.gcount() != 3) {
+         std::cerr << "Wrong magic field in file \"" << filename << "\"." << std::endl;
+         return {};
+     }
+ 
+     do {
+-        assert(fgets(line, sizeof(line), file) != nullptr);
+-    } while (*line == '#');
++        assert(file.getline(line.data(), line.size()));
++    } while (line[0] == '#');
+ 
+-    sscanf(line, "%d %d\n", &width, &height);
++    if (sscanf(line.data(), "%d %d\n", &width, &height) != 2) {
++        std::cerr << "Malformed dimension line in file \"" << filename << "\"." << std::endl;
++        return {};
++    }
+ 
+-    assert(fgets(line, sizeof line, file) != nullptr);
+-    sscanf(line, "%d\n", &levels);
++    assert(file.getline(line.data(), line.size()));
++    sscanf(line.data(), "%d\n", &levels);
+     pgmResized.resize(size_t(width) * size_t(height));
+ 
+     for (int y = 0; y < height; y++) {
+         for (int x = 0; x < width; ++x) {
+             unsigned int value;
+-            if (fscanf(file, "%u", &value) == EOF) {
+-                fclose(file);
++            if (!(file >> value)) {
+                 std::cerr << "Invalid number of lines in file \"" << filename << "\"." << std::endl;
+             }
+             pgmResized[size_t(x) * size_t(height) + size_t(y)] = value;
+         }
+     }
+ 
+-    fclose(file);
+     return pgmResized;
+ }
+diff --git a/src/IO/pgm_image.hpp b/src/IO/pgm_image.hpp
+index e1ccafe..e6f8080 100644
+--- a/src/IO/pgm_image.hpp
++++ b/src/IO/pgm_image.hpp
+@@ -7,11 +7,10 @@
+ 
+ std::vector<unsigned int> readPgmImage(const std::string &filename, int &width, int &height, int &levels);
+ 
+-void nearestNeighborScalePgm2D(
++std::vector<unsigned int> nearestNeighborScalePgm2D(
+         const std::vector<unsigned int> &pixelsIn,
+         int widthSrc,
+         int heightSrc,
+-        std::vector<unsigned int> &pixelsOut,
+         int widthDst,
+         int heightDst
+ );
+diff --git a/src/IO/progress_report.cpp b/src/IO/progress_report.cpp
+index 62953c3..46dea5d 100644
+--- a/src/IO/progress_report.cpp
++++ b/src/IO/progress_report.cpp
+@@ -23,7 +23,7 @@ void StatusReporter::renderProgress(Real t, Real tEnd, std::size_t maxVal) {
+     std::cout.flush();
+ }
+ 
+-void StatusReporter::reportFileWritten(int n, Real t, std::size_t maxVal) {
++void reportFileWritten(int n, Real t, std::size_t maxVal) {
+     char output[] = "\rWrote file at %5s %6i %5s %10f\n";
+     size_t clearLineWidth = maxVal + leaderLength + trailerLength + 30;
+     std::string buffer(clearLineWidth, ' ');
+diff --git a/src/IO/progress_report.hpp b/src/IO/progress_report.hpp
+index c9f67b1..883d8eb 100644
+--- a/src/IO/progress_report.hpp
++++ b/src/IO/progress_report.hpp
+@@ -10,11 +10,11 @@ class StatusReporter {
+ public:
+     void renderProgress(Real t, Real tEnd, size_t maxVal);
+ 
+-    static void reportFileWritten(int n, Real t, size_t maxVal);
+-
+ private:
+     int priorPercentDone = -1;
+ };
+ 
++void reportFileWritten(int n, Real t, size_t maxVal);
++
+ 
+ #endif
+diff --git a/src/IO/scenario_builder.cpp b/src/IO/scenario_builder.cpp
+index 330e947..5b08d7b 100644
+--- a/src/IO/scenario_builder.cpp
++++ b/src/IO/scenario_builder.cpp
+@@ -1,4 +1,5 @@
+ 
++#include <algorithm>
+ #include <glm/glm.hpp>
+ #include "IO/text_file_utils.hpp"
+ #include "IO/pgm_image.hpp"
+@@ -27,7 +28,7 @@ GeometryBuilder::GeometryBuilder(int imax, int jmax, int kmax, unsigned int fill
+ }
+ 
+ void GeometryBuilder::saveGeometryFile(const std::string &filename) {
+-    saveGeometryData(filename, shapeValues, imax + 2, jmax + 2, kmax + 2);
++    saveGeometryData(filename, imax + 2, jmax + 2, kmax + 2, shapeValues);
+ }
+ 
+ void GeometryBuilder::fillLayersUniform(FlagType value, int layerFrom, int layerTo) {
+@@ -62,8 +63,7 @@ void GeometryBuilder::fillLayersInRegion(
+ void GeometryBuilder::loadLayersFromPgm(const std::string &filename, int layerFrom, int layerTo) {
+     int pgmCols, pgmRows, levels;
+     std::vector<unsigned int> pgmSource = readPgmImage(filename, pgmCols, pgmRows, levels);
+-    std::vector<unsigned int> pgmResized;
+-    nearestNeighborScalePgm2D(pgmSource, pgmCols, pgmRows, pgmResized, imax+2, jmax+2);
++    std::vector<unsigned int> pgmResized = nearestNeighborScalePgm2D(pgmSource, pgmCols, pgmRows, imax+2, jmax+2);
+ 
+ #if _OPENMP >= 201107
+     #pragma omp parallel for shared(imax, jmax, layerFrom, layerTo, pgmResized) default(none)
+@@ -190,9 +190,8 @@ void buildElevationGeometry(
+     nearestNeighborScale2D(elevationPgmData, pgmCols, pgmRows, elevationPgmData, imax, kmax);
+     std::vector<Real> elevationFloats;
+     elevationFloats.resize(elevationPgmData.size());
+-    for (size_t i = 0; i < elevationPgmData.size(); i++) {
+-        elevationFloats[i] = Real(elevationPgmData[i]) / Real(levels);
+-    }
++    std::transform(elevationPgmData.begin(), elevationPgmData.end(), elevationFloats.begin(),
++            [levels](unsigned int sampleValue) { return Real(sampleValue) / Real(levels); });
+ 
+     GeometryBuilder geometryBuilder(imax, jmax, kmax, CELL_NO_SLIP);
+     geometryBuilder.fillLayersInRegion(CELL_NO_SLIP, 1, kmax, [&](int i, int j, int k) {
+diff --git a/src/IO/text_file_utils.cpp b/src/IO/text_file_utils.cpp
+index 9abf706..f0bef42 100644
+--- a/src/IO/text_file_utils.cpp
++++ b/src/IO/text_file_utils.cpp
+@@ -21,8 +21,7 @@ bool hasSuffix(const std::string& str, const std::string& postfix) {
+ }
+ 
+ void setupOutputDirectory(
+-        const std::string &resultDirectory, const std::string &outputBaseName, const std::string &fileExtension,
+-        const std::string &curveDirectory, const std::string &shapeDirectory, bool shallWriteOutput) {
++        const std::string &resultDirectory, const std::string &curveDirectory, const std::string &shapeDirectory) {
+     if (!fs::exists(resultDirectory)) {
+         if (!fs::create_directory(resultDirectory)) {
+             std::cerr << "Output directory could not be created." << std::endl;
+@@ -41,21 +40,22 @@ void setupOutputDirectory(
+             exit(1);
+         }
+     }
++}
+ 
++void clearStaleOutputFiles(
++        const std::string &resultDirectory, const std::string &outputBaseName, const std::string &fileExtension) {
+     const std::string outputBaseDot = outputBaseName + ".";
+-    if (shallWriteOutput) {
+-        fs::path dir(resultDirectory);
+-        fs::directory_iterator end;
+-        for (fs::directory_iterator it(dir); it != end; ++it) {
+-            std::string filename = it->path().string();
++    fs::path dir(resultDirectory);
++    fs::directory_iterator end;
++    for (fs::directory_iterator it(dir); it != end; ++it) {
++        std::string filename = it->path().string();
+ #ifdef WIN32
+-            for (std::string::iterator it = filename.begin(); it != filename.end(); ++it) {
+-                if (*it == '\\') *it = '/';
+-            }
++        for (std::string::iterator it = filename.begin(); it != filename.end(); ++it) {
++            if (*it == '\\') *it = '/';
++        }
+ #endif
+-            if (hasSuffix(filename, fileExtension) && hasPrefix(filename, outputBaseDot)) {
+-                fs::remove(it->path());
+-            }
++        if (hasSuffix(filename, fileExtension) && hasPrefix(filename, outputBaseDot)) {
++            fs::remove(it->path());
+         }
+     }
+ }
+diff --git a/src/IO/text_file_utils.hpp b/src/IO/text_file_utils.hpp
+index 65dc654..6d44fc6 100644
+--- a/src/IO/text_file_utils.hpp
++++ b/src/IO/text_file_utils.hpp
+@@ -8,29 +8,12 @@ bool hasPrefix(const std::string& str, const std::string& prefix);
+ bool hasSuffix(const std::string& str, const std::string& postfix);
+ 
+ void setupOutputDirectory(
+-        const std::string &resultDirectory, const std::string &outputBaseName, const std::string &fileExtension,
+-        const std::string &curveDirectory, const std::string &shapeDirectory, bool shallWriteOutput);
++        const std::string &resultDirectory, const std::string &curveDirectory, const std::string &shapeDirectory);
+ 
+-bool fileIsPresent(const std::string& filename);
++void clearStaleOutputFiles(
++        const std::string &resultDirectory, const std::string &outputBaseName, const std::string &fileExtension);
+ 
+-template<class InputIterator>
+-void tokenizeByChar(const std::string &inputText, char separator, InputIterator& outputList) {
+-    std::string buffer;
+-    for (char c : inputText) {
+-        if (c != separator) {
+-            buffer += c;
+-        } else {
+-            if (buffer.length() > 0) {
+-                outputList.push_back(buffer);
+-                buffer = "";
+-            }
+-        }
+-    }
+-    if (buffer.length() > 0) {
+-        outputList.push_back(buffer);
+-        buffer = "";
+-    }
+-}
++bool fileIsPresent(const std::string& filename);
+ 
+ template<class InputIterator>
+ void tokenizeBySpace(const std::string &inputText, InputIterator& outputList) {
+diff --git a/src/IO/vtk_output.cpp b/src/IO/vtk_output.cpp
+index 74cf74b..6192e7e 100644
+--- a/src/IO/vtk_output.cpp
++++ b/src/IO/vtk_output.cpp
+@@ -4,18 +4,21 @@
+ #include "IO/vtk_output.hpp"
+ #include "CfdSolver/Mpi/MacrosMpi.hpp"
+ 
+-bool VtkExporter::setupRecorder(const std::string &filename,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) {
++bool VtkExporter::setupRecorder(const std::string &filename, const OutputGrid &grid) {
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
++    const Real dx = grid.dx, dy = grid.dy, dz = grid.dz;
++    const Real xOrigin = grid.xOrigin, yOrigin = grid.yOrigin, zOrigin = grid.zOrigin;
++
+     this->filename = filename;
+     this->imax = imax;
+     this->jmax = jmax;
+     this->kmax = kmax;
+-    this->dx = dx;
+-    this->dy = dy;
+-    this->dz = dz;
+-    this->xOrigin = xOrigin;
+-    this->yOrigin = yOrigin;
+-    this->zOrigin = zOrigin;
++    this->geometry.dx = dx;
++    this->geometry.dy = dy;
++    this->geometry.dz = dz;
++    this->geometry.xOrigin = xOrigin;
++    this->geometry.yOrigin = yOrigin;
++    this->geometry.zOrigin = zOrigin;
+ 
+     if (!mpiEnabled) {
+         il = jl = kl = 1;
+@@ -78,7 +81,8 @@ void VtkExporter::writeSnapshot(
+     }
+ 
+     emitVtkHeader(file);
+-    emitPointPositions(file, dx, dy, dz, xOrigin, yOrigin, zOrigin);
++    emitPointPositions(file, geometry.dx, geometry.dy, geometry.dz,
++            geometry.xOrigin, geometry.yOrigin, geometry.zOrigin);
+     emitPointValues(file, U, V, W, Flag);
+     emitCellValues(file, P, T, Flag);
+ 
+@@ -90,7 +94,7 @@ void VtkExporter::writeSnapshot(
+ #define LINCELL(i,j,k) (((k) - kl)*(ju-jl+1)*(iu-il+1) + ((j) - jl)*(iu-il+1) + ((i) - il))
+ 
+ template <typename T>
+-void reverseByteOrder(T *values, int n) {
++void VtkExporter::reverseByteOrder(T *values, int n) {
+     auto *rawBytes = (uint8_t*)values;
+     #pragma omp parallel for shared(rawBytes, values, n) default(none)
+     for (int i = 0; i < n; i++) {
+@@ -131,7 +135,8 @@ void VtkExporter::emitPointPositions(FILE *file,
+ }
+ 
+ void VtkExporter::emitPointValues(FILE *file, Real *U, Real *V, Real *W, FlagType *Flag) {
+-    fprintf(file, "POINT_DATA %i\n", (iu-il+2)*(ju-jl+2)*(ku-kl+2));
++    int pointCount = (iu-il+2)*(ju-jl+2)*(ku-kl+2);
++    fprintf(file, "POINT_DATA %i\n", pointCount);
+     fprintf(file, "VECTORS velocity float\n");
+ 
+     if (useBinaryFormat) {
+@@ -175,8 +180,8 @@ void VtkExporter::emitPointValues(FILE *file, Real *U, Real *V, Real *W, FlagTyp
+                 }
+             }
+         }
+-        reverseByteOrder(pointBuffer, (iu-il+2)*(ju-jl+2)*(ku-kl+2)*3);
+-        fwrite(pointBuffer, sizeof(float), (iu-il+2)*(ju-jl+2)*(ku-kl+2)*3, file);
++        reverseByteOrder(pointBuffer, pointCount*3);
++        fwrite(pointBuffer, sizeof(float), pointCount*3, file);
+     } else {
+         if (mpiEnabled) {
+             for (int k = kl-1; k <= ku; k++) {
+@@ -219,10 +224,11 @@ void VtkExporter::emitPointValues(FILE *file, Real *U, Real *V, Real *W, FlagTyp
+ }
+ 
+ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
++    int cellCount = (iu-il+1)*(ju-jl+1)*(ku-kl+1);
+     if (mpiEnabled) {
+-        fprintf(file, "CELL_DATA %i\n", (iu-il+1)*(ju-jl+1)*(ku-kl+1));
++        fprintf(file, "CELL_DATA %i\n", cellCount);
+     } else {
+-        fprintf(file, "CELL_DATA %i\n", (iu-il+1)*(ju-jl+1)*(ku-kl+1));
++        fprintf(file, "CELL_DATA %i\n", cellCount);
+     }
+     fprintf(file, "SCALARS pressure float 1\n");
+     fprintf(file, "LOOKUP_TABLE default\n");
+@@ -253,8 +259,8 @@ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
+                 }
+             }
+         }
+-        reverseByteOrder(cellBuffer, (iu-il+1)*(ju-jl+1)*(ku-kl+1));
+-        fwrite(cellBuffer, sizeof(float), (iu-il+1)*(ju-jl+1)*(ku-kl+1), file);
++        reverseByteOrder(cellBuffer, cellCount);
++        fwrite(cellBuffer, sizeof(float), cellCount, file);
+     } else {
+         if (mpiEnabled) {
+             for (int k = kl; k <= ku; k++) {
+@@ -312,8 +318,8 @@ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
+                 }
+             }
+         }
+-        reverseByteOrder(cellBuffer, (iu-il+1)*(ju-jl+1)*(ku-kl+1));
+-        fwrite(cellBuffer, sizeof(float), (iu-il+1)*(ju-jl+1)*(ku-kl+1), file);
++        reverseByteOrder(cellBuffer, cellCount);
++        fwrite(cellBuffer, sizeof(float), cellCount, file);
+     } else {
+         if (mpiEnabled) {
+             for (int k = kl; k <= ku; k++) {
+@@ -363,7 +369,7 @@ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
+                 }
+             }
+         }
+-        fwrite(cellByteBuffer, sizeof(uint8_t), (iu-il+1)*(ju-jl+1)*(ku-kl+1), file);
++        fwrite(cellByteBuffer, sizeof(uint8_t), cellCount, file);
+     } else {
+         fprintf(file, "SCALARS geometry bit 1\n");
+         fprintf(file, "LOOKUP_TABLE default\n");
+diff --git a/src/IO/vtk_output.hpp b/src/IO/vtk_output.hpp
+index 8b36504..7466b2a 100644
+--- a/src/IO/vtk_output.hpp
++++ b/src/IO/vtk_output.hpp
+@@ -4,9 +4,19 @@
+ 
+ #include "IO/output_recorder.hpp"
+ 
++enum VtkDataFormat {
++    VTK_FORMAT_ASCII, VTK_FORMAT_BINARY
++};
++
++struct GridGeometry {
++    Real dx, dy, dz;
++    Real xOrigin, yOrigin, zOrigin;
++};
++
+ class VtkExporter : public OutputFileRecorder {
+ public:
+-    VtkExporter(int partCount, int localRank, bool useBinaryFormat = true) : partCount(partCount), localRank(localRank), useBinaryFormat(useBinaryFormat)
++    VtkExporter(int partCount, int localRank, VtkDataFormat dataFormat = VTK_FORMAT_BINARY)
++            : partCount(partCount), localRank(localRank), useBinaryFormat(dataFormat == VTK_FORMAT_BINARY)
+     {}
+     ~VtkExporter() override;
+ 
+@@ -14,12 +24,14 @@ public:
+ 
+     void setMpiBounds(int il, int iu, int jl, int ju, int kl, int ku) override;
+ 
+-    bool setupRecorder(const std::string &filename,
+-            int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) override;
++    bool setupRecorder(const std::string &filename, const OutputGrid &grid) override;
+     void writeSnapshot(
+             int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T, FlagType *Flag) override;
+ 
+ private:
++    template <typename T>
++    static void reverseByteOrder(T *values, int n);
++
+     void emitVtkHeader(FILE *file);
+     void emitPointPositions(FILE *file,
+             Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin);
+@@ -32,7 +44,7 @@ private:
+     bool useBinaryFormat;
+     int imax{}, jmax{}, kmax{};
+     int il{}, iu{}, jl{}, ju{}, kl{}, ku{};
+-    Real dx{}, dy{}, dz{}, xOrigin{}, yOrigin{}, zOrigin{};
++    GridGeometry geometry{};
+ 
+     float *pointBuffer = nullptr;
+     float *cellBuffer = nullptr;
+diff --git a/src/ParticleTracer/particle_integrators.cpp b/src/ParticleTracer/particle_integrators.cpp
+index fc0cc03..1461f5a 100644
+--- a/src/ParticleTracer/particle_integrators.cpp
++++ b/src/ParticleTracer/particle_integrators.cpp
+@@ -3,16 +3,8 @@
+ #include <cassert>
+ #include "ParticleTracer/particle_integrators.hpp"
+ 
+-fpvec3 advanceParticleEuler(
+-        const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real *U, Real *V, Real *W, Real dt) {
+-    fpvec3 nextPosition = walkerPosition + dt*evalVelocityAt(
+-            walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, U, V, W);
+-    return nextPosition;
+-}
+-
+ std::vector<fpvec3> computeParticleSeedsForScenario(
+-        const std::string &scenarioName, int particleCount, const fpvec3 &domainOrigin, const fpvec3 &domainExtent) {
++        const std::string &scenarioName, const fpvec3 &domainOrigin, const fpvec3 &domainExtent, int particleCount) {
+     std::vector<fpvec3> seedPoints;
+ 
+     std::random_device entropySource;
+diff --git a/src/ParticleTracer/particle_integrators.hpp b/src/ParticleTracer/particle_integrators.hpp
+index 91d12d6..82c440f 100644
+--- a/src/ParticleTracer/particle_integrators.hpp
++++ b/src/ParticleTracer/particle_integrators.hpp
+@@ -33,11 +33,7 @@ public:
+             Real *U, Real *V, Real *W, Real *P, Real *T)=0;
+ };
+ 
+-fpvec3 advanceParticleEuler(
+-        const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real *U, Real *V, Real *W, Real dt);
+-
+ std::vector<fpvec3> computeParticleSeedsForScenario(
+-        const std::string &scenarioName, int particleCount, const fpvec3 &domainOrigin, const fpvec3 &domainExtent);
++        const std::string &scenarioName, const fpvec3 &domainOrigin, const fpvec3 &domainExtent, int particleCount);
+ 
+ #endif
+diff --git a/src/ParticleTracer/ray_box.cpp b/src/ParticleTracer/ray_box.cpp
+index a85e89d..6886646 100644
+--- a/src/ParticleTracer/ray_box.cpp
++++ b/src/ParticleTracer/ray_box.cpp
+@@ -8,7 +8,7 @@ bool castRayAgainstSlab(
+         Real rayStartX, Real rayHeadingX, Real minBoundX, Real maxBoundX, Real &enterDist, Real &exitDist);
+ 
+ bool castRayAgainstBox(
+-        const fpvec3 &rayStart, const fpvec3 &rayHeading, const fpvec3 &lower, const fpvec3 &upper,
++        const fpvec3 &lower, const fpvec3 &upper, const fpvec3 &rayStart, const fpvec3 &rayHeading,
+         Real &enterDist, Real &exitDist) {
+     enterDist = std::numeric_limits<Real>::lowest();
+     exitDist = std::numeric_limits<Real>::max();
+diff --git a/src/ParticleTracer/ray_box.hpp b/src/ParticleTracer/ray_box.hpp
+index 2101041..25927f1 100644
+--- a/src/ParticleTracer/ray_box.hpp
++++ b/src/ParticleTracer/ray_box.hpp
+@@ -5,7 +5,7 @@
+ #include "Defines.hpp"
+ 
+ bool castRayAgainstBox(
+-        const fpvec3 &rayStart, const fpvec3 &rayHeading, const fpvec3 &lower, const fpvec3 &upper,
++        const fpvec3 &lower, const fpvec3 &upper, const fpvec3 &rayStart, const fpvec3 &rayHeading,
+         Real &enterDist, Real &exitDist);
+ 
+ #endif
+diff --git a/src/ParticleTracer/streamline_tracer.cpp b/src/ParticleTracer/streamline_tracer.cpp
+index c73306d..99e91f3 100644
+--- a/src/ParticleTracer/streamline_tracer.cpp
++++ b/src/ParticleTracer/streamline_tracer.cpp
+@@ -2,10 +2,15 @@
+ #include "ParticleTracer/streamline_tracer.hpp"
+ #include "ParticleTracer/ray_box.hpp"
+ 
++struct FlowFieldData {
++    Real *U, *V, *W, *P, *T;
++};
++
+ void integrateFlowlineParticle(
+         FlowCurve &activePath, const fpvec3 &walkerStartPosition, const fpvec3 &domainOrigin,
+         const fpvec3 &domainExtent, Real dt, int imax, int jmax, int kmax, Real dx, Real dy, Real dz,
+-        Real *U, Real *V, Real *W, Real *P, Real *T) {
++        const FlowFieldData &fields) {
++    Real *U = fields.U, *V = fields.V, *W = fields.W, *P = fields.P, *T = fields.T;
+     fpvec3 walkerPosition = walkerStartPosition;
+     fpvec3 priorWalkerPosition;
+ 
+@@ -21,7 +26,7 @@ void integrateFlowlineParticle(
+                 fpvec3 rayStart = activePath.positions.back();
+                 fpvec3 rayHeading = glm::normalize(walkerPosition - rayStart);
+                 Real enterDist, exitDist;
+-                castRayAgainstBox(rayStart, rayHeading, domainOrigin, domainOrigin + domainExtent, enterDist, exitDist);
++                castRayAgainstBox(domainOrigin, domainOrigin + domainExtent, rayStart, rayHeading, enterDist, exitDist);
+                 glm::vec3 boundaryWalkerPosition;
+                 if (enterDist > 0.0f) {
+                     boundaryWalkerPosition = rayStart + enterDist * rayHeading;
+@@ -30,14 +35,14 @@ void integrateFlowlineParticle(
+                 }
+                 activePath.positions.emplace_back(boundaryWalkerPosition);
+                 appendTrajectoryFeatures(
+-                        activePath, domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz, U, V, W, P, T);
++                        activePath, {domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz}, U, V, W, P, T);
+             }
+             break;
+         }
+ 
+         activePath.positions.push_back(walkerPosition);
+         appendTrajectoryFeatures(
+-                activePath, domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz, U, V, W, P, T);
++                activePath, {domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz}, U, V, W, P, T);
+ 
+         fpvec3 k1 = dt * evalVelocityAt(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, U, V, W);
+         fpvec3 k2 = dt * evalVelocityAt(walkerPosition + k1/Real(2.0), domainOrigin, domainExtent, imax, jmax, kmax,
+@@ -69,7 +74,7 @@ FlowCurves FlowlineIntegrator::trace(
+         FlowCurve &activePath = flowCurves.at(i);
+         integrateFlowlineParticle(
+                 activePath, walkerStartPosition, domainOrigin, domainExtent,
+-                dt, imax, jmax, kmax, dx, dy, dz, U, V, W, P, T);
++                dt, imax, jmax, kmax, dx, dy, dz, {U, V, W, P, T});
+     }
+     return flowCurves;
+ }
+diff --git a/src/ParticleTracer/trajectory_output.cpp b/src/ParticleTracer/trajectory_output.cpp
+index 4ca2b6e..0c51af6 100644
+--- a/src/ParticleTracer/trajectory_output.cpp
++++ b/src/ParticleTracer/trajectory_output.cpp
+@@ -1,28 +1,56 @@
+ 
+ #include "ParticleTracer/trajectory_output.hpp"
+ 
++static bool isNodeOutOfRange(const glm::ivec3 &staggeredCell, const glm::ivec3 &upperBound) {
++    return glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
++            || glm::any(glm::greaterThanEqual(staggeredCell, upperBound));
++}
++
++static Real trilinearBlend(const fpvec3 &frac, const fpvec3 &compFrac,
++        Real c000, Real c100, Real c010, Real c110,
++        Real c001, Real c101, Real c011, Real c111) {
++    return compFrac.x*compFrac.y*compFrac.z*c000
++            + frac.x*compFrac.y*compFrac.z*c100
++            + compFrac.x*frac.y*compFrac.z*c010
++            + frac.x*frac.y*compFrac.z*c110
++            + compFrac.x*compFrac.y*frac.z*c001
++            + frac.x*compFrac.y*frac.z*c101
++            + compFrac.x*frac.y*frac.z*c011
++            + frac.x*frac.y*frac.z*c111;
++}
++
+ fpvec3 mapWorldToStaggered(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent, int imax, int jmax, int kmax) {
+     return (walkerPosition - domainOrigin) / domainExtent * fpvec3(imax, jmax, kmax) + fpvec3(1, 1, 1);
+ }
+-Real fetchWAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *W) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax+1,kmax)))) {
++struct StaggeredField {
++    Real *values;
++    int imax, jmax, kmax;
++};
++
++using VelocityField = StaggeredField;
++
++Real fetchWAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *W = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax+1,kmax))) {
+         return 0;
+     }
+     return W[LINW(staggeredCell.x, staggeredCell.y, staggeredCell.z)];
+ }
+-Real fetchVAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *V) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax,kmax+1)))) {
++Real fetchVAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *V = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax,kmax+1))) {
+         return 0;
+     }
+     return V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z)];
+ }
+ 
+-Real fetchUAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *U) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax+1,kmax+1)))) {
++Real fetchUAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *U = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax+1,kmax+1))) {
+         return 0;
+     }
+     return U[LINU(staggeredCell.x, staggeredCell.y, staggeredCell.z)];
+@@ -30,113 +58,122 @@ Real fetchUAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax,
+ 
+ Real trilinearSampleW(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real *W) {
++        const VelocityField &field) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(0.5, 0.5, 1);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W)
+-            + frac.x*compFrac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W)
+-            + compFrac.x*frac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W)
+-            + frac.x*frac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W)
+-            + compFrac.x*compFrac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W)
+-            + frac.x*compFrac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W)
+-            + compFrac.x*frac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W)
+-            + frac.x*frac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchWAtNode(staggeredCell + glm::ivec3(0,0,0), field),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,0,0), field),
++            fetchWAtNode(staggeredCell + glm::ivec3(0,1,0), field),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,1,0), field),
++            fetchWAtNode(staggeredCell + glm::ivec3(0,0,1), field),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,0,1), field),
++            fetchWAtNode(staggeredCell + glm::ivec3(0,1,1), field),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,1,1), field));
+     return blendedValue;
+ }
+ 
+ Real trilinearSampleV(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real *V) {
++        const VelocityField &field) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(0.5, 1, 0.5);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V)
+-            + frac.x*compFrac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V)
+-            + compFrac.x*frac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V)
+-            + frac.x*frac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V)
+-            + compFrac.x*compFrac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V)
+-            + frac.x*compFrac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V)
+-            + compFrac.x*frac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V)
+-            + frac.x*frac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchVAtNode(staggeredCell + glm::ivec3(0,0,0), field),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,0,0), field),
++            fetchVAtNode(staggeredCell + glm::ivec3(0,1,0), field),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,1,0), field),
++            fetchVAtNode(staggeredCell + glm::ivec3(0,0,1), field),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,0,1), field),
++            fetchVAtNode(staggeredCell + glm::ivec3(0,1,1), field),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,1,1), field));
+     return blendedValue;
+ }
+ 
+ Real trilinearSampleU(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real *U) {
++        const VelocityField &field) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(1, 0.5, 0.5);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U)
+-            + frac.x*compFrac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U)
+-            + compFrac.x*frac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U)
+-            + frac.x*frac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U)
+-            + compFrac.x*compFrac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U)
+-            + frac.x*compFrac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U)
+-            + compFrac.x*frac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U)
+-            + frac.x*frac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchUAtNode(staggeredCell + glm::ivec3(0,0,0), field),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,0,0), field),
++            fetchUAtNode(staggeredCell + glm::ivec3(0,1,0), field),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,1,0), field),
++            fetchUAtNode(staggeredCell + glm::ivec3(0,0,1), field),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,0,1), field),
++            fetchUAtNode(staggeredCell + glm::ivec3(0,1,1), field),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,1,1), field));
+     return blendedValue;
+ }
+ 
+ fpvec3 evalVelocityAt(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+         int imax, int jmax, int kmax, Real *U, Real *V, Real *W) {
+-    Real u = trilinearSampleU(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, U);
+-    Real v = trilinearSampleV(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, V);
+-    Real w = trilinearSampleW(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, W);
++    Real u = trilinearSampleU(walkerPosition, domainOrigin, domainExtent, {U, imax, jmax, kmax});
++    Real v = trilinearSampleV(walkerPosition, domainOrigin, domainExtent, {V, imax, jmax, kmax});
++    Real w = trilinearSampleW(walkerPosition, domainOrigin, domainExtent, {W, imax, jmax, kmax});
+     return fpvec3(u, v, w);
+ }
+-Real fetchdWdyAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *W, Real dy) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax,kmax)))) {
++Real fetchdWdyAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field, Real dy) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *W = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax,kmax))) {
+         return 0;
+     }
+     return (W[LINW(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - W[LINW(staggeredCell.x, staggeredCell.y+1, staggeredCell.z)])/dy;
+ }
+-Real fetchdWdxAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *W, Real dx) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax+1,kmax)))) {
++Real fetchdWdxAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field, Real dx) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *W = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax+1,kmax))) {
+         return 0;
+     }
+     return (W[LINW(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - W[LINW(staggeredCell.x+1, staggeredCell.y, staggeredCell.z)])/dx;
+ }
+-Real fetchdVdzAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *V, Real dz) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax,kmax)))) {
++Real fetchdVdzAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field, Real dz) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *V = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax,kmax))) {
+         return 0;
+     }
+     return (V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z+1)])/dz;
+ }
+-Real fetchdVdxAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *V, Real dx) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax,kmax+1)))) {
++Real fetchdVdxAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field, Real dx) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *V = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax,kmax+1))) {
+         return 0;
+     }
+     return (V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - V[LINV(staggeredCell.x+1, staggeredCell.y, staggeredCell.z)])/dx;
+ }
+-Real fetchdUdzAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *U, Real dz) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax+1,kmax)))) {
++Real fetchdUdzAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field, Real dz) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *U = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax+1,kmax))) {
+         return 0;
+     }
+     return (U[LINU(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - U[LINU(staggeredCell.x, staggeredCell.y, staggeredCell.z+1)])/dz;
+ }
+ 
+-Real fetchdUdyAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *U, Real dy) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax,kmax+1)))) {
++Real fetchdUdyAtNode(const glm::ivec3 &staggeredCell, const VelocityField &field, Real dy) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
++    Real *U = field.values;
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax,kmax+1))) {
+         return 0;
+     }
+     return (U[LINU(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+@@ -144,129 +181,140 @@ Real fetchdUdyAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int km
+ }
+ Real trilinearSample_dWdy(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dy, Real *W) {
++        const VelocityField &field, Real dy) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(0.5, 1, 1);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W, dy)
+-            + frac.x*compFrac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W, dy)
+-            + compFrac.x*frac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W, dy)
+-            + frac.x*frac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W, dy)
+-            + compFrac.x*compFrac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W, dy)
+-            + frac.x*compFrac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W, dy)
+-            + compFrac.x*frac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W, dy)
+-            + frac.x*frac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W, dy);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,0), field, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,0), field, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,0), field, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,0), field, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,1), field, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,1), field, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,1), field, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,1), field, dy));
+     return blendedValue;
+ }
+ Real trilinearSample_dWdx(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dx, Real *W) {
++        const VelocityField &field, Real dx) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(1, 0.5, 1);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W, dx)
+-            + frac.x*compFrac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W, dx)
+-            + compFrac.x*frac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W, dx)
+-            + frac.x*frac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W, dx)
+-            + compFrac.x*compFrac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W, dx)
+-            + frac.x*compFrac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W, dx)
+-            + compFrac.x*frac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W, dx)
+-            + frac.x*frac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W, dx);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,0), field, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,0), field, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,0), field, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,0), field, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,1), field, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,1), field, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,1), field, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,1), field, dx));
+     return blendedValue;
+ }
+ Real trilinearSample_dVdz(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dz, Real *V) {
++        const VelocityField &field, Real dz) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(0.5, 1, 1);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V, dz)
+-            + frac.x*compFrac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V, dz)
+-            + compFrac.x*frac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V, dz)
+-            + frac.x*frac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V, dz)
+-            + compFrac.x*compFrac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V, dz)
+-            + frac.x*compFrac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V, dz)
+-            + compFrac.x*frac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V, dz)
+-            + frac.x*frac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V, dz);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,0), field, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,0), field, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,0), field, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,0), field, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,1), field, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,1), field, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,1), field, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,1), field, dz));
+     return blendedValue;
+ }
+ Real trilinearSample_dVdx(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dx, Real *V) {
++        const VelocityField &field, Real dx) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(1, 1, 0.5);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V, dx)
+-            + frac.x*compFrac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V, dx)
+-            + compFrac.x*frac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V, dx)
+-            + frac.x*frac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V, dx)
+-            + compFrac.x*compFrac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V, dx)
+-            + frac.x*compFrac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V, dx)
+-            + compFrac.x*frac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V, dx)
+-            + frac.x*frac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V, dx);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,0), field, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,0), field, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,0), field, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,0), field, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,1), field, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,1), field, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,1), field, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,1), field, dx));
+     return blendedValue;
+ }
+ Real trilinearSample_dUdz(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dz, Real *U) {
++        const VelocityField &field, Real dz) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(1, 0.5, 1);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U, dz)
+-            + frac.x*compFrac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U, dz)
+-            + compFrac.x*frac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U, dz)
+-            + frac.x*frac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U, dz)
+-            + compFrac.x*compFrac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U, dz)
+-            + frac.x*compFrac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U, dz)
+-            + compFrac.x*frac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U, dz)
+-            + frac.x*frac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U, dz);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,0), field, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,0), field, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,0), field, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,0), field, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,1), field, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,1), field, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,1), field, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,1), field, dz));
+     return blendedValue;
+ }
+ 
+ Real trilinearSample_dUdy(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dy, Real *U) {
++        const VelocityField &field, Real dy) {
++    const int imax = field.imax, jmax = field.jmax, kmax = field.kmax;
+     fpvec3 staggeredCoord = mapWorldToStaggered(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax) - fpvec3(1, 1, 0.5);
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U, dy)
+-            + frac.x*compFrac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U, dy)
+-            + compFrac.x*frac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U, dy)
+-            + frac.x*frac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U, dy)
+-            + compFrac.x*compFrac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U, dy)
+-            + frac.x*compFrac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U, dy)
+-            + compFrac.x*frac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U, dy)
+-            + frac.x*frac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U, dy);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,0), field, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,0), field, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,0), field, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,0), field, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,1), field, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,1), field, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,1), field, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,1), field, dy));
+     return blendedValue;
+ }
+ 
+ fpvec3 evalCurlAt(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+         int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real *U, Real *V, Real *W) {
+-    Real gradUy = trilinearSample_dUdy(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, dy, U);
+-    Real gradUz = trilinearSample_dUdz(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, dz, U);
+-    Real gradVx = trilinearSample_dVdx(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, dx, V);
+-    Real gradVz = trilinearSample_dVdz(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, dz, V);
+-    Real gradWx = trilinearSample_dWdx(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, dx, W);
+-    Real gradWy = trilinearSample_dWdy(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, dy, W);
++    VelocityField fieldU{U, imax, jmax, kmax}, fieldV{V, imax, jmax, kmax}, fieldW{W, imax, jmax, kmax};
++    Real gradUy = trilinearSample_dUdy(walkerPosition, domainOrigin, domainExtent, fieldU, dy);
++    Real gradUz = trilinearSample_dUdz(walkerPosition, domainOrigin, domainExtent, fieldU, dz);
++    Real gradVx = trilinearSample_dVdx(walkerPosition, domainOrigin, domainExtent, fieldV, dx);
++    Real gradVz = trilinearSample_dVdz(walkerPosition, domainOrigin, domainExtent, fieldV, dz);
++    Real gradWx = trilinearSample_dWdx(walkerPosition, domainOrigin, domainExtent, fieldW, dx);
++    Real gradWy = trilinearSample_dWdy(walkerPosition, domainOrigin, domainExtent, fieldW, dy);
+     return fpvec3(gradWy - gradVz, gradUz - gradWx, gradVx - gradUy);
+ }
+ 
+ void appendTrajectoryFeatures(
+-        FlowCurve &activePath, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real *U, Real *V, Real *W, Real *P, Real *T) {
++        FlowCurve &activePath, const SamplingGrid &grid,
++        Real *U, Real *V, Real *W, Real *P, Real *T) {
++    const fpvec3 &domainOrigin = grid.domainOrigin, &domainExtent = grid.domainExtent;
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
++    const Real dx = grid.dx, dy = grid.dy, dz = grid.dz;
++
+     if (activePath.attributes.empty()) {
+         activePath.attributes.resize(2);
+     }
+diff --git a/src/ParticleTracer/trajectory_output.hpp b/src/ParticleTracer/trajectory_output.hpp
+index d65eff6..fa30843 100644
+--- a/src/ParticleTracer/trajectory_output.hpp
++++ b/src/ParticleTracer/trajectory_output.hpp
+@@ -13,9 +13,15 @@ struct FlowCurve {
+ 
+ typedef std::vector<FlowCurve> FlowCurves;
+ 
++struct SamplingGrid {
++    fpvec3 domainOrigin, domainExtent;
++    int imax, jmax, kmax;
++    Real dx, dy, dz;
++};
++
+ void appendTrajectoryFeatures(
+-        FlowCurve &activePath, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real *U, Real *V, Real *W, Real *P, Real *T);
++        FlowCurve &activePath, const SamplingGrid &grid,
++        Real *U, Real *V, Real *W, Real *P, Real *T);
+ 
+ 
+ fpvec3 evalVelocityAt(
+diff --git a/src/simulation_main.cpp b/src/simulation_main.cpp
+index bb91631..b88b128 100644
+--- a/src/simulation_main.cpp
++++ b/src/simulation_main.cpp
+@@ -57,8 +57,9 @@ int main(int argc, char *argv[]) {
+     int openclPlatformIndex = 0;
+ 
+     int imax, jmax, kmax, itermax, particleCount;
+-    Real Re, Pr, UI, VI, WI, PI, TI, GX, GY, GZ, tEnd, dtWrite, xLength, yLength, zLength, xOrigin, yOrigin, zOrigin,
++    Real Re, Pr, UI, VI, WI, PI, TI, GX, GY, GZ, tEnd, dtWrite,
+             dt, dx, dy, dz, alpha, omg, tau, eps, beta, T_h, T_c;
++    DomainGeometry geometry;
+     bool useTemperature = true;
+     std::string scenarioName, shapeName, caseFilename, shapeFilename, outputBaseName, backendName;
+     parseOptions(
+@@ -69,7 +70,7 @@ int main(int argc, char *argv[]) {
+ 
+ #ifdef USE_MPI
+     if (backendName == "mpi") {
+-        mpiStartup(argc, argv, partsAlongI, jSplit, kSplit, imax, jmax, kmax,
++        mpiStartup(argc, argv, {partsAlongI, jSplit, kSplit}, imax, jmax, kmax,
+                 localRank, il, iu, jl, ju, kl, ku,
+                 peerL, peerR, peerD, peerU, peerB, peerF,
+                 rankCoordI, rankCoordJ, rankCoordK, partCount);
+@@ -83,9 +84,9 @@ int main(int argc, char *argv[]) {
+     } else if (resultWriterType == "vtk") {
+         resultWriter = new VtkExporter(partCount, localRank);
+     } else if (resultWriterType == "vtk-binary") {
+-        resultWriter = new VtkExporter(partCount, localRank, true);
++        resultWriter = new VtkExporter(partCount, localRank, VTK_FORMAT_BINARY);
+     } else if (resultWriterType == "vtk-ascii") {
+-        resultWriter = new VtkExporter(partCount, localRank, false);
++        resultWriter = new VtkExporter(partCount, localRank, VTK_FORMAT_ASCII);
+     } else if (resultWriterType.length() == 0) {
+         resultWriter = new VtkExporter(partCount, localRank);
+     } else {
+@@ -97,14 +98,14 @@ int main(int argc, char *argv[]) {
+ 
+     loadCaseConfigFromFile(
+             caseFilename, scenarioName, shapeName,
+-            tEnd, dtWrite, xLength, yLength, zLength, xOrigin, yOrigin, zOrigin,
++            tEnd, dtWrite, geometry,
+             UI, VI, WI, PI, TI, GX, GY, GZ,
+             Re, Pr, omg, eps, itermax, alpha, beta, dt, tau, useTemperature,
+             T_h, T_c, imax, jmax, kmax, dx, dy, dz);
+-    fpvec3 domainOrigin = fpvec3(xOrigin, yOrigin, zOrigin);
+-    fpvec3 domainExtent = fpvec3(xLength, yLength, zLength);
++    fpvec3 domainOrigin = fpvec3(geometry.xOrigin, geometry.yOrigin, geometry.zOrigin);
++    fpvec3 domainExtent = fpvec3(geometry.xLength, geometry.yLength, geometry.zLength);
+     FlowlineIntegrator flowlineIntegrator;
+-    seedPoints = computeParticleSeedsForScenario(scenarioName, particleCount, domainOrigin, domainExtent);
++    seedPoints = computeParticleSeedsForScenario(scenarioName, domainOrigin, domainExtent, particleCount);
+ 
+     if (!useTemperature){
+         T_c = 0.0;
+@@ -130,8 +131,10 @@ int main(int argc, char *argv[]) {
+ 
+     std::string fileExtension = resultWriter->getFileExtension();
+ 
+-    setupOutputDirectory(
+-            resultDirectory, outputBaseName, fileExtension, curveDirectory, shapeDirectory, shallWriteOutput);
++    setupOutputDirectory(resultDirectory, curveDirectory, shapeDirectory);
++    if (shallWriteOutput) {
++        clearStaleOutputFiles(resultDirectory, outputBaseName, fileExtension);
++    }
+ 
+     int n = 0;
+     Real t = 0;
+@@ -142,9 +145,12 @@ int main(int argc, char *argv[]) {
+ 
+ #ifdef USE_MPI
+     if (backendName == "mpi") {
+-        mpiAssignRange(imax, partsAlongI, rankCoordI, il, iu);
+-        mpiAssignRange(jmax, jSplit, rankCoordJ, jl, ju);
+-        mpiAssignRange(kmax, kSplit, rankCoordK, kl, ku);
++        MpiIndexRange rangeI = mpiAssignRange(partsAlongI, rankCoordI, imax);
++        MpiIndexRange rangeJ = mpiAssignRange(jSplit, rankCoordJ, jmax);
++        MpiIndexRange rangeK = mpiAssignRange(kSplit, rankCoordK, kmax);
++        il = rangeI.lower; iu = rangeI.upper;
++        jl = rangeJ.lower; ju = rangeJ.upper;
++        kl = rangeK.lower; ku = rangeK.upper;
+ 
+ 
+         U = new Real[(iu - il + 4)*(ju - jl + 3)*(ku - kl + 3)];
+@@ -198,7 +204,7 @@ int main(int argc, char *argv[]) {
+     auto startTime = std::chrono::system_clock::now();
+ 
+     if (shallWriteOutput) {
+-        resultWriter->setupRecorder(outputBaseName, imax, jmax, kmax, dx, dy, dz, xOrigin, yOrigin, zOrigin);
++        resultWriter->setupRecorder(outputBaseName, {imax, jmax, kmax, dx, dy, dz, geometry.xOrigin, geometry.yOrigin, geometry.zOrigin});
+         resultWriter->writeSnapshot(0, t, U, V, W, P, T, Flag);
+     }
+ 
+@@ -270,7 +276,7 @@ int main(int argc, char *argv[]) {
+                 }
+                 resultWriter->writeSnapshot(n, t, U, V, W, P, T, Flag);
+                 if (localRank == 0) {
+-                    statusReporter.reportFileWritten(n, t, 50);
++                    reportFileWritten(n, t, 50);
+                 }
+             }
+             writeTimer -= dtWrite;

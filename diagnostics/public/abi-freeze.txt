@@ -1,0 +1,14 @@
+# External eight-phase harness ABI only; bodies and internal helpers remain free.
+calculateRsCuda
+calculateUvwCuda
+calculateTemperatureCuda
+calculateFghCuda
+calculateDtCuda
+setBoundaryValuesCuda
+setBoundaryValuesScenarioSpecificCuda
+sorSolverCuda
+Real
+FlagType
+LinearSystemSolverType
+LINEAR_SOLVER_JACOBI
+LINEAR_SOLVER_GAUSS_SEIDEL_PARALLEL

@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-26T08:13:32.810774+00:00",
+  "first_bad_commit": "2684aef61112b1495e4cdd22d87dc605df534add",
+  "last_good_commit": "163560ff8c",
+  "batch_head": "923e70fa91",
+  "origin": "Official pass3 output before built-in repair; no human scientific source correction",
+  "official_fix_native": 34,
+  "outer_error": {
+    "status": "error",
+    "error": "command exited 2; preserved log: /home/junkun/genesis-transform-experiment/record/work/logs/20261026T081218.690845Z-check/cpu-reference-build.log",
+    "logs": "/home/junkun/genesis-transform-experiment/record/work/logs/20261026T081218.690845Z-check"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "files": {
+    "AUDIT.md": "e339bfed05664bf165d81ba721fd0369ec803670760238354019541c9a108c56",
+    "EVIDENCE.json": "cc1aa16f1a8780036ce4e27b99fef6762c581d5c0d2f080c76544d1b4b125bf1",
+    "FUTURE_CONFIG_PROPOSAL.json": "bb0ef2361d7fe7711bda66f8aac41c777e354c1ad615836fd344c1259cf26d69",
+    "inputs/CMakeLists.frozen.txt": "f8453225cf645b7943fcc7a013050f9fb6e7833a9fe3b9fdcc0da3e3884aa776",
+    "inputs/RAW005_INDEXED_BUILD_OUTPUTS.json": "6096e1fb6352aae5b3e664c9e93cb2d848727d86ff5bf12cc8628551e8324a9c",
+    "inputs/S11.compile.json": "58ab67b9d778e2c70be69741fadeb64f0455d1d09cda5a89b222e43ad2adf6e6",
+    "inputs/S3.compile.json": "0953df0fd4125bf119d44bb36dec0952cd514c2c058299fb7d7f5ee77ccfc471",
+    "inputs/cpu-reference/boundary_conditions.cpp.o.d": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f",
+    "inputs/cpu-reference/build.make": "719c642a627b245fa2ab628d4cc49a9df93026f70eb715b1fed81fb16c59e7f3",
+    "inputs/cpu-reference/compile_commands.json": "74a47977b6f373432a290ead8bf290812c3df14d65ab53011b61b542e6bf11cf",
+    "inputs/cuda-fma/boundary_conditions.cpp.o.d": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f",
+    "inputs/cuda-fma/build.make": "3c3a3b16be348f82391743079bf8dd1817a4998046555b7473bb8fa449eda536",
+    "inputs/cuda-fma/compile_commands.json": "07fc90ed51c7257c52ed38f70e4a650138b1c3d5f8a57a1726c6cbc7a557aa5b",
+    "inputs/cuda-no-fma/boundary_conditions.cpp.o.d": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f",
+    "inputs/cuda-no-fma/build.make": "712fbba9814919727b84ce939651eb1b1b3aa60b2088814a51fa91a648a07538",
+    "inputs/cuda-no-fma/compile_commands.json": "8c0625232af8d13c19b10fa834161bdc8b1674d32ecda45e5118361eb93c9725",
+    "inputs/official/anonkit/builds.py": "87a95b99e9b44559f7d5b7e214e948ee667d5207eac0036433f13c1c733a5214",
+    "inputs/official/anonkit/core.py": "2fc63ed4306c933f6eed3b728220995712ed73c16265bb03b62b35f9640d2d8e",
+    "inputs/official/anonkit/impact.py": "37cff65a6c539e5d52a3f0007131ef3b98b8547c23c52ade77263fd252e244e0",
+    "inputs/official/batch.py": "ecc8da37fee719e8a5831b10ba400e9181381ad0e979aa8a69a57a8c1e8556f9",
+    "inputs/official/contract/testbed.schema.json": "74b8692a2dee12e4b05c5f627d0a99cab0507b173e987275084a4fae0135509d",
+    "inputs/testbed.frozen.json": "fb749758a782f69e76c73c162854a26020bdceb52e288e62ea610251e71b7ed8"
+  }
+}

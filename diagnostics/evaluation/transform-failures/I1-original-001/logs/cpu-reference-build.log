@@ -1,0 +1,97 @@
+COMMAND /usr/bin/cmake --build /home/junkun/genesis-transform-experiment/record/work/cpu-reference --parallel 2 --verbose
+Change Dir: '/home/junkun/genesis-transform-experiment/record/work/cpu-reference'
+
+Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile -j2
+/usr/bin/cmake -S/home/junkun/genesis-transform-experiment/worktree -B/home/junkun/genesis-transform-experiment/record/work/cpu-reference --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles /home/junkun/genesis-transform-experiment/record/work/cpu-reference//CMakeFiles/progress.marks
+/usr/bin/gmake  -f CMakeFiles/Makefile2 all
+gmake[1]: Entering directory '/home/junkun/genesis-transform-experiment/record/work/cpu-reference'
+/usr/bin/gmake  -f CMakeFiles/cfd3d.dir/build.make CMakeFiles/cfd3d.dir/depend
+gmake[2]: Entering directory '/home/junkun/genesis-transform-experiment/record/work/cpu-reference'
+cd /home/junkun/genesis-transform-experiment/record/work/cpu-reference && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/junkun/genesis-transform-experiment/worktree /home/junkun/genesis-transform-experiment/worktree /home/junkun/genesis-transform-experiment/record/work/cpu-reference /home/junkun/genesis-transform-experiment/record/work/cpu-reference /home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/DependInfo.cmake "--color=" cfd3d
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/cell_flags.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/field_init.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/momentum_eqs.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/scenario_boundary.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/serial_solver.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/CfdSolver/solver_interface.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/byte_streams.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/case_config.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/cli_options.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/geometry_io.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/netcdf_output.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/path_writer.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/pgm_image.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/progress_report.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/scenario_builder.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/text_file_utils.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/IO/vtk_output.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/ParticleTracer/particle_integrators.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/ParticleTracer/ray_box.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/ParticleTracer/streamline_tracer.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/ParticleTracer/trajectory_output.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/src/simulation_main.cpp.o.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/cfd3d.dir/link.d" is newer than depends file "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target cfd3d
+gmake[2]: Leaving directory '/home/junkun/genesis-transform-experiment/record/work/cpu-reference'
+/usr/bin/gmake  -f CMakeFiles/cfd3d.dir/build.make CMakeFiles/cfd3d.dir/build
+gmake[2]: Entering directory '/home/junkun/genesis-transform-experiment/record/work/cpu-reference'
+[  4%] Building CXX object CMakeFiles/cfd3d.dir/src/CfdSolver/cell_flags.cpp.o
+[  8%] Building CXX object CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/cell_flags.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/cell_flags.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/cell_flags.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/cell_flags.cpp
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/boundary_conditions.cpp
+[ 12%] Building CXX object CMakeFiles/cfd3d.dir/src/CfdSolver/serial/momentum_eqs.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/momentum_eqs.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/momentum_eqs.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/momentum_eqs.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/momentum_eqs.cpp
+[ 16%] Building CXX object CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/poisson_sor.cpp
+[ 20%] Building CXX object CMakeFiles/cfd3d.dir/src/CfdSolver/serial/scenario_boundary.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/scenario_boundary.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/scenario_boundary.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/scenario_boundary.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/scenario_boundary.cpp
+[ 24%] Building CXX object CMakeFiles/cfd3d.dir/src/CfdSolver/serial/serial_solver.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/serial_solver.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/serial_solver.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/serial_solver.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/serial_solver.cpp
+[ 28%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/byte_streams.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/byte_streams.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/byte_streams.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/byte_streams.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/byte_streams.cpp
+[ 32%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/case_config.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/case_config.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/case_config.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/case_config.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/case_config.cpp
+[ 36%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/geometry_io.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/geometry_io.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/geometry_io.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/geometry_io.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/geometry_io.cpp
+[ 40%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/netcdf_output.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/netcdf_output.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/netcdf_output.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/netcdf_output.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/netcdf_output.cpp
+[ 44%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/path_writer.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/path_writer.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/path_writer.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/path_writer.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/path_writer.cpp
+[ 48%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/pgm_image.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/pgm_image.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/pgm_image.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/pgm_image.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/pgm_image.cpp
+[ 52%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/progress_report.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/progress_report.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/progress_report.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/progress_report.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/progress_report.cpp
+[ 56%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/scenario_builder.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/scenario_builder.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/scenario_builder.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/scenario_builder.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/scenario_builder.cpp
+[ 60%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/text_file_utils.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/text_file_utils.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/text_file_utils.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/text_file_utils.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/text_file_utils.cpp
+[ 64%] Building CXX object CMakeFiles/cfd3d.dir/src/IO/vtk_output.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/IO/vtk_output.cpp.o -MF CMakeFiles/cfd3d.dir/src/IO/vtk_output.cpp.o.d -o CMakeFiles/cfd3d.dir/src/IO/vtk_output.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/IO/vtk_output.cpp
+[ 68%] Building CXX object CMakeFiles/cfd3d.dir/src/ParticleTracer/particle_integrators.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/ParticleTracer/particle_integrators.cpp.o -MF CMakeFiles/cfd3d.dir/src/ParticleTracer/particle_integrators.cpp.o.d -o CMakeFiles/cfd3d.dir/src/ParticleTracer/particle_integrators.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/particle_integrators.cpp
+[ 72%] Building CXX object CMakeFiles/cfd3d.dir/src/ParticleTracer/ray_box.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/ParticleTracer/ray_box.cpp.o -MF CMakeFiles/cfd3d.dir/src/ParticleTracer/ray_box.cpp.o.d -o CMakeFiles/cfd3d.dir/src/ParticleTracer/ray_box.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/ray_box.cpp
+[ 76%] Building CXX object CMakeFiles/cfd3d.dir/src/ParticleTracer/streamline_tracer.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/ParticleTracer/streamline_tracer.cpp.o -MF CMakeFiles/cfd3d.dir/src/ParticleTracer/streamline_tracer.cpp.o.d -o CMakeFiles/cfd3d.dir/src/ParticleTracer/streamline_tracer.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/streamline_tracer.cpp
+[ 80%] Building CXX object CMakeFiles/cfd3d.dir/src/ParticleTracer/trajectory_output.cpp.o
+/usr/bin/g++  -I/home/junkun/genesis-transform-experiment/worktree/src -Wall -fopenmp -O2 -DNDEBUG -ffp-contract=off -std=gnu++17 -MD -MT CMakeFiles/cfd3d.dir/src/ParticleTracer/trajectory_output.cpp.o -MF CMakeFiles/cfd3d.dir/src/ParticleTracer/trajectory_output.cpp.o.d -o CMakeFiles/cfd3d.dir/src/ParticleTracer/trajectory_output.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/trajectory_output.cpp
+/home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/streamline_tracer.cpp: In function ‘void integrateFlowlineParticle(FlowCurve&, const fpvec3&, const fpvec3&, const fpvec3&, Real, int, int, int, Real, Real, Real, const FlowFieldData&)’:
+/home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/streamline_tracer.cpp:38:37: error: invalid initialization of reference of type ‘const SamplingGrid&’ from expression of type ‘const fpvec3’ {aka ‘const glm::vec<3, double, glm::packed_highp>’}
+   38 |                         activePath, domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz, U, V, W, P, T);
+      |                                     ^~~~~~~~~~~~
+In file included from /home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/particle_integrators.hpp:9,
+                 from /home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/streamline_tracer.hpp:5,
+                 from /home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/streamline_tracer.cpp:2:
+/home/junkun/genesis-transform-experiment/worktree/src/ParticleTracer/trajectory_output.hpp:23:52: note: in passing argument 2 of ‘void appendTrajectoryFeatures(FlowCurve&, const SamplingGrid&, Real*, Real*, Real*, Real*, Real*)’
+   23 |         FlowCurve &activePath, const SamplingGrid &grid,
+      |                                ~~~~~~~~~~~~~~~~~~~~^~~~
+gmake[2]: *** [CMakeFiles/cfd3d.dir/build.make:373: CMakeFiles/cfd3d.dir/src/ParticleTracer/streamline_tracer.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: Leaving directory '/home/junkun/genesis-transform-experiment/record/work/cpu-reference'
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/cfd3d.dir/all] Error 2
+gmake[1]: Leaving directory '/home/junkun/genesis-transform-experiment/record/work/cpu-reference'
+gmake: *** [Makefile:136: all] Error 2
+

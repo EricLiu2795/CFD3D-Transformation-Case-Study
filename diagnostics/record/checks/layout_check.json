@@ -1,0 +1,259 @@
+{
+ "tool": "layout_check",
+ "generated": "2026-10-26T00:09:38-04:00",
+ "checks": [
+  {
+   "id": "layout.file-map",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "60 mapped paths, 15 symbols, 0 problems"
+  },
+  {
+   "id": "layout.coverage",
+   "severity": "hard",
+   "status": "fail",
+   "summary": "39 baseline files considered, 20 kept by rule, 4 still upstream-shaped",
+   "findings": [
+    {
+     "file": "src/CfdSolver/Cuda/CudaDefines.hpp",
+     "detail": "src/CfdSolver/Opencl/OpenclFlags.hpp keeps the baseline order of its 6 definitions from this file"
+    },
+    {
+     "file": "src/CfdSolver/Cuda/CudaDefines.hpp",
+     "detail": "src/CfdSolver/cuda/cuda_runtime_check.hpp keeps the baseline order of its 6 definitions from this file"
+    },
+    {
+     "file": "src/CfdSolver/Opencl/OpenclDefines.hpp",
+     "detail": "src/CfdSolver/Opencl/OpenclFlags.hpp keeps the baseline order of its 4 definitions from this file"
+    },
+    {
+     "file": "src/CfdSolver/Opencl/OpenclDefines.hpp",
+     "detail": "src/Defines.hpp keeps the baseline order of its 4 definitions from this file"
+    }
+   ]
+  },
+  {
+   "id": "layout.basenames",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "59 new basenames, 0 problems"
+  },
+  {
+   "id": "layout.shims",
+   "severity": "hard",
+   "status": "fail",
+   "summary": "59 new files, 1 shims",
+   "findings": [
+    {
+     "file": "src/CfdSolver/solver_interface.cpp",
+     "detail": "new file only forwards includes"
+    }
+   ]
+  },
+  {
+   "id": "layout.paths-frozen",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 path changes after DONE"
+  },
+  {
+   "id": "layout.symbols",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 executables compared, 0 differences"
+  },
+  {
+   "id": "layout.compiled-set",
+   "severity": "hard",
+   "status": "fail",
+   "summary": "36 differences in the compiled sets",
+   "findings": [
+    {
+     "build": "cpu-reference",
+     "file": "src/CfdSolver/cell_flags.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/CfdSolver/field_init.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/CfdSolver/solver_interface.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/IO/byte_streams.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/ParticleTracer/particle_integrators.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/simulation_main.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/CfdSolver/CfdSolver.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/CfdSolver/Flag.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/CfdSolver/Init.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/IO/BinaryStream.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/Main.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cpu-reference",
+     "file": "src/ParticleTracer/ParticleTracer.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/CfdSolver/cell_flags.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/CfdSolver/field_init.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/CfdSolver/solver_interface.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/IO/byte_streams.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/ParticleTracer/particle_integrators.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/simulation_main.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/CfdSolver/CfdSolver.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/CfdSolver/Flag.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/CfdSolver/Init.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/IO/BinaryStream.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/Main.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-fma",
+     "file": "src/ParticleTracer/ParticleTracer.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/CfdSolver/cell_flags.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/CfdSolver/field_init.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/CfdSolver/solver_interface.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/IO/byte_streams.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/ParticleTracer/particle_integrators.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/simulation_main.cpp",
+     "detail": "holds content the build compiled at base, not compiled now"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/CfdSolver/CfdSolver.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/CfdSolver/Flag.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/CfdSolver/Init.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/IO/BinaryStream.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/Main.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    },
+    {
+     "build": "cuda-no-fma",
+     "file": "src/ParticleTracer/ParticleTracer.cpp",
+     "detail": "compiled now, maps to nothing the build compiled at base"
+    }
+   ]
+  }
+ ],
+ "verdict": "fail",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+ "head": "be0522dfc47211e67c040500b577dcb0eaf86664"
+}

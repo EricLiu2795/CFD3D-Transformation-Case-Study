@@ -1,0 +1,8 @@
+{
+  "returncode": 0,
+  "utc": "2026-10-26T08:43:18.993228+00:00",
+  "status": "pass",
+  "stdout": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/stdout",
+  "stderr": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/stderr",
+  "reference_unchanged": true
+}

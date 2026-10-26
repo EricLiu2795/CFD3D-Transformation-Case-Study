@@ -1,0 +1,1169 @@
+{
+  "schema": "case-study-original-evidence-index-v1",
+  "original_experiment": "/home/junkun/genesis-transform-experiment",
+  "original_verified_archive_sha256": "d72b566d7e575a35947b11b4e0cc987eefe4c66a3ecf148c1b067c8fdbcccbc3",
+  "files": [
+    {
+      "destination": "provenance/SM120_COMPATIBILITY.patch",
+      "original": "/home/junkun/genesis-transform-experiment/planning/BUILD_COMPATIBILITY.diff",
+      "sha256": "c8d97bafec4f7cc317beeb07e23bbd3eb60fc7c332ffd8dce775843d170d47e7",
+      "bytes": 847,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/FINAL_SUMMARY.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/FINAL_SUMMARY.md",
+      "sha256": "3b4c327d4eaeceae408f0958e0b3a89624a2bdc35091a7d6cbf5907b5268b493",
+      "bytes": 6742,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/TRANSFORMATION_EXECUTION_REPORT.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/TRANSFORMATION_EXECUTION_REPORT.md",
+      "sha256": "7a59270d897f3ba641985a14983b32683952eb942de5aa78e50f6efca730865d",
+      "bytes": 11679,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/TRANSFORMATION_CHANGELOG.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/TRANSFORMATION_CHANGELOG.md",
+      "sha256": "b05b4d5892a7c9a7286f305445f3a871ecf6f5635d38bbff9aa6a9fded8ae6ca",
+      "bytes": 8813,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/RAW_TRANSFORMATION_VALIDATION.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/RAW_TRANSFORMATION_VALIDATION.md",
+      "sha256": "9e13a74738e4068c866395bccd750eda6c17c460f270f3a93c25a485e9264e05",
+      "bytes": 3184,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/MANUAL_FIXES.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/MANUAL_FIXES.md",
+      "sha256": "433caa07745d4d62975453c9a45d784931ce8dd1873abf9b9988fae880f97e33",
+      "bytes": 4756,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/SCIENTIFIC_EQUIVALENCE_REPORT.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/SCIENTIFIC_EQUIVALENCE_REPORT.md",
+      "sha256": "83c4e0528a5f948cf49195b708de618b84c5cd64de73ae069f1c9e05f6e8681d",
+      "bytes": 6701,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/TRANSFORMER_FEEDBACK.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/TRANSFORMER_FEEDBACK.md",
+      "sha256": "a7d6ad2ecc8c28088f47e9a666112e3e9345b7c63d13f035758184b18ca90126",
+      "bytes": 14949,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/REPRODUCTION.md",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/REPRODUCTION.md",
+      "sha256": "6a3f58dcdbcd4605cedd5e25e67134493acade9c77da3387b79d988acee687cf",
+      "bytes": 10761,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/RESULTS.json",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/RESULTS.json",
+      "sha256": "cae4c648e00f3be1aa3ee7a7252420ae30fd1fb27bd5e1789d9fc5d983a55d5c",
+      "bytes": 15445,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "reports/COST_AUDIT.json",
+      "original": "/home/junkun/genesis-transform-experiment/reports/full-run-001/COST_AUDIT.json",
+      "sha256": "244d99887b53a8045b096ca4d264c17a7d5bba41487f377ce96b0acef42fa894",
+      "bytes": 47408,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/checks/final_check.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/checks/final_check.json",
+      "sha256": "d80d3437b931a2b38bf61fa8ec905f11e05220514cb5dc029b7a6d33b715712b",
+      "bytes": 12840,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/checks/layout_check.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/checks/layout_check.json",
+      "sha256": "1e83568b5980b94c509818de45632056cef6624d23e7a81554b1cb8b9e7b5073",
+      "bytes": 7955,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/checks/plan_check-log.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/checks/plan_check-log.json",
+      "sha256": "dc5903b0f3987ab5c74ba805ac4c2e9b540ac977f5b09c76bb085e04ebd5b8a9",
+      "bytes": 3982,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/checks/plan_check-plan.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/checks/plan_check-plan.json",
+      "sha256": "76d813a3c5ad0e17585929293d51c98c3a6b93bf51083e6b1773c5fa6c7543c2",
+      "bytes": 1528,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/checks/tells_lint-code.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/checks/tells_lint-code.json",
+      "sha256": "87fc71bf4f6849381d85136fc873607a20dd569fe21196f98ff8252811bca341",
+      "bytes": 1283,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/run.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/run.json",
+      "sha256": "a5b1cc782facf5ddf2fccfa4c7bbe6743e4706d71130fbe79c21953d38de5be4",
+      "bytes": 3022,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/testbed.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/testbed.json",
+      "sha256": "fb749758a782f69e76c73c162854a26020bdceb52e288e62ea610251e71b7ed8",
+      "bytes": 2721,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner.json",
+      "sha256": "5b34d38fdd01de4bad3431dcd2013b60229448a33820c4e27d774453f20a50ec",
+      "bytes": 3414,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/CONFIGURATION_RECEIPT.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/CONFIGURATION_RECEIPT.json",
+      "sha256": "e12909663530b67c187bc5bf678fa2669b7c4a5efb6638d562723d4868624898",
+      "bytes": 2718,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/plan.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/plan.json",
+      "sha256": "cf44573dc1a302d3098cbda10d17cd2c46ffd0ae53c9df2887797982c1803178",
+      "bytes": 14322,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/plan.md",
+      "original": "/home/junkun/genesis-transform-experiment/record/plan.md",
+      "sha256": "1129499aff8488bc6faceaceb9b68aa0c7b9629f482c5865db2aad0e835f9202",
+      "bytes": 9878,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/FILE_MAP.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/FILE_MAP.json",
+      "sha256": "ef036f5efcd1340440ca76c81c72aef038d96ddf96a41d0e238b93938a5cf1b7",
+      "bytes": 10124,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/TRANSFORM_LOG.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/TRANSFORM_LOG.json",
+      "sha256": "22aa810de8ba2b714abd50432889a60b90e5c92b76ccd45cd82890b342ba9a57",
+      "bytes": 46550,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/rename/rename_map.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/rename/rename_map.json",
+      "sha256": "a2924563fcc2edfb54c7ac54e2abe2248281fd0ecef8cc112533bcf3af90055e",
+      "bytes": 30290,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/TRANSFORM_LOG.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/TRANSFORM_LOG.json",
+      "sha256": "43ea778e85f8e28c7df03a6a87428cd344d2e77f37f69dd0ce7a706690cbba7b",
+      "bytes": 25200,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/plan.md",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/plan.md",
+      "sha256": "b7e27ebf64fe998c962e0da1d4ba1718d87bf3ae668021be137f10ab967e08b7",
+      "bytes": 6670,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/inventory.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/inventory.json",
+      "sha256": "237819d8ed342d16345c39e714803e93e96103c8f87e71f818b33f948d85abb1",
+      "bytes": 14952,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/moves-1.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/moves-1.json",
+      "sha256": "3bb91d4079509446c9e6d55c1d1723cc44d26cf56ceb82931868dace30658033",
+      "bytes": 14158,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/symbols/verdict-665762f30438.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/symbols/verdict-665762f30438.json",
+      "sha256": "dd821a9353867e5b34665ece97af788ad3fdbcc94e04e35d436fb679a5fc35f6",
+      "bytes": 4484,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/state.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/state.json",
+      "sha256": "023c618d5d5283ecb9a062b5b75a46daf346295651579895cc6b7ce5f3df1da5",
+      "bytes": 5107,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/calls.jsonl",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/calls.jsonl",
+      "sha256": "31ab48d9e6dcba2c5a4426522e2bc65e2d08dd6ca8b46701d5ae3538daa50cdf",
+      "bytes": 7847,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/final.log",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/final.log",
+      "sha256": "ec7f3ce6d0b969b2195b404e60190c51895a8f795a35586f53000e1ca35d217e",
+      "bytes": 5296,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/pass-1.log",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/pass-1.log",
+      "sha256": "dcf31e7480ecccc60014d7d31afbc64e6118088f796796e860243c09d21dcd0f",
+      "bytes": 1642,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/pass-2.log",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/pass-2.log",
+      "sha256": "f256429254e30d884c1a5bf645a45929800017c6559b508ca36f2b878dde49db",
+      "bytes": 1836,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/pass-3.log",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/pass-3.log",
+      "sha256": "6336b00adf59876134afb6e9da38bac8728e5ed1d8ae80c9f8eba2c8a6a2eac9",
+      "bytes": 2072,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/pass-1-fix1.result.md",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/pass-1-fix1.result.md",
+      "sha256": "665728b3bad95a7817fbe3d962e3c2632d256254b2376c7a9476116260395e32",
+      "bytes": 3016,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/pass-2-fix1.result.md",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/pass-2-fix1.result.md",
+      "sha256": "bae8bbea6adebe4a30e4d93d2a513eca098144cd42862bd2e7ba3f6298a40dbc",
+      "bytes": 3099,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/runner/pass-3-fix1.result.md",
+      "original": "/home/junkun/genesis-transform-experiment/record/runner/pass-3-fix1.result.md",
+      "sha256": "517ace4c75a99f29eb2b5e4bd093e15f88a5e86b81c0b31c0d359ff3da67a932",
+      "bytes": 2900,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/session-control/call-002/BOUNDARY_RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/session-control/call-002/BOUNDARY_RESULT.json",
+      "sha256": "67d2d0e2bee0cb1d35bb50fe17573b03cbfb23132c687bcd07f21260cedd856d",
+      "bytes": 87,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/session-control/call-002/native.stdout.json",
+      "original": "/home/junkun/genesis-transform-experiment/session-control/call-002/native.stdout.json",
+      "sha256": "954d54f37de1160f00573f7a3c12ead0524e43f319019ff1af46afa1d1c3f238",
+      "bytes": 1600,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/session-control/call-012/BOUNDARY_RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/session-control/call-012/BOUNDARY_RESULT.json",
+      "sha256": "67d2d0e2bee0cb1d35bb50fe17573b03cbfb23132c687bcd07f21260cedd856d",
+      "bytes": 87,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/session-control/call-012/native.stdout.json",
+      "original": "/home/junkun/genesis-transform-experiment/session-control/call-012/native.stdout.json",
+      "sha256": "5e9f292fa9958c606cac815c28f00f733b520de20b428033234a7c2f078875cc",
+      "bytes": 1580,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/CUDA_SOURCE_COVERAGE.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/CUDA_SOURCE_COVERAGE.json",
+      "sha256": "ff77dfa8d594bdcd15c26317343c1b760bd52b8fa20b08e7991e3bb13a7a0bec",
+      "bytes": 37584,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/CUDA_SOURCE_COVERAGE.md",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/CUDA_SOURCE_COVERAGE.md",
+      "sha256": "4d45378a8f1cef50e4b91a4067ab25429eb2cfa3f837d61a48ce0e27e6ee43ab",
+      "bytes": 5355,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/TARGET_BODY_CHANGE_INVENTORY.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/TARGET_BODY_CHANGE_INVENTORY.json",
+      "sha256": "491b2bf8e99ba12e8541c740ab7e782710fa1442a545b3b879c8d8719c37b8be",
+      "bytes": 4014,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/FULL_FINAL_RESULTS.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/FULL_FINAL_RESULTS.json",
+      "sha256": "4df90aaca2a939f28f985813795f366aef057b69e2f2ade151ad0532c275237f",
+      "bytes": 8380,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/FINAL_NUMERICAL_RESULTS.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/FINAL_NUMERICAL_RESULTS.json",
+      "sha256": "9b95aac4431dc097bf535aac610e04172e4482cea8e7dd30c80ca8b4ce4dd21f",
+      "bytes": 216431,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/API_CALLER_REVIEW.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/API_CALLER_REVIEW.json",
+      "sha256": "37af86f8ae2a42a1fe16b4144b0cdf51af47a9b72f50e21f1ef289c017525100",
+      "bytes": 25605,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/RAW_READBACK_AFTER_EVALUATION.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/RAW_READBACK_AFTER_EVALUATION.json",
+      "sha256": "7c9dc605e4fd839ba23d1924891311a3716673a807f68bb78d651f820fda69e6",
+      "bytes": 286,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/sanitizers/RUN_CONTRACT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizers/RUN_CONTRACT.json",
+      "sha256": "654adf2cc436a41aac163948392298f91cb4e0c051acfc6b78bd72602cb4b376",
+      "bytes": 36889,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-001/sanitizers/SANITIZER_RESULTS.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizers/SANITIZER_RESULTS.json",
+      "sha256": "62bd83d8328b4f6992fda7a85f8452f2b584ec86f1a6440aaf5104ce4a9f9f4c",
+      "bytes": 703562,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-app-001/APPLICATION_RESULTS.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/APPLICATION_RESULTS.json",
+      "sha256": "fc35398b027bed7ac34125a8422612621dc1026780d5a36bc1d1b9ea41967e72",
+      "bytes": 2343,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-app-001/COMMAND.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/COMMAND.json",
+      "sha256": "158b8688ddf3d9e1d9d613a3d178603988a06ebfbd37c741b3e940374265907e",
+      "bytes": 2669,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-app-001/RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/RESULT.json",
+      "sha256": "b794376c2fdff6d42a774e1d7578804e8b155583fc8bf30a99573c30bdffaa02",
+      "bytes": 306,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-app-001/stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/stdout",
+      "sha256": "f0f9713a738f393a49d387199798724ae22d9498ed3b583764b4bc976e262bca",
+      "bytes": 210,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/full-final-app-001/stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/distance/independent-final-001.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/distance/independent-final-001.json",
+      "sha256": "016e92b9b72efd923e125656084fe29a5aa9174539fe09725895ec7e2f290a9a",
+      "bytes": 137568,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/distance/independent-final-001.md",
+      "original": "/home/junkun/genesis-transform-experiment/record/distance/independent-final-001.md",
+      "sha256": "5c845e6e36d050c58dbb645e8378f2e58a9c81b58fe4aa7a1d60124ada2b6f0d",
+      "bytes": 9871,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/independent-distance-001/COMMAND.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/independent-distance-001/COMMAND.json",
+      "sha256": "c956c814340943b7a23526933fbcaf4379438a9c92f8c5081ce4219e826369fa",
+      "bytes": 553,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/independent-distance-001/RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/independent-distance-001/RESULT.json",
+      "sha256": "d9521403888714d53e5e0f5815695078a33218ded3808f8f520a318835e60cdd",
+      "bytes": 161,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/provenance/S11/compile-6eff0a6e04.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/provenance/S11/compile-6eff0a6e04.json",
+      "sha256": "58ab67b9d778e2c70be69741fadeb64f0455d1d09cda5a89b222e43ad2adf6e6",
+      "bytes": 739,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/provenance/S3/compile-af7af1f8d1.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/provenance/S3/compile-af7af1f8d1.json",
+      "sha256": "0953df0fd4125bf119d44bb36dec0952cd514c2c058299fb7d7f5ee77ccfc471",
+      "bytes": 1105,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/provenance/I1/compile-a21fb907b7.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/provenance/I1/compile-a21fb907b7.json",
+      "sha256": "c69e07e9e1dd70b29cccdf76e5ecd6ac82443ee9fa9ec957b5e5c9fee47cc1d8",
+      "bytes": 3744,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/public/abi-freeze.txt",
+      "original": "/home/junkun/genesis-transform-experiment/public/abi-freeze.txt",
+      "sha256": "3b0762b0f0b440e87ab98ce635ca9ab23fa0351256614922e0c1fd80e975f267",
+      "bytes": 341,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/public/testbed.py",
+      "original": "/home/junkun/genesis-transform-experiment/public/testbed.py",
+      "sha256": "b73d06374c34bf2b03d95545e9d7a589426977e8defb34fb6d0189c7f64b2ee7",
+      "bytes": 17474,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/continuations/nogen-hook-recovery-001/testbed.py",
+      "original": "/home/junkun/genesis-transform-experiment/continuations/nogen-hook-recovery-001/testbed.py",
+      "sha256": "0040d996dccbc399eeb7f1df22c5cff74a9012dfcb34f868862b57f40a3c99c4",
+      "bytes": 17525,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/RAW_TRANSFORMER_OUTPUT_LIVE_006/RAW_STATUS.json",
+      "original": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/RAW_STATUS.json",
+      "sha256": "1a4c36fa05cf776f7bd793c84d625d86d4e096cb69be6a51f4577fe8bcbc7de9",
+      "bytes": 446,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/RAW_TRANSFORMER_OUTPUT_LIVE_006/READBACK.json",
+      "original": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/READBACK.json",
+      "sha256": "3d3cd9e18e081b0e299a1ac10e4516d2b9a6f24814f99bf8122a83013bb61f41",
+      "bytes": 146,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/RAW_TRANSFORMER_OUTPUT_LIVE_006/git-history.txt",
+      "original": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/git-history.txt",
+      "sha256": "5d9347a2850b2c8cc902a992a92b04764a2a6a345554b29e689e6439f21729ee",
+      "bytes": 44814,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/RAW_TRANSFORMER_OUTPUT_LIVE_006/changed-paths.txt",
+      "original": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/changed-paths.txt",
+      "sha256": "56bee2fa73442c0c7b512cba50d16502d747b8c5d0b5b1511e58c3852be089d7",
+      "bytes": 4802,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/RESULT.json",
+      "sha256": "5297b4246170ccafabdd83bcb89dc84f303217daf7be69b68192e3ccab5fef52",
+      "bytes": 20677,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/SHA256.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/SHA256.json",
+      "sha256": "1f3566d239a69f9aec218dd2d20c684fa763a1c2ce5d9ef159fdc456ad682e1b",
+      "bytes": 648,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/cmake-diff.patch",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/cmake-diff.patch",
+      "sha256": "c8d97bafec4f7cc317beeb07e23bbd3eb60fc7c332ffd8dce775843d170d47e7",
+      "bytes": 847,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/history.txt",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/history.txt",
+      "sha256": "cb8cbf0823023af538fca53444098f2d58335be9826e186c72de69a682ba4788",
+      "bytes": 2535,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/layout-to-final-stat.txt",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/layout-to-final-stat.txt",
+      "sha256": "54737ac600b9cca5a80a98775cf9e8b69f258f4d6bfe55c3f160f9a3b7370c62",
+      "bytes": 3037,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/semantic-diff.patch",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/semantic-diff.patch",
+      "sha256": "033c78db51ad2bbb485e358ce457aa05ac7b1d1c92260693a76b56116fe2b18b",
+      "bytes": 174858,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/upstream-name-status.txt",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/upstream-name-status.txt",
+      "sha256": "ab2f1bae30ebc969f4a87f049b24fd334dea5daff6ef252a981f56306e243ce5",
+      "bytes": 4820,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/final-structure-inventory-001/upstream-shortstat.txt",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/final-structure-inventory-001/upstream-shortstat.txt",
+      "sha256": "3e9a6cc782eb2b476a098757e2989783af53dd8ee0abad6fa85c699322fa0017",
+      "bytes": 59,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/AUDIT.md",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/AUDIT.md",
+      "sha256": "e339bfed05664bf165d81ba721fd0369ec803670760238354019541c9a108c56",
+      "bytes": 6499,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/EVIDENCE.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/EVIDENCE.json",
+      "sha256": "cc1aa16f1a8780036ce4e27b99fef6762c581d5c0d2f080c76544d1b4b125bf1",
+      "bytes": 12403,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/FUTURE_CONFIG_PROPOSAL.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/FUTURE_CONFIG_PROPOSAL.json",
+      "sha256": "bb0ef2361d7fe7711bda66f8aac41c777e354c1ad615836fd344c1259cf26d69",
+      "bytes": 776,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/READBACK.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/READBACK.json",
+      "sha256": "8822f8e07a67144b2c9d6d997d84d900265c8678797edb19140455db693e72a2",
+      "bytes": 400,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/SHA256.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/SHA256.json",
+      "sha256": "6fa3f1aabae0ae1030858f6c6f030bbc816aed39f19bc33df8f473924f050a00",
+      "bytes": 2386,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/CMakeLists.frozen.txt",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/CMakeLists.frozen.txt",
+      "sha256": "f8453225cf645b7943fcc7a013050f9fb6e7833a9fe3b9fdcc0da3e3884aa776",
+      "bytes": 7767,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/RAW005_INDEXED_BUILD_OUTPUTS.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/RAW005_INDEXED_BUILD_OUTPUTS.json",
+      "sha256": "6096e1fb6352aae5b3e664c9e93cb2d848727d86ff5bf12cc8628551e8324a9c",
+      "bytes": 411967,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/S11.compile.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/S11.compile.json",
+      "sha256": "58ab67b9d778e2c70be69741fadeb64f0455d1d09cda5a89b222e43ad2adf6e6",
+      "bytes": 739,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/S3.compile.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/S3.compile.json",
+      "sha256": "0953df0fd4125bf119d44bb36dec0952cd514c2c058299fb7d7f5ee77ccfc471",
+      "bytes": 1105,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cpu-reference/boundary_conditions.cpp.o.d",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cpu-reference/boundary_conditions.cpp.o.d",
+      "sha256": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f",
+      "bytes": 8357,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cpu-reference/build.make",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cpu-reference/build.make",
+      "sha256": "719c642a627b245fa2ab628d4cc49a9df93026f70eb715b1fed81fb16c59e7f3",
+      "bytes": 48323,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cpu-reference/compile_commands.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cpu-reference/compile_commands.json",
+      "sha256": "74a47977b6f373432a290ead8bf290812c3df14d65ab53011b61b542e6bf11cf",
+      "bytes": 16027,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cuda-fma/boundary_conditions.cpp.o.d",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cuda-fma/boundary_conditions.cpp.o.d",
+      "sha256": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f",
+      "bytes": 8357,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cuda-fma/build.make",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cuda-fma/build.make",
+      "sha256": "3c3a3b16be348f82391743079bf8dd1817a4998046555b7473bb8fa449eda536",
+      "bytes": 64680,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cuda-fma/compile_commands.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cuda-fma/compile_commands.json",
+      "sha256": "07fc90ed51c7257c52ed38f70e4a650138b1c3d5f8a57a1726c6cbc7a557aa5b",
+      "bytes": 25567,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cuda-no-fma/boundary_conditions.cpp.o.d",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cuda-no-fma/boundary_conditions.cpp.o.d",
+      "sha256": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f",
+      "bytes": 8357,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cuda-no-fma/build.make",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cuda-no-fma/build.make",
+      "sha256": "712fbba9814919727b84ce939651eb1b1b3aa60b2088814a51fa91a648a07538",
+      "bytes": 64788,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/cuda-no-fma/compile_commands.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/cuda-no-fma/compile_commands.json",
+      "sha256": "8c0625232af8d13c19b10fa834161bdc8b1674d32ecda45e5118361eb93c9725",
+      "bytes": 25659,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/static-coverage-diagnosis-001/inputs/testbed.frozen.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/static-coverage-diagnosis-001/inputs/testbed.frozen.json",
+      "sha256": "fb749758a782f69e76c73c162854a26020bdceb52e288e62ea610251e71b7ed8",
+      "bytes": 2721,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/AUDIT.md",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/AUDIT.md",
+      "sha256": "0bf7a98f7c628f5868631d4ab8e63a7eaa70b9e465007f375c6cab4d317d351c",
+      "bytes": 5112,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/RESULT.json",
+      "sha256": "1a063b18f776628248040a0fdd4340eb383b3340ece900cbc63262ca00cc1a38",
+      "bytes": 1502,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/STUB_MAPPING.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/STUB_MAPPING.json",
+      "sha256": "1ac216fcc66ee6e2a814fef27b972522532037b8bf2946297a672caaa30de96c",
+      "bytes": 11874,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/DESTRUCTOR_PROOF.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/DESTRUCTOR_PROOF.json",
+      "sha256": "f86d577ef351ba00db1af59fff612da236faff7d0af6b947af081863f276d49d",
+      "bytes": 4902,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/INPUTS_SHA256.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/INPUTS_SHA256.json",
+      "sha256": "a4aafb0c013c2cd1b8a5a05f91ac7c4a53f5a508ac876811d8d04b158c83f4b7",
+      "bytes": 4179,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/FILES_SHA256",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/FILES_SHA256",
+      "sha256": "ade7ffad4741d3654c26ffcf72774ff559ff878b1571f360b4d53b2a5c0a86b5",
+      "bytes": 5161,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-demangled.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-demangled.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-demangled.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-demangled.stdout",
+      "sha256": "39ae5f84d15ea96ddc8073fc0269796fa4f9308c1f337ba06987468a7e767924",
+      "bytes": 28512,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-raw.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-raw.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-raw.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-baseline-raw.stdout",
+      "sha256": "212d7d74c16dd2cb1c71353dd0c166cc8d18968ddf9d3f44d667ecf89d915736",
+      "bytes": 15588,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-head-demangled.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-head-demangled.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-head-demangled.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-head-demangled.stdout",
+      "sha256": "1a31e2c9e924a4c852c798157d90d5f5fc5323873f86355c3b5bf4bdf9fecc6d",
+      "bytes": 28526,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-head-raw.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-head-raw.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cpu-reference-head-raw.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cpu-reference-head-raw.stdout",
+      "sha256": "78841ca12de02601393566e0a4c09166f9fb2ef95d1abb26b909e8930204f236",
+      "bytes": 15597,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-demangled.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-demangled.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-demangled.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-demangled.stdout",
+      "sha256": "6d6272a1d8979abdecd9f65e250e834fe44710295fb2b2b1d0e25192e4cc9a08",
+      "bytes": 113776,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-raw.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-raw.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-raw.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-baseline-raw.stdout",
+      "sha256": "291a97578061533154561b51f300579737f3941f9be7e26200eebcf3c0720b8c",
+      "bytes": 98501,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-head-demangled.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-head-demangled.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-head-demangled.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-head-demangled.stdout",
+      "sha256": "03aac923167186f672be2bc30b258c42c0dd74fddeee918caa351c7252e486c7",
+      "bytes": 113825,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-head-raw.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-head-raw.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-fma-head-raw.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-fma-head-raw.stdout",
+      "sha256": "87b361d57c193bba383b96508f8a3794fffc8ad8b864633b22e97debd38fea2b",
+      "bytes": 98535,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-demangled.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-demangled.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-demangled.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-demangled.stdout",
+      "sha256": "1dca851a98a2085b646e4d6a1b266b99237715fe3451765120577ea84081ffdd",
+      "bytes": 113776,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-raw.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-raw.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-raw.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-baseline-raw.stdout",
+      "sha256": "bb62978659beb8fd62acce93f1e884c5660fa77a40ef550728e70154ef119a82",
+      "bytes": 98501,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-demangled.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-demangled.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-demangled.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-demangled.stdout",
+      "sha256": "77889e6bc03f9b80d99ac44d8fdb97476a8ccd66c3e41f5a7bf061a18a1fce76",
+      "bytes": 113825,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-raw.stderr",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-raw.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-raw.stdout",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/layout-symbol-explanation-001/cuda-no-fma-head-raw.stdout",
+      "sha256": "55e3e0ec5914af8f03a6b8bf1b8c7803a0d8d2a5dec3526b9664c541f60395ba",
+      "bytes": 98535,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/symbols/base/cpu-reference.nm",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/symbols/base/cpu-reference.nm",
+      "sha256": "f1ca5f0d70b37b3e223942e48f9c727ab089eb015ab9415d70b9e41b80a93736",
+      "bytes": 23518,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/symbols/base/cpu-reference.tus",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/symbols/base/cpu-reference.tus",
+      "sha256": "e200b134e13987331e304ac97bae93e74f713fb298b14c4721727df809f66983",
+      "bytes": 666,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/symbols/base/cuda-fma.nm",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/symbols/base/cuda-fma.nm",
+      "sha256": "2e4270900db2df03261f0f1173ee3a110eb84db3d1f3c646341ff84a56308159",
+      "bytes": 87083,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/symbols/base/cuda-fma.tus",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/symbols/base/cuda-fma.tus",
+      "sha256": "ddebd73872205cbbc8846ecbc0462c1ee1c398e9a235284eb36cfbf5dbbfec2d",
+      "bytes": 843,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/symbols/base/cuda-no-fma.nm",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/symbols/base/cuda-no-fma.nm",
+      "sha256": "2e4270900db2df03261f0f1173ee3a110eb84db3d1f3c646341ff84a56308159",
+      "bytes": 87083,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/layout/symbols/base/cuda-no-fma.tus",
+      "original": "/home/junkun/genesis-transform-experiment/record/layout/symbols/base/cuda-no-fma.tus",
+      "sha256": "ddebd73872205cbbc8846ecbc0462c1ee1c398e9a235284eb36cfbf5dbbfec2d",
+      "bytes": 843,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S11-original-001/SOURCE.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S11-original-001/SOURCE.json",
+      "sha256": "94e1c43037b6f9c2d3af1322b1f5c722517236c3100c7cc9c149bdfa30505bc5",
+      "bytes": 478,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S11-original-001/bad-commit.patch",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S11-original-001/bad-commit.patch",
+      "sha256": "144dd24f5bb19522eabe36538b31d8316db37ae13d2393c5a170d5c18dbca4ed",
+      "bytes": 926,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S11-original-001/batch.diff",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S11-original-001/batch.diff",
+      "sha256": "5678a80d4a009741f16346ff5d80611d1fd51694c2d6e29e4b396450ff708fc2",
+      "bytes": 63249,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S11-original-001/check.log",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S11-original-001/check.log",
+      "sha256": "371c465128b995e40647de4a40a36b331cfb059b4d91069b9739ab0912832291",
+      "bytes": 273,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S11-build-diagnostics-001/logs/RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S11-build-diagnostics-001/logs/RESULT.json",
+      "sha256": "b6e8671530d9d2fb58cca8d8233e2430e071fc9d5b79557492bb281cd9be11eb",
+      "bytes": 1294,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S11-build-diagnostics-001/logs/cuda-fma-build.log",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S11-build-diagnostics-001/logs/cuda-fma-build.log",
+      "sha256": "cf8441b8b52a393631932c3475388b3c7663020c1ff867207700cadd77a11b81",
+      "bytes": 33470,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S3-original-001/SOURCE.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S3-original-001/SOURCE.json",
+      "sha256": "2054ac7956b85c5bbdf1624ed45c3ef5f1ce75033f614e6d359e42293266c996",
+      "bytes": 660,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S3-original-001/bad-commit.patch",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S3-original-001/bad-commit.patch",
+      "sha256": "0804e47db77de8b52bfbb693fc98fe39b04a34e74c53b23725ab26b349926b31",
+      "bytes": 7708,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S3-original-001/batch.diff",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S3-original-001/batch.diff",
+      "sha256": "48c1a9cf33c7a9507a0b80073eed43712dd8593b5d609ee615a4662074dba34c",
+      "bytes": 56911,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S3-original-001/check.log",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S3-original-001/check.log",
+      "sha256": "94c3ad27534fcf8065c8b77ab3214d9d13d1afd2c60c9acc5e9cba8ff1c21bbd",
+      "bytes": 278,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S3-original-001/logs/RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S3-original-001/logs/RESULT.json",
+      "sha256": "f58877310d3c5b875d70839cfbc4fd456076e978289a30a405c4924297a0c316",
+      "bytes": 1283,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/S3-original-001/logs/cpu-reference-build.log",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/S3-original-001/logs/cpu-reference-build.log",
+      "sha256": "8039a94537e9765efdad6e4a0465c42d9bb7a592fbc74b649241c832d5045dd2",
+      "bytes": 10576,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/I1-original-001/SOURCE.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/I1-original-001/SOURCE.json",
+      "sha256": "eab13d05eacc1d0769368202eea70532e8fae964183f5fa9ddd7790998cb859b",
+      "bytes": 620,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/I1-original-001/bad-commit.patch",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/I1-original-001/bad-commit.patch",
+      "sha256": "0b1797c21818ce8be6657f7ce66e9ce292d32d71ba2a4f342f194395888f52dc",
+      "bytes": 20676,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/I1-original-001/batch.diff",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/I1-original-001/batch.diff",
+      "sha256": "e5f446a99d1b15c31d48ae8fe4965887c1a35c6417939bb7f87fb27712204c0e",
+      "bytes": 94717,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/I1-original-001/check.log",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/I1-original-001/check.log",
+      "sha256": "4bcf594b088c2af3b2acdb06ab13dee3f4ea0a214a82ef2b10b2fb9f6045ba55",
+      "bytes": 278,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/I1-original-001/logs/RESULT.json",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/I1-original-001/logs/RESULT.json",
+      "sha256": "e1db4d7de14e19f455c8b37a4ed237e2e660303a9adde580b48e929abe6b8fb7",
+      "bytes": 2537,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/evaluation/transform-failures/I1-original-001/logs/cpu-reference-build.log",
+      "original": "/home/junkun/genesis-transform-experiment/evaluation/transform-failures/I1-original-001/logs/cpu-reference-build.log",
+      "sha256": "14e7478e2e40d79bbc6a8f8f2e3768f1bf8d6433dd4f8419326d211e2bd2121c",
+      "bytes": 18765,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-1/tests.jsonl",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-1/tests.jsonl",
+      "sha256": "c189ce379e54d3727eb168de06806587592a45b99ba24f7212da55931fca6ea1",
+      "bytes": 11104,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-1/check-a3ec92ae49.log",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-1/check-a3ec92ae49.log",
+      "sha256": "1b1408e58d0eee6a3ce518dc0a7144227580df7e461b8c7be724fa0bac99bf15",
+      "bytes": 190,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-1/compile-a3ec92ae49.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-1/compile-a3ec92ae49.json",
+      "sha256": "c0b17a276befe083e7cd6f71d0e53b16c897166d0645816050ba8565b06615e0",
+      "bytes": 2596,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-2/tests.jsonl",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-2/tests.jsonl",
+      "sha256": "1cbea0bde6bf204c11875bbbf2748679ba3ed2a2950b5eb4ee2444143dd84157",
+      "bytes": 21912,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-2/check-aaa10078a5.log",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-2/check-aaa10078a5.log",
+      "sha256": "624c1319a211b3c128c9c28f034bb795f97edf4e0b82b6a6b0573311b0d76ccd",
+      "bytes": 190,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-2/compile-aaa10078a5.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-2/compile-aaa10078a5.json",
+      "sha256": "2cc3f983bb950a0965fd9bbbd0f7c587fa27d4802b42b1b1f43d4a1c264a386c",
+      "bytes": 2632,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-3/tests.jsonl",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-3/tests.jsonl",
+      "sha256": "e02b32b13b8589cab9266ba0e6d28f9406ff63712a2a7c995e29753b9b1fdb6e",
+      "bytes": 49353,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-3/check-fc82bc131f.log",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-3/check-fc82bc131f.log",
+      "sha256": "478841ec14165b416f6c70eeef0b1c4fb57f98ea2136c43c19b1404580a92e42",
+      "bytes": 190,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/record/verify/pass-3/compile-fc82bc131f.json",
+      "original": "/home/junkun/genesis-transform-experiment/record/verify/pass-3/compile-fc82bc131f.json",
+      "sha256": "3022ca5787dbd7df4657b1c1ae8ac412337ba9e47c8d669840d68d2f52ab1afe",
+      "bytes": 7316,
+      "copy": "exact verified archived evidence"
+    },
+    {
+      "destination": "diagnostics/automatic-repairs/S11-official-repair.patch",
+      "original": "git show a3ec92ae49cadf025381b350f9981f88a5a1f48d",
+      "source_repository": "/home/junkun/genesis-transform-experiment/worktree",
+      "commit": "a3ec92ae49cadf025381b350f9981f88a5a1f48d",
+      "sha256": "80a7351f9db349174a83366d90d6786a5870c95511ae4fd3b907ce2f2bcda808",
+      "bytes": 1136,
+      "copy": "read-only Git evidence export; not new repair"
+    },
+    {
+      "destination": "diagnostics/automatic-repairs/S3-official-repair.patch",
+      "original": "git show aaa10078a56a74cb5076b1088a99e8c513800555",
+      "source_repository": "/home/junkun/genesis-transform-experiment/worktree",
+      "commit": "aaa10078a56a74cb5076b1088a99e8c513800555",
+      "sha256": "ccecaf29cc0a43b6fdaf1857d5a5fa4711325098a7e2b37af50b868d04ad2a0a",
+      "bytes": 1194,
+      "copy": "read-only Git evidence export; not new repair"
+    },
+    {
+      "destination": "diagnostics/automatic-repairs/I1-official-repair.patch",
+      "original": "git show fc82bc131faa1922769fd501cf3e83779af1dc1c",
+      "source_repository": "/home/junkun/genesis-transform-experiment/worktree",
+      "commit": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+      "sha256": "6a94145e3ddf0032e2f4a14ec8b0f303c368c1633410cb3e2cce8db36e0eee15",
+      "bytes": 1301,
+      "copy": "read-only Git evidence export; not new repair"
+    },
+    {
+      "destination": "diagnostics/source-diff/before-to-after.patch",
+      "original": "git diff --no-index before after",
+      "sha256": "1dba2efa378475aa1bd42d5d8ef87df778aba14d9b9f9abd64dc852c842d4b7b",
+      "bytes": 996730,
+      "copy": "package-only comparison"
+    }
+  ],
+  "unchanged_original_copies": true
+}

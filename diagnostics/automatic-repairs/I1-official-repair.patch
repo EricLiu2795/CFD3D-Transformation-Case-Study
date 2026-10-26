@@ -1,0 +1,26 @@
+commit fc82bc131faa1922769fd501cf3e83779af1dc1c
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 04:13:16 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 04:13:16 2026 -0400
+
+    Convert remaining trajectory feature call to the sampling grid struct
+    
+    The boundary-exit branch in integrateFlowlineParticle still passed the
+    individual grid parameters to appendTrajectoryFeatures, which now takes a
+    SamplingGrid descriptor. Build the descriptor at that call site too so the
+    code compiles.
+
+diff --git a/src/ParticleTracer/streamline_tracer.cpp b/src/ParticleTracer/streamline_tracer.cpp
+index 4c0805a..99e91f3 100644
+--- a/src/ParticleTracer/streamline_tracer.cpp
++++ b/src/ParticleTracer/streamline_tracer.cpp
+@@ -35,7 +35,7 @@ void integrateFlowlineParticle(
+                 }
+                 activePath.positions.emplace_back(boundaryWalkerPosition);
+                 appendTrajectoryFeatures(
+-                        activePath, domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz, U, V, W, P, T);
++                        activePath, {domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz}, U, V, W, P, T);
+             }
+             break;
+         }

@@ -1,0 +1,25 @@
+
+$ python3 /home/junkun/genesis-transform-experiment/tools/anonymous/batch.py verify --run /home/junkun/genesis-transform-experiment/record/run.json pass-3 --base aaa10078a
+FAIL by check: first bad commit 2684aef611 "Group related parameters into descriptor structs"; last good 163560ff8c
+  log: /home/junkun/genesis-transform-experiment/record/verify/pass-3/check-923e70fa91.log
+
+$ python3 /home/junkun/genesis-transform-experiment/tools/anonymous/batch.py verify --run /home/junkun/genesis-transform-experiment/record/run.json pass-3 --base aaa10078a
+PASS 12 commits by check
+
+$ python3 /home/junkun/genesis-transform-experiment/tools/anonymous/plan_check.py --run /home/junkun/genesis-transform-experiment/record/run.json log
+[ok  ] plan.menu                82 kept entries; menu S7,S11,S2,S3,S1,S4,P1,S5,R4,R1,R3,I1,I2,I3,I4,I5,I6,I7,S8
+[ok  ] plan.cap                 92 functions, most 4 instances, cap 7
+[ok  ] plan.frozen-touch        26 commits, 0 frozen touches
+[ok  ] plan.pinned-touch        8 pinned symbols, 0 changes
+[warn] plan.log-covers-diff     187 changed functions in 18 pass commits, 2 not in the log
+         src/CfdSolver/serial/poisson_sor.cpp:8 symbol=relaxSolverSweepCpp commit=fe7d9da899 changed by the pass commit, named by none of its kept entries
+         src/ParticleTracer/trajectory_output.cpp:276 symbol=appendTrajectoryFeatures commit=2684aef611 changed by the pass commit, named by none of its kept entries
+[ok  ] plan.distribution        82 instances: S2 10, P1 8, I2 8, I1 7, S4 6, R3 5, I5 5, S5 4, R1 4, I6 4, S7 3, S1 3, I3 3, I4 3, I7 3, S8 3, S3 2, R4 1
+VERDICT WARN  (report: /home/junkun/genesis-transform-experiment/record/checks/plan_check-log.json)
+
+$ python3 /home/junkun/genesis-transform-experiment/tools/anonymous/gates.py --run /home/junkun/genesis-transform-experiment/record/run.json 
+[ok  ] gates.include            ok
+[ok  ] gates.strings            ok
+[ok  ] gates.argparse           ok
+[ok  ] gates.defines            ok
+VERDICT PASS  (report: /home/junkun/genesis-transform-experiment/record/checks/gates.json)

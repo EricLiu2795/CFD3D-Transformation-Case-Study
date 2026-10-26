@@ -1,0 +1,9 @@
+{
+  "upstream-shortstat.txt": "3e9a6cc782eb2b476a098757e2989783af53dd8ee0abad6fa85c699322fa0017",
+  "upstream-name-status.txt": "ab2f1bae30ebc969f4a87f049b24fd334dea5daff6ef252a981f56306e243ce5",
+  "history.txt": "cb8cbf0823023af538fca53444098f2d58335be9826e186c72de69a682ba4788",
+  "RESULT.json": "5297b4246170ccafabdd83bcb89dc84f303217daf7be69b68192e3ccab5fef52",
+  "semantic-diff.patch": "033c78db51ad2bbb485e358ce457aa05ac7b1d1c92260693a76b56116fe2b18b",
+  "layout-to-final-stat.txt": "54737ac600b9cca5a80a98775cf9e8b69f258f4d6bfe55c3f160f9a3b7370c62",
+  "cmake-diff.patch": "c8d97bafec4f7cc317beeb07e23bbd3eb60fc7c332ffd8dce775843d170d47e7"
+}

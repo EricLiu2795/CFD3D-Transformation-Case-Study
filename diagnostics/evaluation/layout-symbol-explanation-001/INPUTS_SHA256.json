@@ -1,0 +1,33 @@
+{
+  "after": {
+    "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/cpu-reference/cfd3d": "7202fb52ea7f16412c03f3aa888bbb278c2a5631aca253df3786aeb7150992b3",
+    "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/cuda-fma/cfd3d": "dd4d37b9a1783ec0cb9003b5546680a7506fd47674fb76c7a90316ba1c0e65dd",
+    "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/cuda-no-fma/cfd3d": "63ba9cc26b9d4732d60689e0b15a0dcec967308c34ed52137b9cf2c12fc45e49",
+    "/home/junkun/genesis-transform-experiment/evaluation/layout-admission-001/BASELINE_INTEGRITY.json": "ad2d80d3778b0a42bc2eabaa6b81809e6528e53f7656ef6875a7b0ff751d0582",
+    "/home/junkun/genesis-transform-experiment/evaluation/layout-admission-001/LAYOUT_CHECK.json": "b97b693227e0aac9cec209d3acd545322ce39efc577aaf4119255983613d83f6",
+    "/home/junkun/genesis-transform-experiment/record/FILE_MAP.json": "ef036f5efcd1340440ca76c81c72aef038d96ddf96a41d0e238b93938a5cf1b7",
+    "/home/junkun/genesis-transform-experiment/record/rename/rename_map.json": "a2924563fcc2edfb54c7ac54e2abe2248281fd0ecef8cc112533bcf3af90055e",
+    "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/cfd3d": "e40097a235c3664c9f7500a81b66058e7d4ee6c95cf5da83a749dbe764f1324c",
+    "/home/junkun/genesis-transform-experiment/record/work/cuda-fma/cfd3d": "082f30ea17fd9a102974eb93eda094fa9eb6397c41c28c6d40487d2be73aa9b5",
+    "/home/junkun/genesis-transform-experiment/record/work/cuda-no-fma/cfd3d": "b45800711f9b7c6c511cd1afd4b81b762ccfecfaf86c305110aa6006571b3d55",
+    "/home/junkun/genesis-transform-experiment/tools/anonymous/layout_check.py": "65d38c191bf65924250b1c6c0570cf7184d233d93b6a7658dd15bacc15c7db72",
+    "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/solver_interface.cpp": "a28aaea1166de9cf7697ad06c0a3b78174b14ced922e12546c6612268089a4dc",
+    "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/solver_interface.hpp": "b1100e3ea73d7ced53e4ecb69152b97d4fc105526f95a34593269226a3bee140"
+  },
+  "before": {
+    "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/cpu-reference/cfd3d": "7202fb52ea7f16412c03f3aa888bbb278c2a5631aca253df3786aeb7150992b3",
+    "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/cuda-fma/cfd3d": "dd4d37b9a1783ec0cb9003b5546680a7506fd47674fb76c7a90316ba1c0e65dd",
+    "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/cuda-no-fma/cfd3d": "63ba9cc26b9d4732d60689e0b15a0dcec967308c34ed52137b9cf2c12fc45e49",
+    "/home/junkun/genesis-transform-experiment/evaluation/layout-admission-001/BASELINE_INTEGRITY.json": "ad2d80d3778b0a42bc2eabaa6b81809e6528e53f7656ef6875a7b0ff751d0582",
+    "/home/junkun/genesis-transform-experiment/evaluation/layout-admission-001/LAYOUT_CHECK.json": "b97b693227e0aac9cec209d3acd545322ce39efc577aaf4119255983613d83f6",
+    "/home/junkun/genesis-transform-experiment/record/FILE_MAP.json": "ef036f5efcd1340440ca76c81c72aef038d96ddf96a41d0e238b93938a5cf1b7",
+    "/home/junkun/genesis-transform-experiment/record/rename/rename_map.json": "a2924563fcc2edfb54c7ac54e2abe2248281fd0ecef8cc112533bcf3af90055e",
+    "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/cfd3d": "e40097a235c3664c9f7500a81b66058e7d4ee6c95cf5da83a749dbe764f1324c",
+    "/home/junkun/genesis-transform-experiment/record/work/cuda-fma/cfd3d": "082f30ea17fd9a102974eb93eda094fa9eb6397c41c28c6d40487d2be73aa9b5",
+    "/home/junkun/genesis-transform-experiment/record/work/cuda-no-fma/cfd3d": "b45800711f9b7c6c511cd1afd4b81b762ccfecfaf86c305110aa6006571b3d55",
+    "/home/junkun/genesis-transform-experiment/tools/anonymous/layout_check.py": "65d38c191bf65924250b1c6c0570cf7184d233d93b6a7658dd15bacc15c7db72",
+    "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/solver_interface.cpp": "a28aaea1166de9cf7697ad06c0a3b78174b14ced922e12546c6612268089a4dc",
+    "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/solver_interface.hpp": "b1100e3ea73d7ced53e4ecb69152b97d4fc105526f95a34593269226a3bee140"
+  },
+  "unchanged": true
+}

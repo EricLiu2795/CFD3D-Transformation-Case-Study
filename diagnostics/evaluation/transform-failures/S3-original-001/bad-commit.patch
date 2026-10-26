@@ -1,0 +1,199 @@
+commit fe7d9da899e9d2c2b33be049750f23131ee9823a
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:01:27 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:01:27 2026 -0400
+
+    Drive stencil neighbour sums from offset tables
+    
+    The pressure and temperature border routines repeated the same six-way
+    block of face tests, each adding or copying the neighbour cell and bumping
+    the neighbour count. Replace those unrolled blocks with a small table of
+    face predicates and their index offsets and iterate over it, so the set of
+    neighbours is stated once. The traversal order and the arithmetic are
+    unchanged.
+
+diff --git a/src/CfdSolver/Mpi/SorSolverMpi.cpp b/src/CfdSolver/Mpi/SorSolverMpi.cpp
+index 864969a..0befd0a 100644
+--- a/src/CfdSolver/Mpi/SorSolverMpi.cpp
++++ b/src/CfdSolver/Mpi/SorSolverMpi.cpp
+@@ -57,6 +57,11 @@ void relaxSolverIterationMpi(
+         }
+     }
+ 
++    static bool (*const faceConnected[])(unsigned int) = {B_R, B_L, B_U, B_D, B_B, B_F};
++    static const int faceDi[] = { 1, -1,  0,  0,  0,  0};
++    static const int faceDj[] = { 0,  0,  1, -1,  0,  0};
++    static const int faceDk[] = { 0,  0,  0,  0, -1,  1};
++
+     for (int i = il; i <= iu; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+@@ -64,34 +69,11 @@ void relaxSolverIterationMpi(
+                 Real P_prev = Real(0);
+ 
+                 if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k + 1)];
+-                        numDirectFlag++;
++                    for (int n = 0; n < 6; n++) {
++                        if (faceConnected[n](Flag[LINFLAG(i, j, k)])) {
++                            P_prev += P[LINP(i + faceDi[n], j + faceDj[n], k + faceDk[n])];
++                            numDirectFlag++;
++                        }
+                     }
+ 
+                     if (numDirectFlag == 0) {
+diff --git a/src/CfdSolver/serial/boundary_conditions.cpp b/src/CfdSolver/serial/boundary_conditions.cpp
+index c87173e..ac5c70f 100644
+--- a/src/CfdSolver/serial/boundary_conditions.cpp
++++ b/src/CfdSolver/serial/boundary_conditions.cpp
+@@ -223,6 +223,19 @@ void assignInternalTBordersCpp(
+         int imax, int jmax, int kmax,
+         Real *T,
+         FlagType *Flag) {
++    struct NeighborTap {
++        bool (*isConnected)(unsigned int);
++        int di, dj, dk;
++    };
++    static const NeighborTap temperatureNeighbors[] = {
++        {B_R,  1,  0,  0},
++        {B_L, -1,  0,  0},
++        {B_U,  0,  1,  0},
++        {B_D,  0, -1,  0},
++        {B_B,  0,  0, -1},
++        {B_F,  0,  0,  1},
++    };
++
+     #pragma omp parallel for
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+@@ -231,34 +244,11 @@ void assignInternalTBordersCpp(
+                 Real T_prev = Real(0);
+ 
+                 if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j, k + 1)];
+-                        numDirectFlag++;
++                    for (const NeighborTap &tap : temperatureNeighbors) {
++                        if (tap.isConnected(Flag[LINFLAG(i, j, k)])) {
++                            T_prev = T[LINT(i + tap.di, j + tap.dj, k + tap.dk)];
++                            numDirectFlag++;
++                        }
+                     }
+ 
+                     if (numDirectFlag == 0) {
+diff --git a/src/CfdSolver/serial/poisson_sor.cpp b/src/CfdSolver/serial/poisson_sor.cpp
+index 99bc70f..706526f 100644
+--- a/src/CfdSolver/serial/poisson_sor.cpp
++++ b/src/CfdSolver/serial/poisson_sor.cpp
+@@ -33,6 +33,19 @@ void relaxSolverSweepCpp(
+         }
+     }
+ 
++    struct NeighborTap {
++        bool (*isConnected)(unsigned int);
++        int di, dj, dk;
++    };
++    static const NeighborTap pressureNeighbors[] = {
++        {B_R,  1,  0,  0},
++        {B_L, -1,  0,  0},
++        {B_U,  0,  1,  0},
++        {B_D,  0, -1,  0},
++        {B_B,  0,  0, -1},
++        {B_F,  0,  0,  1},
++    };
++
+     #pragma omp parallel for shared(imax, jmax, kmax, P, Flag) default(none)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+@@ -41,34 +54,11 @@ void relaxSolverSweepCpp(
+                 Real P_prev = Real(0);
+ 
+                 if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k + 1)];
+-                        numDirectFlag++;
++                    for (const NeighborTap &tap : pressureNeighbors) {
++                        if (tap.isConnected(Flag[LINFLAG(i, j, k)])) {
++                            P_prev += P[LINP(i + tap.di, j + tap.dj, k + tap.dk)];
++                            numDirectFlag++;
++                        }
+                     }
+ 
+                     if (numDirectFlag == 0) {

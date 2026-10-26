@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-26T08:20:47.625296+00:00",
+  "stage": "final-check-failure-after-all-rewrite-groups",
+  "head": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+  "source_status": "",
+  "manual_source_repairs_before_snapshot": false,
+  "full_pipeline_completed": false,
+  "statement": "Exact source produced so far by original official pipeline; any configuration workarounds are documented separately. No manually repaired source substituted."
+}

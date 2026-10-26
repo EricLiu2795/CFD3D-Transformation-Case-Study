@@ -1,0 +1,28 @@
+commit a3ec92ae49cadf025381b350f9981f88a5a1f48d
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 01:33:50 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 01:33:50 2026 -0400
+
+    Allow divCeil to take a differently typed divisor
+    
+    The grid-dimension call sites in the CUDA backend pass an int extent
+    together with an unsigned dim3 component, which the single-parameter
+    template could not deduce. Deduce the result type from the dividend and
+    convert the divisor to it, matching the previous integer semantics.
+
+diff --git a/src/Defines.hpp b/src/Defines.hpp
+index 22c0402..ec7a7a1 100644
+--- a/src/Defines.hpp
++++ b/src/Defines.hpp
+@@ -47,8 +47,8 @@ typedef glm::vec<3, Real, glm::defaultp> fpvec3;
+ #define LINFLAG(i,j,k) ((i)*(jmax+2)*(kmax+2) + (j)*(kmax+2) + (k))
+ 
+ 
+-template <typename T>
+-inline T divCeil(T x, T y) { return (x - 1) / y + 1; }
++template <typename T, typename U>
++inline T divCeil(T x, U y) { return (x - 1) / static_cast<T>(y) + 1; }
+ 
+ #define SUPPRESS_UNUSED(x) ((void)(x))
+ 

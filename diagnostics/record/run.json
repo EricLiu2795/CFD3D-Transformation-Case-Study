@@ -1,0 +1,126 @@
+{
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "record": "/home/junkun/genesis-transform-experiment/record",
+ "testbed": "testbed.json",
+ "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+ "upstream": "5943ae78be7334888b7f7b1f4622f9cf61626a2c",
+ "scope": {
+  "include": [
+   "src/*"
+  ],
+  "exclude": []
+ },
+ "frozen": [
+  "CMakeLists.txt",
+  "CMake/*",
+  "vcpkg.json",
+  "README.md",
+  "LICENSE.txt",
+  "Tasks.txt",
+  ".github/*",
+  ".gitignore",
+  "docs/*",
+  "scenarios/*",
+  "geometry-pgm/*",
+  "tests/*"
+ ],
+ "pinned": [
+  {
+   "symbol": "calculateRsCuda",
+   "kind": "function",
+   "body": "free"
+  },
+  {
+   "symbol": "calculateUvwCuda",
+   "kind": "function",
+   "body": "free"
+  },
+  {
+   "symbol": "calculateTemperatureCuda",
+   "kind": "function",
+   "body": "free"
+  },
+  {
+   "symbol": "calculateFghCuda",
+   "kind": "function",
+   "body": "free"
+  },
+  {
+   "symbol": "calculateDtCuda",
+   "kind": "function",
+   "body": "free"
+  },
+  {
+   "symbol": "setBoundaryValuesCuda",
+   "kind": "function",
+   "body": "free"
+  },
+  {
+   "symbol": "setBoundaryValuesScenarioSpecificCuda",
+   "kind": "function",
+   "body": "free"
+  },
+  {
+   "symbol": "sorSolverCuda",
+   "kind": "function",
+   "body": "free"
+  }
+ ],
+ "patterns": [
+  "S7",
+  "S11",
+  "S2",
+  "S3",
+  "S1",
+  "S4",
+  "P1",
+  "S5",
+  "R4",
+  "R1",
+  "R3",
+  "I1",
+  "I2",
+  "I3",
+  "I4",
+  "I5",
+  "I6",
+  "I7",
+  "S8"
+ ],
+ "layout": [
+  "F1+F2+F7+F9",
+  "F3+F4+F5+F6+F8"
+ ],
+ "cap": 7,
+ "rename_map": [
+  "rename/rename_map.json"
+ ],
+ "rename_words": [
+  "cfd3d"
+ ],
+ "commit": "per-group",
+ "gpu_builds": [
+  "cuda-fma",
+  "cuda-no-fma"
+ ],
+ "gpu_check": "Public application GPU runs compare deterministic within-backend ASCII VTK fields. AFTER RAW, mandatory separate trusted host evaluation must execute all eight unchanged independent FP64 CUDA numerical suites with every required stage, fixture, guard, mask, halo and source-integrity check. No hidden oracle assets are available to transformation agents. Bitwise pristine differential is recorded separately and does not replace the original numerical criterion.",
+ "criterion": "Scientific acceptance requires all eight original independent FP64 phase oracles with their unchanged existing tolerances, full fixture coverage, CUDA execution and preservation criteria. Missing, skipped, empty, unknown or blocked required scientific stages prevent scientific PASS. Public application differential is an additional regression layer. Bitwise differential is separately reported, not substituted for or used to relax scientific acceptance.",
+ "stages": [
+  {
+   "commit": "a3ec92ae49cadf025381b350f9981f88a5a1f48d",
+   "role": "pass",
+   "note": "fix after the pass-1 test"
+  },
+  {
+   "commit": "aaa10078a56a74cb5076b1088a99e8c513800555",
+   "role": "pass",
+   "note": "fix after the pass-2 test"
+  },
+  {
+   "commit": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+   "role": "pass",
+   "note": "fix after the pass-3 test"
+  }
+ ],
+ "clang_budget": "clang/function_budget.json"
+}

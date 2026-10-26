@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ec6ea67..b5ed4ba 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -85,7 +85,9 @@ else()
+         MESSAGE(STATUS "CUDA toolkit version: " ${CUDAToolkit_VERSION})
+         # https://en.wikipedia.org/wiki/CUDA
+         # https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capability
+-        if (${CUDAToolkit_VERSION} VERSION_GREATER_EQUAL "11.1")
++        if(CMAKE_CUDA_ARCHITECTURES)
++            set_property(TARGET cfd3d PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
++        elseif (${CUDAToolkit_VERSION} VERSION_GREATER_EQUAL "11.1")
+             set_property(TARGET cfd3d PROPERTY CUDA_ARCHITECTURES 61 75 86)
+         elseif (${CUDAToolkit_VERSION} VERSION_GREATER_EQUAL "10.0")
+             set_property(TARGET cfd3d PROPERTY CUDA_ARCHITECTURES 61 75)

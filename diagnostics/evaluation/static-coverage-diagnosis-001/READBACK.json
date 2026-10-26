@@ -1,0 +1,9 @@
+{
+  "active_tree_configs_contracts_unchanged": true,
+  "audit_sha256": "e339bfed05664bf165d81ba721fd0369ec803670760238354019541c9a108c56",
+  "files": 22,
+  "no_compiler_transformer_or_model_execution": true,
+  "report_scope": "read-only source/metadata diagnosis; future proposal NOT RUN",
+  "sha256_manifest": "6fa3f1aabae0ae1030858f6c6f030bbc816aed39f19bc33df8f473924f050a00",
+  "status": "pass"
+}

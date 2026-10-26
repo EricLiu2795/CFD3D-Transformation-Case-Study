@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "files_checked": 3446,
+  "mismatches": [],
+  "raw_manifest_sha256": "1512172728ad50d499f2e904590c8efbef9b46d8da3d319d5c1d42b01bd40b6a",
+  "stage": "After960 positive +120 copied-noop +80 paired sanitizer GPU phase evaluations",
+  "original_raw_written": false
+}

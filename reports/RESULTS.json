@@ -1,0 +1,410 @@
+{
+  "schema": "cfd3d-official-full-transformation-result-v1",
+  "generated_utc": "2026-10-26T08:57:58.858403+00:00",
+  "experiment_root": "/home/junkun/genesis-transform-experiment",
+  "classification": "OFFICIAL_FINAL_ACCEPTANCE_FAIL__INDEPENDENT_SCIENTIFIC_VALIDATION_PASS",
+  "pins": {
+    "framework": "f772f81d83f32bf852af335868379d75759681ac",
+    "scientific_upstream": "5943ae78be7334888b7f7b1f4622f9cf61626a2c",
+    "final_transformed_head": "fc82bc131faa1922769fd501cf3e83779af1dc1c"
+  },
+  "official_execution": {
+    "workflow": "runner.py all, supported checkpoint continuation --from pass-1",
+    "official_source_changed": false,
+    "configured_rewrite_groups": 19,
+    "rewrite_batches_completed": 3,
+    "native_sessions": 34,
+    "normal_sessions": 32,
+    "retained_native_errors": [
+      2,
+      12
+    ],
+    "stage_status": {
+      "baseline": "done",
+      "inventory": "done",
+      "words": "done",
+      "cards": "done",
+      "naming": "done",
+      "merge": "done",
+      "apply": "done",
+      "gates": "done",
+      "quick": "done",
+      "validate": "done",
+      "commit": "done",
+      "snapshot": "done",
+      "plan": "done",
+      "layout": "failed",
+      "pass-1": "done",
+      "pass-2": "done",
+      "pass-3": "done",
+      "final": "failed"
+    },
+    "final_check": "fail",
+    "failed_final_checks": [
+      "history.shape",
+      "history.tells",
+      "code.names",
+      "plan.log-covers-diff",
+      "layout.symbols"
+    ],
+    "distance_stage_in_official_pipeline": "NOT_REACHED",
+    "distance_independent_no_paid_analysis": "pass",
+    "llvm_clang_stage": "NOT_RUN_unavailable",
+    "source_repairs_by_human": 0,
+    "generated_code_repairs_by_official_automatic_flow": 3
+  },
+  "coverage": {
+    "source_files_final": 171,
+    "source_files_under_src": 82,
+    "lexical_mapping_pairs": 743,
+    "lexical_function_name_tokens": 201,
+    "renamed_source_paths": 49,
+    "additional_in_place_affected_paths": 33,
+    "layout_record_entries": 48,
+    "definition_reorder_entries": 81,
+    "ordinal_definition_moves": 58,
+    "outlined_members": 3,
+    "semantic_rewrite_log_entries": 85,
+    "literal_kept_entries": 82,
+    "corrected_entries": 3,
+    "actual_cuda_coverage": {
+      "classification": "limited structural CUDA changes",
+      "cuda_translation_units_changed_RAW4_to_RAW6": 1,
+      "detail": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/CUDA_SOURCE_COVERAGE.md",
+      "held_entry_body_changes_RAW4_to_RAW6": 0,
+      "shared_divceil_template": "corrected S11 source retained; not counted as literal-kept but not source-reverted"
+    },
+    "all_8_held_entry_bodies_changed_after_layout": false,
+    "recognition_resistance": "NOT_ESTABLISHED",
+    "distance": {
+      "functions": 241,
+      "token_similarity": 0.964,
+      "AST_similarity": 0.951,
+      "unchanged_fingerprints": 158,
+      "upstream_names_left": 76,
+      "upstream_names_total": 740
+    }
+  },
+  "independent_numerical_validation": {
+    "status": "pass",
+    "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/source",
+    "phases": {
+      "boundary": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 0.0,
+        "max_relative_error_vs_reference": 0.0,
+        "max_ulp_vs_reference": 0,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      },
+      "dt": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 0.0,
+        "max_relative_error_vs_reference": 0.0,
+        "max_ulp_vs_reference": 0,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      },
+      "fgh": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 2.5553163141012192e-08,
+        "max_relative_error_vs_reference": 3.9020020159668407e-13,
+        "max_ulp_vs_reference": 3512,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      },
+      "pressure": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 7.275957614183426e-11,
+        "max_relative_error_vs_reference": 1.2003058338166572e-13,
+        "max_ulp_vs_reference": 768,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      },
+      "rs": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 0.0,
+        "max_relative_error_vs_reference": 0.0,
+        "max_ulp_vs_reference": 0,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      },
+      "scenario": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 0.0,
+        "max_relative_error_vs_reference": 0.0,
+        "max_ulp_vs_reference": 0,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      },
+      "temperature": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 3.720924723893404e-08,
+        "max_relative_error_vs_reference": 5.677680581373511e-13,
+        "max_ulp_vs_reference": 5114,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      },
+      "uvw": {
+        "actual_gpu_evaluations": 120,
+        "complete_outputs_identical_to_pristine": 120,
+        "input_halo_preservation_and_buffer_guards": "pass",
+        "max_absolute_error_vs_reference": 4.440892098500626e-16,
+        "max_relative_error_vs_reference": 1.3298050578358294e-14,
+        "max_ulp_vs_reference": 74,
+        "passed": 120,
+        "required": 120,
+        "source_integrity": "pass",
+        "status": "pass"
+      }
+    },
+    "positive": {
+      "actual_gpu_evaluations": 960,
+      "complete_output_byte_identical_to_pristine": 960,
+      "max_abs_vs_pristine": 0.0,
+      "max_relative_vs_pristine": 0.0,
+      "max_ulp_vs_pristine": 0,
+      "passed": 960,
+      "pristine_comparison": "Diagnostic only; exact identical finite values including identical zeros contribute zero difference",
+      "required": 960,
+      "status": "pass"
+    },
+    "negative_rs_noop": {
+      "actual_gpu_evaluations": 120,
+      "body_only_verified": true,
+      "compilation": "pass",
+      "evaluator_exit": 1,
+      "failed": 120,
+      "first_failure": {
+        "block": [
+          1,
+          1,
+          1
+        ],
+        "byte_identical": false,
+        "errors": [
+          "RS(1, 1, 1): got 18.706129734039667, expected 0; 60 mismatches"
+        ],
+        "fixture": "rs-00",
+        "fma": "true",
+        "max_abs_error": 18.970775653767767,
+        "reduction_block": 32,
+        "returncode": 0,
+        "status": "fail"
+      },
+      "passed": 0,
+      "source_copy_only": true,
+      "status": "rejected_as_required"
+    },
+    "sanitizers": {
+      "actual_gpu_phase_evaluations": 80,
+      "blocked": 0,
+      "explicit_zero_error_hazard_summaries_required": true,
+      "failed": 0,
+      "independent_numerical_readbacks_required": true,
+      "memory_scope": "memcheck and global initcheck all8 phases; synccheck and info racecheck dt/pressure; existing fixture11/block7x3x2/reduction128/both FMA in each condition",
+      "passed": 80,
+      "per_tool_condition": {
+        "initcheck": {
+          "baseline": {
+            "executed": 16,
+            "passed": 16
+          },
+          "transformed": {
+            "executed": 16,
+            "passed": 16
+          }
+        },
+        "memcheck": {
+          "baseline": {
+            "executed": 16,
+            "passed": 16
+          },
+          "transformed": {
+            "executed": 16,
+            "passed": 16
+          }
+        },
+        "racecheck": {
+          "baseline": {
+            "executed": 4,
+            "passed": 4
+          },
+          "transformed": {
+            "executed": 4,
+            "passed": 4
+          }
+        },
+        "synccheck": {
+          "baseline": {
+            "executed": 4,
+            "passed": 4
+          },
+          "transformed": {
+            "executed": 4,
+            "passed": 4
+          }
+        }
+      },
+      "required": 80,
+      "status": "pass"
+    },
+    "source_api_review": {
+      "entries_verified": 8,
+      "method": "Full parameter-token order and actual callers match pristine roles after frozen renaming; not types-only comparison",
+      "new_mapping_required": false,
+      "status": "pass"
+    },
+    "application": {
+      "status": "pass",
+      "fresh_builds": 3,
+      "executed_app_cases": 6,
+      "CPU_cases": 2,
+      "GPU_cases": 4,
+      "rows": [
+        {
+          "build": "cpu-reference",
+          "steps": 1,
+          "vtk_states": 2,
+          "warnings": [],
+          "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cpu-reference-steps1-repeat1.log"
+        },
+        {
+          "build": "cpu-reference",
+          "steps": 2,
+          "vtk_states": 3,
+          "warnings": [],
+          "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cpu-reference-steps2-repeat1.log"
+        },
+        {
+          "build": "cuda-fma",
+          "steps": 1,
+          "vtk_states": 2,
+          "warnings": [],
+          "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-fma-steps1-repeat1.log"
+        },
+        {
+          "build": "cuda-fma",
+          "steps": 2,
+          "vtk_states": 3,
+          "warnings": [],
+          "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-fma-steps2-repeat1.log"
+        },
+        {
+          "build": "cuda-no-fma",
+          "steps": 1,
+          "vtk_states": 2,
+          "warnings": [],
+          "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-no-fma-steps1-repeat1.log"
+        },
+        {
+          "build": "cuda-no-fma",
+          "steps": 2,
+          "vtk_states": 3,
+          "warnings": [],
+          "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-no-fma-steps2-repeat1.log"
+        }
+      ],
+      "reference": {
+        "path": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/public-baseline.json",
+        "sha256": "921afef995980c624859ea110417bffe68bb94f0967bb3bf7cd0faf3792d16ce"
+      },
+      "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/source",
+      "actual_result": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/RESULT.json",
+      "precision_limitation": "ASCII VTK is lossy upstream output; not full FP64 buffers",
+      "comparison": "Encoded finite numeric VTK arrays exactly match immutable original within each backend; noCPU-GPUidentityassumed"
+    },
+    "oracle_fixture_tolerance_changes": false,
+    "human_scientific_source_repairs": false,
+    "tests": {
+      "executed_python": 45,
+      "passed_python": 45,
+      "fixtures_verified": 96,
+      "unchanged_asset_files": 50,
+      "pytest_modules_blocked": [
+        "test_projection.py",
+        "test_controls.py",
+        "test_integrity.py"
+      ]
+    },
+    "scope_limit": "Finite deterministic phase-level evidence plus bounded tiny application regression; not proof of all program semantics, ABI compatibility, long simulations or performance."
+  },
+  "spending": {
+    "pricing_basis": {
+      "uncached_input": 5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10,
+      "cache_read": 0.5,
+      "output_including_thinking": 25
+    },
+    "token_totals": {
+      "input_tokens": 2516,
+      "cache_creation_input_tokens": 3045220,
+      "cache_read_input_tokens": 87513651,
+      "output_tokens": 1134732,
+      "cache_write_5m_tokens": 3045220,
+      "cache_write_1h_tokens": 0,
+      "thinking_tokens_INCLUDED_in_output": 685177
+    },
+    "estimated_USD": "91.17033050",
+    "cutoff_USD": "120",
+    "previous_cutoff_USD": "75",
+    "remaining_recorded_estimate_USD": "28.82966950",
+    "policy": "cumulative post-request usage; no prospective reservations",
+    "post_cutover_request_receipts": 875,
+    "all_relay_completed_events": 1274,
+    "inflight_requests": 0,
+    "cutoff_reached": false,
+    "stop_reason": "OFFICIAL_FINAL_CHECK_FAILED",
+    "accounting_estimate_reconciled": true,
+    "uncertainty": "API/list-rate estimates are not authoritative provider/JHU invoices. Original Native2 idle-stream failure predates request-attempt logging; a potentially forwarded interrupted request may have usage/billing absent from terminal and completed-relay records. This uncertainty is retained, not guessed/reserved/debited as zero. Unknown surcharges/account balance are not inferred."
+  },
+  "evidence": {
+    "raw_final": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006",
+    "raw_manifest_sha256": "1512172728ad50d499f2e904590c8efbef9b46d8da3d319d5c1d42b01bd40b6a",
+    "all_final_reports": "/home/junkun/genesis-transform-experiment/reports/full-run-001",
+    "cost_audit": "/home/junkun/genesis-transform-experiment/reports/full-run-001/COST_AUDIT.json",
+    "numerical_summary": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/FULL_FINAL_RESULTS.json",
+    "app_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-app-001/APPLICATION_RESULTS.json",
+    "protected_originals": "/home/junkun/genesis-transform-experiment/evaluation/protected-final-001/RESULT.json",
+    "final_archive_readback_expected_location": "/home/junkun/genesis-transform-experiment/archives/full-run-001-20261026/READBACK.json",
+    "archive_status": "Verify separate final READBACK.json; this result precedes capture to avoid circular checksums."
+  },
+  "future_curator_readiness": "CONDITIONAL: science passed for tested scope; official final acceptance failed; regenerate source metadata and implementation-hole closure, hide mappings/Git ancestry, independently review context. No Curator or new synthesis run performed.",
+  "forbidden_actions_performed": {
+    "Git_push": false,
+    "V1_V2_baseline_change": false,
+    "new_synthesis_experiment": false,
+    "curator_rerun": false,
+    "oracle_tolerance_change": false,
+    "system_package_install": false
+  }
+}

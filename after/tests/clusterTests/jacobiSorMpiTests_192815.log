@@ -1,0 +1,21 @@
+jacobi
+Scenario name: rayleigh_benard_convection_8-2-1
+Scenario file: ../scenarios/rayleigh_benard_convection_8-2-1.dat
+Geometry file: geometry/rayleigh_benard_convection_8-2-1.bingeo
+Output file: output/rayleigh_benard_convection_8-2-1
+Solver name: mpi
+System time elapsed: 2700.35s
+sor
+Scenario name: rayleigh_benard_convection_8-2-1
+Scenario file: ../scenarios/rayleigh_benard_convection_8-2-1.dat
+Geometry file: geometry/rayleigh_benard_convection_8-2-1.bingeo
+Output file: output/rayleigh_benard_convection_8-2-1
+Solver name: mpi
+System time elapsed: 2800.14s
+gauss-seidel
+Scenario name: rayleigh_benard_convection_8-2-1
+Scenario file: ../scenarios/rayleigh_benard_convection_8-2-1.dat
+Geometry file: geometry/rayleigh_benard_convection_8-2-1.bingeo
+Output file: output/rayleigh_benard_convection_8-2-1
+Solver name: mpi
+System time elapsed: 2672.43s

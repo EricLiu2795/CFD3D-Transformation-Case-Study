@@ -1,0 +1,1375 @@
+{
+  "schema": "full-transformer-final-cost-audit-v1",
+  "utc": "2026-10-26T08:24:14.733541+00:00",
+  "final": true,
+  "source_head": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+  "source_clean_at_freeze": true,
+  "raw_snapshot": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006",
+  "native_sessions": 34,
+  "normally_completed_native_sessions": 32,
+  "retained_error_sessions": [
+    2,
+    12
+  ],
+  "token_totals": {
+    "input_tokens": 2516,
+    "cache_creation_input_tokens": 3045220,
+    "cache_read_input_tokens": 87513651,
+    "output_tokens": 1134732,
+    "cache_write_5m_tokens": 3045220,
+    "cache_write_1h_tokens": 0,
+    "thinking_tokens_INCLUDED_in_output": 685177
+  },
+  "input_categories_total": 90561387,
+  "pricing_USD_per_million": {
+    "uncached_input": 5,
+    "cache_write_5m": 6.25,
+    "cache_write_1h": 10,
+    "cache_read": 0.5,
+    "output_including_thinking": 25
+  },
+  "thinking_policy": "Thinking count is a subset of output. Neither thinking nor duplicate modelUsage is added again.",
+  "native_terminal_estimate_sum_USD": "91.1703304999999976",
+  "canonical_settled_list_rate_estimate_USD": "91.17033050",
+  "native_decimal_representation_delta_USD": "-2.4E-15",
+  "canonical_identity": {
+    "historical_baseline_sessions_1_to_16_USD": "41.68783525",
+    "new_per_request_receipts_USD": "49.48249525",
+    "sum_USD": "91.17033050",
+    "historical_usage_not_added_again": true,
+    "post_cutover_usage_matches_native_17_to_34": true,
+    "post_cutover_token_totals": {
+      "input_tokens": 1740,
+      "cache_creation_input_tokens": 1261277,
+      "cache_read_input_tokens": 54907028,
+      "output_tokens": 565492
+    }
+  },
+  "budget_policy": {
+    "original_local_completed_session_soft_stop_USD": "75",
+    "latest_authorized_cumulative_post_request_cutoff_USD": "120",
+    "effective_active_proof": "/home/junkun/genesis-transform-experiment/spending-policy-120/LEGACY_THRESHOLD_SUPERSEDED_PROOF.json",
+    "effective_active_proof_sha256": "bc9ebce09a5316b673caff49d9b47cf99883fcce867c3ab5b47fe43724f4e33b",
+    "crossed_legacy_75_and_continued": true,
+    "final_request_overshoot_authorized": true,
+    "prospective_reservations": false,
+    "final_accounting_certain": true,
+    "inflight_request": null,
+    "cutoff_triggered": false,
+    "remaining_recorded_estimate_USD": "28.82966950",
+    "termination_reason": "official final mechanical acceptance FAIL, not budget cutoff"
+  },
+  "request_ledger": {
+    "path": "/home/junkun/genesis-transform-experiment/spending-policy-120/REQUEST_LEDGER.json",
+    "sha256": "e4cd908c7f72e4690319afde388cade63a0ecdff604a074f486e6e845599769d",
+    "receipts": 875,
+    "routes": {
+      "messages": 870,
+      "count_tokens": 5
+    },
+    "all_complete": true,
+    "baseline_provenance": {
+      "completed_native_sessions": 16,
+      "legacy_reported_usage_uncertainty": "Native2 original interrupted request may have provider-billed usage absent from available terminal records; no invoice-level guarantee. This baseline counts all reported usage fromexperimentstart once.",
+      "original_native_estimate_usd": "41.6878352500000002",
+      "sha256": "499d594588be1c4531395784b4bc603a9ee86976ed69ed680f570ef99d30513c",
+      "source": "/home/junkun/genesis-transform-experiment/spending-policy-120/HISTORICAL_USAGE_BOOTSTRAP.json"
+    }
+  },
+  "Gateway_transport": {
+    "completed_events": 1274,
+    "routes": {
+      "/v1/messages": 1258,
+      "/v1/messages/count_tokens": 16
+    },
+    "logs": [
+      {
+        "path": "/home/junkun/genesis-transform-experiment/session-control/transport/apply-recovery-001/RELAY_EVENTS.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "completed_events": 0,
+        "routes": {},
+        "statuses": {},
+        "errors": 0
+      },
+      {
+        "path": "/home/junkun/genesis-transform-experiment/session-control/transport/full-live-001/RELAY_EVENTS.json",
+        "sha256": "f966c3f5537dcaa1a6056972a450694b9a7843cad7b2f56de86dad07a3a35268",
+        "completed_events": 28,
+        "routes": {
+          "/v1/messages": 27,
+          "/v1/messages/count_tokens": 1
+        },
+        "statuses": {
+          "200": 28
+        },
+        "errors": 0
+      },
+      {
+        "path": "/home/junkun/genesis-transform-experiment/session-control/transport/manual-suffix-001/RELAY_EVENTS.json",
+        "sha256": "ba0d1190da52724fb6dfcaa58b482ed021d0a15cdeff9f0f9d6825ed49026873",
+        "completed_events": 169,
+        "routes": {
+          "/v1/messages": 167,
+          "/v1/messages/count_tokens": 2
+        },
+        "statuses": {
+          "200": 169
+        },
+        "errors": 0
+      },
+      {
+        "path": "/home/junkun/genesis-transform-experiment/session-control/transport/naming-recovery-001/RELAY_EVENTS.json",
+        "sha256": "385b77ba91a30b089511f9ec396d761448f0d8e42873c6db4cc4f81022883895",
+        "completed_events": 59,
+        "routes": {
+          "/v1/messages": 52,
+          "/v1/messages/count_tokens": 7
+        },
+        "statuses": {
+          "200": 59
+        },
+        "errors": 0
+      },
+      {
+        "path": "/home/junkun/genesis-transform-experiment/session-control/transport/nogen-recovery-001/RELAY_EVENTS.json",
+        "sha256": "bdd1e0c7d5af73afa522b57b281fc0259baa85b11ef2c41abc99bfaceacf69f9",
+        "completed_events": 143,
+        "routes": {
+          "/v1/messages": 142,
+          "/v1/messages/count_tokens": 1
+        },
+        "statuses": {
+          "200": 143
+        },
+        "errors": 0
+      },
+      {
+        "path": "/home/junkun/genesis-transform-experiment/session-control/transport/spending120-001/RELAY_EVENTS.json",
+        "sha256": "a6a83490aa55ec22fcd49f0cea2b5f9d0bee4e062096b051590a6a18341cf3f0",
+        "completed_events": 875,
+        "routes": {
+          "/v1/messages": 870,
+          "/v1/messages/count_tokens": 5
+        },
+        "statuses": {
+          "200": 875
+        },
+        "errors": 0
+      }
+    ],
+    "subsequent_lifecycle": {
+      "path": "/home/junkun/genesis-transform-experiment/continuations/naming-timeout-recovery-001/REQUEST_LIFECYCLE.jsonl",
+      "sha256": "8a0f52473d8505dc51c543e3afafa455ce12361dc10a403878aee606020fa18a",
+      "requests": 1246,
+      "records": 6230,
+      "complete_lifecycle_all": true,
+      "all_HTTP_200": true
+    }
+  },
+  "billing_uncertainty": "API/list-rate estimates are not authoritative provider/JHU invoices. Original Native2 idle-stream failure predates request-attempt logging; a potentially forwarded interrupted request may have usage/billing absent from terminal and completed-relay records. This uncertainty is retained, not guessed/reserved/debited as zero. Unknown surcharges/account balance are not inferred.",
+  "official_final_gate": {
+    "path": "/home/junkun/genesis-transform-experiment/record/checks/final_check.json",
+    "sha256": "d80d3437b931a2b38bf61fa8ec905f11e05220514cb5dc029b7a6d33b715712b",
+    "head": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+    "verdict": "fail",
+    "failed_checks": [
+      "history.shape",
+      "history.tells",
+      "code.names",
+      "plan.log-covers-diff",
+      "layout.symbols"
+    ]
+  },
+  "records": [
+    {
+      "sequence": 1,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 14,
+      "session_id": "86907237-52bc-47b4-a54e-f4e932289e68",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.857878",
+      "list_rate_usage_USD": "1.85787800",
+      "usage": {
+        "input_tokens": 26,
+        "cache_creation_input_tokens": 87572,
+        "cache_read_input_tokens": 591096,
+        "output_tokens": 40595,
+        "output_tokens_details": {
+          "thinking_tokens": 36794
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 87572
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-001/native.stdout.json",
+      "sha256": "e516ba916a607e0759f720d5f199374ddbbbdf0726671a2cf03c606a56d3dc88"
+    },
+    {
+      "sequence": 2,
+      "normal_completion": false,
+      "is_error": true,
+      "native_subtype": "success",
+      "turns": 16,
+      "session_id": "00a4f184-1819-4c8d-922d-d9dd0f7af6ca",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "0.7600960000000001",
+      "list_rate_usage_USD": "0.76009600",
+      "usage": {
+        "input_tokens": 28,
+        "cache_creation_input_tokens": 72828,
+        "cache_read_input_tokens": 435162,
+        "output_tokens": 3488,
+        "output_tokens_details": {
+          "thinking_tokens": 1703
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 72828
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-002/native.stdout.json",
+      "sha256": "954d54f37de1160f00573f7a3c12ead0524e43f319019ff1af46afa1d1c3f238"
+    },
+    {
+      "sequence": 3,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 15,
+      "session_id": "83a409c4-75bd-4763-a2a0-9bb124f3e30e",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.369278",
+      "list_rate_usage_USD": "2.36927800",
+      "usage": {
+        "input_tokens": 26,
+        "cache_creation_input_tokens": 185018,
+        "cache_read_input_tokens": 470021,
+        "output_tokens": 39111,
+        "output_tokens_details": {
+          "thinking_tokens": 31475
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 185018
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-003/native.stdout.json",
+      "sha256": "26b6937d4175ab3612c5a42ee9e93994b2dddad00b32a4511c33ed2391b889df"
+    },
+    {
+      "sequence": 4,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 6,
+      "session_id": "e1e78b8f-62f9-423a-a62e-3f6f57f21db3",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.8530654999999998",
+      "list_rate_usage_USD": "1.85306550",
+      "usage": {
+        "input_tokens": 10,
+        "cache_creation_input_tokens": 182650,
+        "cache_read_input_tokens": 60806,
+        "output_tokens": 27242,
+        "output_tokens_details": {
+          "thinking_tokens": 23351
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 182650
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-004/native.stdout.json",
+      "sha256": "287d2b54abc5bf6d7d8fee245ccffef1914fb8a43d6c0004748a3ae5d7bdfb5b"
+    },
+    {
+      "sequence": 5,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 15,
+      "session_id": "8f83316a-a4fa-444e-bfdf-0349ce1f057f",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.6714745",
+      "list_rate_usage_USD": "2.67147450",
+      "usage": {
+        "input_tokens": 28,
+        "cache_creation_input_tokens": 216028,
+        "cache_read_input_tokens": 593919,
+        "output_tokens": 40968,
+        "output_tokens_details": {
+          "thinking_tokens": 34866
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 216028
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-005/native.stdout.json",
+      "sha256": "713dc37f25cbd156be27cb243cfee3f87127819c19172e6a37d39f272a5f10ac"
+    },
+    {
+      "sequence": 6,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 7,
+      "session_id": "95fb92b7-08ac-415f-9cc8-c86ff8816e13",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.07611425",
+      "list_rate_usage_USD": "2.07611425",
+      "usage": {
+        "input_tokens": 12,
+        "cache_creation_input_tokens": 172801,
+        "cache_read_input_tokens": 166046,
+        "output_tokens": 36521,
+        "output_tokens_details": {
+          "thinking_tokens": 31389
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 172801
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-006/native.stdout.json",
+      "sha256": "89181e20fc2fa17cbb68e730f5f70336538ce3cdf6b3a94f9870446c04552aae"
+    },
+    {
+      "sequence": 7,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 6,
+      "session_id": "4c92a578-68b1-4a84-a29c-67b91df1306f",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "0.89992275",
+      "list_rate_usage_USD": "0.89992275",
+      "usage": {
+        "input_tokens": 10,
+        "cache_creation_input_tokens": 68527,
+        "cache_read_input_tokens": 114958,
+        "output_tokens": 16564,
+        "output_tokens_details": {
+          "thinking_tokens": 13507
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 68527
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-007/native.stdout.json",
+      "sha256": "03b5de7c949dfed3610b724e2610e09d7769fa19d5efb279b81ca0737aef31c5"
+    },
+    {
+      "sequence": 8,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 5,
+      "session_id": "141fe31b-8589-4c84-a3cb-75ab8b932971",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "0.444747",
+      "list_rate_usage_USD": "0.44474700",
+      "usage": {
+        "input_tokens": 8,
+        "cache_creation_input_tokens": 33010,
+        "cache_read_input_tokens": 45589,
+        "output_tokens": 8624,
+        "output_tokens_details": {
+          "thinking_tokens": 6867
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 33010
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-008/native.stdout.json",
+      "sha256": "e3e5e9e1641c827c41f9cbaab14f75572096c7dc6a6772eb3a0ea13d0d1fa6f0"
+    },
+    {
+      "sequence": 9,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 7,
+      "session_id": "756f3c97-8345-4d80-838e-24955911f41e",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "0.54093775",
+      "list_rate_usage_USD": "0.54093775",
+      "usage": {
+        "input_tokens": 10,
+        "cache_creation_input_tokens": 31447,
+        "cache_read_input_tokens": 66088,
+        "output_tokens": 12452,
+        "output_tokens_details": {
+          "thinking_tokens": 10593
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 31447
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-009/native.stdout.json",
+      "sha256": "279a8421ebce53a7feb5765e46b3fdf15f0062c49f7b04b43b22eca176cc07da"
+    },
+    {
+      "sequence": 10,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 11,
+      "session_id": "f4d04d9d-0052-44e2-8617-63dffdf8c29a",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.0691705",
+      "list_rate_usage_USD": "1.06917050",
+      "usage": {
+        "input_tokens": 20,
+        "cache_creation_input_tokens": 78098,
+        "cache_read_input_tokens": 479266,
+        "output_tokens": 13653,
+        "output_tokens_details": {
+          "thinking_tokens": 2135
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 78098
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-010/native.stdout.json",
+      "sha256": "2128ca4aa1bef51acff0c60f8ef8647c22dc67c47036ad0cd9e83f400efd217f"
+    },
+    {
+      "sequence": 11,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 54,
+      "session_id": "afbac71a-94b0-4613-8f72-2c85dc281c43",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "4.720517499999999",
+      "list_rate_usage_USD": "4.72051750",
+      "usage": {
+        "input_tokens": 104,
+        "cache_creation_input_tokens": 126916,
+        "cache_read_input_tokens": 4526495,
+        "output_tokens": 66541,
+        "output_tokens_details": {
+          "thinking_tokens": 40582
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 126916
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-011/native.stdout.json",
+      "sha256": "d0da36cac9025a7fb376589851be1f43a1adfd79aadd4d84f3bdefe41b74389a"
+    },
+    {
+      "sequence": 12,
+      "normal_completion": false,
+      "is_error": true,
+      "native_subtype": "error_max_turns",
+      "turns": 81,
+      "session_id": "3c25e4b3-79a3-499b-8364-606006b1ed70",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "9.404843750000001",
+      "list_rate_usage_USD": "9.40484375",
+      "usage": {
+        "input_tokens": 160,
+        "cache_creation_input_tokens": 204993,
+        "cache_read_input_tokens": 9576425,
+        "output_tokens": 133385,
+        "output_tokens_details": {
+          "thinking_tokens": 99600
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 204993
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-012/native.stdout.json",
+      "sha256": "5e9f292fa9958c606cac815c28f00f733b520de20b428033234a7c2f078875cc"
+    },
+    {
+      "sequence": 13,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 43,
+      "session_id": "26305d5b-5ab0-4f77-aaf2-8cea9c9ec028",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.3437385000000002",
+      "list_rate_usage_USD": "1.34373850",
+      "usage": {
+        "input_tokens": 64,
+        "cache_creation_input_tokens": 55024,
+        "cache_read_input_tokens": 1315187,
+        "output_tokens": 13677,
+        "output_tokens_details": {
+          "thinking_tokens": 4526
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 55024
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-013/native.stdout.json",
+      "sha256": "0f7dcfbc3e486feb648ddd3fa0a380b360fc44d88e40339117e80d62ad283333"
+    },
+    {
+      "sequence": 14,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 29,
+      "session_id": "a55ab2ec-eebb-490e-866e-9eef9711e968",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "0.9620494999999999",
+      "list_rate_usage_USD": "0.96204950",
+      "usage": {
+        "input_tokens": 50,
+        "cache_creation_input_tokens": 42190,
+        "cache_read_input_tokens": 819974,
+        "output_tokens": 11525,
+        "output_tokens_details": {
+          "thinking_tokens": 3664
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 42190
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-014/native.stdout.json",
+      "sha256": "09b459606fadc3871891d6d553b20c1762cfb584b82678b3756b2a91c3c8bd0e"
+    },
+    {
+      "sequence": 15,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 89,
+      "session_id": "dedd1ab7-c7c3-4cf0-817c-34b349718424",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "9.4499495",
+      "list_rate_usage_USD": "9.44994950",
+      "usage": {
+        "input_tokens": 164,
+        "cache_creation_input_tokens": 183140,
+        "cache_read_input_tokens": 12280459,
+        "output_tokens": 86571,
+        "output_tokens_details": {
+          "thinking_tokens": 38306
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 183140
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-015/native.stdout.json",
+      "sha256": "bcb24c94673f62e05e54ddbfc509b42875c499c49306fe4d1cd70a5335bd8da0"
+    },
+    {
+      "sequence": 16,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 30,
+      "session_id": "659934a4-6f1a-4857-b2d3-61ca712a35ac",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.2640522500000002",
+      "list_rate_usage_USD": "1.26405225",
+      "usage": {
+        "input_tokens": 56,
+        "cache_creation_input_tokens": 43701,
+        "cache_read_input_tokens": 1065132,
+        "output_tokens": 18323,
+        "output_tokens_details": {
+          "thinking_tokens": 11967
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 43701
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-016/native.stdout.json",
+      "sha256": "4bcfc4e10eac1f70e245a707a9a72aae46b540c4f690adf9f002369f664d7531"
+    },
+    {
+      "sequence": 17,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 47,
+      "session_id": "10dfa05c-0173-4679-a718-2e0df293196b",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.6017332499999997",
+      "list_rate_usage_USD": "2.60173325",
+      "usage": {
+        "input_tokens": 86,
+        "cache_creation_input_tokens": 84243,
+        "cache_read_input_tokens": 2329319,
+        "output_tokens": 36405,
+        "output_tokens_details": {
+          "thinking_tokens": 22454
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 84243
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-017/native.stdout.json",
+      "sha256": "88f6c2a4c4736516081c79f974b323f8f2b2e32be4aa61b04064594f55151f0c"
+    },
+    {
+      "sequence": 18,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 61,
+      "session_id": "51705ed9-ba3e-4a25-8c60-f9f1c1e2488b",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "3.3541174999999996",
+      "list_rate_usage_USD": "3.35411750",
+      "usage": {
+        "input_tokens": 116,
+        "cache_creation_input_tokens": 87952,
+        "cache_read_input_tokens": 4161475,
+        "output_tokens": 28924,
+        "output_tokens_details": {
+          "thinking_tokens": 16208
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 87952
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-018/native.stdout.json",
+      "sha256": "36f5b0fb295f14ed19d65eb4932548ec3f04d926f827f15ca85bb426f0fe7094"
+    },
+    {
+      "sequence": 19,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 51,
+      "session_id": "5801aaf7-7dff-405b-8e82-cb9977b8a953",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.9859982500000006",
+      "list_rate_usage_USD": "2.98599825",
+      "usage": {
+        "input_tokens": 88,
+        "cache_creation_input_tokens": 80563,
+        "cache_read_input_tokens": 2693929,
+        "output_tokens": 45403,
+        "output_tokens_details": {
+          "thinking_tokens": 23888
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 80563
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-019/native.stdout.json",
+      "sha256": "4803096d0626cc607ecefe4481ec4ec03904bd8a85433bb9236e91b791bcff65"
+    },
+    {
+      "sequence": 20,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 78,
+      "session_id": "20b20c50-7f25-4102-87fb-dcd97e36afe1",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "3.6342577499999997",
+      "list_rate_usage_USD": "3.63425775",
+      "usage": {
+        "input_tokens": 116,
+        "cache_creation_input_tokens": 87609,
+        "cache_read_input_tokens": 4208893,
+        "output_tokens": 39267,
+        "output_tokens_details": {
+          "thinking_tokens": 14370
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 87609
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-020/native.stdout.json",
+      "sha256": "4f652960269f3f166656635544ef6485c3d6da9e207beb209f579440aa09fcf4"
+    },
+    {
+      "sequence": 21,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 39,
+      "session_id": "b0adf361-4d84-41bd-98d3-6dfad664a2c6",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.91588225",
+      "list_rate_usage_USD": "1.91588225",
+      "usage": {
+        "input_tokens": 64,
+        "cache_creation_input_tokens": 62609,
+        "cache_read_input_tokens": 1952012,
+        "output_tokens": 21930,
+        "output_tokens_details": {
+          "thinking_tokens": 11997
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 62609
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-021/native.stdout.json",
+      "sha256": "a0cc89a228cd306d1aee063234cf940455268c3f096c63c8dbd7958d7be8deb4"
+    },
+    {
+      "sequence": 22,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 34,
+      "session_id": "d9f27e59-ea5c-4229-a273-6c919443882e",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.6879",
+      "list_rate_usage_USD": "1.68790000",
+      "usage": {
+        "input_tokens": 66,
+        "cache_creation_input_tokens": 55852,
+        "cache_read_input_tokens": 1637290,
+        "output_tokens": 20794,
+        "output_tokens_details": {
+          "thinking_tokens": 13559
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 55852
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-022/native.stdout.json",
+      "sha256": "74e02c103961f7374a47903eab94b12f550262a44c88d3fb0ea0e3270b97b97d"
+    },
+    {
+      "sequence": 23,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 21,
+      "session_id": "a099e836-b8e1-43bf-af5e-4d5135d3c9ef",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "0.5852397500000001",
+      "list_rate_usage_USD": "0.58523975",
+      "usage": {
+        "input_tokens": 36,
+        "cache_creation_input_tokens": 21691,
+        "cache_read_input_tokens": 561132,
+        "output_tokens": 6757,
+        "output_tokens_details": {
+          "thinking_tokens": 1620
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 21691
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-023/native.stdout.json",
+      "sha256": "496e2fcb4ddb33fba5f083131633776c1ac6e94d18ae85fed135cae1fa3dac77"
+    },
+    {
+      "sequence": 24,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 31,
+      "session_id": "62d97ae9-6021-4b2d-833b-469de67dd9bc",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.2138367500000005",
+      "list_rate_usage_USD": "1.21383675",
+      "usage": {
+        "input_tokens": 54,
+        "cache_creation_input_tokens": 39771,
+        "cache_read_input_tokens": 1155596,
+        "output_tokens": 15488,
+        "output_tokens_details": {
+          "thinking_tokens": 7237
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 39771
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-024/native.stdout.json",
+      "sha256": "9477ede67646de000ea737b285a6813e6366ffb2f1dd4382ad6690886df4a95b"
+    },
+    {
+      "sequence": 25,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 48,
+      "session_id": "d3cdf655-c8ea-4975-819a-2db3847b1354",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.7864479999999998",
+      "list_rate_usage_USD": "1.78644800",
+      "usage": {
+        "input_tokens": 86,
+        "cache_creation_input_tokens": 48278,
+        "cache_read_input_tokens": 1969861,
+        "output_tokens": 19974,
+        "output_tokens_details": {
+          "thinking_tokens": 8610
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 48278
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-025/native.stdout.json",
+      "sha256": "0982995015c1f58198c2126b50586fdb88e4f94f163aa531fa5c5fcb81b1d133"
+    },
+    {
+      "sequence": 26,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 82,
+      "session_id": "469f76cf-67e9-4b23-8527-653262c4d8ac",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "4.80904775",
+      "list_rate_usage_USD": "4.80904775",
+      "usage": {
+        "input_tokens": 160,
+        "cache_creation_input_tokens": 97191,
+        "cache_read_input_tokens": 6002758,
+        "output_tokens": 47977,
+        "output_tokens_details": {
+          "thinking_tokens": 22012
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 97191
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-026/native.stdout.json",
+      "sha256": "d14020a795738e908844a6d699d577ba8222cf612b85c94c21aecf6d1de893c1"
+    },
+    {
+      "sequence": 27,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 91,
+      "session_id": "d15974eb-8dd8-4844-bee9-f4901e01aa89",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "4.9433975",
+      "list_rate_usage_USD": "4.94339750",
+      "usage": {
+        "input_tokens": 180,
+        "cache_creation_input_tokens": 87842,
+        "cache_read_input_tokens": 6336470,
+        "output_tokens": 49010,
+        "output_tokens_details": {
+          "thinking_tokens": 20713
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 87842
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-027/native.stdout.json",
+      "sha256": "91b7b01556d488cc62e1d9534f640f69c1fe7189cf452dd5ee41dd51e24d3c58"
+    },
+    {
+      "sequence": 28,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 63,
+      "session_id": "134a3905-9792-4f60-a5ec-fbb6328b70b6",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.6390949999999997",
+      "list_rate_usage_USD": "2.63909500",
+      "usage": {
+        "input_tokens": 100,
+        "cache_creation_input_tokens": 66624,
+        "cache_read_input_tokens": 2976290,
+        "output_tokens": 29362,
+        "output_tokens_details": {
+          "thinking_tokens": 14469
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 66624
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-028/native.stdout.json",
+      "sha256": "bd1002e3e5e07799f78c57200dbd5528ddb6e08cee71b15a330508ace6ff8125"
+    },
+    {
+      "sequence": 29,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 71,
+      "session_id": "f1e4d380-cbd6-4945-8fd1-bd72c224571d",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "4.561113249999999",
+      "list_rate_usage_USD": "4.56111325",
+      "usage": {
+        "input_tokens": 132,
+        "cache_creation_input_tokens": 102335,
+        "cache_read_input_tokens": 5349819,
+        "output_tokens": 49838,
+        "output_tokens_details": {
+          "thinking_tokens": 29979
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 102335
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-029/native.stdout.json",
+      "sha256": "e3c9be5034a5cde0fa374ec35be68c110c4a7b9d4af6c82ea42377d2cd4c319c"
+    },
+    {
+      "sequence": 30,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 51,
+      "session_id": "5c4ab5b7-df74-4633-80b0-e31e80ac5c4f",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.9006395",
+      "list_rate_usage_USD": "2.90063950",
+      "usage": {
+        "input_tokens": 92,
+        "cache_creation_input_tokens": 76440,
+        "cache_read_input_tokens": 3082959,
+        "output_tokens": 35238,
+        "output_tokens_details": {
+          "thinking_tokens": 21824
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 76440
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-030/native.stdout.json",
+      "sha256": "3477ee0be53108b664d71a20b067f599dddf0d4428cf50080c05caf294e5234e"
+    },
+    {
+      "sequence": 31,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 57,
+      "session_id": "d3b8194d-f73b-44a0-8568-779d778e0678",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.9960687499999996",
+      "list_rate_usage_USD": "2.99606875",
+      "usage": {
+        "input_tokens": 98,
+        "cache_creation_input_tokens": 75539,
+        "cache_read_input_tokens": 3068470,
+        "output_tokens": 39569,
+        "output_tokens_details": {
+          "thinking_tokens": 21368
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 75539
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-031/native.stdout.json",
+      "sha256": "72d2cacf1cc86b747718f38a59b86d52c2fabfff8979e03089edf6ca6df05c5b"
+    },
+    {
+      "sequence": 32,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 55,
+      "session_id": "3417f228-2ad3-425d-8352-3afdbdbce56d",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.6444704999999997",
+      "list_rate_usage_USD": "2.64447050",
+      "usage": {
+        "input_tokens": 110,
+        "cache_creation_input_tokens": 64998,
+        "cache_read_input_tokens": 3043916,
+        "output_tokens": 28629,
+        "output_tokens_details": {
+          "thinking_tokens": 12392
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 64998
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-032/native.stdout.json",
+      "sha256": "5389167e4d33caaa5756d87080cfce5ca4532e8dfb68b191acdc6ec9514151df"
+    },
+    {
+      "sequence": 33,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 47,
+      "session_id": "7fa30931-fa1a-4748-85a5-acf35c7c0d1e",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "2.5609834999999994",
+      "list_rate_usage_USD": "2.56098350",
+      "usage": {
+        "input_tokens": 86,
+        "cache_creation_input_tokens": 70120,
+        "cache_read_input_tokens": 2616507,
+        "output_tokens": 32562,
+        "output_tokens_details": {
+          "thinking_tokens": 21492
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 70120
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-033/native.stdout.json",
+      "sha256": "e025933a7f9db212e6e0c5cf75874545c1399f6f07538588bee670421b7c34ae"
+    },
+    {
+      "sequence": 34,
+      "normal_completion": true,
+      "is_error": false,
+      "native_subtype": "success",
+      "turns": 37,
+      "session_id": "4ecd4af5-805d-49ef-b331-98b85e4abb14",
+      "model": "claude-opus-4-8",
+      "native_reported_estimated_USD": "1.662266",
+      "list_rate_usage_USD": "1.66226600",
+      "usage": {
+        "input_tokens": 70,
+        "cache_creation_input_tokens": 51620,
+        "cache_read_input_tokens": 1760332,
+        "output_tokens": 18365,
+        "output_tokens_details": {
+          "thinking_tokens": 9660
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 51620
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "evidence": "/home/junkun/genesis-transform-experiment/session-control/call-034/native.stdout.json",
+      "sha256": "ca2e0e188dbcd4c32f91130ba97cac0a6660878c7c409475494e3c7132f74957"
+    }
+  ]
+}

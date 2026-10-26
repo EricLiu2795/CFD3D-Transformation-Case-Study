@@ -1,0 +1,31 @@
+{
+ "tool": "batch-compile",
+ "generated": "2026-10-26T01:11:56-04:00",
+ "checks": [
+  {
+   "id": "compile.impact",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 TUs compiled in 0 builds (); 1 files no build compiles",
+   "findings": [
+    {
+     "file": "src/Defines.hpp",
+     "detail": "no build compiles this file"
+    }
+   ],
+   "data": {
+    "compiled": [],
+    "preprocessed": 0,
+    "uncovered": {},
+    "unknown": [
+     "src/Defines.hpp"
+    ]
+   }
+  }
+ ],
+ "verdict": "pass",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "e221cad9151a8b9a4c0404d9879cf2008ededdb4",
+ "head": "6eff0a6e0447681f4299394d7c8e61f0b91de1de"
+}

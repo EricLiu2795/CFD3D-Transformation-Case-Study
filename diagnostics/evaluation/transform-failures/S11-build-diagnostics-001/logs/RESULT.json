@@ -1,0 +1,27 @@
+{
+  "action": "check",
+  "classification": "PUBLIC_APPLICATION_BUILD_SMOKE",
+  "error": "command exited 2; preserved log: /home/junkun/genesis-transform-experiment/record/work/logs/20261026T053218.167184Z-check/cuda-fma-build.log",
+  "independent_eight_phase_oracle": "not invoked by this public hook",
+  "logs": "/home/junkun/genesis-transform-experiment/record/work/logs/20261026T053218.167184Z-check",
+  "mpi_opencl_matrix": "NOT RUN; disabled in this public build matrix",
+  "output_precision_limitation": "ASCII VTK is lossy upstream output; not full FP64 buffers",
+  "requested_files": [
+    "src/CfdSolver/Mpi/UvwMpi.cpp",
+    "src/CfdSolver/Opencl/OpenclFlags.hpp",
+    "src/CfdSolver/cell_flags.hpp",
+    "src/CfdSolver/cuda/boundary_kernels.cu",
+    "src/CfdSolver/cuda/cuda_runtime_check.hpp",
+    "src/CfdSolver/serial/boundary_conditions.cpp",
+    "src/CfdSolver/serial/momentum_eqs.cpp",
+    "src/Defines.hpp",
+    "src/IO/pgm_image.cpp",
+    "src/IO/text_file_utils.hpp",
+    "src/ParticleTracer/particle_integrators.cpp",
+    "src/ParticleTracer/particle_integrators.hpp",
+    "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "status": "error",
+  "tree": "/home/junkun/genesis-transform-experiment/worktree",
+  "work": "/home/junkun/genesis-transform-experiment/record/work"
+}

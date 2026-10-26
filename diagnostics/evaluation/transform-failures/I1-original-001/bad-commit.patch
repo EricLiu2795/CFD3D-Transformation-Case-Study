@@ -1,0 +1,474 @@
+commit 2684aef61112b1495e4cdd22d87dc605df534add
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 03:03:35 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 03:03:35 2026 -0400
+
+    Group related parameters into descriptor structs
+    
+    Several of the wide host interfaces passed long lists of individually
+    named arguments that always travel together. Collect those into small
+    descriptor structs and pass them as a unit:
+    
+    - momentum model constants for the serial FGH computation
+    - grid dimensions for the serial scenario border setup
+    - subdomain index bounds for the MPI border values
+    - the process-grid split for MPI startup
+    - domain geometry outputs from the case-config loader
+    - the output grid for recorder setup
+    - flow field arrays for the streamline integrator
+    - the sampling grid for trajectory features
+    
+    Call sites are updated accordingly. Behaviour is unchanged.
+
+diff --git a/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp b/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
+index 671b58e..631c3fa 100644
+--- a/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
++++ b/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
+@@ -525,9 +525,12 @@ void setInternalTBordersMpi(
+ void setBorderValuesMpi(
+         Real T_h, Real T_c,
+         int imax, int jmax, int kmax,
+-        int il, int iu, int jl, int ju, int kl, int ku,
++        const MpiSubdomainBounds &bounds,
+         Real *U, Real *V, Real *W, Real *T,
+         FlagType *Flag) {
++    const int il = bounds.il, iu = bounds.iu;
++    const int jl = bounds.jl, ju = bounds.ju;
++    const int kl = bounds.kl, ku = bounds.ku;
+     setLeftRightBordersMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
+     setDownUpBordersMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
+     setFrontBackBordersMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
+diff --git a/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp b/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp
+index 95cf40d..3d5e24f 100644
+--- a/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp
++++ b/src/CfdSolver/Mpi/BoundaryValuesMpi.hpp
+@@ -5,10 +5,14 @@
+ #include <string>
+ #include "Defines.hpp"
+ 
++struct MpiSubdomainBounds {
++    int il, iu, jl, ju, kl, ku;
++};
++
+ void setBorderValuesMpi(
+         Real T_h, Real T_c,
+         int imax, int jmax, int kmax,
+-        int il, int iu, int jl, int ju, int kl, int ku,
++        const MpiSubdomainBounds &bounds,
+         Real *U, Real *V, Real *W, Real *T,
+         FlagType *Flag);
+ 
+diff --git a/src/CfdSolver/Mpi/CfdSolverMpi.cpp b/src/CfdSolver/Mpi/CfdSolverMpi.cpp
+index 6a646a2..ba35918 100644
+--- a/src/CfdSolver/Mpi/CfdSolverMpi.cpp
++++ b/src/CfdSolver/Mpi/CfdSolverMpi.cpp
+@@ -117,7 +117,7 @@ CfdSolverMpi::~CfdSolverMpi() {
+ }
+ 
+ void CfdSolverMpi::setBoundaryValues() {
+-    setBorderValuesMpi(T_h, T_c, imax, jmax, kmax, il, iu, jl, ju, kl, ku, U, V, W, T, Flag);
++    setBorderValuesMpi(T_h, T_c, imax, jmax, kmax, {il, iu, jl, ju, kl, ku}, U, V, W, T, Flag);
+ }
+ 
+ void CfdSolverMpi::setBoundaryValuesScenarioSpecific() {
+diff --git a/src/CfdSolver/Mpi/MpiHelpers.cpp b/src/CfdSolver/Mpi/MpiHelpers.cpp
+index 0f62372..73b36e0 100644
+--- a/src/CfdSolver/Mpi/MpiHelpers.cpp
++++ b/src/CfdSolver/Mpi/MpiHelpers.cpp
+@@ -5,11 +5,14 @@
+ 
+ void mpiStartup(
+         int argc, char **argv,
+-        int partsAlongI, int jSplit, int kSplit, int imax, int jmax, int kmax,
++        const MpiDecomposition &decomposition, int imax, int jmax, int kmax,
+         int &localRank, int &il, int &iu, int &jl, int &ju, int &kl, int &ku,
+         int &peerL, int &peerR, int &peerD, int &peerU, int &peerB, int &peerF,
+         int &rankCoordI, int &rankCoordJ, int &rankCoordK, int &partCount)
+ {
++    const int partsAlongI = decomposition.partsAlongI;
++    const int jSplit = decomposition.jSplit, kSplit = decomposition.kSplit;
++
+     DCI_Init(&argc, &argv);
+     DCI_Comm_size(DCI_COMM_WORLD, &partCount);
+     DCI_Comm_rank(DCI_COMM_WORLD, &localRank);
+diff --git a/src/CfdSolver/Mpi/MpiHelpers.hpp b/src/CfdSolver/Mpi/MpiHelpers.hpp
+index 5e6b717..1295883 100644
+--- a/src/CfdSolver/Mpi/MpiHelpers.hpp
++++ b/src/CfdSolver/Mpi/MpiHelpers.hpp
+@@ -5,9 +5,13 @@
+ #include "mpi.h"
+ #include "Defines.hpp"
+ 
++struct MpiDecomposition {
++    int partsAlongI, jSplit, kSplit;
++};
++
+ void mpiStartup(
+         int argc, char **argv,
+-        int partsAlongI, int jSplit, int kSplit, int imax, int jmax, int kmax,
++        const MpiDecomposition &decomposition, int imax, int jmax, int kmax,
+         int &localRank, int &il, int &iu, int &jl, int &ju, int &kl, int &ku,
+         int &peerL, int &peerR, int &peerD, int &peerU, int &peerB, int &peerF,
+         int &rankCoordI, int &rankCoordJ, int &rankCoordK, int &partCount);
+diff --git a/src/CfdSolver/serial/boundary_conditions.hpp b/src/CfdSolver/serial/boundary_conditions.hpp
+index 1c19060..885486a 100644
+--- a/src/CfdSolver/serial/boundary_conditions.hpp
++++ b/src/CfdSolver/serial/boundary_conditions.hpp
+@@ -5,6 +5,10 @@
+ #include <string>
+ #include "Defines.hpp"
+ 
++struct GridDimensions {
++    int imax, jmax, kmax;
++};
++
+ void assignBorderValuesCpp(
+         Real T_h, Real T_c,
+         int imax, int jmax, int kmax,
+@@ -13,7 +17,7 @@ void assignBorderValuesCpp(
+ 
+ void assignScenarioBorderValuesCpp(
+         const std::string &scenarioName,
+-        int imax, int jmax, int kmax,
++        const GridDimensions &grid,
+         Real *U, Real *V, Real *W,
+         FlagType *Flag);
+ 
+diff --git a/src/CfdSolver/serial/momentum_eqs.cpp b/src/CfdSolver/serial/momentum_eqs.cpp
+index 452cffc..724cd1b 100644
+--- a/src/CfdSolver/serial/momentum_eqs.cpp
++++ b/src/CfdSolver/serial/momentum_eqs.cpp
+@@ -42,9 +42,13 @@ void computeRsCpp(
+ }
+ 
+ void computeFghCpp(
+-        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,
++        const MomentumConstants &constants,
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag) {
++    const Real Re = constants.Re;
++    const Real GX = constants.GX, GY = constants.GY, GZ = constants.GZ;
++    const Real alpha = constants.alpha, beta = constants.beta;
++
+     Real u_xx,u_yy,u_zz,
+          v_xx,v_yy,v_zz,
+          w_xx,w_yy,w_zz;
+diff --git a/src/CfdSolver/serial/momentum_eqs.hpp b/src/CfdSolver/serial/momentum_eqs.hpp
+index 9450369..2d53001 100644
+--- a/src/CfdSolver/serial/momentum_eqs.hpp
++++ b/src/CfdSolver/serial/momentum_eqs.hpp
+@@ -4,8 +4,12 @@
+ 
+ #include "Defines.hpp"
+ 
++struct MomentumConstants {
++    Real Re, GX, GY, GZ, alpha, beta;
++};
++
+ void computeFghCpp(
+-        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,
++        const MomentumConstants &constants,
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag);
+ 
+diff --git a/src/CfdSolver/serial/scenario_boundary.cpp b/src/CfdSolver/serial/scenario_boundary.cpp
+index f1ede47..22f8bb3 100644
+--- a/src/CfdSolver/serial/scenario_boundary.cpp
++++ b/src/CfdSolver/serial/scenario_boundary.cpp
+@@ -3,9 +3,10 @@
+ 
+ void assignScenarioBorderValuesCpp(
+         const std::string &scenarioName,
+-        int imax, int jmax, int kmax,
++        const GridDimensions &grid,
+         Real *U, Real *V, Real *W,
+         FlagType *Flag) {
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
+     if (scenarioName == "driven_cavity") {
+         #pragma omp parallel for
+         for (int i = 0; i <= imax; i++) {
+diff --git a/src/CfdSolver/serial/serial_solver.cpp b/src/CfdSolver/serial/serial_solver.cpp
+index 025d0eb..51a4339 100644
+--- a/src/CfdSolver/serial/serial_solver.cpp
++++ b/src/CfdSolver/serial/serial_solver.cpp
+@@ -87,7 +87,7 @@ FluidSolverCpp::~FluidSolverCpp() {
+ }
+ 
+ void FluidSolverCpp::calculateFgh() {
+-    computeFghCpp(Re, GX, GY, GZ, alpha, beta, dt, dx, dy, dz, imax, jmax, kmax, U, V, W, T, F, G, H, Flag);
++    computeFghCpp({Re, GX, GY, GZ, alpha, beta}, dt, dx, dy, dz, imax, jmax, kmax, U, V, W, T, F, G, H, Flag);
+ }
+ 
+ void FluidSolverCpp::calculateRs() {
+@@ -123,7 +123,7 @@ void FluidSolverCpp::setBoundaryValues() {
+ }
+ 
+ void FluidSolverCpp::setBoundaryValuesScenarioSpecific() {
+-    assignScenarioBorderValuesCpp(scenarioName, imax, jmax, kmax, U, V, W, Flag);
++    assignScenarioBorderValuesCpp(scenarioName, {imax, jmax, kmax}, U, V, W, Flag);
+ }
+ 
+ void FluidSolverCpp::getDataForOutput(Real *U, Real *V, Real *W, Real *P, Real *T) {
+diff --git a/src/IO/case_config.cpp b/src/IO/case_config.cpp
+index b320bd2..9b37509 100644
+--- a/src/IO/case_config.cpp
++++ b/src/IO/case_config.cpp
+@@ -102,12 +102,14 @@ int fetchIntSettingOrDefault(
+ 
+ void loadCaseConfigFromFile(
+         const std::string &caseFilename, std::string &scenarioName, std::string &shapeName,
+-        Real &tEnd, Real &dtWrite, Real &xLength, Real &yLength, Real &zLength,
+-        Real &xOrigin, Real &yOrigin, Real &zOrigin,
++        Real &tEnd, Real &dtWrite, DomainGeometry &geometry,
+         Real &UI, Real &VI, Real &WI, Real &PI, Real &TI, Real &GX, Real &GY, Real &GZ,
+         Real &Re, Real &Pr, Real &omg, Real &eps, int &itermax, Real &alpha, Real &beta, Real &dt, Real &tau,
+         bool &useTemperature, Real &T_h, Real &T_c,
+         int &imax, int &jmax, int &kmax, Real &dx, Real &dy, Real &dz) {
++    Real &xLength = geometry.xLength, &yLength = geometry.yLength, &zLength = geometry.zLength;
++    Real &xOrigin = geometry.xOrigin, &yOrigin = geometry.yOrigin, &zOrigin = geometry.zOrigin;
++
+     std::map<std::string, std::string> variables = readSettingsFile(caseFilename);
+ 
+     scenarioName = fetchStringSetting(variables, "scenario");
+diff --git a/src/IO/case_config.hpp b/src/IO/case_config.hpp
+index 5568b12..2fe541b 100644
+--- a/src/IO/case_config.hpp
++++ b/src/IO/case_config.hpp
+@@ -7,10 +7,14 @@
+ #include <vector>
+ #include "Defines.hpp"
+ 
++struct DomainGeometry {
++    Real xLength, yLength, zLength;
++    Real xOrigin, yOrigin, zOrigin;
++};
++
+ void loadCaseConfigFromFile(
+         const std::string &caseFilename, std::string &scenarioName, std::string &shapeName,
+-        Real &tEnd, Real &dtWrite, Real &xLength, Real &yLength, Real &zLength,
+-        Real &xOrigin, Real &yOrigin, Real &zOrigin,
++        Real &tEnd, Real &dtWrite, DomainGeometry &geometry,
+         Real &UI, Real &VI, Real &WI, Real &PI, Real &TI, Real &GX, Real &GY, Real &GZ,
+         Real &Re, Real &Pr, Real &omg, Real &eps, int &itermax, Real &alpha, Real &beta, Real &dt, Real &tau,
+         bool &useTemperature, Real &T_h, Real &T_c,
+diff --git a/src/IO/netcdf_output.cpp b/src/IO/netcdf_output.cpp
+index fe23c91..8e3fcc2 100644
+--- a/src/IO/netcdf_output.cpp
++++ b/src/IO/netcdf_output.cpp
+@@ -4,8 +4,11 @@
+ #include <netcdf.h>
+ #include "IO/netcdf_output.hpp"
+ 
+-bool NetCdfRecorder::setupRecorder(const std::string &filename,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) {
++bool NetCdfRecorder::setupRecorder(const std::string &filename, const OutputGrid &grid) {
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
++    const Real dx = grid.dx, dy = grid.dy, dz = grid.dz;
++    const Real xOrigin = grid.xOrigin, yOrigin = grid.yOrigin, zOrigin = grid.zOrigin;
++
+     this->imax = imax;
+     this->jmax = jmax;
+     this->kmax = kmax;
+diff --git a/src/IO/netcdf_output.hpp b/src/IO/netcdf_output.hpp
+index 47fe96a..6330e48 100644
+--- a/src/IO/netcdf_output.hpp
++++ b/src/IO/netcdf_output.hpp
+@@ -14,8 +14,7 @@ public:
+ 
+     void setMpiBounds(int il, int iu, int jl, int ju, int kl, int ku) override;
+ 
+-    bool setupRecorder(const std::string &filename,
+-            int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) override;
++    bool setupRecorder(const std::string &filename, const OutputGrid &grid) override;
+     void writeSnapshot(
+             int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T, FlagType *Flag) override;
+ 
+diff --git a/src/IO/output_recorder.hpp b/src/IO/output_recorder.hpp
+index 6415da4..6c10450 100644
+--- a/src/IO/output_recorder.hpp
++++ b/src/IO/output_recorder.hpp
+@@ -5,6 +5,12 @@
+ #include <string>
+ #include "CfdSolver/cell_flags.hpp"
+ 
++struct OutputGrid {
++    int imax, jmax, kmax;
++    Real dx, dy, dz;
++    Real xOrigin, yOrigin, zOrigin;
++};
++
+ class OutputFileRecorder {
+ public:
+     virtual ~OutputFileRecorder() = default;
+@@ -13,8 +19,7 @@ public:
+ 
+     virtual void setMpiBounds(int il, int iu, int jl, int ju, int kl, int ku) = 0;
+ 
+-    virtual bool setupRecorder(const std::string &filename,
+-            int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) = 0;
++    virtual bool setupRecorder(const std::string &filename, const OutputGrid &grid) = 0;
+     virtual void writeSnapshot(
+             int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T, FlagType *Flag) = 0;
+ };
+diff --git a/src/IO/vtk_output.cpp b/src/IO/vtk_output.cpp
+index fd81d08..a437013 100644
+--- a/src/IO/vtk_output.cpp
++++ b/src/IO/vtk_output.cpp
+@@ -4,8 +4,11 @@
+ #include "IO/vtk_output.hpp"
+ #include "CfdSolver/Mpi/MacrosMpi.hpp"
+ 
+-bool VtkExporter::setupRecorder(const std::string &filename,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) {
++bool VtkExporter::setupRecorder(const std::string &filename, const OutputGrid &grid) {
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
++    const Real dx = grid.dx, dy = grid.dy, dz = grid.dz;
++    const Real xOrigin = grid.xOrigin, yOrigin = grid.yOrigin, zOrigin = grid.zOrigin;
++
+     this->filename = filename;
+     this->imax = imax;
+     this->jmax = jmax;
+diff --git a/src/IO/vtk_output.hpp b/src/IO/vtk_output.hpp
+index 8b36504..a96604c 100644
+--- a/src/IO/vtk_output.hpp
++++ b/src/IO/vtk_output.hpp
+@@ -14,8 +14,7 @@ public:
+ 
+     void setMpiBounds(int il, int iu, int jl, int ju, int kl, int ku) override;
+ 
+-    bool setupRecorder(const std::string &filename,
+-            int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real xOrigin, Real yOrigin, Real zOrigin) override;
++    bool setupRecorder(const std::string &filename, const OutputGrid &grid) override;
+     void writeSnapshot(
+             int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T, FlagType *Flag) override;
+ 
+diff --git a/src/ParticleTracer/streamline_tracer.cpp b/src/ParticleTracer/streamline_tracer.cpp
+index c73306d..0f7297d 100644
+--- a/src/ParticleTracer/streamline_tracer.cpp
++++ b/src/ParticleTracer/streamline_tracer.cpp
+@@ -2,10 +2,15 @@
+ #include "ParticleTracer/streamline_tracer.hpp"
+ #include "ParticleTracer/ray_box.hpp"
+ 
++struct FlowFieldData {
++    Real *U, *V, *W, *P, *T;
++};
++
+ void integrateFlowlineParticle(
+         FlowCurve &activePath, const fpvec3 &walkerStartPosition, const fpvec3 &domainOrigin,
+         const fpvec3 &domainExtent, Real dt, int imax, int jmax, int kmax, Real dx, Real dy, Real dz,
+-        Real *U, Real *V, Real *W, Real *P, Real *T) {
++        const FlowFieldData &fields) {
++    Real *U = fields.U, *V = fields.V, *W = fields.W, *P = fields.P, *T = fields.T;
+     fpvec3 walkerPosition = walkerStartPosition;
+     fpvec3 priorWalkerPosition;
+ 
+@@ -37,7 +42,7 @@ void integrateFlowlineParticle(
+ 
+         activePath.positions.push_back(walkerPosition);
+         appendTrajectoryFeatures(
+-                activePath, domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz, U, V, W, P, T);
++                activePath, {domainOrigin, domainExtent, imax, jmax, kmax, dx, dy, dz}, U, V, W, P, T);
+ 
+         fpvec3 k1 = dt * evalVelocityAt(walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, U, V, W);
+         fpvec3 k2 = dt * evalVelocityAt(walkerPosition + k1/Real(2.0), domainOrigin, domainExtent, imax, jmax, kmax,
+@@ -69,7 +74,7 @@ FlowCurves FlowlineIntegrator::trace(
+         FlowCurve &activePath = flowCurves.at(i);
+         integrateFlowlineParticle(
+                 activePath, walkerStartPosition, domainOrigin, domainExtent,
+-                dt, imax, jmax, kmax, dx, dy, dz, U, V, W, P, T);
++                dt, imax, jmax, kmax, dx, dy, dz, {U, V, W, P, T});
+     }
+     return flowCurves;
+ }
+diff --git a/src/ParticleTracer/trajectory_output.cpp b/src/ParticleTracer/trajectory_output.cpp
+index 1ee838a..4ee04c0 100644
+--- a/src/ParticleTracer/trajectory_output.cpp
++++ b/src/ParticleTracer/trajectory_output.cpp
+@@ -274,8 +274,12 @@ fpvec3 evalCurlAt(
+ }
+ 
+ void appendTrajectoryFeatures(
+-        FlowCurve &activePath, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real *U, Real *V, Real *W, Real *P, Real *T) {
++        FlowCurve &activePath, const SamplingGrid &grid,
++        Real *U, Real *V, Real *W, Real *P, Real *T) {
++    const fpvec3 &domainOrigin = grid.domainOrigin, &domainExtent = grid.domainExtent;
++    const int imax = grid.imax, jmax = grid.jmax, kmax = grid.kmax;
++    const Real dx = grid.dx, dy = grid.dy, dz = grid.dz;
++
+     if (activePath.attributes.empty()) {
+         activePath.attributes.resize(2);
+     }
+diff --git a/src/ParticleTracer/trajectory_output.hpp b/src/ParticleTracer/trajectory_output.hpp
+index d65eff6..fa30843 100644
+--- a/src/ParticleTracer/trajectory_output.hpp
++++ b/src/ParticleTracer/trajectory_output.hpp
+@@ -13,9 +13,15 @@ struct FlowCurve {
+ 
+ typedef std::vector<FlowCurve> FlowCurves;
+ 
++struct SamplingGrid {
++    fpvec3 domainOrigin, domainExtent;
++    int imax, jmax, kmax;
++    Real dx, dy, dz;
++};
++
+ void appendTrajectoryFeatures(
+-        FlowCurve &activePath, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real dx, Real dy, Real dz, Real *U, Real *V, Real *W, Real *P, Real *T);
++        FlowCurve &activePath, const SamplingGrid &grid,
++        Real *U, Real *V, Real *W, Real *P, Real *T);
+ 
+ 
+ fpvec3 evalVelocityAt(
+diff --git a/src/simulation_main.cpp b/src/simulation_main.cpp
+index bb91631..f49e82c 100644
+--- a/src/simulation_main.cpp
++++ b/src/simulation_main.cpp
+@@ -57,8 +57,9 @@ int main(int argc, char *argv[]) {
+     int openclPlatformIndex = 0;
+ 
+     int imax, jmax, kmax, itermax, particleCount;
+-    Real Re, Pr, UI, VI, WI, PI, TI, GX, GY, GZ, tEnd, dtWrite, xLength, yLength, zLength, xOrigin, yOrigin, zOrigin,
++    Real Re, Pr, UI, VI, WI, PI, TI, GX, GY, GZ, tEnd, dtWrite,
+             dt, dx, dy, dz, alpha, omg, tau, eps, beta, T_h, T_c;
++    DomainGeometry geometry;
+     bool useTemperature = true;
+     std::string scenarioName, shapeName, caseFilename, shapeFilename, outputBaseName, backendName;
+     parseOptions(
+@@ -69,7 +70,7 @@ int main(int argc, char *argv[]) {
+ 
+ #ifdef USE_MPI
+     if (backendName == "mpi") {
+-        mpiStartup(argc, argv, partsAlongI, jSplit, kSplit, imax, jmax, kmax,
++        mpiStartup(argc, argv, {partsAlongI, jSplit, kSplit}, imax, jmax, kmax,
+                 localRank, il, iu, jl, ju, kl, ku,
+                 peerL, peerR, peerD, peerU, peerB, peerF,
+                 rankCoordI, rankCoordJ, rankCoordK, partCount);
+@@ -97,12 +98,12 @@ int main(int argc, char *argv[]) {
+ 
+     loadCaseConfigFromFile(
+             caseFilename, scenarioName, shapeName,
+-            tEnd, dtWrite, xLength, yLength, zLength, xOrigin, yOrigin, zOrigin,
++            tEnd, dtWrite, geometry,
+             UI, VI, WI, PI, TI, GX, GY, GZ,
+             Re, Pr, omg, eps, itermax, alpha, beta, dt, tau, useTemperature,
+             T_h, T_c, imax, jmax, kmax, dx, dy, dz);
+-    fpvec3 domainOrigin = fpvec3(xOrigin, yOrigin, zOrigin);
+-    fpvec3 domainExtent = fpvec3(xLength, yLength, zLength);
++    fpvec3 domainOrigin = fpvec3(geometry.xOrigin, geometry.yOrigin, geometry.zOrigin);
++    fpvec3 domainExtent = fpvec3(geometry.xLength, geometry.yLength, geometry.zLength);
+     FlowlineIntegrator flowlineIntegrator;
+     seedPoints = computeParticleSeedsForScenario(scenarioName, particleCount, domainOrigin, domainExtent);
+ 
+@@ -198,7 +199,7 @@ int main(int argc, char *argv[]) {
+     auto startTime = std::chrono::system_clock::now();
+ 
+     if (shallWriteOutput) {
+-        resultWriter->setupRecorder(outputBaseName, imax, jmax, kmax, dx, dy, dz, xOrigin, yOrigin, zOrigin);
++        resultWriter->setupRecorder(outputBaseName, {imax, jmax, kmax, dx, dy, dz, geometry.xOrigin, geometry.yOrigin, geometry.zOrigin});
+         resultWriter->writeSnapshot(0, t, U, V, W, P, T, Flag);
+     }
+ 

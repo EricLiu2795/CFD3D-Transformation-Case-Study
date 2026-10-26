@@ -1,0 +1,210 @@
+{
+  "status": "CONFIRMED FROM SOURCE AND FROZEN METADATA; NO COMPILER OR TRANSFORMER EXECUTED",
+  "utc": "2026-10-26T06:52:38.002911+00:00",
+  "classifications": [
+    "LOCAL_PROJECT_DEPFILE_MAPPING_OMISSION",
+    "FRAMEWORK_EMPTY_COVERAGE_PASS_ADMISSION_GAP"
+  ],
+  "build_proof": [
+    {
+      "build": "cpu-reference",
+      "compile_db_frozen_sha256": "74a47977b6f373432a290ead8bf290812c3df14d65ab53011b61b542e6bf11cf",
+      "build_make_frozen_sha256": "719c642a627b245fa2ab628d4cc49a9df93026f70eb715b1fed81fb16c59e7f3",
+      "all_metadata_matches_RAW005_index": true,
+      "tu_count": 24,
+      "source_paths_under_commands_tree": 24,
+      "default_guessed_depfiles_indexed": 0,
+      "correct_o_d_depfiles_indexed": 24,
+      "serial_targets": [
+        {
+          "source": "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/boundary_conditions.cpp",
+          "object": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o",
+          "default_guessed_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.d",
+          "default_indexed": false,
+          "actual_cmake_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d",
+          "actual_indexed": true
+        },
+        {
+          "source": "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/poisson_sor.cpp",
+          "object": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o",
+          "default_guessed_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.d",
+          "default_indexed": false,
+          "actual_cmake_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o.d",
+          "actual_indexed": true
+        }
+      ],
+      "header_Defines_in_frozen_depfile": true,
+      "make_MF_evidence": [
+        {
+          "line": 107,
+          "text": "\t/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/boundary_conditions.cpp"
+        }
+      ],
+      "compile_database_contains_MF": false,
+      "mpi_tus_in_database": 0
+    },
+    {
+      "build": "cuda-fma",
+      "compile_db_frozen_sha256": "07fc90ed51c7257c52ed38f70e4a650138b1c3d5f8a57a1726c6cbc7a557aa5b",
+      "build_make_frozen_sha256": "3c3a3b16be348f82391743079bf8dd1817a4998046555b7473bb8fa449eda536",
+      "all_metadata_matches_RAW005_index": true,
+      "tu_count": 29,
+      "source_paths_under_commands_tree": 29,
+      "default_guessed_depfiles_indexed": 0,
+      "correct_o_d_depfiles_indexed": 29,
+      "serial_targets": [
+        {
+          "source": "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/boundary_conditions.cpp",
+          "object": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o",
+          "default_guessed_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.d",
+          "default_indexed": false,
+          "actual_cmake_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d",
+          "actual_indexed": true
+        },
+        {
+          "source": "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/poisson_sor.cpp",
+          "object": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o",
+          "default_guessed_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.d",
+          "default_indexed": false,
+          "actual_cmake_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o.d",
+          "actual_indexed": true
+        }
+      ],
+      "header_Defines_in_frozen_depfile": true,
+      "make_MF_evidence": [
+        {
+          "line": 107,
+          "text": "\t/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/boundary_conditions.cpp"
+        },
+        {
+          "line": 416,
+          "text": "\t/usr/local/cuda-13.2/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/cuda/boundary_kernels.cu.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/cuda/boundary_kernels.cu.o.d -x cu -rdc=true -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/cuda/boundary_kernels.cu -o CMakeFiles/cfd3d.dir/src/CfdSolver/cuda/boundary_kernels.cu.o"
+        }
+      ],
+      "compile_database_contains_MF": false,
+      "mpi_tus_in_database": 0
+    },
+    {
+      "build": "cuda-no-fma",
+      "compile_db_frozen_sha256": "8c0625232af8d13c19b10fa834161bdc8b1674d32ecda45e5118361eb93c9725",
+      "build_make_frozen_sha256": "712fbba9814919727b84ce939651eb1b1b3aa60b2088814a51fa91a648a07538",
+      "all_metadata_matches_RAW005_index": true,
+      "tu_count": 29,
+      "source_paths_under_commands_tree": 29,
+      "default_guessed_depfiles_indexed": 0,
+      "correct_o_d_depfiles_indexed": 29,
+      "serial_targets": [
+        {
+          "source": "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/boundary_conditions.cpp",
+          "object": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o",
+          "default_guessed_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.d",
+          "default_indexed": false,
+          "actual_cmake_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d",
+          "actual_indexed": true
+        },
+        {
+          "source": "/home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/poisson_sor.cpp",
+          "object": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o",
+          "default_guessed_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.d",
+          "default_indexed": false,
+          "actual_cmake_depfile": "CMakeFiles/cfd3d.dir/src/CfdSolver/serial/poisson_sor.cpp.o.d",
+          "actual_indexed": true
+        }
+      ],
+      "header_Defines_in_frozen_depfile": true,
+      "make_MF_evidence": [
+        {
+          "line": 107,
+          "text": "\t/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d -o CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/serial/boundary_conditions.cpp"
+        },
+        {
+          "line": 416,
+          "text": "\t/usr/local/cuda-13.2/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cfd3d.dir/src/CfdSolver/cuda/boundary_kernels.cu.o -MF CMakeFiles/cfd3d.dir/src/CfdSolver/cuda/boundary_kernels.cu.o.d -x cu -rdc=true -c /home/junkun/genesis-transform-experiment/worktree/src/CfdSolver/cuda/boundary_kernels.cu -o CMakeFiles/cfd3d.dir/src/CfdSolver/cuda/boundary_kernels.cu.o"
+        }
+      ],
+      "compile_database_contains_MF": false,
+      "mpi_tus_in_database": 0
+    }
+  ],
+  "inputs": {
+    "inputs/RAW005_INDEXED_BUILD_OUTPUTS.json": {
+      "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_005/INDEXED_BUILD_OUTPUTS.json",
+      "sha256": "6096e1fb6352aae5b3e664c9e93cb2d848727d86ff5bf12cc8628551e8324a9c"
+    },
+    "inputs/testbed.frozen.json": {
+      "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_005/record/testbed.json",
+      "sha256": "fb749758a782f69e76c73c162854a26020bdceb52e288e62ea610251e71b7ed8"
+    },
+    "inputs/CMakeLists.frozen.txt": {
+      "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_005/source/CMakeLists.txt",
+      "sha256": "f8453225cf645b7943fcc7a013050f9fb6e7833a9fe3b9fdcc0da3e3884aa776"
+    },
+    "inputs/S3.compile.json": {
+      "source": "/home/junkun/genesis-transform-experiment/record/provenance/S3/compile-af7af1f8d1.json",
+      "sha256": "0953df0fd4125bf119d44bb36dec0952cd514c2c058299fb7d7f5ee77ccfc471"
+    },
+    "inputs/S11.compile.json": {
+      "source": "/home/junkun/genesis-transform-experiment/record/provenance/S11/compile-6eff0a6e04.json",
+      "sha256": "58ab67b9d778e2c70be69741fadeb64f0455d1d09cda5a89b222e43ad2adf6e6"
+    },
+    "inputs/official/anonkit/builds.py": {
+      "source": "/home/junkun/genesis-transform-experiment/tools/anonymous/anonkit/builds.py",
+      "sha256": "87a95b99e9b44559f7d5b7e214e948ee667d5207eac0036433f13c1c733a5214"
+    },
+    "inputs/official/anonkit/impact.py": {
+      "source": "/home/junkun/genesis-transform-experiment/tools/anonymous/anonkit/impact.py",
+      "sha256": "37cff65a6c539e5d52a3f0007131ef3b98b8547c23c52ade77263fd252e244e0"
+    },
+    "inputs/official/anonkit/core.py": {
+      "source": "/home/junkun/genesis-transform-experiment/tools/anonymous/anonkit/core.py",
+      "sha256": "2fc63ed4306c933f6eed3b728220995712ed73c16265bb03b62b35f9640d2d8e"
+    },
+    "inputs/official/batch.py": {
+      "source": "/home/junkun/genesis-transform-experiment/tools/anonymous/batch.py",
+      "sha256": "ecc8da37fee719e8a5831b10ba400e9181381ad0e979aa8a69a57a8c1e8556f9"
+    },
+    "inputs/official/contract/testbed.schema.json": {
+      "source": "/home/junkun/genesis-transform-experiment/tools/anonymous/contract/testbed.schema.json",
+      "sha256": "74b8692a2dee12e4b05c5f627d0a99cab0507b173e987275084a4fae0135509d"
+    },
+    "inputs/cpu-reference/compile_commands.json": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/compile_commands.json",
+      "sha256": "74a47977b6f373432a290ead8bf290812c3df14d65ab53011b61b542e6bf11cf"
+    },
+    "inputs/cpu-reference/build.make": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/build.make",
+      "sha256": "719c642a627b245fa2ab628d4cc49a9df93026f70eb715b1fed81fb16c59e7f3"
+    },
+    "inputs/cpu-reference/boundary_conditions.cpp.o.d": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cpu-reference/CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d",
+      "sha256": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f"
+    },
+    "inputs/cuda-fma/compile_commands.json": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cuda-fma/compile_commands.json",
+      "sha256": "07fc90ed51c7257c52ed38f70e4a650138b1c3d5f8a57a1726c6cbc7a557aa5b"
+    },
+    "inputs/cuda-fma/build.make": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cuda-fma/CMakeFiles/cfd3d.dir/build.make",
+      "sha256": "3c3a3b16be348f82391743079bf8dd1817a4998046555b7473bb8fa449eda536"
+    },
+    "inputs/cuda-fma/boundary_conditions.cpp.o.d": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cuda-fma/CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d",
+      "sha256": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f"
+    },
+    "inputs/cuda-no-fma/compile_commands.json": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cuda-no-fma/compile_commands.json",
+      "sha256": "8c0625232af8d13c19b10fa834161bdc8b1674d32ecda45e5118361eb93c9725"
+    },
+    "inputs/cuda-no-fma/build.make": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cuda-no-fma/CMakeFiles/cfd3d.dir/build.make",
+      "sha256": "712fbba9814919727b84ce939651eb1b1b3aa60b2088814a51fa91a648a07538"
+    },
+    "inputs/cuda-no-fma/boundary_conditions.cpp.o.d": {
+      "source": "/home/junkun/genesis-transform-experiment/record/work/cuda-no-fma/CMakeFiles/cfd3d.dir/src/CfdSolver/serial/boundary_conditions.cpp.o.d",
+      "sha256": "ab48cad42286e533ac6fe6eb09b911e309dfa4b77074e590986a774404f9905f"
+    }
+  },
+  "no_active_config_tree_contracts_changed": true,
+  "no_model_or_gateway_requests": true,
+  "no_scientific_claim_from_empty_static_pass": true
+}

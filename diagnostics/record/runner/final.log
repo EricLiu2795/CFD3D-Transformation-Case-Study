@@ -1,0 +1,55 @@
+
+$ /usr/bin/python3 -B /home/junkun/genesis-transform-experiment/public/testbed.py validate --run-contract /home/junkun/genesis-transform-experiment/record/run.json --tree "$TREE"
+{"action": "validate", "classification": "PUBLIC_APPLICATION_BUILD_SMOKE", "status": "pass", "logs": "/home/junkun/genesis-transform-experiment/record/work/logs/20261026T081822.684801Z-validate"}
+
+$ python3 /home/junkun/genesis-transform-experiment/tools/anonymous/final_check.py --run /home/junkun/genesis-transform-experiment/record/run.json --build-gpu
+{"action": "gpu-build", "classification": "PUBLIC_APPLICATION_BUILD_SMOKE", "status": "pass", "logs": "/home/junkun/genesis-transform-experiment/record/work/logs/20261026T081841.617312Z-gpu-build"}
+[ok  ] contract.valid           run.json and testbed.json match their schemas
+[ok  ] tree.clean               0 untracked, ignored or modified paths in the tree
+[ok  ] scope.only               141 changed paths, 0 outside scope
+[ok  ] frozen.unchanged         0 frozen paths changed
+[ok  ] pinned.signatures        8 pinned symbols, 0 changed
+[ok  ] rename.residual          1 maps, 0 hits at HEAD, 0 keys with new hits
+[FAIL] history.shape            26 commits: layout 2, pass 21
+          commit=e703287364 not a logged pass, layout group or run.stages commit: experiment: relocate source comments with official stripping tool
+          commit=dcb8fd09a7 not a logged pass, layout group or run.stages commit: Use consistent neutral names
+          commit=d6b50722da not a logged pass, layout group or run.stages commit: Make divCeil generic over integer types
+[ok  ] log.consistent           133 entries, 0 problems
+[ok  ] provenance.complete      21 batch passes, 0 problems
+[ok  ] gpu.builds               2 GPU builds, 0 not built at HEAD
+[FAIL] history.tells            26 commits, 5 tells
+          commit=fc82bc131f old name trajectory (a rename-map key) in the message
+          commit=923e70fa91 old name trajectory (a rename-map key) in the message
+          commit=2684aef611 old name trajectory (a rename-map key) in the message
+          commit=665762f304 generated identity "rewrite <rewrite@localhost>"
+          commit=665762f304 generated identity "rewrite <rewrite@localhost>"
+[FAIL] code.names               822 new identifiers, 2 look generated
+         src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:413 symbol=F1_count identifier matches (?:^|_)(?:S(?:1[01]|[1-9])|R[1-6]|P[1-4]|I[1-7]|F[1-9])_
+         src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:275 symbol=R1_count identifier matches (?:^|_)(?:S(?:1[01]|[1-9])|R[1-6]|P[1-4]|I[1-7]|F[1-9])_
+[ok  ] code.comments            0 new comments, 0 describe the change
+[ok  ] code.unused-new          0 new definitions are never used
+[ok  ] plan.menu                82 kept entries; menu S7,S11,S2,S3,S1,S4,P1,S5,R4,R1,R3,I1,I2,I3,I4,I5,I6,I7,S8
+[ok  ] plan.cap                 92 functions, most 4 instances, cap 7
+[ok  ] plan.frozen-touch        26 commits, 0 frozen touches
+[ok  ] plan.pinned-touch        8 pinned symbols, 0 changes
+[warn] plan.log-covers-diff     187 changed functions in 18 pass commits, 2 not in the log
+         src/CfdSolver/serial/poisson_sor.cpp:8 symbol=relaxSolverSweepCpp commit=fe7d9da899 changed by the pass commit, named by none of its kept entries
+         src/ParticleTracer/trajectory_output.cpp:276 symbol=appendTrajectoryFeatures commit=2684aef611 changed by the pass commit, named by none of its kept entries
+[ok  ] plan.distribution        82 instances: S2 10, P1 8, I2 8, I1 7, S4 6, R3 5, I5 5, S5 4, R1 4, I6 4, S7 3, S1 3, I3 3, I4 3, I7 3, S8 3, S3 2, R4 1
+[ok  ] layout.file-map          60 mapped paths, 16 symbols, 0 problems
+[ok  ] layout.coverage          36 baseline files considered, 23 kept by rule, 0 still upstream-shaped
+[ok  ] layout.basenames         59 new basenames, 0 problems
+[ok  ] layout.shims             59 new files, 0 shims
+[ok  ] layout.paths-frozen      0 path changes after DONE
+[FAIL] layout.symbols           3 executables compared, 27 differences (at 665762f304, checked 2026-10-26T00:40:51 when the builds were of it)
+          build=cpu-reference symbol gained: T CfdSolver::~CfdSolver()
+          build=cuda-fma symbol lost: T __device_stub__Z18setHBoundariesCudaiiiPdS_(int, int, int, double*, double*)
+          build=cuda-fma symbol lost: T __device_stub__Z25setMountainBoundariesCudaiiiPdS_S_Pj(int, int, int, double*, double*, double*, unsigned int*)
+          build=cuda-fma symbol lost: T __device_stub__Z26setInternalTBoundariesCudaiiiPdPj(int, int, int, double*, unsigned int*)
+          build=cuda-fma symbol lost: T __device_stub__Z28setSingleTowerBoundariesCudaiiiPdS_S_(int, int, int, double*, double*, double*)
+          build=cuda-fma symbol lost: T __device_stub__Z29setDrivenCavityBoundariesCudaiiiPd(int, int, int, double*)
+          build=cuda-fma symbol lost: T __device_stub__Z29setFlowOverStepBoundariesCudaiiiPdS_S_(int, int, int, double*, double*, double*)
+          build=cuda-fma symbol gained: T CfdSolver::~CfdSolver()
+         ... 19 more (see the JSON report)
+[ok  ] layout.compiled-set      0 differences in the compiled sets (at 665762f304, checked 2026-10-26T00:40:51 when the builds were of it)
+VERDICT FAIL  (report: /home/junkun/genesis-transform-experiment/record/checks/final_check.json)

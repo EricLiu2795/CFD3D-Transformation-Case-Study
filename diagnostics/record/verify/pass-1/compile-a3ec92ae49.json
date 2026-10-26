@@ -1,0 +1,91 @@
+{
+ "tool": "batch-compile",
+ "generated": "2026-10-26T01:38:08-04:00",
+ "checks": [
+  {
+   "id": "compile.impact",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 TUs compiled in 0 builds (); 13 files no build compiles",
+   "findings": [
+    {
+     "file": "src/CfdSolver/Mpi/UvwMpi.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/Opencl/OpenclFlags.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/cell_flags.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/cuda/boundary_kernels.cu",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/cuda/cuda_runtime_check.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/boundary_conditions.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/momentum_eqs.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/Defines.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/pgm_image.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/text_file_utils.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/ParticleTracer/particle_integrators.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/ParticleTracer/particle_integrators.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/ParticleTracer/trajectory_output.cpp",
+     "detail": "no build compiles this file"
+    }
+   ],
+   "data": {
+    "compiled": [],
+    "preprocessed": 0,
+    "uncovered": {},
+    "unknown": [
+     "src/CfdSolver/Mpi/UvwMpi.cpp",
+     "src/CfdSolver/Opencl/OpenclFlags.hpp",
+     "src/CfdSolver/cell_flags.hpp",
+     "src/CfdSolver/cuda/boundary_kernels.cu",
+     "src/CfdSolver/cuda/cuda_runtime_check.hpp",
+     "src/CfdSolver/serial/boundary_conditions.cpp",
+     "src/CfdSolver/serial/momentum_eqs.cpp",
+     "src/Defines.hpp",
+     "src/IO/pgm_image.cpp",
+     "src/IO/text_file_utils.hpp",
+     "src/ParticleTracer/particle_integrators.cpp",
+     "src/ParticleTracer/particle_integrators.hpp",
+     "src/ParticleTracer/trajectory_output.cpp"
+    ]
+   }
+  }
+ ],
+ "verdict": "pass",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "665762f304386d792e8795817a7b46af166002ec",
+ "head": "a3ec92ae49cadf025381b350f9981f88a5a1f48d"
+}

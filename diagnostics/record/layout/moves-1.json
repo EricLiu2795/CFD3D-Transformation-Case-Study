@@ -1,0 +1,583 @@
+{
+ "group": "F1+F2+F7+F9",
+ "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+ "commit": "dd6216592fffa3b1c394f49df6995fe978e69a26",
+ "instances": [
+  {
+   "id": "serial-backend-dir",
+   "kind": "rename",
+   "summary": "Rename the host solver backend from Cpp/ to serial/ with role-based file names",
+   "renames": [
+    [
+     "src/CfdSolver/Cpp/BorderValuesCpp.hpp",
+     "src/CfdSolver/serial/boundary_conditions.hpp"
+    ],
+    [
+     "src/CfdSolver/Cpp/BorderValuesCpp.cpp",
+     "src/CfdSolver/serial/boundary_conditions.cpp"
+    ],
+    [
+     "src/CfdSolver/Cpp/VelocityCpp.hpp",
+     "src/CfdSolver/serial/momentum_eqs.hpp"
+    ],
+    [
+     "src/CfdSolver/Cpp/VelocityCpp.cpp",
+     "src/CfdSolver/serial/momentum_eqs.cpp"
+    ],
+    [
+     "src/CfdSolver/Cpp/RelaxSolverCpp.hpp",
+     "src/CfdSolver/serial/poisson_sor.hpp"
+    ],
+    [
+     "src/CfdSolver/Cpp/RelaxSolverCpp.cpp",
+     "src/CfdSolver/serial/poisson_sor.cpp"
+    ],
+    [
+     "src/CfdSolver/Cpp/FluidSolverCpp.hpp",
+     "src/CfdSolver/serial/serial_solver.hpp"
+    ],
+    [
+     "src/CfdSolver/Cpp/FluidSolverCpp.cpp",
+     "src/CfdSolver/serial/serial_solver.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "cuda-backend-dir",
+   "kind": "rename",
+   "summary": "Rename the CUDA solver backend from Cuda/ to cuda/ with role-based file names",
+   "renames": [
+    [
+     "src/CfdSolver/Cuda/BorderValuesCuda.hpp",
+     "src/CfdSolver/cuda/boundary_kernels.hpp"
+    ],
+    [
+     "src/CfdSolver/Cuda/BorderValuesCuda.cu",
+     "src/CfdSolver/cuda/boundary_kernels.cu"
+    ],
+    [
+     "src/CfdSolver/Cuda/VelocityCuda.hpp",
+     "src/CfdSolver/cuda/momentum_kernels.hpp"
+    ],
+    [
+     "src/CfdSolver/Cuda/VelocityCuda.cu",
+     "src/CfdSolver/cuda/momentum_kernels.cu"
+    ],
+    [
+     "src/CfdSolver/Cuda/RelaxSolverCuda.hpp",
+     "src/CfdSolver/cuda/poisson_kernels.hpp"
+    ],
+    [
+     "src/CfdSolver/Cuda/RelaxSolverCuda.cu",
+     "src/CfdSolver/cuda/poisson_kernels.cu"
+    ],
+    [
+     "src/CfdSolver/Cuda/FluidSolverCuda.hpp",
+     "src/CfdSolver/cuda/cuda_solver.hpp"
+    ],
+    [
+     "src/CfdSolver/Cuda/FluidSolverCuda.cu",
+     "src/CfdSolver/cuda/cuda_solver.cu"
+    ],
+    [
+     "src/CfdSolver/Cuda/CudaUtils.hpp",
+     "src/CfdSolver/cuda/cuda_runtime_check.hpp"
+    ],
+    [
+     "src/CfdSolver/Cuda/CudaUtils.cu",
+     "src/CfdSolver/cuda/cuda_runtime_check.cu"
+    ]
+   ]
+  },
+  {
+   "id": "solver-interface",
+   "kind": "rename",
+   "summary": "Name the abstract solver base file after its responsibility",
+   "renames": [
+    [
+     "src/CfdSolver/CfdSolver.hpp",
+     "src/CfdSolver/solver_interface.hpp"
+    ],
+    [
+     "src/CfdSolver/CfdSolver.cpp",
+     "src/CfdSolver/solver_interface.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "field-init",
+   "kind": "rename",
+   "summary": "Rename the field initialisation module to field_init",
+   "renames": [
+    [
+     "src/CfdSolver/Init.hpp",
+     "src/CfdSolver/field_init.hpp"
+    ],
+    [
+     "src/CfdSolver/Init.cpp",
+     "src/CfdSolver/field_init.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "cell-flags",
+   "kind": "rename",
+   "summary": "Rename the cell-flag module to cell_flags",
+   "renames": [
+    [
+     "src/CfdSolver/Flag.hpp",
+     "src/CfdSolver/cell_flags.hpp"
+    ],
+    [
+     "src/CfdSolver/Flag.cpp",
+     "src/CfdSolver/cell_flags.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-byte-streams",
+   "kind": "rename",
+   "summary": "Rename the binary stream module to byte_streams",
+   "renames": [
+    [
+     "src/IO/BinaryStream.hpp",
+     "src/IO/byte_streams.hpp"
+    ],
+    [
+     "src/IO/BinaryStream.cpp",
+     "src/IO/byte_streams.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-geometry-io",
+   "kind": "rename",
+   "summary": "Rename the geometry load/save module to geometry_io",
+   "renames": [
+    [
+     "src/IO/GeometryStore.hpp",
+     "src/IO/geometry_io.hpp"
+    ],
+    [
+     "src/IO/GeometryStore.cpp",
+     "src/IO/geometry_io.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-scenario-builder",
+   "kind": "rename",
+   "summary": "Rename the geometry builder module to scenario_builder",
+   "renames": [
+    [
+     "src/IO/GeometryBuilder.hpp",
+     "src/IO/scenario_builder.hpp"
+    ],
+    [
+     "src/IO/GeometryBuilder.cpp",
+     "src/IO/scenario_builder.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-pgm-image",
+   "kind": "rename",
+   "summary": "Lower-case the PGM image module name",
+   "renames": [
+    [
+     "src/IO/PgmImage.hpp",
+     "src/IO/pgm_image.hpp"
+    ],
+    [
+     "src/IO/PgmImage.cpp",
+     "src/IO/pgm_image.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-case-config",
+   "kind": "rename",
+   "summary": "Rename the case configuration reader to case_config",
+   "renames": [
+    [
+     "src/IO/CaseConfigFile.hpp",
+     "src/IO/case_config.hpp"
+    ],
+    [
+     "src/IO/CaseConfigFile.cpp",
+     "src/IO/case_config.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-cli-options",
+   "kind": "rename",
+   "summary": "Rename the command-line option parser to cli_options",
+   "renames": [
+    [
+     "src/IO/OptionParser.hpp",
+     "src/IO/cli_options.hpp"
+    ],
+    [
+     "src/IO/OptionParser.cpp",
+     "src/IO/cli_options.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-progress-report",
+   "kind": "rename",
+   "summary": "Rename the status reporter to progress_report",
+   "renames": [
+    [
+     "src/IO/StatusReporter.hpp",
+     "src/IO/progress_report.hpp"
+    ],
+    [
+     "src/IO/StatusReporter.cpp",
+     "src/IO/progress_report.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-output-recorder",
+   "kind": "rename",
+   "summary": "Rename the output recorder base header to output_recorder",
+   "renames": [
+    [
+     "src/IO/OutputFileRecorder.hpp",
+     "src/IO/output_recorder.hpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-netcdf-output",
+   "kind": "rename",
+   "summary": "Rename the NetCDF recorder to netcdf_output",
+   "renames": [
+    [
+     "src/IO/NetCdfRecorder.hpp",
+     "src/IO/netcdf_output.hpp"
+    ],
+    [
+     "src/IO/NetCdfRecorder.cpp",
+     "src/IO/netcdf_output.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-vtk-output",
+   "kind": "rename",
+   "summary": "Rename the VTK exporter to vtk_output",
+   "renames": [
+    [
+     "src/IO/VtkExporter.hpp",
+     "src/IO/vtk_output.hpp"
+    ],
+    [
+     "src/IO/VtkExporter.cpp",
+     "src/IO/vtk_output.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-path-writer",
+   "kind": "rename",
+   "summary": "Rename the path file writer to path_writer",
+   "renames": [
+    [
+     "src/IO/PathsFile.hpp",
+     "src/IO/path_writer.hpp"
+    ],
+    [
+     "src/IO/PathsFile.cpp",
+     "src/IO/path_writer.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "pt-integrators",
+   "kind": "rename",
+   "summary": "Rename the particle integrator module to particle_integrators",
+   "renames": [
+    [
+     "src/ParticleTracer/ParticleTracer.hpp",
+     "src/ParticleTracer/particle_integrators.hpp"
+    ],
+    [
+     "src/ParticleTracer/ParticleTracer.cpp",
+     "src/ParticleTracer/particle_integrators.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "pt-streamline",
+   "kind": "rename",
+   "summary": "Rename the flowline integrator to streamline_tracer",
+   "renames": [
+    [
+     "src/ParticleTracer/FlowlineIntegrator.hpp",
+     "src/ParticleTracer/streamline_tracer.hpp"
+    ],
+    [
+     "src/ParticleTracer/FlowlineIntegrator.cpp",
+     "src/ParticleTracer/streamline_tracer.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "pt-ray-box",
+   "kind": "rename",
+   "summary": "Rename the ray cast module to ray_box",
+   "renames": [
+    [
+     "src/ParticleTracer/RayCast.hpp",
+     "src/ParticleTracer/ray_box.hpp"
+    ],
+    [
+     "src/ParticleTracer/RayCast.cpp",
+     "src/ParticleTracer/ray_box.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "pt-trajectory-output",
+   "kind": "rename",
+   "summary": "Rename the trajectory feature writer to trajectory_output",
+   "renames": [
+    [
+     "src/ParticleTracer/TrajectoryFeatures.hpp",
+     "src/ParticleTracer/trajectory_output.hpp"
+    ],
+    [
+     "src/ParticleTracer/TrajectoryFeatures.cpp",
+     "src/ParticleTracer/trajectory_output.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "app-main",
+   "kind": "rename",
+   "summary": "Rename the program entry point to simulation_main",
+   "renames": [
+    [
+     "src/Main.cpp",
+     "src/simulation_main.cpp"
+    ]
+   ]
+  },
+  {
+   "id": "io-text-file-merge",
+   "kind": "merge",
+   "summary": "Merge the string and output-directory helpers into one text_file_utils module",
+   "merged_headers": [
+    "TextHelpers.hpp",
+    "FileHelpers.hpp"
+   ],
+   "merged_header_rel": "IO/text_file_utils.hpp",
+   "remove": [
+    "src/IO/TextHelpers.hpp",
+    "src/IO/TextHelpers.cpp",
+    "src/IO/FileHelpers.hpp",
+    "src/IO/FileHelpers.cpp"
+   ]
+  },
+  {
+   "id": "serial-scenario-split",
+   "kind": "split",
+   "summary": "Split the scenario-specific inflow boundary out of the general boundary file"
+  }
+ ],
+ "path_map": {
+  "src/CfdSolver/Cpp/BorderValuesCpp.hpp": [
+   "src/CfdSolver/serial/boundary_conditions.hpp"
+  ],
+  "src/CfdSolver/Cpp/BorderValuesCpp.cpp": [
+   "src/CfdSolver/serial/boundary_conditions.cpp",
+   "src/CfdSolver/serial/scenario_boundary.cpp"
+  ],
+  "src/CfdSolver/Cpp/VelocityCpp.hpp": [
+   "src/CfdSolver/serial/momentum_eqs.hpp"
+  ],
+  "src/CfdSolver/Cpp/VelocityCpp.cpp": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "src/CfdSolver/Cpp/RelaxSolverCpp.hpp": [
+   "src/CfdSolver/serial/poisson_sor.hpp"
+  ],
+  "src/CfdSolver/Cpp/RelaxSolverCpp.cpp": [
+   "src/CfdSolver/serial/poisson_sor.cpp"
+  ],
+  "src/CfdSolver/Cpp/FluidSolverCpp.hpp": [
+   "src/CfdSolver/serial/serial_solver.hpp"
+  ],
+  "src/CfdSolver/Cpp/FluidSolverCpp.cpp": [
+   "src/CfdSolver/serial/serial_solver.cpp"
+  ],
+  "src/CfdSolver/Cuda/BorderValuesCuda.hpp": [
+   "src/CfdSolver/cuda/boundary_kernels.hpp"
+  ],
+  "src/CfdSolver/Cuda/BorderValuesCuda.cu": [
+   "src/CfdSolver/cuda/boundary_kernels.cu"
+  ],
+  "src/CfdSolver/Cuda/VelocityCuda.hpp": [
+   "src/CfdSolver/cuda/momentum_kernels.hpp"
+  ],
+  "src/CfdSolver/Cuda/VelocityCuda.cu": [
+   "src/CfdSolver/cuda/momentum_kernels.cu"
+  ],
+  "src/CfdSolver/Cuda/RelaxSolverCuda.hpp": [
+   "src/CfdSolver/cuda/poisson_kernels.hpp"
+  ],
+  "src/CfdSolver/Cuda/RelaxSolverCuda.cu": [
+   "src/CfdSolver/cuda/poisson_kernels.cu"
+  ],
+  "src/CfdSolver/Cuda/FluidSolverCuda.hpp": [
+   "src/CfdSolver/cuda/cuda_solver.hpp"
+  ],
+  "src/CfdSolver/Cuda/FluidSolverCuda.cu": [
+   "src/CfdSolver/cuda/cuda_solver.cu"
+  ],
+  "src/CfdSolver/Cuda/CudaUtils.hpp": [
+   "src/CfdSolver/cuda/cuda_runtime_check.hpp"
+  ],
+  "src/CfdSolver/Cuda/CudaUtils.cu": [
+   "src/CfdSolver/cuda/cuda_runtime_check.cu"
+  ],
+  "src/CfdSolver/CfdSolver.hpp": [
+   "src/CfdSolver/solver_interface.hpp"
+  ],
+  "src/CfdSolver/CfdSolver.cpp": [
+   "src/CfdSolver/solver_interface.cpp"
+  ],
+  "src/CfdSolver/Init.hpp": [
+   "src/CfdSolver/field_init.hpp"
+  ],
+  "src/CfdSolver/Init.cpp": [
+   "src/CfdSolver/field_init.cpp"
+  ],
+  "src/CfdSolver/Flag.hpp": [
+   "src/CfdSolver/cell_flags.hpp"
+  ],
+  "src/CfdSolver/Flag.cpp": [
+   "src/CfdSolver/cell_flags.cpp"
+  ],
+  "src/IO/BinaryStream.hpp": [
+   "src/IO/byte_streams.hpp"
+  ],
+  "src/IO/BinaryStream.cpp": [
+   "src/IO/byte_streams.cpp"
+  ],
+  "src/IO/GeometryStore.hpp": [
+   "src/IO/geometry_io.hpp"
+  ],
+  "src/IO/GeometryStore.cpp": [
+   "src/IO/geometry_io.cpp"
+  ],
+  "src/IO/GeometryBuilder.hpp": [
+   "src/IO/scenario_builder.hpp"
+  ],
+  "src/IO/GeometryBuilder.cpp": [
+   "src/IO/scenario_builder.cpp"
+  ],
+  "src/IO/PgmImage.hpp": [
+   "src/IO/pgm_image.hpp"
+  ],
+  "src/IO/PgmImage.cpp": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "src/IO/CaseConfigFile.hpp": [
+   "src/IO/case_config.hpp"
+  ],
+  "src/IO/CaseConfigFile.cpp": [
+   "src/IO/case_config.cpp"
+  ],
+  "src/IO/OptionParser.hpp": [
+   "src/IO/cli_options.hpp"
+  ],
+  "src/IO/OptionParser.cpp": [
+   "src/IO/cli_options.cpp"
+  ],
+  "src/IO/StatusReporter.hpp": [
+   "src/IO/progress_report.hpp"
+  ],
+  "src/IO/StatusReporter.cpp": [
+   "src/IO/progress_report.cpp"
+  ],
+  "src/IO/OutputFileRecorder.hpp": [
+   "src/IO/output_recorder.hpp"
+  ],
+  "src/IO/NetCdfRecorder.hpp": [
+   "src/IO/netcdf_output.hpp"
+  ],
+  "src/IO/NetCdfRecorder.cpp": [
+   "src/IO/netcdf_output.cpp"
+  ],
+  "src/IO/VtkExporter.hpp": [
+   "src/IO/vtk_output.hpp"
+  ],
+  "src/IO/VtkExporter.cpp": [
+   "src/IO/vtk_output.cpp"
+  ],
+  "src/IO/PathsFile.hpp": [
+   "src/IO/path_writer.hpp"
+  ],
+  "src/IO/PathsFile.cpp": [
+   "src/IO/path_writer.cpp"
+  ],
+  "src/ParticleTracer/ParticleTracer.hpp": [
+   "src/ParticleTracer/particle_integrators.hpp"
+  ],
+  "src/ParticleTracer/ParticleTracer.cpp": [
+   "src/ParticleTracer/particle_integrators.cpp"
+  ],
+  "src/ParticleTracer/FlowlineIntegrator.hpp": [
+   "src/ParticleTracer/streamline_tracer.hpp"
+  ],
+  "src/ParticleTracer/FlowlineIntegrator.cpp": [
+   "src/ParticleTracer/streamline_tracer.cpp"
+  ],
+  "src/ParticleTracer/RayCast.hpp": [
+   "src/ParticleTracer/ray_box.hpp"
+  ],
+  "src/ParticleTracer/RayCast.cpp": [
+   "src/ParticleTracer/ray_box.cpp"
+  ],
+  "src/ParticleTracer/TrajectoryFeatures.hpp": [
+   "src/ParticleTracer/trajectory_output.hpp"
+  ],
+  "src/ParticleTracer/TrajectoryFeatures.cpp": [
+   "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "src/Main.cpp": [
+   "src/simulation_main.cpp"
+  ],
+  "src/IO/TextHelpers.hpp": [
+   "src/IO/text_file_utils.hpp"
+  ],
+  "src/IO/TextHelpers.cpp": [
+   "src/IO/text_file_utils.cpp"
+  ],
+  "src/IO/FileHelpers.hpp": [
+   "src/IO/text_file_utils.hpp"
+  ],
+  "src/IO/FileHelpers.cpp": [
+   "src/IO/text_file_utils.cpp"
+  ]
+ },
+ "symbols": {
+  "calculateFghCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateRsCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateDtCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateUvwCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateTemperatureCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "setBoundaryValuesCuda": "src/CfdSolver/cuda/boundary_kernels.cu",
+  "setBoundaryValuesScenarioSpecificCuda": "src/CfdSolver/cuda/boundary_kernels.cu",
+  "sorSolverCuda": "src/CfdSolver/cuda/poisson_kernels.cu",
+  "assignScenarioBorderValuesCpp": "src/CfdSolver/serial/scenario_boundary.cpp",
+  "hasPrefix": "src/IO/text_file_utils.cpp",
+  "hasSuffix": "src/IO/text_file_utils.cpp",
+  "setupOutputDirectory": "src/IO/text_file_utils.cpp",
+  "fileIsPresent": "src/IO/text_file_utils.cpp"
+ }
+}

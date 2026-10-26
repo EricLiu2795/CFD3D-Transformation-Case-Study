@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "fresh_builds": 3,
+  "executed_app_cases": 6,
+  "CPU_cases": 2,
+  "GPU_cases": 4,
+  "rows": [
+    {
+      "build": "cpu-reference",
+      "steps": 1,
+      "vtk_states": 2,
+      "warnings": [],
+      "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cpu-reference-steps1-repeat1.log"
+    },
+    {
+      "build": "cpu-reference",
+      "steps": 2,
+      "vtk_states": 3,
+      "warnings": [],
+      "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cpu-reference-steps2-repeat1.log"
+    },
+    {
+      "build": "cuda-fma",
+      "steps": 1,
+      "vtk_states": 2,
+      "warnings": [],
+      "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-fma-steps1-repeat1.log"
+    },
+    {
+      "build": "cuda-fma",
+      "steps": 2,
+      "vtk_states": 3,
+      "warnings": [],
+      "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-fma-steps2-repeat1.log"
+    },
+    {
+      "build": "cuda-no-fma",
+      "steps": 1,
+      "vtk_states": 2,
+      "warnings": [],
+      "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-no-fma-steps1-repeat1.log"
+    },
+    {
+      "build": "cuda-no-fma",
+      "steps": 2,
+      "vtk_states": 3,
+      "warnings": [],
+      "log": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/cuda-no-fma-steps2-repeat1.log"
+    }
+  ],
+  "reference": {
+    "path": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT/record/work-base/public-baseline.json",
+    "sha256": "921afef995980c624859ea110417bffe68bb94f0967bb3bf7cd0faf3792d16ce"
+  },
+  "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/source",
+  "actual_result": "/home/junkun/genesis-transform-experiment/record/full-final-app-001/logs/20261026T084254.765938Z-validate/RESULT.json",
+  "precision_limitation": "ASCII VTK is lossy upstream output; not full FP64 buffers",
+  "comparison": "Encoded finite numeric VTK arrays exactly match immutable original within each backend; noCPU-GPUidentityassumed"
+}

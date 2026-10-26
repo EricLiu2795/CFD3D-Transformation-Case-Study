@@ -1,0 +1,131 @@
+{
+ "tool": "batch-compile",
+ "generated": "2026-10-26T03:03:26-04:00",
+ "checks": [
+  {
+   "id": "compile.impact",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 TUs compiled in 0 builds (); 21 files no build compiles",
+   "findings": [
+    {
+     "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/Mpi/MpiHelpers.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/Mpi/MpiHelpers.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/boundary_conditions.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/momentum_eqs.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/momentum_eqs.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/scenario_boundary.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/serial_solver.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/case_config.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/case_config.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/netcdf_output.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/netcdf_output.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/output_recorder.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/vtk_output.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/vtk_output.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/ParticleTracer/streamline_tracer.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/ParticleTracer/trajectory_output.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/ParticleTracer/trajectory_output.hpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/simulation_main.cpp",
+     "detail": "no build compiles this file"
+    }
+   ],
+   "data": {
+    "compiled": [],
+    "preprocessed": 0,
+    "uncovered": {},
+    "unknown": [
+     "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+     "src/CfdSolver/Mpi/BoundaryValuesMpi.hpp",
+     "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+     "src/CfdSolver/Mpi/MpiHelpers.cpp",
+     "src/CfdSolver/Mpi/MpiHelpers.hpp",
+     "src/CfdSolver/serial/boundary_conditions.hpp",
+     "src/CfdSolver/serial/momentum_eqs.cpp",
+     "src/CfdSolver/serial/momentum_eqs.hpp",
+     "src/CfdSolver/serial/scenario_boundary.cpp",
+     "src/CfdSolver/serial/serial_solver.cpp",
+     "src/IO/case_config.cpp",
+     "src/IO/case_config.hpp",
+     "src/IO/netcdf_output.cpp",
+     "src/IO/netcdf_output.hpp",
+     "src/IO/output_recorder.hpp",
+     "src/IO/vtk_output.cpp",
+     "src/IO/vtk_output.hpp",
+     "src/ParticleTracer/streamline_tracer.cpp",
+     "src/ParticleTracer/trajectory_output.cpp",
+     "src/ParticleTracer/trajectory_output.hpp",
+     "src/simulation_main.cpp"
+    ]
+   }
+  }
+ ],
+ "verdict": "pass",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "163560ff8c74cba1e2856fd92922fc1ef9bb6692",
+ "head": "a21fb907b72babdf84fb32ec663dc4845015e7fc"
+}

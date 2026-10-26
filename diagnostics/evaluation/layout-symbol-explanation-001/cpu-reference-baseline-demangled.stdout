@@ -1,0 +1,213 @@
+0000000000032010 V DW.ref.__gxx_personality_v0
+000000000002a000 R _IO_stdin_used
+0000000000017ff0 T fileExists(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000125d0 T initArrays(double, double, double, double, double, int, int, int, double*, double*, double*, double*, double*, unsigned int*)
+000000000001f760 T startsWith(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000153f0 T isValidCell(int, int, int, int, int, int, unsigned int const*)
+000000000001ab80 T loadPgmFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&)
+00000000000275a0 T getdUdyAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+0000000000027620 T getdUdzAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+0000000000027690 T getdVdxAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+0000000000027710 T getdVdzAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+0000000000027780 T getdWdxAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+0000000000027800 T getdWdyAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+000000000000d1b0 T sorSolverCpp(double, double, int, LinearSystemSolverType, bool, double, double, double, int, int, int, double*, double*, double*, unsigned int*)
+0000000000012720 T initArraysMpi(double, double, double, double, double, int, int, int, int, int, int, double*, double*, double*, double*, double*, unsigned int*)
+0000000000010820 T calculateDtCpp(double, double, double, double&, double, double, double, int, int, int, double*, double*, double*, bool)
+00000000000107a0 T calculateRsCpp(double, double, double, double, int, int, int, double*, double*, double*, double*)
+0000000000012bb0 T parseArguments(int, char**, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, bool&, LinearSystemSolverType&, int&, bool&, int&, int&, int&, int&, int&, int&, int&, int&, int&)
+0000000000010320 T calculateFghCpp(double, double, double, double, double, double, double, double, double, double, int, int, int, double*, double*, double*, double*, double*, double*, double*, unsigned int*)
+0000000000010a40 T calculateUvwCpp(double, double, double, double, int, int, int, double*, double*, double*, double*, double*, double*, double*, unsigned int*)
+000000000001c0e0 T readIntVariable(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000016a40 T generateScenario(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+000000000001c1a0 T readRealVariable(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000025380 T rayBoxIntersection(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, double&, double&)
+000000000001bfe0 T readStringVariable(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000016080 T createTowerGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+00000000000274e0 T getVectorVelocityAt(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*, double*, double*)
+00000000000114a0 T initFlagNoObstacles(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, unsigned int*&)
+000000000000a810 T setBoundaryValuesCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+000000000000c8f0 T sorSolverIterationCpp(double, double, double, double, double, int, int, int, LinearSystemSolverType, double*, double*, double*, unsigned int*, double&)
+00000000000181b0 T prepareOutputDirectory(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)
+000000000000a590 T setDownUpBoundariesCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+0000000000010bd0 T calculateTemperatureCpp(double, double, double, double, double, double, double, int, int, int, double*, double*, double*, double*, double*, unsigned int*)
+0000000000016450 T createHeightMapGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+00000000000252d0 T rayBoxPlaneIntersection(double, double, double, double, double&, double&)
+000000000001c140 T readIntVariableOptional(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, bool&)
+0000000000025b40 T traceStreamlineParticle(Trajectory&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, double, int, int, int, double, double, double, double*, double*, double*, double*, double*)
+00000000000268d0 T trilinearInterpolationU(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*)
+0000000000026cd0 T trilinearInterpolationV(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*)
+00000000000270d0 T trilinearInterpolationW(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*)
+0000000000011b70 T initFlagFromGeometryFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, unsigned int*&)
+000000000001c2e0 T loadVariablesFromDatFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000292e0 T pushTrajectoryAttributes(Trajectory&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double, double, double*, double*, double*, double*, double*)
+000000000001c1f0 T readRealVariableOptional(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, double, bool&)
+0000000000011540 T nearestNeighborUpsampling(std::vector<unsigned int, std::allocator<unsigned int> >, int, int, int, std::vector<unsigned int, std::allocator<unsigned int> >&, int, int, int)
+000000000000a610 T setFrontBackBoundariesCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+000000000000a7b0 T setInternalTBoundariesCpp(int, int, int, double*, unsigned int*)
+000000000000a690 T setInternalUBoundariesCpp(int, int, int, double*, unsigned int*)
+000000000000a6f0 T setInternalVBoundariesCpp(int, int, int, double*, unsigned int*)
+000000000000a750 T setInternalWBoundariesCpp(int, int, int, double*, unsigned int*)
+000000000000a510 T setLeftRightBoundariesCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+00000000000178a0 T storeValuesInGeometryFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<unsigned int, std::allocator<unsigned int> > const&, int, int, int)
+0000000000015d70 T createFlowOverStepGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+00000000000170e0 T loadValuesFromGeometryFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&)
+000000000001c250 T readStringVariableOptional(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool&)
+0000000000020260 T writeTrajectoriesToObjFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<Trajectory, std::allocator<Trajectory> > const&)
+000000000001aff0 T nearestNeighborUpsampling2D(std::vector<unsigned int, std::allocator<unsigned int> > const&, int, int, std::vector<unsigned int, std::allocator<unsigned int> >&, int, int)
+0000000000027880 T trilinearInterpolation_dUdy(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000027cb0 T trilinearInterpolation_dUdz(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+00000000000280d0 T trilinearInterpolation_dVdx(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000028500 T trilinearInterpolation_dVdz(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000028920 T trilinearInterpolation_dWdx(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000028d40 T trilinearInterpolation_dWdy(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000015b10 T createRayleighBenardGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+0000000000026860 T worldPositionToStaggeredGrid(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int)
+00000000000254c0 T integrateParticlePositionEuler(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*, double*, double*, double)
+000000000001b160 T nearestNeighborUpsamplingPgm2D(std::vector<unsigned int, std::allocator<unsigned int> > const&, int, int, std::vector<unsigned int, std::allocator<unsigned int> >&, int, int)
+00000000000158b0 T createNaturalConvectionGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+000000000001f840 T writeTrajectoriesToBinLinesFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<Trajectory, std::allocator<Trajectory> > const&)
+000000000001d870 T readScenarioConfigurationFromFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, int&, double&, double&, double&, double&, bool&, double&, double&, int&, int&, int&, double&, double&, double&)
+000000000000aa40 T setBoundaryValuesScenarioSpecificCpp(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, double*, double*, double*, unsigned int*)
+0000000000025560 T getParticleSeedingLocationsForScenario(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&)
+000000000001f7b0 T endsWith(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000029160 T getCurlAt(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double, double, double*, double*, double*)
+0000000000026740 T getUAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*)
+00000000000267a0 T getVAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*)
+0000000000026800 T getWAtIdx(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*)
+000000000001b460 T ProgressBar::printOutput(int, double, unsigned long)
+000000000001b580 T ProgressBar::printProgress(double, double, unsigned long)
+000000000000ac70 T CfdSolverCpp::initialize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, LinearSystemSolverType, bool, double, double, double, double, int, double, double, double, double, double, double, double, bool, double, double, int, int, int, double, double, double, double*, double*, double*, double*, double*, unsigned int*)
+000000000000b500 T CfdSolverCpp::calculateDt()
+000000000000b6a0 T CfdSolverCpp::calculateRs()
+000000000000b600 T CfdSolverCpp::calculateFgh()
+000000000000b770 T CfdSolverCpp::calculateUvw()
+000000000000b700 T CfdSolverCpp::executeSorSolver()
+000000000000b2f0 T CfdSolverCpp::getDataForOutput(double*, double*, double*, double*, double*)
+000000000000b450 T CfdSolverCpp::setBoundaryValues()
+000000000000b570 T CfdSolverCpp::calculateTemperature()
+000000000000b4b0 T CfdSolverCpp::setBoundaryValuesScenarioSpecific()
+000000000000b8f0 T CfdSolverCpp::~CfdSolverCpp()
+000000000000b7f0 T CfdSolverCpp::~CfdSolverCpp()
+000000000000b7f0 T CfdSolverCpp::~CfdSolverCpp()
+0000000000018b00 T NetCdfWriter::setMpiData(int, int, int, int, int, int)
+000000000001a960 T NetCdfWriter::writeTimestep(int, double, double*, double*, double*, double*, double*, unsigned int*)
+0000000000019030 T NetCdfWriter::initializeWriter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, double, double, double, double, double, double)
+000000000001ab20 T NetCdfWriter::ncPutAttributeText(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000001ab40 W NetCdfWriter::getOutputFormatEnding[abi:cxx11]()
+000000000001a830 T NetCdfWriter::writeTimeDependentVariable3D_Normal(int, int, int, double*)
+000000000001a6d0 T NetCdfWriter::writeTimeDependentVariable3D_Staggered(int, int, int, double*)
+0000000000018f70 T NetCdfWriter::~NetCdfWriter()
+0000000000018fd0 T NetCdfWriter::~NetCdfWriter()
+0000000000018fd0 T NetCdfWriter::~NetCdfWriter()
+0000000000015660 T GeometryCreator::layersFromPgmFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int)
+0000000000015330 T GeometryCreator::setLayersConstant(unsigned int, int, int)
+0000000000015390 T GeometryCreator::setLayersInObject(unsigned int, int, int, std::function<bool (int, int, int)> const&)
+0000000000015300 T GeometryCreator::writeToBinGeoFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000015590 T GeometryCreator::removeInvalidCells()
+0000000000015780 T GeometryCreator::GeometryCreator(int, int, int, unsigned int)
+0000000000015780 T GeometryCreator::GeometryCreator(int, int, int, unsigned int)
+00000000000140c0 T BinaryReadStream::read(void*, unsigned long)
+00000000000141a0 T BinaryReadStream::read(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+0000000000014050 T BinaryReadStream::BinaryReadStream(void const*, unsigned long)
+0000000000014030 T BinaryReadStream::BinaryReadStream(void*, unsigned long)
+0000000000014000 T BinaryReadStream::BinaryReadStream(BinaryWriteStream&)
+0000000000014050 T BinaryReadStream::BinaryReadStream(void const*, unsigned long)
+0000000000014030 T BinaryReadStream::BinaryReadStream(void*, unsigned long)
+0000000000014000 T BinaryReadStream::BinaryReadStream(BinaryWriteStream&)
+00000000000140a0 T BinaryReadStream::~BinaryReadStream()
+00000000000140a0 T BinaryReadStream::~BinaryReadStream()
+0000000000026580 T StreamlineTracer::trace(std::vector<glm::vec<3, double, (glm::qualifier)0>, std::allocator<glm::vec<3, double, (glm::qualifier)0> > > const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, double, int, int, int, double, double, double, double*, double*, double*, double*, double*)
+0000000000013f20 T BinaryWriteStream::write(char const*)
+0000000000013eb0 T BinaryWriteStream::write(void const*, unsigned long)
+0000000000013f90 T BinaryWriteStream::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000013e20 T BinaryWriteStream::reserve(unsigned long)
+0000000000013dc0 T BinaryWriteStream::BinaryWriteStream(unsigned long)
+0000000000013dc0 T BinaryWriteStream::BinaryWriteStream(unsigned long)
+0000000000013e00 T BinaryWriteStream::~BinaryWriteStream()
+0000000000013e00 T BinaryWriteStream::~BinaryWriteStream()
+0000000000020a80 T VtkWriter::setMpiData(int, int, int, int, int, int)
+0000000000022820 T VtkWriter::writeCellData(_IO_FILE*, double*, double*, unsigned int*)
+0000000000023540 T VtkWriter::writeTimestep(int, double, double*, double*, double*, double*, double*, unsigned int*)
+0000000000021cc0 T VtkWriter::writePointData(_IO_FILE*, double*, double*, double*, unsigned int*)
+0000000000021960 T VtkWriter::writeVtkHeader(_IO_FILE*)
+0000000000020ac0 T VtkWriter::initializeWriter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, double, double, double, double, double, double)
+0000000000024e00 W VtkWriter::getOutputFormatEnding[abi:cxx11]()
+0000000000021a30 T VtkWriter::writePointCoordinates(_IO_FILE*, double, double, double, double, double, double)
+0000000000025020 W VtkWriter::VtkWriter(int, int, bool)
+0000000000025020 W VtkWriter::VtkWriter(int, int, bool)
+00000000000218f0 T VtkWriter::~VtkWriter()
+0000000000021880 T VtkWriter::~VtkWriter()
+0000000000021880 T VtkWriter::~VtkWriter()
+000000000001f380 W double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+0000000000013cc0 W int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+000000000000d500 W std::ctype<char>::do_widen(char) const
+0000000000018ad0 W std::unique_ptr<std::filesystem::__cxx11::path::_List::_Impl, std::filesystem::__cxx11::path::_List::_Impl_deleter>::~unique_ptr()
+0000000000018ad0 W std::unique_ptr<std::filesystem::__cxx11::path::_List::_Impl, std::filesystem::__cxx11::path::_List::_Impl_deleter>::~unique_ptr()
+0000000000025190 W std::_Vector_base<glm::vec<3, double, (glm::qualifier)0>, std::allocator<glm::vec<3, double, (glm::qualifier)0> > >::~_Vector_base()
+0000000000025190 W std::_Vector_base<glm::vec<3, double, (glm::qualifier)0>, std::allocator<glm::vec<3, double, (glm::qualifier)0> > >::~_Vector_base()
+0000000000011ec0 W std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base()
+0000000000011ec0 W std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base()
+00000000000170b0 W std::_Function_base::~_Function_base()
+00000000000170b0 W std::_Function_base::~_Function_base()
+0000000000018970 W std::_Sp_counted_ptr<decltype(nullptr), (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+0000000000018980 W std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_destroy()
+0000000000018a20 W std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release()
+0000000000018990 W std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release_last_use_cold()
+00000000000258f0 W std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand()
+0000000000025220 W std::vector<Trajectory, std::allocator<Trajectory> >::~vector()
+0000000000025220 W std::vector<Trajectory, std::allocator<Trajectory> >::~vector()
+000000000001f540 W void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000029560 W std::vector<std::vector<double, std::allocator<double> >, std::allocator<std::vector<double, std::allocator<double> > > >::_M_default_append(unsigned long)
+0000000000029740 W void std::vector<double, std::allocator<double> >::_M_realloc_append<double>(double&&)
+0000000000011ef0 W std::vector<unsigned int, std::allocator<unsigned int> >::_M_default_append(unsigned long)
+000000000001f470 W void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<true>(char const*, unsigned long)
+0000000000025090 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+0000000000025090 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+00000000000259f0 W double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
+0000000000032180 B std::cerr@GLIBCXX_3.4
+0000000000032040 B std::cout@GLIBCXX_3.4
+00000000000251c0 W bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
+00000000000318e0 V typeinfo for CfdSolverCpp
+00000000000319e0 V typeinfo for NetCdfWriter
+00000000000319d0 V typeinfo for OutputFileWriter
+0000000000031a28 V typeinfo for StreamlineTracer
+0000000000031a18 V typeinfo for SteadyFlowParticleTracer
+00000000000318d0 V typeinfo for CfdSolver
+0000000000031a00 V typeinfo for VtkWriter
+000000000002a848 V typeinfo name for CfdSolverCpp
+000000000002b2e8 V typeinfo name for NetCdfWriter
+000000000002b2d0 V typeinfo name for OutputFileWriter
+000000000002b340 V typeinfo name for StreamlineTracer
+000000000002b320 V typeinfo name for SteadyFlowParticleTracer
+000000000002a838 V typeinfo name for CfdSolver
+000000000002b310 V typeinfo name for VtkWriter
+0000000000031810 V VTT for std::basic_ifstream<char, std::char_traits<char> >@GLIBCXX_3.4
+00000000000316d0 V VTT for std::basic_ofstream<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000031560 V vtable for CfdSolverCpp
+0000000000031638 V vtable for NetCdfWriter
+00000000000316b8 V vtable for StreamlineTracer
+0000000000031678 V vtable for VtkWriter
+0000000000031850 V vtable for std::basic_filebuf<char, std::char_traits<char> >@GLIBCXX_3.4
+00000000000316f0 V vtable for std::basic_ifstream<char, std::char_traits<char> >@GLIBCXX_3.4
+00000000000317c0 V vtable for std::basic_ofstream<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000031740 V vtable for std::basic_streambuf<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000031830 V vtable for std::basic_ios<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000032018 D __TMC_END__
+0000000000032040 B __bss_start
+0000000000032000 D __data_start
+0000000000032008 D __dso_handle
+0000000000032160 B __libc_single_threaded@GLIBC_2.32
+000000000002b358 R __offload_func_table
+000000000002b358 R __offload_funcs_end
+000000000002b358 R __offload_ind_func_table
+000000000002b358 R __offload_ind_funcs_end
+000000000002b358 R __offload_var_table
+000000000002b358 R __offload_vars_end
+0000000000032018 D _edata
+0000000000032320 B _end
+0000000000029810 T _fini
+0000000000004000 T _init
+0000000000007d00 T _start
+0000000000032000 W data_start
+0000000000006880 T main

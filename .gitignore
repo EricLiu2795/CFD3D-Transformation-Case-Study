@@ -1,0 +1,4 @@
+/.publication/
+.env
+.venv/
+__pycache__/

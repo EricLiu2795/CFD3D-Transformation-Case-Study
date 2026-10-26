@@ -1,0 +1,27 @@
+7a17ebe52929ab28978b1c582a1b9b0cf559d439 build: respect explicit CUDA architecture selection
+e70328736481eb4d1c3cc6785658c6d9d2f62a8b experiment: relocate source comments with official stripping tool
+dcb8fd09a7f8cad74de7989146289865e6e54479 Use consistent neutral names
+dd6216592fffa3b1c394f49df6995fe978e69a26 Reorganise solver and IO sources into role-named files
+665762f304386d792e8795817a7b46af166002ec Reorder definitions within the solver and IO modules
+e221cad9151a8b9a4c0404d9879cf2008ededdb4 Remove unused flag and tokenizer helpers
+d6b50722da2a343655d910cebc297e3930dc46ed Make divCeil generic over integer types
+e4a249a275f8bc2823a33302701b8916c1d69f4e Factor out shared helpers in the solver and I/O paths
+a3ec92ae49cadf025381b350f9981f88a5a1f48d Allow divCeil to take a differently typed divisor
+fe7d9da899e9d2c2b33be049750f23131ee9823a Drive stencil neighbour sums from offset tables
+319a472696e3ff9ad4e7d1bcc8d669e7e40e65a2 Build float output buffers with std::transform
+32bec6a48261019fbd6b0f757270e0155515a162 Flatten border-assignment control flow with guard clauses
+128f6270b2a99ddbf0666e3ee082bb885c51f887 Precompute invariant squared grid spacings and output extents
+b2e27c7c69e0fc642c7810724c8b4253d4918772 Use RAII buffers in the IO readers and writers
+aaa10078a56a74cb5076b1088a99e8c513800555 Share the pressure neighbour table into the parallel sweep
+b25a6987d0f5d9506905aad9e79ddf6624f48c39 Use a std::array for the PGM header line buffer
+28e721b578797f34be8395a4bcfa87e7d11848ae Guard buffer copies against empty ranges
+163560ff8c74cba1e2856fd92922fc1ef9bb6692 Harden file I/O against short reads and failed opens
+2684aef61112b1495e4cdd22d87dc605df534add Group related parameters into descriptor structs
+7dd9413983346c6acf11cdfbf621ae580727c58c Adopt consistent parameter ordering across solver and IO helpers
+b5686f730a1ac898bb25d3009aaa91201f5f9a76 Return computed outputs by value from resampling and partition helpers
+f5514a0e5f746b65b927edb017746932d394c3a3 Thread staggered fields through lightweight field views
+671fab2431e6ee01df93dbb53f03b2cb804a0233 Tidy the scoping of solver and IO helper functions
+7a5bb92c473af0c839106ecf3db6ad04e2626736 Replace bool flags with modes in the serial solver and output layer
+b57eea505504a1c0a67312bf1a54eaeac9717337 Group geometry and topology scalars into structs
+923e70fa915026ccf26f5dabf32280168175de26 Name the field-view and path collection types
+fc82bc131faa1922769fd501cf3e83779af1dc1c Convert remaining trajectory feature call to the sampling grid struct

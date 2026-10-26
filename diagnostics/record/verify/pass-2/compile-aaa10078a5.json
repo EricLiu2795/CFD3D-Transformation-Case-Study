@@ -1,0 +1,96 @@
+{
+ "tool": "batch-compile",
+ "generated": "2026-10-26T02:43:53-04:00",
+ "checks": [
+  {
+   "id": "compile.impact",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 TUs compiled in 0 builds (); 14 files no build compiles",
+   "findings": [
+    {
+     "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/Mpi/UvwMpi.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/cuda/boundary_kernels.cu",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/boundary_conditions.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/momentum_eqs.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/CfdSolver/serial/poisson_sor.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/byte_streams.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/geometry_io.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/netcdf_output.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/path_writer.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/pgm_image.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/scenario_builder.cpp",
+     "detail": "no build compiles this file"
+    },
+    {
+     "file": "src/IO/vtk_output.cpp",
+     "detail": "no build compiles this file"
+    }
+   ],
+   "data": {
+    "compiled": [],
+    "preprocessed": 0,
+    "uncovered": {},
+    "unknown": [
+     "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+     "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+     "src/CfdSolver/Mpi/UvwMpi.cpp",
+     "src/CfdSolver/cuda/boundary_kernels.cu",
+     "src/CfdSolver/serial/boundary_conditions.cpp",
+     "src/CfdSolver/serial/momentum_eqs.cpp",
+     "src/CfdSolver/serial/poisson_sor.cpp",
+     "src/IO/byte_streams.cpp",
+     "src/IO/geometry_io.cpp",
+     "src/IO/netcdf_output.cpp",
+     "src/IO/path_writer.cpp",
+     "src/IO/pgm_image.cpp",
+     "src/IO/scenario_builder.cpp",
+     "src/IO/vtk_output.cpp"
+    ]
+   }
+  }
+ ],
+ "verdict": "pass",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "a3ec92ae49cadf025381b350f9981f88a5a1f48d",
+ "head": "aaa10078a56a74cb5076b1088a99e8c513800555"
+}

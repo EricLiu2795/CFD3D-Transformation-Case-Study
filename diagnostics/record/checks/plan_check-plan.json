@@ -1,0 +1,73 @@
+{
+ "tool": "plan_check",
+ "generated": "2026-10-25T23:33:35-04:00",
+ "checks": [
+  {
+   "id": "plan.menu",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 instances, 109 budgeted in 19 groups; menu S7,S11,S2,S3,S1,S4,P1,S5,R4,R1,R3,I1,I2,I3,I4,I5,I6,I7,S8"
+  },
+  {
+   "id": "plan.cap",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 functions, most 0 instances, cap 7",
+   "data": {
+    "cap": 7,
+    "histogram": {}
+   }
+  },
+  {
+   "id": "plan.frozen-touch",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 planned changes outside scope or frozen"
+  },
+  {
+   "id": "plan.pinned-touch",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 planned changes to frozen pinned bodies"
+  },
+  {
+   "id": "plan.distribution",
+   "severity": "info",
+   "status": "pass",
+   "summary": "0 instances: ",
+   "data": {
+    "per_entry": {},
+    "per_family": {},
+    "per_file": {},
+    "functions": 0,
+    "compositions": {},
+    "budgets": {
+     "S7": 3,
+     "S11": 1,
+     "S2": 14,
+     "S3": 3,
+     "S1": 4,
+     "S4": 10,
+     "P1": 8,
+     "S5": 6,
+     "R4": 1,
+     "R1": 4,
+     "R3": 5,
+     "I1": 8,
+     "I2": 8,
+     "I3": 5,
+     "I4": 8,
+     "I5": 8,
+     "I6": 5,
+     "I7": 3,
+     "S8": 5
+    }
+   }
+  }
+ ],
+ "verdict": "pass",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+ "head": "dcb8fd09a7f8cad74de7989146289865e6e54479"
+}

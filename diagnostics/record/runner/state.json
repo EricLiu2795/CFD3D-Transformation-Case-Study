@@ -1,0 +1,161 @@
+{
+ "baseline": {
+  "status": "done",
+  "start": "2026-10-25T21:05:35+00:00",
+  "rev": "e70328736481eb4d1c3cc6785658c6d9d2f62a8b",
+  "end": "2026-10-25T21:06:01+00:00",
+  "seconds": 26
+ },
+ "inventory": {
+  "status": "done",
+  "start": "2026-10-25T21:05:35+00:00",
+  "head_before": "e70328736",
+  "end": "2026-10-25T21:05:37+00:00",
+  "seconds": 3,
+  "head_after": "e70328736"
+ },
+ "words": {
+  "status": "done",
+  "start": "2026-10-25T21:05:37+00:00",
+  "head_before": "e70328736",
+  "usd": 1.8579,
+  "end": "2026-10-26T02:03:31+00:00",
+  "seconds": 608,
+  "error": "[words] model call failed; see /home/junkun/genesis-transform-experiment/record/runner/words.log and words.result.md",
+  "head_after": "e70328736"
+ },
+ "cards": {
+  "status": "done",
+  "start": "2026-10-26T02:03:31+00:00",
+  "head_before": "e70328736",
+  "end": "2026-10-26T02:03:33+00:00",
+  "seconds": 2,
+  "head_after": "e70328736"
+ },
+ "naming": {
+  "status": "done",
+  "start": "2026-10-26T02:03:33+00:00",
+  "head_before": "e70328736",
+  "usd": 11.0747,
+  "end": "2026-10-26T03:05:04+00:00",
+  "seconds": 2583,
+  "error": "[naming] model call failed; see /home/junkun/genesis-transform-experiment/record/runner/naming.log and naming-c00.result.md",
+  "head_after": "e70328736"
+ },
+ "merge": {
+  "status": "done",
+  "start": "2026-10-26T03:05:04+00:00",
+  "head_before": "e70328736",
+  "usd": 0.5409,
+  "end": "2026-10-26T03:08:06+00:00",
+  "seconds": 183,
+  "head_after": "e70328736"
+ },
+ "apply": {
+  "status": "done",
+  "start": "2026-10-26T03:08:06+00:00",
+  "head_before": "e70328736",
+  "end": "2026-10-26T03:10:28+00:00",
+  "seconds": 5,
+  "error": "[apply] FAILED: python3 /home/junkun/genesis-transform-experiment/tools/anonymous/rename_map.py check --dir /home/junkun/genesis-transform-experiment/worktree --map /home/junkun/genesis-transform-experiment/record/rename/output_map.json --external /usr/include --external /usr/local/cuda-13.2/include --exclude .github --exclude .gitignore --exclude CMake --exclude CMakeLists.txt --exclude Tasks.txt --exclude vcpkg.json --exclude README.md --exclude LICENSE.txt --exclude docs --exclude scenarios -",
+  "head_after": "e70328736"
+ },
+ "gates": {
+  "status": "done",
+  "start": "2026-10-26T03:10:28+00:00",
+  "head_before": "e70328736",
+  "end": "2026-10-26T03:29:35+00:00",
+  "seconds": 0,
+  "error": "[gates] FAILED: python3 /home/junkun/genesis-transform-experiment/tools/anonymous/gates.py --run /home/junkun/genesis-transform-experiment/record/run.json \n  log: /home/junkun/genesis-transform-experiment/record/runner/gates.log",
+  "head_after": "e70328736"
+ },
+ "quick": {
+  "status": "done",
+  "start": "2026-10-26T03:29:35+00:00",
+  "head_before": "e70328736",
+  "end": "2026-10-26T03:29:58+00:00",
+  "seconds": 23,
+  "head_after": "e70328736"
+ },
+ "validate": {
+  "status": "done",
+  "start": "2026-10-26T03:29:58+00:00",
+  "head_before": "e70328736",
+  "end": "2026-10-26T03:30:17+00:00",
+  "seconds": 19,
+  "head_after": "e70328736"
+ },
+ "commit": {
+  "status": "done",
+  "start": "2026-10-26T03:30:17+00:00",
+  "head_before": "e70328736",
+  "end": "2026-10-26T03:30:17+00:00",
+  "seconds": 0,
+  "head_after": "dcb8fd09a"
+ },
+ "snapshot": {
+  "status": "done",
+  "start": "2026-10-26T03:30:17+00:00",
+  "head_before": "dcb8fd09a",
+  "end": "2026-10-26T03:30:17+00:00",
+  "seconds": 0,
+  "head_after": "dcb8fd09a"
+ },
+ "plan": {
+  "status": "done",
+  "start": "2026-10-26T03:30:17+00:00",
+  "head_before": "dcb8fd09a",
+  "usd": 1.0692,
+  "end": "2026-10-26T03:33:35+00:00",
+  "seconds": 198,
+  "head_after": "dcb8fd09a"
+ },
+ "layout": {
+  "status": "failed",
+  "start": "2026-10-26T03:33:35+00:00",
+  "head_before": "dcb8fd09a",
+  "usd": 14.1253,
+  "calls_ok": [
+   "layout-1"
+  ],
+  "end": "2026-10-26T04:21:32+00:00",
+  "seconds": 2877,
+  "error": "[layout] model call failed; see /home/junkun/genesis-transform-experiment/record/runner/layout.log and layout-2.result.md"
+ },
+ "pass-1": {
+  "status": "done",
+  "start": "2026-10-26T05:07:35+00:00",
+  "head_before": "665762f30",
+  "usd": 13.0197,
+  "end": "2026-10-26T05:38:14+00:00",
+  "seconds": 1839,
+  "head_after": "a3ec92ae4"
+ },
+ "pass-2": {
+  "status": "done",
+  "start": "2026-10-26T05:38:14+00:00",
+  "head_before": "a3ec92ae4",
+  "usd": 16.1799,
+  "end": "2026-10-26T06:44:03+00:00",
+  "seconds": 2961,
+  "error": "[pass-2] model call failed; see /home/junkun/genesis-transform-experiment/record/runner/pass-2.log and pass-2-S3.result.md",
+  "head_after": "aaa10078a"
+ },
+ "pass-3": {
+  "status": "done",
+  "start": "2026-10-26T06:44:03+00:00",
+  "head_before": "aaa10078a",
+  "usd": 33.3025,
+  "end": "2026-10-26T08:18:22+00:00",
+  "seconds": 5659,
+  "head_after": "fc82bc131"
+ },
+ "final": {
+  "status": "failed",
+  "start": "2026-10-26T08:18:22+00:00",
+  "head_before": "fc82bc131",
+  "end": "2026-10-26T08:18:42+00:00",
+  "seconds": 20,
+  "error": "[final] FAILED: python3 /home/junkun/genesis-transform-experiment/tools/anonymous/final_check.py --run /home/junkun/genesis-transform-experiment/record/run.json --build-gpu\n  log: /home/junkun/genesis-transform-experiment/record/runner/final.log"
+ }
+}

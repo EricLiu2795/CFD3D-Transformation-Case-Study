@@ -1,0 +1,156 @@
+{
+ "tool": "plan_check",
+ "generated": "2026-10-26T04:18:21-04:00",
+ "checks": [
+  {
+   "id": "plan.menu",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "82 kept entries; menu S7,S11,S2,S3,S1,S4,P1,S5,R4,R1,R3,I1,I2,I3,I4,I5,I6,I7,S8"
+  },
+  {
+   "id": "plan.cap",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "92 functions, most 4 instances, cap 7",
+   "data": {
+    "cap": 7,
+    "histogram": {
+     "1": 43,
+     "2": 24,
+     "3": 23,
+     "4": 2
+    }
+   }
+  },
+  {
+   "id": "plan.frozen-touch",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "26 commits, 0 frozen touches"
+  },
+  {
+   "id": "plan.pinned-touch",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "8 pinned symbols, 0 changes"
+  },
+  {
+   "id": "plan.log-covers-diff",
+   "severity": "warn",
+   "status": "fail",
+   "summary": "187 changed functions in 18 pass commits, 2 not in the log",
+   "findings": [
+    {
+     "file": "src/CfdSolver/serial/poisson_sor.cpp",
+     "line": 8,
+     "symbol": "relaxSolverSweepCpp",
+     "commit": "fe7d9da899",
+     "detail": "changed by the pass commit, named by none of its kept entries"
+    },
+    {
+     "file": "src/ParticleTracer/trajectory_output.cpp",
+     "line": 276,
+     "symbol": "appendTrajectoryFeatures",
+     "commit": "2684aef611",
+     "detail": "changed by the pass commit, named by none of its kept entries"
+    }
+   ]
+  },
+  {
+   "id": "plan.distribution",
+   "severity": "info",
+   "status": "pass",
+   "summary": "82 instances: S2 10, P1 8, I2 8, I1 7, S4 6, R3 5, I5 5, S5 4, R1 4, I6 4, S7 3, S1 3, I3 3, I4 3, I7 3, S8 3, S3 2, R4 1",
+   "data": {
+    "per_entry": {
+     "S2": 10,
+     "P1": 8,
+     "I2": 8,
+     "I1": 7,
+     "S4": 6,
+     "R3": 5,
+     "I5": 5,
+     "S5": 4,
+     "R1": 4,
+     "I6": 4,
+     "S7": 3,
+     "S1": 3,
+     "I3": 3,
+     "I4": 3,
+     "I7": 3,
+     "S8": 3,
+     "S3": 2,
+     "R4": 1
+    },
+    "per_family": {
+     "I": 33,
+     "S": 31,
+     "R": 10,
+     "P": 8
+    },
+    "per_file": {
+     "src/simulation_main.cpp": 10,
+     "src/CfdSolver/serial/momentum_eqs.cpp": 9,
+     "src/IO/pgm_image.cpp": 8,
+     "src/CfdSolver/serial/boundary_conditions.cpp": 7,
+     "src/CfdSolver/Mpi/UvwMpi.cpp": 5,
+     "src/ParticleTracer/trajectory_output.cpp": 5,
+     "src/IO/vtk_output.cpp": 5,
+     "src/CfdSolver/serial/serial_solver.cpp": 5,
+     "src/IO/path_writer.cpp": 4,
+     "src/IO/geometry_io.cpp": 4,
+     "src/IO/vtk_output.hpp": 4,
+     "src/IO/text_file_utils.hpp": 3,
+     "src/CfdSolver/cuda/boundary_kernels.cu": 3,
+     "src/IO/scenario_builder.cpp": 3,
+     "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp": 3,
+     "src/IO/byte_streams.cpp": 3,
+     "src/CfdSolver/Mpi/CfdSolverMpi.cpp": 3,
+     "src/CfdSolver/Mpi/MpiHelpers.hpp": 3,
+     "src/CfdSolver/Mpi/MpiHelpers.cpp": 3,
+     "src/ParticleTracer/particle_integrators.cpp": 2,
+     "src/ParticleTracer/particle_integrators.hpp": 2,
+     "src/CfdSolver/Mpi/SorSolverMpi.cpp": 2,
+     "src/CfdSolver/serial/poisson_sor.cpp": 2,
+     "src/IO/netcdf_output.cpp": 2,
+     "src/CfdSolver/cell_flags.cpp": 2,
+     "src/CfdSolver/serial/momentum_eqs.hpp": 2,
+     "src/ParticleTracer/streamline_tracer.cpp": 2,
+     "src/IO/text_file_utils.cpp": 2,
+     "src/CfdSolver/cell_flags.hpp": 1,
+     "src/CfdSolver/cuda/cuda_runtime_check.hpp": 1
+    },
+    "functions": 92,
+    "compositions": {
+     "I4+S2+S8": 18,
+     "I7": 9,
+     "S2": 8,
+     "I1": 5,
+     "I6": 4,
+     "S7": 3,
+     "I5+S2": 3,
+     "P1+S2": 3,
+     "P1": 3,
+     "I2": 3,
+     "I4+S8": 3,
+     "I2+I5+S2": 2,
+     "S2+S4": 2,
+     "S4": 2,
+     "I4": 2,
+     "I5": 2,
+     "I1+P1+S2": 1,
+     "I3+S2": 1,
+     "R1+S2": 1,
+     "I4+S3+S4+S8": 1
+    },
+    "budgets": {}
+   }
+  }
+ ],
+ "verdict": "warn",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+ "head": "fc82bc131faa1922769fd501cf3e83779af1dc1c"
+}

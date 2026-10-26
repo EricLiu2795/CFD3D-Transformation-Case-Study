@@ -1,0 +1,6623 @@
+{
+ "tool": "distance",
+ "generated": "2026-10-26T04:35:28-04:00",
+ "ref": "5943ae78be7334888b7f7b1f4622f9cf61626a2c",
+ "at": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+ "params": {
+  "k": 12,
+  "w": 6
+ },
+ "whole": {
+  "functions": 241,
+  "tokens": 89346,
+  "token_similarity": 0.964,
+  "best_match_similarity": 0.896,
+  "ast_similarity": 0.951,
+  "identifiers_left": 0.313,
+  "distinctiveness": 0.199,
+  "distinctive_left": 0.911,
+  "residual": 2463.0,
+  "unchanged": 158,
+  "transformed": 110,
+  "transformed_share_of_distinct": 0.403
+ },
+ "identifiers": {
+  "upstream_names": 740,
+  "names_left": 76,
+  "names_left_share": 0.103,
+  "occurrences_left_share": 0.386,
+  "jaccard": 0.051,
+  "most_specific_left": [
+   {
+    "name": "variables",
+    "upstream_uses": 55,
+    "upstream_files": 1,
+    "now_uses": 55
+   },
+   {
+    "name": "Real",
+    "upstream_uses": 1726,
+    "upstream_files": 56,
+    "now_uses": 1705
+   },
+   {
+    "name": "Buffer",
+    "upstream_uses": 166,
+    "upstream_files": 6,
+    "now_uses": 166
+   },
+   {
+    "name": "jmax",
+    "upstream_uses": 802,
+    "upstream_files": 56,
+    "now_uses": 745
+   },
+   {
+    "name": "kmax",
+    "upstream_uses": 799,
+    "upstream_files": 56,
+    "now_uses": 742
+   },
+   {
+    "name": "Flag",
+    "upstream_uses": 560,
+    "upstream_files": 40,
+    "now_uses": 539
+   },
+   {
+    "name": "ClInterface",
+    "upstream_uses": 43,
+    "upstream_files": 4,
+    "now_uses": 43
+   },
+   {
+    "name": "ifile",
+    "upstream_uses": 10,
+    "upstream_files": 1,
+    "now_uses": 11
+   },
+   {
+    "name": "numDirectFlag",
+    "upstream_uses": 54,
+    "upstream_files": 6,
+    "now_uses": 39
+   },
+   {
+    "name": "NC_GLOBAL",
+    "upstream_uses": 7,
+    "upstream_files": 1,
+    "now_uses": 7
+   },
+   {
+    "name": "CfdSolverMpi",
+    "upstream_uses": 18,
+    "upstream_files": 3,
+    "now_uses": 18
+   },
+   {
+    "name": "CfdSolverOpencl",
+    "upstream_uses": 18,
+    "upstream_files": 3,
+    "now_uses": 18
+   },
+   {
+    "name": "Program",
+    "upstream_uses": 15,
+    "upstream_files": 3,
+    "now_uses": 15
+   },
+   {
+    "name": "T_c",
+    "upstream_uses": 76,
+    "upstream_files": 18,
+    "now_uses": 88
+   },
+   {
+    "name": "T_h",
+    "upstream_uses": 76,
+    "upstream_files": 18,
+    "now_uses": 78
+   },
+   {
+    "name": "scenarioName",
+    "upstream_uses": 105,
+    "upstream_files": 26,
+    "now_uses": 105
+   },
+   {
+    "name": "CL_SUCCESS",
+    "upstream_uses": 4,
+    "upstream_files": 1,
+    "now_uses": 4
+   },
+   {
+    "name": "platform",
+    "upstream_uses": 7,
+    "upstream_files": 2,
+    "now_uses": 7
+   },
+   {
+    "name": "linearSystemSolverType",
+    "upstream_uses": 66,
+    "upstream_files": 20,
+    "now_uses": 66
+   },
+   {
+    "name": "omg",
+    "upstream_uses": 66,
+    "upstream_files": 20,
+    "now_uses": 66
+   },
+   {
+    "name": "xOrigin",
+    "upstream_uses": 25,
+    "upstream_files": 8,
+    "now_uses": 24
+   },
+   {
+    "name": "yOrigin",
+    "upstream_uses": 25,
+    "upstream_files": 8,
+    "now_uses": 24
+   },
+   {
+    "name": "zOrigin",
+    "upstream_uses": 25,
+    "upstream_files": 8,
+    "now_uses": 24
+   },
+   {
+    "name": "binaries",
+    "upstream_uses": 3,
+    "upstream_files": 1,
+    "now_uses": 3
+   },
+   {
+    "name": "programs",
+    "upstream_uses": 3,
+    "upstream_files": 1,
+    "now_uses": 3
+   },
+   {
+    "name": "streamlines",
+    "upstream_uses": 3,
+    "upstream_files": 1,
+    "now_uses": 3
+   },
+   {
+    "name": "useTemperature",
+    "upstream_uses": 53,
+    "upstream_files": 20,
+    "now_uses": 49
+   },
+   {
+    "name": "Local",
+    "upstream_uses": 5,
+    "upstream_files": 2,
+    "now_uses": 5
+   },
+   {
+    "name": "postfix",
+    "upstream_uses": 5,
+    "upstream_files": 2,
+    "now_uses": 5
+   },
+   {
+    "name": "reduction",
+    "upstream_uses": 5,
+    "upstream_files": 2,
+    "now_uses": 5
+   },
+   {
+    "name": "itermax",
+    "upstream_uses": 47,
+    "upstream_files": 20,
+    "now_uses": 47
+   },
+   {
+    "name": "dtWrite",
+    "upstream_uses": 7,
+    "upstream_files": 3,
+    "now_uses": 7
+   },
+   {
+    "name": "xLength",
+    "upstream_uses": 7,
+    "upstream_files": 3,
+    "now_uses": 6
+   },
+   {
+    "name": "yLength",
+    "upstream_uses": 7,
+    "upstream_files": 3,
+    "now_uses": 6
+   },
+   {
+    "name": "zLength",
+    "upstream_uses": 7,
+    "upstream_files": 3,
+    "now_uses": 6
+   },
+   {
+    "name": "shallWriteOutput",
+    "upstream_uses": 51,
+    "upstream_files": 22,
+    "now_uses": 45
+   },
+   {
+    "name": "tEnd",
+    "upstream_uses": 11,
+    "upstream_files": 5,
+    "now_uses": 11
+   },
+   {
+    "name": "Singleton",
+    "upstream_uses": 4,
+    "upstream_files": 2,
+    "now_uses": 4
+   },
+   {
+    "name": "seekg",
+    "upstream_uses": 4,
+    "upstream_files": 2,
+    "now_uses": 4
+   },
+   {
+    "name": "LINEAR_SOLVER_JACOBI",
+    "upstream_uses": 9,
+    "upstream_files": 5,
+    "now_uses": 9
+   }
+  ]
+ },
+ "coverage": {
+  "functions": 241,
+  "transformed": 110,
+  "unchanged": 158,
+  "per_family": {
+   "I": 74,
+   "S": 51,
+   "R": 14,
+   "P": 8,
+   "F": 7
+  },
+  "per_stage": {
+   "pass": 106,
+   "layout": 7
+  },
+  "transformed_share_of_distinct": 0.403
+ },
+ "per_module": {
+  "src": {
+   "functions": 1,
+   "tokens": 2196,
+   "token_similarity": 0.944,
+   "best_match_similarity": 0.935,
+   "ast_similarity": 0.901,
+   "identifiers_left": 0.312,
+   "distinctiveness": 0.686,
+   "distinctive_left": 0.934,
+   "residual": 227.0,
+   "unchanged": 0,
+   "transformed": 0,
+   "transformed_share_of_distinct": 0.0
+  },
+  "src/CfdSolver": {
+   "functions": 139,
+   "tokens": 66836,
+   "token_similarity": 0.993,
+   "best_match_similarity": 0.934,
+   "ast_similarity": 0.982,
+   "identifiers_left": 0.348,
+   "distinctiveness": 0.123,
+   "distinctive_left": 0.951,
+   "residual": 1035.0,
+   "unchanged": 105,
+   "transformed": 56,
+   "transformed_share_of_distinct": 0.274
+  },
+  "src/IO": {
+   "functions": 73,
+   "tokens": 14003,
+   "token_similarity": 0.921,
+   "best_match_similarity": 0.869,
+   "ast_similarity": 0.948,
+   "identifiers_left": 0.175,
+   "distinctiveness": 0.512,
+   "distinctive_left": 0.864,
+   "residual": 1036.0,
+   "unchanged": 50,
+   "transformed": 30,
+   "transformed_share_of_distinct": 0.603
+  },
+  "src/ParticleTracer": {
+   "functions": 28,
+   "tokens": 6311,
+   "token_similarity": 0.76,
+   "best_match_similarity": 0.539,
+   "ast_similarity": 0.657,
+   "identifiers_left": 0.25,
+   "distinctiveness": 0.14,
+   "distinctive_left": 0.883,
+   "residual": 165.0,
+   "unchanged": 3,
+   "transformed": 24,
+   "transformed_share_of_distinct": 0.681
+  }
+ },
+ "top": [
+  {
+   "fn": "main",
+   "file": "src/Main.cpp",
+   "module": "src",
+   "ntok": 2196,
+   "distinct": 0.686,
+   "tok_any": 0.944,
+   "tok_best": 0.935,
+   "distinct_left": 0.934,
+   "residual": 227.0,
+   "ast_any": 0.901,
+   "ast_best": 0.87,
+   "ids_left": 0.312,
+   "match": "src/simulation_main.cpp:main",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "initFlagFromGeometryFile",
+   "file": "src/CfdSolver/Flag.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1199,
+   "distinct": 0.554,
+   "tok_any": 0.987,
+   "tok_best": 0.978,
+   "distinct_left": 0.984,
+   "residual": 122.0,
+   "ast_any": 0.982,
+   "ast_best": 0.982,
+   "ids_left": 0.16,
+   "match": "src/CfdSolver/cell_flags.cpp:initFlagFromShapeFile",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "nearestNeighborUpsampling",
+   "file": "src/CfdSolver/Flag.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 945,
+   "distinct": 0.726,
+   "tok_any": 0.927,
+   "tok_best": 0.903,
+   "distinct_left": 0.933,
+   "residual": 84.0,
+   "ast_any": 0.987,
+   "ast_best": 0.987,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/cell_flags.cpp:resizeNearest",
+   "unchanged": false,
+   "applied": [
+    [
+     "I3",
+     1
+    ],
+    [
+     "R1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "NetCdfWriter::initializeWriter",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 803,
+   "distinct": 0.704,
+   "tok_any": 0.991,
+   "tok_best": 0.922,
+   "distinct_left": 1.0,
+   "residual": 81.0,
+   "ast_any": 0.994,
+   "ast_best": 0.994,
+   "ids_left": 0.256,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::setupRecorder",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "parseArguments",
+   "file": "src/IO/ArgumentParser.cpp",
+   "module": "src/IO",
+   "ntok": 710,
+   "distinct": 0.898,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 79.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/cli_options.cpp:parseOptions",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "traceStreamlineParticle",
+   "file": "src/ParticleTracer/StreamlineTracer.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 515,
+   "distinct": 0.762,
+   "tok_any": 0.881,
+   "tok_best": 0.822,
+   "distinct_left": 0.883,
+   "residual": 68.0,
+   "ast_any": 0.891,
+   "ast_best": 0.826,
+   "ids_left": 0.12,
+   "match": "src/ParticleTracer/streamline_tracer.cpp:integrateFlowlineParticle",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "writeTrajectoriesToBinLinesFile",
+   "file": "src/IO/TrajectoriesFile.cpp",
+   "module": "src/IO",
+   "ntok": 480,
+   "distinct": 0.653,
+   "tok_any": 0.815,
+   "tok_best": 0.758,
+   "distinct_left": 0.778,
+   "residual": 63.0,
+   "ast_any": 0.843,
+   "ast_best": 0.824,
+   "ids_left": 0.0,
+   "match": "src/IO/path_writer.cpp:writePathsToBinary",
+   "unchanged": false,
+   "applied": [
+    [
+     "R3",
+     1
+    ],
+    [
+     "S1",
+     2
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::CfdSolverOpencl",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 655,
+   "distinct": 0.658,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 52.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.036,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::CfdSolverOpencl",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "mpiInit",
+   "file": "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 337,
+   "distinct": 0.867,
+   "tok_any": 0.933,
+   "tok_best": 0.933,
+   "distinct_left": 0.942,
+   "residual": 49.0,
+   "ast_any": 0.985,
+   "ast_best": 0.985,
+   "ids_left": 0.091,
+   "match": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiStartup",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "loadVariablesFromDatFile",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 257,
+   "distinct": 0.803,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 49.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/case_config.cpp:readSettingsFile",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "writeTrajectoriesToObjFile",
+   "file": "src/IO/TrajectoriesFile.cpp",
+   "module": "src/IO",
+   "ntok": 303,
+   "distinct": 0.615,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 48.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/path_writer.cpp:writePathsToObj",
+   "unchanged": true,
+   "applied": [
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "nearestNeighborUpsamplingPgm2D",
+   "file": "src/IO/PgmFile.cpp",
+   "module": "src/IO",
+   "ntok": 478,
+   "distinct": 0.52,
+   "tok_any": 0.922,
+   "tok_best": 0.735,
+   "distinct_left": 0.849,
+   "residual": 45.0,
+   "ast_any": 0.91,
+   "ast_best": 0.746,
+   "ids_left": 0.0,
+   "match": "src/IO/pgm_image.cpp:nearestNeighborScalePgm2D",
+   "unchanged": false,
+   "applied": [
+    [
+     "I3",
+     1
+    ],
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::writeCellData",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 1558,
+   "distinct": 0.492,
+   "tok_any": 0.847,
+   "tok_best": 0.774,
+   "distinct_left": 0.689,
+   "residual": 42.0,
+   "ast_any": 0.925,
+   "ast_best": 0.841,
+   "ids_left": 0.118,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::emitCellValues",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "isValidCell",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 209,
+   "distinct": 0.837,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 41.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/scenario_builder.cpp:isCellAllowed",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "VtkWriter::writePointData",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 1426,
+   "distinct": 0.365,
+   "tok_any": 0.96,
+   "tok_best": 0.833,
+   "distinct_left": 0.891,
+   "residual": 41.0,
+   "ast_any": 0.993,
+   "ast_best": 0.943,
+   "ids_left": 0.111,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::emitPointValues",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::initialize",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 1226,
+   "distinct": 0.392,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 38.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.382,
+   "match": "src/CfdSolver/cuda/cuda_solver.cu:FluidSolverCuda::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "NetCdfWriter::writeTimestep",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 491,
+   "distinct": 0.548,
+   "tok_any": 0.869,
+   "tok_best": 0.833,
+   "distinct_left": 0.761,
+   "residual": 35.0,
+   "ast_any": 0.951,
+   "ast_best": 0.912,
+   "ids_left": 0.143,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::writeSnapshot",
+   "unchanged": false,
+   "applied": [
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::initialize",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1054,
+   "distinct": 0.43,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 34.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.405,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "createTowerGeometry",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 297,
+   "distinct": 0.516,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 32.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.188,
+   "match": "src/IO/scenario_builder.cpp:buildTowerGeometry",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::compileSourceFile",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 171,
+   "distinct": 0.705,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 31.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.4,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::compileKernelFile",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverOpencl",
+   "file": "src/CfdSolver/Opencl/SorSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 866,
+   "distinct": 0.234,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 30.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.193,
+   "match": "src/CfdSolver/Opencl/SorSolverOpencl.cpp:relaxSolverOpencl",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "prepareOutputDirectory",
+   "file": "src/IO/IOUtils.cpp",
+   "module": "src/IO",
+   "ntok": 292,
+   "distinct": 0.706,
+   "tok_any": 0.824,
+   "tok_best": 0.627,
+   "distinct_left": 0.778,
+   "residual": 28.0,
+   "ast_any": 0.955,
+   "ast_best": 0.373,
+   "ids_left": 0.1,
+   "match": "src/IO/text_file_utils.cpp:clearStaleOutputFiles",
+   "unchanged": false,
+   "applied": [
+    [
+     "F2",
+     1
+    ],
+    [
+     "I2",
+     1
+    ],
+    [
+     "I6",
+     2
+    ]
+   ],
+   "stages": [
+    "layout",
+    "pass"
+   ]
+  },
+  {
+   "fn": "ProgressBar::printProgress",
+   "file": "src/IO/ProgressBar.cpp",
+   "module": "src/IO",
+   "ntok": 125,
+   "distinct": 0.903,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 28.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.286,
+   "match": "src/IO/progress_report.cpp:StatusReporter::renderProgress",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::printInfo",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 115,
+   "distinct": 0.964,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 27.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.333,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::reportInfo",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "VtkWriter::writeTimestep",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 206,
+   "distinct": 0.609,
+   "tok_any": 0.978,
+   "tok_best": 0.935,
+   "distinct_left": 0.964,
+   "residual": 27.0,
+   "ast_any": 0.977,
+   "ast_best": 0.909,
+   "ids_left": 0.312,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::writeSnapshot",
+   "unchanged": false,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "sorSolverIterationCpp",
+   "file": "src/CfdSolver/Cpp/SorSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 2045,
+   "distinct": 0.145,
+   "tok_any": 0.96,
+   "tok_best": 0.77,
+   "distinct_left": 0.722,
+   "residual": 26.0,
+   "ast_any": 0.836,
+   "ast_best": 0.633,
+   "ids_left": 0.643,
+   "match": "src/CfdSolver/serial/poisson_sor.cpp:relaxSolverSweepCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "createHeightMapGeometry",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 401,
+   "distinct": 0.368,
+   "tok_any": 0.908,
+   "tok_best": 0.851,
+   "distinct_left": 0.812,
+   "residual": 26.0,
+   "ast_any": 0.929,
+   "ast_best": 0.906,
+   "ids_left": 0.154,
+   "match": "src/IO/scenario_builder.cpp:buildElevationGeometry",
+   "unchanged": false,
+   "applied": [
+    [
+     "S1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::writePointCoordinates",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 354,
+   "distinct": 0.413,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 26.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.4,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::emitPointPositions",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverMpi::initialize",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1397,
+   "distinct": 0.333,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 25.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.737,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readScenarioConfigurationFromFile",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 514,
+   "distinct": 0.735,
+   "tok_any": 0.971,
+   "tok_best": 0.941,
+   "distinct_left": 1.0,
+   "residual": 25.0,
+   "ast_any": 0.991,
+   "ast_best": 0.991,
+   "ids_left": 0.692,
+   "match": "src/IO/case_config.cpp:loadCaseConfigFromFile",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "rayBoxPlaneIntersection",
+   "file": "src/ParticleTracer/Intersection.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 148,
+   "distinct": 0.658,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 25.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.125,
+   "match": "src/ParticleTracer/ray_box.cpp:castRayAgainstSlab",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "reduceSumCudaKernel",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 196,
+   "distinct": 0.436,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 24.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:arraySumCudaKernel",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverComputeResidualArrayCuda",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 362,
+   "distinct": 0.284,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 23.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.385,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:relaxSolverResidualArrayCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "loadValuesFromGeometryFile",
+   "file": "src/IO/GeometryFile.cpp",
+   "module": "src/IO",
+   "ntok": 286,
+   "distinct": 0.484,
+   "tok_any": 0.823,
+   "tok_best": 0.806,
+   "distinct_left": 0.767,
+   "residual": 23.0,
+   "ast_any": 0.921,
+   "ast_best": 0.873,
+   "ids_left": 0.222,
+   "match": "src/IO/geometry_io.cpp:loadGeometryData",
+   "unchanged": false,
+   "applied": [
+    [
+     "R3",
+     1
+    ],
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setBoundaryValuesScenarioSpecificCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 283,
+   "distinct": 0.489,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 22.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:setBoundaryValuesScenarioSpecificCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateMaximum",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 260,
+   "distinct": 0.386,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 22.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.2,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:computePeak",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::loadProgramFromBinaryFile",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 170,
+   "distinct": 0.649,
+   "tok_any": 0.946,
+   "tok_best": 0.946,
+   "distinct_left": 0.917,
+   "residual": 22.0,
+   "ast_any": 0.974,
+   "ast_best": 0.974,
+   "ids_left": 0.727,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::importProgramFromBinaryFile",
+   "unchanged": false,
+   "applied": [
+    [
+     "R3",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "ProgressBar::printOutput",
+   "file": "src/IO/ProgressBar.cpp",
+   "module": "src/IO",
+   "ntok": 83,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 22.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.167,
+   "match": "src/IO/progress_report.cpp:reportFileWritten",
+   "unchanged": true,
+   "applied": [
+    [
+     "I5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "sorSolverCuda",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 573,
+   "distinct": 0.193,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 21.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.27,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:sorSolverCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::initialize",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 130,
+   "distinct": 0.724,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 21.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.273,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  }
+ ],
+ "functions": [
+  {
+   "fn": "setLeftRightBoundariesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 865,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 0.851,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.987,
+   "ast_best": 0.987,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignLeftRightBordersCuda",
+   "unchanged": false,
+   "applied": [
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setDownUpBoundariesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 865,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 0.847,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.987,
+   "ast_best": 0.987,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignDownUpBordersCuda",
+   "unchanged": false,
+   "applied": [
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setFrontBackBoundariesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 865,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 0.869,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.987,
+   "ast_best": 0.93,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setFrontBackBordersMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalUBoundariesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 603,
+   "distinct": 0.0,
+   "tok_any": 0.99,
+   "tok_best": 0.854,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.967,
+   "ast_best": 0.94,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalUBordersCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S4",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalVBoundariesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 603,
+   "distinct": 0.0,
+   "tok_any": 0.989,
+   "tok_best": 0.947,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.995,
+   "ast_best": 0.995,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalVBordersCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalWBoundariesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 603,
+   "distinct": 0.011,
+   "tok_any": 0.989,
+   "tok_best": 0.947,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 0.995,
+   "ast_best": 0.995,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalWBordersCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalTBoundariesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 380,
+   "distinct": 0.0,
+   "tok_any": 0.986,
+   "tok_best": 0.877,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.949,
+   "ast_best": 0.949,
+   "ids_left": 0.688,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalTBordersMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S3",
+     1
+    ],
+    [
+     "S4",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setBoundaryValuesCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 161,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.955,
+   "ast_best": 0.409,
+   "ids_left": 0.429,
+   "match": "src/CfdSolver/serial/boundary_conditions.cpp:assignBorderValuesCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setBoundaryValuesScenarioSpecificCpp",
+   "file": "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 412,
+   "distinct": 0.279,
+   "tok_any": 1.0,
+   "tok_best": 0.869,
+   "distinct_left": 1.0,
+   "residual": 17.0,
+   "ast_any": 0.99,
+   "ast_best": 0.99,
+   "ids_left": 0.455,
+   "match": "src/CfdSolver/serial/scenario_boundary.cpp:assignScenarioBorderValuesCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "F1",
+     1
+    ],
+    [
+     "I1",
+     1
+    ]
+   ],
+   "stages": [
+    "layout",
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::initialize",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1140,
+   "distinct": 0.077,
+   "tok_any": 1.0,
+   "tok_best": 0.962,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 0.995,
+   "ast_best": 0.98,
+   "ids_left": 0.812,
+   "match": "src/CfdSolver/serial/serial_solver.cpp:FluidSolverCpp::initialize",
+   "unchanged": false,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::~CfdSolverCpp",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 68,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.25,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::~CfdSolverMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCpp::setBoundaryValues",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 31,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.75,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCpp::setBoundaryValuesScenarioSpecific",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 27,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.75,
+   "ast_best": 0.0,
+   "ids_left": 0.714,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCpp::calculateDt",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 42,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.75,
+   "ast_best": 0.0,
+   "ids_left": 0.714,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::calculateDt",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::calculateTemperature",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 57,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.8,
+   "ast_best": 0.2,
+   "ids_left": 0.625,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::calculateTemperature",
+   "unchanged": false,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::calculateFgh",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 53,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.75,
+   "ast_best": 0.0,
+   "ids_left": 0.667,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::calculateRs",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 33,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.6,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::executeSorSolver",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 41,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.25,
+   "ast_best": 0.0,
+   "ids_left": 0.727,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::calculateUvw",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 41,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.25,
+   "ast_best": 0.0,
+   "ids_left": 0.667,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCpp::getDataForOutput",
+   "file": "src/CfdSolver/Cpp/CfdSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 187,
+   "distinct": 0.133,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.8,
+   "match": "src/CfdSolver/serial/serial_solver.cpp:FluidSolverCpp::getDataForOutput",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverIterationCpp",
+   "file": "src/CfdSolver/Cpp/SorSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 2045,
+   "distinct": 0.145,
+   "tok_any": 0.96,
+   "tok_best": 0.77,
+   "distinct_left": 0.722,
+   "residual": 26.0,
+   "ast_any": 0.836,
+   "ast_best": 0.633,
+   "ids_left": 0.643,
+   "match": "src/CfdSolver/serial/poisson_sor.cpp:relaxSolverSweepCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "sorSolverCpp",
+   "file": "src/CfdSolver/Cpp/SorSolverCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 255,
+   "distinct": 0.127,
+   "tok_any": 1.0,
+   "tok_best": 0.841,
+   "distinct_left": 1.0,
+   "residual": 8.0,
+   "ast_any": 0.981,
+   "ast_best": 0.923,
+   "ids_left": 0.643,
+   "match": "src/CfdSolver/serial/poisson_sor.cpp:relaxSolverCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "I6",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "calculateFghCpp",
+   "file": "src/CfdSolver/Cpp/UvwCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 4183,
+   "distinct": 0.031,
+   "tok_any": 0.99,
+   "tok_best": 0.768,
+   "distinct_left": 0.667,
+   "residual": 6.0,
+   "ast_any": 0.988,
+   "ast_best": 0.942,
+   "ids_left": 0.263,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:computeFluxCudaKernel",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ],
+    [
+     "P1",
+     1
+    ],
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "calculateRsCpp",
+   "file": "src/CfdSolver/Cpp/UvwCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 229,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.375,
+   "match": "src/CfdSolver/serial/momentum_eqs.cpp:computeRsCpp",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateDtCpp",
+   "file": "src/CfdSolver/Cpp/UvwCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 670,
+   "distinct": 0.105,
+   "tok_any": 1.0,
+   "tok_best": 0.886,
+   "distinct_left": 1.0,
+   "residual": 12.0,
+   "ast_any": 0.992,
+   "ast_best": 0.962,
+   "ids_left": 0.417,
+   "match": "src/CfdSolver/serial/momentum_eqs.cpp:computeDtCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "I6",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "calculateUvwCpp",
+   "file": "src/CfdSolver/Cpp/UvwCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 571,
+   "distinct": 0.043,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.286,
+   "match": "src/CfdSolver/serial/momentum_eqs.cpp:computeUvwCpp",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateTemperatureCpp",
+   "file": "src/CfdSolver/Cpp/UvwCpp.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1011,
+   "distinct": 0.022,
+   "tok_any": 0.978,
+   "tok_best": 0.846,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.981,
+   "ast_best": 0.981,
+   "ids_left": 0.222,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:calculateTemperatureCuda",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ],
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setLeftRightBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 875,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignLeftRightBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setDownUpBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 875,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignDownUpBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setFrontBackBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 875,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignFrontBackBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setInternalUBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 618,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 0.894,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.995,
+   "ast_best": 0.919,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalUBordersCuda",
+   "unchanged": false,
+   "applied": [
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalVBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 618,
+   "distinct": 0.042,
+   "tok_any": 0.989,
+   "tok_best": 0.884,
+   "distinct_left": 0.75,
+   "residual": 3.0,
+   "ast_any": 0.995,
+   "ast_best": 0.919,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalVBordersCuda",
+   "unchanged": false,
+   "applied": [
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalWBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 618,
+   "distinct": 0.032,
+   "tok_any": 0.968,
+   "tok_best": 0.83,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.99,
+   "ast_best": 0.898,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalWBordersMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "S2",
+     1
+    ],
+    [
+     "S4",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalTBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 395,
+   "distinct": 0.014,
+   "tok_any": 0.986,
+   "tok_best": 0.797,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.985,
+   "ast_best": 0.847,
+   "ids_left": 0.688,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalTBordersMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "S2",
+     1
+    ],
+    [
+     "S4",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setBoundaryValuesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 334,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.292,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:setBoundaryValuesCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setDrivenCavityBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 91,
+   "distinct": 0.24,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.6,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignDrivenCavityBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setFlowOverStepBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 119,
+   "distinct": 0.12,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.429,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignFlowOverStepBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setSingleTowerBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 115,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.429,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignSingleTowerBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setMountainBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 138,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.4,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:assignMountainBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setBoundaryValuesScenarioSpecificCuda",
+   "file": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 283,
+   "distinct": 0.489,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 22.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/cuda/boundary_kernels.cu:setBoundaryValuesScenarioSpecificCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCuda::CfdSolverCuda",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 51,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.833,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::CfdSolverMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::initialize",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 1226,
+   "distinct": 0.392,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 38.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.382,
+   "match": "src/CfdSolver/cuda/cuda_solver.cu:FluidSolverCuda::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCuda::~CfdSolverCuda",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 184,
+   "distinct": 0.2,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.067,
+   "match": "src/CfdSolver/cuda/cuda_solver.cu:FluidSolverCuda::~FluidSolverCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCuda::setBoundaryValues",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 37,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.636,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCuda::setBoundaryValuesScenarioSpecific",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 33,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.6,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverCuda::calculateDt",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 56,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.429,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::calculateDt",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::calculateTemperature",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 105,
+   "distinct": 0.105,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.429,
+   "match": "src/CfdSolver/cuda/cuda_solver.cu:FluidSolverCuda::calculateTemperature",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::calculateFgh",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 59,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::calculateRs",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 81,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.364,
+   "match": "src/CfdSolver/cuda/cuda_solver.cu:FluidSolverCuda::calculateRs",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::executeSorSolver",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 57,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.474,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::calculateUvw",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 89,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.704,
+   "ids_left": 0.417,
+   "match": "src/CfdSolver/cuda/cuda_solver.cu:FluidSolverCuda::calculateRs",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     3
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverCuda::getDataForOutput",
+   "file": "src/CfdSolver/Cuda/CfdSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 212,
+   "distinct": 0.25,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.667,
+   "match": "src/CfdSolver/cuda/cuda_solver.cu:FluidSolverCuda::getDataForOutput",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "_checkCudaError",
+   "file": "src/CfdSolver/Cuda/CudaDefines.cu",
+   "module": "src/CfdSolver",
+   "ntok": 60,
+   "distinct": 0.769,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 10.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/cuda/cuda_runtime_check.cu:_ensureCudaOk",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setXYPlanesPressureBoundaries",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 115,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.6,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:assignXYPlanesPressureBorders",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setXZPlanesPressureBoundaries",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 115,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.6,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:assignXZPlanesPressureBorders",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setYZPlanesPressureBoundaries",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 115,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.6,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:assignYZPlanesPressureBorders",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setBoundaryConditionsPressureInDomainCuda",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 391,
+   "distinct": 0.113,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 8.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.688,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:assignInteriorPressureBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "reduceSumCudaKernel",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 196,
+   "distinct": 0.436,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 24.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:arraySumCudaKernel",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "reduceSumCuda",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 189,
+   "distinct": 0.196,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 10.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:arraySumCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverIterationCuda",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 289,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.455,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:relaxSolverSweepCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverComputeResidualArrayCuda",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 362,
+   "distinct": 0.284,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 23.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.385,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:relaxSolverResidualArrayCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverCuda",
+   "file": "src/CfdSolver/Cuda/SorSolverCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 573,
+   "distinct": 0.193,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 21.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.27,
+   "match": "src/CfdSolver/cuda/poisson_kernels.cu:sorSolverCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateFghCudaKernel",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 3638,
+   "distinct": 0.024,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.263,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:computeFluxCudaKernel",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setFBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 117,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:setFBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setGBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 117,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:setGBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setHBoundariesCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 117,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:setHBordersCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateFghCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 312,
+   "distinct": 0.031,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.263,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:calculateFghCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateRsCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 216,
+   "distinct": 0.024,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:calculateRsCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateMaximum",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 260,
+   "distinct": 0.386,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 22.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.2,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:computePeak",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateDtCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 836,
+   "distinct": 0.086,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 13.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.161,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:calculateDtCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateUvwCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 440,
+   "distinct": 0.042,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.357,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:calculateUvwCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateTemperatureCuda",
+   "file": "src/CfdSolver/Cuda/UvwCuda.cu",
+   "module": "src/CfdSolver",
+   "ntok": 974,
+   "distinct": 0.012,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.278,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:calculateTemperatureCuda",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "nearestNeighborUpsampling",
+   "file": "src/CfdSolver/Flag.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 945,
+   "distinct": 0.726,
+   "tok_any": 0.927,
+   "tok_best": 0.903,
+   "distinct_left": 0.933,
+   "residual": 84.0,
+   "ast_any": 0.987,
+   "ast_best": 0.987,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/cell_flags.cpp:resizeNearest",
+   "unchanged": false,
+   "applied": [
+    [
+     "I3",
+     1
+    ],
+    [
+     "R1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "initFlagFromGeometryFile",
+   "file": "src/CfdSolver/Flag.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1199,
+   "distinct": 0.554,
+   "tok_any": 0.987,
+   "tok_best": 0.978,
+   "distinct_left": 0.984,
+   "residual": 122.0,
+   "ast_any": 0.982,
+   "ast_best": 0.982,
+   "ids_left": 0.16,
+   "match": "src/CfdSolver/cell_flags.cpp:initFlagFromShapeFile",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "initFlagNoObstacles",
+   "file": "src/CfdSolver/Flag.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 509,
+   "distinct": 0.167,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 14.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.571,
+   "match": "src/CfdSolver/cell_flags.cpp:initFlagNoBarriers",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "initArrays",
+   "file": "src/CfdSolver/Init.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 421,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.4,
+   "match": "src/CfdSolver/field_init.cpp:initFields",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "initArraysMpi",
+   "file": "src/CfdSolver/Init.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 372,
+   "distinct": 0.074,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/CfdSolver/field_init.cpp:initFieldsMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setLeftRightBoundariesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1122,
+   "distinct": 0.078,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 8.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setLeftRightBordersMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setDownUpBoundariesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1148,
+   "distinct": 0.041,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setDownUpBordersMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setFrontBackBoundariesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1122,
+   "distinct": 0.04,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.353,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setFrontBackBordersMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setInternalUBoundariesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 616,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 0.895,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.967,
+   "ast_best": 0.94,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalUBordersMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "S4",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalVBoundariesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 616,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 0.892,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.967,
+   "ast_best": 0.94,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalVBordersMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "S4",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setInternalWBoundariesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 616,
+   "distinct": 0.011,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.556,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalWBordersMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setInternalTBoundariesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 393,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.688,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalTBordersMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "setBoundaryValuesMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 263,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 0.929,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.955,
+   "ast_best": 0.0,
+   "ids_left": 0.429,
+   "match": "src/CfdSolver/serial/boundary_conditions.cpp:assignBorderValuesCpp",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ],
+    [
+     "I4",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "setBoundaryValuesScenarioSpecificMpi",
+   "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 443,
+   "distinct": 0.194,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 13.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.455,
+   "match": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setBorderValuesCaseSpecificMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverMpi::CfdSolverMpi",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 123,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.929,
+   "ast_best": 0.5,
+   "ids_left": 0.125,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::CfdSolverMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverMpi::initialize",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1397,
+   "distinct": 0.333,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 25.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.737,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverMpi::~CfdSolverMpi",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 78,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.333,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::~CfdSolverMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverMpi::setBoundaryValues",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 43,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.75,
+   "ast_best": 0.0,
+   "ids_left": 0.875,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 39,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.857,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverMpi::calculateDt",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 54,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.857,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::calculateDt",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverMpi::calculateTemperature",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 85,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.4,
+   "ast_best": 0.2,
+   "ids_left": 0.375,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::calculateTemperature",
+   "unchanged": false,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverMpi::calculateFgh",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 65,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.833,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverMpi::calculateRs",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 45,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.8,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverMpi::executeSorSolver",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 71,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.25,
+   "ast_best": 0.0,
+   "ids_left": 0.45,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverMpi::calculateUvw",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 69,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.0,
+   "ast_best": 0.0,
+   "ids_left": 0.357,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverMpi::getDataForOutput",
+   "file": "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 217,
+   "distinct": 0.062,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 1.0,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::getDataForOutput",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "mpiInit",
+   "file": "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 337,
+   "distinct": 0.867,
+   "tok_any": 0.933,
+   "tok_best": 0.933,
+   "distinct_left": 0.942,
+   "residual": 49.0,
+   "ast_any": 0.985,
+   "ast_best": 0.985,
+   "ids_left": 0.091,
+   "match": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiStartup",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "mpiDomainDecompositionScheduling",
+   "file": "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 138,
+   "distinct": 0.889,
+   "tok_any": 0.472,
+   "tok_best": 0.417,
+   "distinct_left": 0.438,
+   "residual": 14.0,
+   "ast_any": 0.567,
+   "ast_best": 0.567,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiAssignRange",
+   "unchanged": false,
+   "applied": [
+    [
+     "I2",
+     1
+    ],
+    [
+     "I3",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "mpiExchangeCellData",
+   "file": "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1194,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.062,
+   "match": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiSwapCellData",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "mpiExchangeUvw",
+   "file": "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 3572,
+   "distinct": 0.178,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 18.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.056,
+   "match": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiSwapVelocity",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "mpiStop",
+   "file": "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 15,
+   "distinct": 1.0,
+   "tok_any": 0.0,
+   "tok_best": 1.0,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiShutdown",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverIterationMpi",
+   "file": "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1737,
+   "distinct": 0.06,
+   "tok_any": 0.987,
+   "tok_best": 0.767,
+   "distinct_left": 0.929,
+   "residual": 13.0,
+   "ast_any": 0.911,
+   "ast_best": 0.665,
+   "ids_left": 0.39,
+   "match": "src/CfdSolver/Mpi/SorSolverMpi.cpp:relaxSolverIterationMpi",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ],
+    [
+     "S3",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "sorSolverMpi",
+   "file": "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 347,
+   "distinct": 0.159,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 11.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.375,
+   "match": "src/CfdSolver/Mpi/SorSolverMpi.cpp:relaxSolverMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateFghMpi",
+   "file": "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 4085,
+   "distinct": 0.018,
+   "tok_any": 0.993,
+   "tok_best": 0.795,
+   "distinct_left": 0.6,
+   "residual": 3.0,
+   "ast_any": 0.988,
+   "ast_best": 0.923,
+   "ids_left": 0.263,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:computeFluxCudaKernel",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ],
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "calculateRsMpi",
+   "file": "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 217,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.375,
+   "match": "src/CfdSolver/Mpi/UvwMpi.cpp:computeRsMpi",
+   "unchanged": true,
+   "applied": [
+    [
+     "I2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "calculateDtMpi",
+   "file": "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 679,
+   "distinct": 0.095,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 11.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/CfdSolver/Mpi/UvwMpi.cpp:computeDtMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateUvwMpi",
+   "file": "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 575,
+   "distinct": 0.042,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.167,
+   "match": "src/CfdSolver/Mpi/UvwMpi.cpp:computeVelocityMpi",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateTemperatureMpi",
+   "file": "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1037,
+   "distinct": 0.029,
+   "tok_any": 0.989,
+   "tok_best": 0.891,
+   "distinct_left": 0.6,
+   "residual": 3.0,
+   "ast_any": 0.981,
+   "ast_best": 0.972,
+   "ids_left": 0.143,
+   "match": "src/CfdSolver/cuda/momentum_kernels.cu:calculateTemperatureCuda",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ],
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::CfdSolverOpencl",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 655,
+   "distinct": 0.658,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 52.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.036,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::CfdSolverOpencl",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverOpencl::initialize",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1054,
+   "distinct": 0.43,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 34.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.405,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverOpencl::~CfdSolverOpencl",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 8,
+   "distinct": 1.0,
+   "tok_any": 0.0,
+   "tok_best": 1.0,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": null,
+   "ast_best": null,
+   "ids_left": 1.0,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::~CfdSolverOpencl",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverOpencl::setBoundaryValues",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 484,
+   "distinct": 0.091,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.286,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::setBoundaryValues",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverOpencl::setBoundaryValuesScenarioSpecific",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 357,
+   "distinct": 0.372,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 16.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.348,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CfdSolverOpencl::calculateDt",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 62,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.375,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::calculateDt",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::calculateTemperature",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 146,
+   "distinct": 0.111,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.471,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::calculateTemperature",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::calculateFgh",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 362,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.296,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::calculateFgh",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::calculateRs",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 107,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.467,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::calculateRs",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::executeSorSolver",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 83,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.0,
+   "ids_left": 0.29,
+   "match": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValuesScenarioSpecific",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::calculateUvw",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 131,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 0.333,
+   "ids_left": 0.5,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::calculateRs",
+   "unchanged": true,
+   "applied": [
+    [
+     "I7",
+     3
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "CfdSolverOpencl::getDataForOutput",
+   "file": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 243,
+   "distinct": 0.562,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 9.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.714,
+   "match": "src/CfdSolver/Opencl/CfdSolverOpencl.cpp:CfdSolverOpencl::getDataForOutput",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::initialize",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 130,
+   "distinct": 0.724,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 21.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.273,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::initialize",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::printInfo",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 115,
+   "distinct": 0.964,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 27.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.333,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::reportInfo",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "loadTextFile",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 92,
+   "distinct": 0.565,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 13.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.333,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:importTextFile",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::setPrependHeader",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 20,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.333,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::assignPrefixHeader",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::loadProgramFromSourceFile",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 22,
+   "distinct": 0.5,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::importProgramFromSourceFile",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::compileSourceFile",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 171,
+   "distinct": 0.705,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 31.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.4,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::compileKernelFile",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::loadProgramFromSourceFiles",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 123,
+   "distinct": 0.633,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 19.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.364,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::importProgramFromSourceFiles",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::loadProgramFromBinaryFile",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 170,
+   "distinct": 0.649,
+   "tok_any": 0.946,
+   "tok_best": 0.946,
+   "distinct_left": 0.917,
+   "residual": 22.0,
+   "ast_any": 0.974,
+   "ast_best": 0.974,
+   "ids_left": 0.727,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::importProgramFromBinaryFile",
+   "unchanged": false,
+   "applied": [
+    [
+     "R3",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "ClInterface::rangePadding1D",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 30,
+   "distinct": 0.857,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::alignedExtent1D",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::rangePadding2D",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 62,
+   "distinct": 0.083,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::alignedExtent2D",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "ClInterface::rangePadding3D",
+   "file": "src/CfdSolver/Opencl/ClInterface.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 83,
+   "distinct": 0.077,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/CfdSolver/Opencl/ClInterface.cpp:ClInterface::alignedExtent3D",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "CLContextInfo::CLContextInfo",
+   "file": "src/CfdSolver/Opencl/ClInterface.hpp",
+   "module": "src/CfdSolver",
+   "ntok": 24,
+   "distinct": 0.5,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": null,
+   "ast_best": null,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/Opencl/ClInterface.hpp:CLContextConfig::CLContextConfig",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "Singleton::get",
+   "file": "src/CfdSolver/Opencl/Singleton.hpp",
+   "module": "src/CfdSolver",
+   "ntok": 38,
+   "distinct": 0.857,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/CfdSolver/Opencl/Singleton.hpp:Singleton::get",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "reduceSumOpenclReal",
+   "file": "src/CfdSolver/Opencl/SorSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 276,
+   "distinct": 0.067,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 5.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.115,
+   "match": "src/CfdSolver/Opencl/SorSolverOpencl.cpp:collapseSumOpenclReal",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "reduceSumOpenclUint",
+   "file": "src/CfdSolver/Opencl/SorSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 276,
+   "distinct": 0.135,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 10.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.115,
+   "match": "src/CfdSolver/Opencl/SorSolverOpencl.cpp:collapseSumOpenclUint",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "sorSolverOpencl",
+   "file": "src/CfdSolver/Opencl/SorSolverOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 866,
+   "distinct": 0.234,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 30.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.193,
+   "match": "src/CfdSolver/Opencl/SorSolverOpencl.cpp:relaxSolverOpencl",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "calculateDtOpencl",
+   "file": "src/CfdSolver/Opencl/UvwOpencl.cpp",
+   "module": "src/CfdSolver",
+   "ntok": 1025,
+   "distinct": 0.106,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 18.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.14,
+   "match": "src/CfdSolver/Opencl/UvwOpencl.cpp:computeDtOpencl",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "parseArguments",
+   "file": "src/IO/ArgumentParser.cpp",
+   "module": "src/IO",
+   "ntok": 710,
+   "distinct": 0.898,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 79.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/cli_options.cpp:parseOptions",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryWriteStream::BinaryWriteStream",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 26,
+   "distinct": 0.5,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteWriteStream::ByteWriteStream",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryWriteStream::~BinaryWriteStream",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 31,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteWriteStream::~ByteWriteStream",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryWriteStream::reserve",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 70,
+   "distinct": 0.765,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 13.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteWriteStream::reserve",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryWriteStream::write",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 65,
+   "distinct": 0.692,
+   "tok_any": 0.692,
+   "tok_best": 0.692,
+   "distinct_left": 0.667,
+   "residual": 6.0,
+   "ast_any": 0.933,
+   "ast_best": 0.933,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteWriteStream::write",
+   "unchanged": false,
+   "applied": [
+    [
+     "R1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "BinaryWriteStream::write",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 39,
+   "distinct": 0.714,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 5.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteWriteStream::write",
+   "unchanged": true,
+   "applied": [
+    [
+     "R1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "BinaryWriteStream::write",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 46,
+   "distinct": 0.778,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 7.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteWriteStream::write",
+   "unchanged": true,
+   "applied": [
+    [
+     "R1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "BinaryReadStream::BinaryReadStream",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 44,
+   "distinct": 0.5,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteReadStream::ByteReadStream",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryReadStream::BinaryReadStream",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 29,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteReadStream::ByteReadStream",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryReadStream::BinaryReadStream",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 39,
+   "distinct": 0.5,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteReadStream::ByteReadStream",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryReadStream::~BinaryReadStream",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 31,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteWriteStream::~ByteWriteStream",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryReadStream::read",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 51,
+   "distinct": 0.6,
+   "tok_any": 0.5,
+   "tok_best": 0.5,
+   "distinct_left": 0.333,
+   "residual": 2.0,
+   "ast_any": 0.9,
+   "ast_best": 0.9,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteReadStream::read",
+   "unchanged": false,
+   "applied": [
+    [
+     "R1",
+     1
+    ],
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "BinaryReadStream::read",
+   "file": "src/IO/BinaryStream.cpp",
+   "module": "src/IO",
+   "ntok": 87,
+   "distinct": 0.957,
+   "tok_any": 0.478,
+   "tok_best": 0.478,
+   "distinct_left": 0.455,
+   "residual": 10.0,
+   "ast_any": 0.765,
+   "ast_best": 0.588,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.cpp:ByteReadStream::read",
+   "unchanged": false,
+   "applied": [
+    [
+     "R1",
+     1
+    ],
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "BinaryWriteStream::write",
+   "file": "src/IO/BinaryStream.hpp",
+   "module": "src/IO",
+   "ntok": 31,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 5.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": null,
+   "match": "src/IO/byte_streams.hpp:ByteWriteStream::write",
+   "unchanged": true,
+   "applied": [
+    [
+     "R1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "BinaryWriteStream::writeArray",
+   "file": "src/IO/BinaryStream.hpp",
+   "module": "src/IO",
+   "ntok": 68,
+   "distinct": 0.375,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.hpp:ByteWriteStream::writeVector",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryWriteStream::operator<<",
+   "file": "src/IO/BinaryStream.hpp",
+   "module": "src/IO",
+   "ntok": 26,
+   "distinct": 0.4,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.hpp:ByteWriteStream::operator<<",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryReadStream::read",
+   "file": "src/IO/BinaryStream.hpp",
+   "module": "src/IO",
+   "ntok": 29,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 5.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": null,
+   "match": "src/IO/byte_streams.hpp:ByteReadStream::read",
+   "unchanged": true,
+   "applied": [
+    [
+     "R1",
+     1
+    ],
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "BinaryReadStream::readArray",
+   "file": "src/IO/BinaryStream.hpp",
+   "module": "src/IO",
+   "ntok": 67,
+   "distinct": 0.533,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 8.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.hpp:ByteReadStream::readVector",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "BinaryReadStream::operator>>",
+   "file": "src/IO/BinaryStream.hpp",
+   "module": "src/IO",
+   "ntok": 25,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/byte_streams.hpp:ByteReadStream::operator>>",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "GeometryCreator::GeometryCreator",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 138,
+   "distinct": 0.333,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 10.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.286,
+   "match": "src/IO/scenario_builder.cpp:GeometryBuilder::GeometryBuilder",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "GeometryCreator::writeToBinGeoFile",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 33,
+   "distinct": 0.4,
+   "tok_any": 0.6,
+   "tok_best": 0.4,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.0,
+   "ast_best": 0.0,
+   "ids_left": 0.333,
+   "match": "src/CfdSolver/cell_flags.cpp:initFlagFromShapeFile",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "GeometryCreator::layersFromPgmFile",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 173,
+   "distinct": 0.214,
+   "tok_any": 0.976,
+   "tok_best": 0.905,
+   "distinct_left": 0.889,
+   "residual": 8.0,
+   "ast_any": 0.852,
+   "ast_best": 0.815,
+   "ids_left": 0.077,
+   "match": "src/IO/scenario_builder.cpp:GeometryBuilder::loadLayersFromPgm",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "GeometryCreator::setLayersConstant",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 103,
+   "distinct": 0.125,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.143,
+   "match": "src/IO/scenario_builder.cpp:GeometryBuilder::fillLayersUniform",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "GeometryCreator::setLayersInObject",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 135,
+   "distinct": 0.312,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 10.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.125,
+   "match": "src/IO/scenario_builder.cpp:GeometryBuilder::fillLayersInRegion",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "isValidCell",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 209,
+   "distinct": 0.837,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 41.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/scenario_builder.cpp:isCellAllowed",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "GeometryCreator::removeInvalidCells",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 116,
+   "distinct": 0.556,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 15.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.222,
+   "match": "src/IO/scenario_builder.cpp:GeometryBuilder::pruneDisallowedCells",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "createNaturalConvectionGeometry",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 149,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/scenario_builder.cpp:buildRayleighBenardGeometry",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "createRayleighBenardGeometry",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 149,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/scenario_builder.cpp:buildRayleighBenardGeometry",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "createFlowOverStepGeometry",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 221,
+   "distinct": 0.14,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.214,
+   "match": "src/IO/scenario_builder.cpp:buildStepFlowGeometry",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "createTowerGeometry",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 297,
+   "distinct": 0.516,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 32.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.188,
+   "match": "src/IO/scenario_builder.cpp:buildTowerGeometry",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "createHeightMapGeometry",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 401,
+   "distinct": 0.368,
+   "tok_any": 0.908,
+   "tok_best": 0.851,
+   "distinct_left": 0.812,
+   "residual": 26.0,
+   "ast_any": 0.929,
+   "ast_best": 0.906,
+   "ids_left": 0.154,
+   "match": "src/IO/scenario_builder.cpp:buildElevationGeometry",
+   "unchanged": false,
+   "applied": [
+    [
+     "S1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "generateScenario",
+   "file": "src/IO/GeometryCreator.cpp",
+   "module": "src/IO",
+   "ntok": 232,
+   "distinct": 0.444,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 8.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.273,
+   "match": "src/IO/scenario_builder.cpp:buildScenario",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "GeometryCreator::getCellType",
+   "file": "src/IO/GeometryCreator.hpp",
+   "module": "src/IO",
+   "ntok": 30,
+   "distinct": 0.6,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/scenario_builder.hpp:GeometryBuilder::cellTypeAt",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "loadValuesFromGeometryFile",
+   "file": "src/IO/GeometryFile.cpp",
+   "module": "src/IO",
+   "ntok": 286,
+   "distinct": 0.484,
+   "tok_any": 0.823,
+   "tok_best": 0.806,
+   "distinct_left": 0.767,
+   "residual": 23.0,
+   "ast_any": 0.921,
+   "ast_best": 0.873,
+   "ids_left": 0.222,
+   "match": "src/IO/geometry_io.cpp:loadGeometryData",
+   "unchanged": false,
+   "applied": [
+    [
+     "R3",
+     1
+    ],
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "storeValuesInGeometryFile",
+   "file": "src/IO/GeometryFile.cpp",
+   "module": "src/IO",
+   "ntok": 203,
+   "distinct": 0.489,
+   "tok_any": 0.844,
+   "tok_best": 0.756,
+   "distinct_left": 0.909,
+   "residual": 20.0,
+   "ast_any": 0.974,
+   "ast_best": 0.974,
+   "ids_left": 0.0,
+   "match": "src/IO/geometry_io.cpp:saveGeometryData",
+   "unchanged": false,
+   "applied": [
+    [
+     "I2",
+     1
+    ],
+    [
+     "R3",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "prepareOutputDirectory",
+   "file": "src/IO/IOUtils.cpp",
+   "module": "src/IO",
+   "ntok": 292,
+   "distinct": 0.706,
+   "tok_any": 0.824,
+   "tok_best": 0.627,
+   "distinct_left": 0.778,
+   "residual": 28.0,
+   "ast_any": 0.955,
+   "ast_best": 0.373,
+   "ids_left": 0.1,
+   "match": "src/IO/text_file_utils.cpp:clearStaleOutputFiles",
+   "unchanged": false,
+   "applied": [
+    [
+     "F2",
+     1
+    ],
+    [
+     "I2",
+     1
+    ],
+    [
+     "I6",
+     2
+    ]
+   ],
+   "stages": [
+    "layout",
+    "pass"
+   ]
+  },
+  {
+   "fn": "fileExists",
+   "file": "src/IO/IOUtils.cpp",
+   "module": "src/IO",
+   "ntok": 28,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/text_file_utils.cpp:fileIsPresent",
+   "unchanged": true,
+   "applied": [
+    [
+     "F2",
+     1
+    ]
+   ],
+   "stages": [
+    "layout"
+   ]
+  },
+  {
+   "fn": "NetCdfWriter::setMpiData",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 65,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::setMpiBounds",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "NetCdfWriter::initializeWriter",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 803,
+   "distinct": 0.704,
+   "tok_any": 0.991,
+   "tok_best": 0.922,
+   "distinct_left": 1.0,
+   "residual": 81.0,
+   "ast_any": 0.994,
+   "ast_best": 0.994,
+   "ids_left": 0.256,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::setupRecorder",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "NetCdfWriter::writeTimeDependentVariable3D_Staggered",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 130,
+   "distinct": 0.4,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 12.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.3,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::writeField3D_Staggered",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "NetCdfWriter::writeTimeDependentVariable3D_Normal",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 124,
+   "distinct": 0.24,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.3,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::writeField3D_Collocated",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "NetCdfWriter::~NetCdfWriter",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 34,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::~NetCdfRecorder",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "NetCdfWriter::ncPutAttributeText",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 49,
+   "distinct": 0.375,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::setTextAttribute",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "NetCdfWriter::writeTimestep",
+   "file": "src/IO/NetCdfWriter.cpp",
+   "module": "src/IO",
+   "ntok": 491,
+   "distinct": 0.548,
+   "tok_any": 0.869,
+   "tok_best": 0.833,
+   "distinct_left": 0.761,
+   "residual": 35.0,
+   "ast_any": 0.951,
+   "ast_best": 0.912,
+   "ids_left": 0.143,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::writeSnapshot",
+   "unchanged": false,
+   "applied": [
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "loadPgmFile",
+   "file": "src/IO/PgmFile.cpp",
+   "module": "src/IO",
+   "ntok": 310,
+   "distinct": 0.819,
+   "tok_any": 0.347,
+   "tok_best": 0.319,
+   "distinct_left": 0.22,
+   "residual": 13.0,
+   "ast_any": 0.452,
+   "ast_best": 0.397,
+   "ids_left": 0.0,
+   "match": "src/IO/pgm_image.cpp:readPgmImage",
+   "unchanged": false,
+   "applied": [
+    [
+     "R3",
+     1
+    ],
+    [
+     "R4",
+     1
+    ],
+    [
+     "S5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "nearestNeighborUpsamplingPgm2D",
+   "file": "src/IO/PgmFile.cpp",
+   "module": "src/IO",
+   "ntok": 478,
+   "distinct": 0.52,
+   "tok_any": 0.922,
+   "tok_best": 0.735,
+   "distinct_left": 0.849,
+   "residual": 45.0,
+   "ast_any": 0.91,
+   "ast_best": 0.746,
+   "ids_left": 0.0,
+   "match": "src/IO/pgm_image.cpp:nearestNeighborScalePgm2D",
+   "unchanged": false,
+   "applied": [
+    [
+     "I3",
+     1
+    ],
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "nearestNeighborUpsampling2D",
+   "file": "src/IO/PgmFile.cpp",
+   "module": "src/IO",
+   "ntok": 186,
+   "distinct": 0.152,
+   "tok_any": 0.804,
+   "tok_best": 0.717,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.703,
+   "ast_best": 0.703,
+   "ids_left": 0.0,
+   "match": "src/IO/pgm_image.cpp:nearestNeighborScale2D",
+   "unchanged": false,
+   "applied": [
+    [
+     "R1",
+     1
+    ],
+    [
+     "S2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "ProgressBar::printOutput",
+   "file": "src/IO/ProgressBar.cpp",
+   "module": "src/IO",
+   "ntok": 83,
+   "distinct": 1.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 22.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.167,
+   "match": "src/IO/progress_report.cpp:reportFileWritten",
+   "unchanged": true,
+   "applied": [
+    [
+     "I5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "ProgressBar::printProgress",
+   "file": "src/IO/ProgressBar.cpp",
+   "module": "src/IO",
+   "ntok": 125,
+   "distinct": 0.903,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 28.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.286,
+   "match": "src/IO/progress_report.cpp:StatusReporter::renderProgress",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "loadVariablesFromDatFile",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 257,
+   "distinct": 0.803,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 49.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.25,
+   "match": "src/IO/case_config.cpp:readSettingsFile",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readStringVariable",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 76,
+   "distinct": 0.056,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 1.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/IO/case_config.cpp:fetchStringSetting",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readStringVariableOptional",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 75,
+   "distinct": 0.316,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.333,
+   "match": "src/IO/case_config.cpp:fetchStringSettingOrDefault",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readIntVariable",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 79,
+   "distinct": 0.105,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/IO/case_config.cpp:fetchIntSetting",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readIntVariableOptional",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 74,
+   "distinct": 0.25,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.333,
+   "match": "src/IO/case_config.cpp:fetchIntSettingOrDefault",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readRealVariable",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 77,
+   "distinct": 0.105,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/IO/case_config.cpp:fetchRealSetting",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readRealVariableOptional",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 72,
+   "distinct": 0.235,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 4.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.4,
+   "match": "src/IO/case_config.cpp:fetchRealSettingOrDefault",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "readScenarioConfigurationFromFile",
+   "file": "src/IO/ScenarioFile.cpp",
+   "module": "src/IO",
+   "ntok": 514,
+   "distinct": 0.735,
+   "tok_any": 0.971,
+   "tok_best": 0.941,
+   "distinct_left": 1.0,
+   "residual": 25.0,
+   "ast_any": 0.991,
+   "ast_best": 0.991,
+   "ids_left": 0.692,
+   "match": "src/IO/case_config.cpp:loadCaseConfigFromFile",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "startsWith",
+   "file": "src/IO/StringUtils.cpp",
+   "module": "src/IO",
+   "ntok": 55,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/text_file_utils.cpp:hasPrefix",
+   "unchanged": true,
+   "applied": [
+    [
+     "F2",
+     1
+    ]
+   ],
+   "stages": [
+    "layout"
+   ]
+  },
+  {
+   "fn": "endsWith",
+   "file": "src/IO/StringUtils.cpp",
+   "module": "src/IO",
+   "ntok": 55,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.5,
+   "match": "src/IO/text_file_utils.cpp:hasPrefix",
+   "unchanged": true,
+   "applied": [
+    [
+     "F2",
+     2
+    ]
+   ],
+   "stages": [
+    "layout"
+   ]
+  },
+  {
+   "fn": "splitString",
+   "file": "src/IO/StringUtils.hpp",
+   "module": "src/IO",
+   "ntok": 99,
+   "distinct": 0.429,
+   "tok_any": 0.571,
+   "tok_best": 0.571,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.778,
+   "ast_best": 0.778,
+   "ids_left": 0.0,
+   "match": "src/IO/text_file_utils.hpp:tokenizeBySpace",
+   "unchanged": false,
+   "applied": [
+    [
+     "F2",
+     2
+    ],
+    [
+     "S7",
+     1
+    ]
+   ],
+   "stages": [
+    "layout",
+    "pass"
+   ]
+  },
+  {
+   "fn": "splitStringWhitespace",
+   "file": "src/IO/StringUtils.hpp",
+   "module": "src/IO",
+   "ntok": 100,
+   "distinct": 0.316,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 6.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/text_file_utils.hpp:tokenizeBySpace",
+   "unchanged": true,
+   "applied": [
+    [
+     "F2",
+     1
+    ]
+   ],
+   "stages": [
+    "layout"
+   ]
+  },
+  {
+   "fn": "writeTrajectoriesToObjFile",
+   "file": "src/IO/TrajectoriesFile.cpp",
+   "module": "src/IO",
+   "ntok": 303,
+   "distinct": 0.615,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 48.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/path_writer.cpp:writePathsToObj",
+   "unchanged": true,
+   "applied": [
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "writeTrajectoriesToBinLinesFile",
+   "file": "src/IO/TrajectoriesFile.cpp",
+   "module": "src/IO",
+   "ntok": 480,
+   "distinct": 0.653,
+   "tok_any": 0.815,
+   "tok_best": 0.758,
+   "distinct_left": 0.778,
+   "residual": 63.0,
+   "ast_any": 0.843,
+   "ast_best": 0.824,
+   "ids_left": 0.0,
+   "match": "src/IO/path_writer.cpp:writePathsToBinary",
+   "unchanged": false,
+   "applied": [
+    [
+     "R3",
+     1
+    ],
+    [
+     "S1",
+     2
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::setMpiData",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 65,
+   "distinct": 0.0,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/netcdf_output.cpp:NetCdfRecorder::setMpiBounds",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "VtkWriter::initializeWriter",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 223,
+   "distinct": 0.275,
+   "tok_any": 0.975,
+   "tok_best": 0.675,
+   "distinct_left": 1.0,
+   "residual": 11.0,
+   "ast_any": 0.977,
+   "ast_best": 0.837,
+   "ids_left": 0.5,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::setupRecorder",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ],
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::~VtkWriter",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 31,
+   "distinct": 0.5,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 2.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::~VtkExporter",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "VtkWriter::writeTimestep",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 206,
+   "distinct": 0.609,
+   "tok_any": 0.978,
+   "tok_best": 0.935,
+   "distinct_left": 0.964,
+   "residual": 27.0,
+   "ast_any": 0.977,
+   "ast_best": 0.909,
+   "ids_left": 0.312,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::writeSnapshot",
+   "unchanged": false,
+   "applied": [
+    [
+     "I7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::writeVtkHeader",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 80,
+   "distinct": 0.667,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 12.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::emitVtkHeader",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "swapEndianness",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 127,
+   "distinct": 0.724,
+   "tok_any": 0.966,
+   "tok_best": 0.966,
+   "distinct_left": 0.952,
+   "residual": 20.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.0,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::reverseByteOrder",
+   "unchanged": false,
+   "applied": [
+    [
+     "I5",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::writePointCoordinates",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 354,
+   "distinct": 0.413,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 26.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.4,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::emitPointPositions",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "VtkWriter::writePointData",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 1426,
+   "distinct": 0.365,
+   "tok_any": 0.96,
+   "tok_best": 0.833,
+   "distinct_left": 0.891,
+   "residual": 41.0,
+   "ast_any": 0.993,
+   "ast_best": 0.943,
+   "ids_left": 0.111,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::emitPointValues",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::writeCellData",
+   "file": "src/IO/VtkWriter.cpp",
+   "module": "src/IO",
+   "ntok": 1558,
+   "distinct": 0.492,
+   "tok_any": 0.847,
+   "tok_best": 0.774,
+   "distinct_left": 0.689,
+   "residual": 42.0,
+   "ast_any": 0.925,
+   "ast_best": 0.841,
+   "ids_left": 0.118,
+   "match": "src/IO/vtk_output.cpp:VtkExporter::emitCellValues",
+   "unchanged": false,
+   "applied": [
+    [
+     "P1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "VtkWriter::VtkWriter",
+   "file": "src/IO/VtkWriter.hpp",
+   "module": "src/IO",
+   "ntok": 30,
+   "distinct": 0.5,
+   "tok_any": 0.25,
+   "tok_best": 0.25,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": null,
+   "ast_best": null,
+   "ids_left": 0.0,
+   "match": "src/IO/scenario_builder.cpp:GeometryBuilder::GeometryBuilder",
+   "unchanged": false,
+   "applied": [
+    [
+     "I6",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "main",
+   "file": "src/Main.cpp",
+   "module": "src",
+   "ntok": 2196,
+   "distinct": 0.686,
+   "tok_any": 0.944,
+   "tok_best": 0.935,
+   "distinct_left": 0.934,
+   "residual": 227.0,
+   "ast_any": 0.901,
+   "ast_best": 0.87,
+   "ids_left": 0.312,
+   "match": "src/simulation_main.cpp:main",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "rayBoxPlaneIntersection",
+   "file": "src/ParticleTracer/Intersection.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 148,
+   "distinct": 0.658,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 25.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.125,
+   "match": "src/ParticleTracer/ray_box.cpp:castRayAgainstSlab",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "rayBoxIntersection",
+   "file": "src/ParticleTracer/Intersection.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 113,
+   "distinct": 0.577,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 15.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.125,
+   "match": "src/ParticleTracer/ray_box.cpp:castRayAgainstBox",
+   "unchanged": true,
+   "applied": [
+    [
+     "I2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "integrateParticlePositionEuler",
+   "file": "src/ParticleTracer/ParticleTracer.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 75,
+   "distinct": 0.25,
+   "tok_any": 0.688,
+   "tok_best": 0.375,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.429,
+   "ast_best": 0.0,
+   "ids_left": 0.3,
+   "match": "src/ParticleTracer/trajectory_output.cpp:evalVelocityAt",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S7",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getParticleSeedingLocationsForScenario",
+   "file": "src/ParticleTracer/ParticleTracer.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 114,
+   "distinct": 0.586,
+   "tok_any": 0.828,
+   "tok_best": 0.759,
+   "distinct_left": 0.824,
+   "residual": 14.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.1,
+   "match": "src/ParticleTracer/particle_integrators.cpp:computeParticleSeedsForScenario",
+   "unchanged": false,
+   "applied": [
+    [
+     "I2",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "traceStreamlineParticle",
+   "file": "src/ParticleTracer/StreamlineTracer.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 515,
+   "distinct": 0.762,
+   "tok_any": 0.881,
+   "tok_best": 0.822,
+   "distinct_left": 0.883,
+   "residual": 68.0,
+   "ast_any": 0.891,
+   "ast_best": 0.826,
+   "ids_left": 0.12,
+   "match": "src/ParticleTracer/streamline_tracer.cpp:integrateFlowlineParticle",
+   "unchanged": false,
+   "applied": [
+    [
+     "I1",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "StreamlineTracer::trace",
+   "file": "src/ParticleTracer/StreamlineTracer.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 163,
+   "distinct": 0.333,
+   "tok_any": 0.972,
+   "tok_best": 0.972,
+   "distinct_left": 1.0,
+   "residual": 12.0,
+   "ast_any": 0.812,
+   "ast_best": 0.625,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/streamline_tracer.cpp:FlowlineIntegrator::trace",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "pushTrajectoryAttributes",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 171,
+   "distinct": 0.5,
+   "tok_any": 0.933,
+   "tok_best": 0.6,
+   "distinct_left": 0.867,
+   "residual": 13.0,
+   "ast_any": 0.964,
+   "ast_best": 0.964,
+   "ids_left": 0.25,
+   "match": "src/ParticleTracer/trajectory_output.cpp:appendTrajectoryFeatures",
+   "unchanged": false,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "getUAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 101,
+   "distinct": 0.111,
+   "tok_any": 0.667,
+   "tok_best": 0.259,
+   "distinct_left": 0.667,
+   "residual": 2.0,
+   "ast_any": 0.65,
+   "ast_best": 0.4,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchUAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getVAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 101,
+   "distinct": 0.038,
+   "tok_any": 0.692,
+   "tok_best": 0.269,
+   "distinct_left": 0.0,
+   "residual": 0,
+   "ast_any": 0.65,
+   "ast_best": 0.25,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:isNodeOutOfRange",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getWAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 101,
+   "distinct": 0.154,
+   "tok_any": 0.731,
+   "tok_best": 0.308,
+   "distinct_left": 0.5,
+   "residual": 2.0,
+   "ast_any": 0.65,
+   "ast_best": 0.4,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchWAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "worldPositionToStaggeredGrid",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 56,
+   "distinct": 0.786,
+   "tok_any": 1.0,
+   "tok_best": 1.0,
+   "distinct_left": 1.0,
+   "residual": 11.0,
+   "ast_any": 1.0,
+   "ast_best": 1.0,
+   "ids_left": 0.286,
+   "match": "src/ParticleTracer/trajectory_output.cpp:mapWorldToStaggered",
+   "unchanged": true,
+   "applied": [],
+   "stages": []
+  },
+  {
+   "fn": "trilinearInterpolationU",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 386,
+   "distinct": 0.0,
+   "tok_any": 0.703,
+   "tok_best": 0.459,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolationV",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 386,
+   "distinct": 0.0,
+   "tok_any": 0.703,
+   "tok_best": 0.459,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolationW",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 386,
+   "distinct": 0.0,
+   "tok_any": 0.703,
+   "tok_best": 0.459,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getVectorVelocityAt",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 111,
+   "distinct": 0.0,
+   "tok_any": 0.882,
+   "tok_best": 0.588,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.4,
+   "ast_best": 0.0,
+   "ids_left": 0.273,
+   "match": "src/ParticleTracer/trajectory_output.cpp:evalCurlAt",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getdUdyAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 126,
+   "distinct": 0.0,
+   "tok_any": 0.727,
+   "tok_best": 0.364,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.741,
+   "ast_best": 0.556,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchdUdyAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getdUdzAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 126,
+   "distinct": 0.0,
+   "tok_any": 0.722,
+   "tok_best": 0.389,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.741,
+   "ast_best": 0.556,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchdUdzAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getdVdxAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 126,
+   "distinct": 0.0,
+   "tok_any": 0.727,
+   "tok_best": 0.364,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.741,
+   "ast_best": 0.556,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchdVdxAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getdVdzAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 126,
+   "distinct": 0.0,
+   "tok_any": 0.771,
+   "tok_best": 0.429,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.741,
+   "ast_best": 0.556,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchdVdzAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getdWdxAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 126,
+   "distinct": 0.0,
+   "tok_any": 0.706,
+   "tok_best": 0.353,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.741,
+   "ast_best": 0.556,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchdWdxAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getdWdyAtIdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 126,
+   "distinct": 0.0,
+   "tok_any": 0.758,
+   "tok_best": 0.394,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.741,
+   "ast_best": 0.556,
+   "ids_left": 0.5,
+   "match": "src/ParticleTracer/trajectory_output.cpp:fetchdWdyAtNode",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S2",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolation_dUdy",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 405,
+   "distinct": 0.0,
+   "tok_any": 0.694,
+   "tok_best": 0.472,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolation_dUdz",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 405,
+   "distinct": 0.0,
+   "tok_any": 0.694,
+   "tok_best": 0.472,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolation_dVdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 405,
+   "distinct": 0.0,
+   "tok_any": 0.694,
+   "tok_best": 0.472,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolation_dVdz",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 405,
+   "distinct": 0.0,
+   "tok_any": 0.694,
+   "tok_best": 0.472,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolation_dWdx",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 405,
+   "distinct": 0.0,
+   "tok_any": 0.694,
+   "tok_best": 0.472,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "trilinearInterpolation_dWdy",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 405,
+   "distinct": 0.0,
+   "tok_any": 0.694,
+   "tok_best": 0.472,
+   "distinct_left": null,
+   "residual": 0,
+   "ast_any": 0.58,
+   "ast_best": 0.383,
+   "ids_left": 0.214,
+   "match": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     2
+    ],
+    [
+     "S2",
+     2
+    ],
+    [
+     "S8",
+     2
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  },
+  {
+   "fn": "getCurlAt",
+   "file": "src/ParticleTracer/TrajectoryAttributes.cpp",
+   "module": "src/ParticleTracer",
+   "ntok": 198,
+   "distinct": 0.136,
+   "tok_any": 1.0,
+   "tok_best": 0.864,
+   "distinct_left": 1.0,
+   "residual": 3.0,
+   "ast_any": 0.214,
+   "ast_best": 0.107,
+   "ids_left": 0.15,
+   "match": "src/ParticleTracer/trajectory_output.cpp:evalCurlAt",
+   "unchanged": false,
+   "applied": [
+    [
+     "I4",
+     1
+    ],
+    [
+     "S8",
+     1
+    ]
+   ],
+   "stages": [
+    "pass"
+   ]
+  }
+ ]
+}

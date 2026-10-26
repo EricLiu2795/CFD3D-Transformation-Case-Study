@@ -1,0 +1,230 @@
+{
+ "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+ "head": "665762f304386d792e8795817a7b46af166002ec",
+ "paths": {
+  "src/CfdSolver/CfdSolver.cpp": [
+   "src/CfdSolver/solver_interface.cpp"
+  ],
+  "src/CfdSolver/CfdSolver.hpp": [
+   "src/CfdSolver/solver_interface.hpp"
+  ],
+  "src/CfdSolver/Cpp/BoundaryValuesCpp.cpp": [
+   "src/CfdSolver/serial/boundary_conditions.cpp",
+   "src/CfdSolver/serial/scenario_boundary.cpp"
+  ],
+  "src/CfdSolver/Cpp/BoundaryValuesCpp.hpp": [
+   "src/CfdSolver/serial/boundary_conditions.hpp"
+  ],
+  "src/CfdSolver/Cpp/CfdSolverCpp.cpp": [
+   "src/CfdSolver/serial/serial_solver.cpp"
+  ],
+  "src/CfdSolver/Cpp/CfdSolverCpp.hpp": [
+   "src/CfdSolver/serial/serial_solver.hpp"
+  ],
+  "src/CfdSolver/Cpp/SorSolverCpp.cpp": [
+   "src/CfdSolver/serial/poisson_sor.cpp"
+  ],
+  "src/CfdSolver/Cpp/SorSolverCpp.hpp": [
+   "src/CfdSolver/serial/poisson_sor.hpp"
+  ],
+  "src/CfdSolver/Cpp/UvwCpp.cpp": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "src/CfdSolver/Cpp/UvwCpp.hpp": [
+   "src/CfdSolver/serial/momentum_eqs.hpp"
+  ],
+  "src/CfdSolver/Cuda/BoundaryValuesCuda.cu": [
+   "src/CfdSolver/cuda/boundary_kernels.cu"
+  ],
+  "src/CfdSolver/Cuda/BoundaryValuesCuda.hpp": [
+   "src/CfdSolver/cuda/boundary_kernels.hpp"
+  ],
+  "src/CfdSolver/Cuda/CfdSolverCuda.cu": [
+   "src/CfdSolver/cuda/cuda_solver.cu"
+  ],
+  "src/CfdSolver/Cuda/CfdSolverCuda.hpp": [
+   "src/CfdSolver/cuda/cuda_solver.hpp"
+  ],
+  "src/CfdSolver/Cuda/CudaDefines.cu": [
+   "src/CfdSolver/cuda/cuda_runtime_check.cu"
+  ],
+  "src/CfdSolver/Cuda/CudaDefines.hpp": [
+   "src/CfdSolver/cuda/cuda_runtime_check.hpp"
+  ],
+  "src/CfdSolver/Cuda/SorSolverCuda.cu": [
+   "src/CfdSolver/cuda/poisson_kernels.cu"
+  ],
+  "src/CfdSolver/Cuda/SorSolverCuda.hpp": [
+   "src/CfdSolver/cuda/poisson_kernels.hpp"
+  ],
+  "src/CfdSolver/Cuda/UvwCuda.cu": [
+   "src/CfdSolver/cuda/momentum_kernels.cu"
+  ],
+  "src/CfdSolver/Cuda/UvwCuda.hpp": [
+   "src/CfdSolver/cuda/momentum_kernels.hpp"
+  ],
+  "src/CfdSolver/Flag.cpp": [
+   "src/CfdSolver/cell_flags.cpp"
+  ],
+  "src/CfdSolver/Flag.hpp": [
+   "src/CfdSolver/cell_flags.hpp"
+  ],
+  "src/CfdSolver/Init.cpp": [
+   "src/CfdSolver/field_init.cpp"
+  ],
+  "src/CfdSolver/Init.hpp": [
+   "src/CfdSolver/field_init.hpp"
+  ],
+  "src/CfdSolver/Mpi/DefinesMpi.hpp": [
+   "src/CfdSolver/Mpi/MacrosMpi.hpp"
+  ],
+  "src/CfdSolver/Opencl/OpenclDefines.hpp": [
+   "src/CfdSolver/Opencl/OpenclFlags.hpp"
+  ],
+  "src/IO/ArgumentParser.cpp": [
+   "src/IO/cli_options.cpp"
+  ],
+  "src/IO/ArgumentParser.hpp": [
+   "src/IO/cli_options.hpp"
+  ],
+  "src/IO/BinaryStream.cpp": [
+   "src/IO/byte_streams.cpp"
+  ],
+  "src/IO/BinaryStream.hpp": [
+   "src/IO/byte_streams.hpp"
+  ],
+  "src/IO/GeometryCreator.cpp": [
+   "src/IO/scenario_builder.cpp"
+  ],
+  "src/IO/GeometryCreator.hpp": [
+   "src/IO/scenario_builder.hpp"
+  ],
+  "src/IO/GeometryFile.cpp": [
+   "src/IO/geometry_io.cpp"
+  ],
+  "src/IO/GeometryFile.hpp": [
+   "src/IO/geometry_io.hpp"
+  ],
+  "src/IO/IOUtils.cpp": [
+   "src/IO/text_file_utils.cpp"
+  ],
+  "src/IO/IOUtils.hpp": [
+   "src/IO/text_file_utils.hpp"
+  ],
+  "src/IO/NetCdfWriter.cpp": [
+   "src/IO/netcdf_output.cpp"
+  ],
+  "src/IO/NetCdfWriter.hpp": [
+   "src/IO/netcdf_output.hpp"
+  ],
+  "src/IO/OutputFileWriter.hpp": [
+   "src/IO/output_recorder.hpp"
+  ],
+  "src/IO/PgmFile.cpp": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "src/IO/PgmFile.hpp": [
+   "src/IO/pgm_image.hpp"
+  ],
+  "src/IO/ProgressBar.cpp": [
+   "src/IO/progress_report.cpp"
+  ],
+  "src/IO/ProgressBar.hpp": [
+   "src/IO/progress_report.hpp"
+  ],
+  "src/IO/ScenarioFile.cpp": [
+   "src/IO/case_config.cpp"
+  ],
+  "src/IO/ScenarioFile.hpp": [
+   "src/IO/case_config.hpp"
+  ],
+  "src/IO/StringUtils.cpp": [
+   "src/IO/text_file_utils.cpp"
+  ],
+  "src/IO/StringUtils.hpp": [
+   "src/IO/text_file_utils.hpp"
+  ],
+  "src/IO/TrajectoriesFile.cpp": [
+   "src/IO/path_writer.cpp"
+  ],
+  "src/IO/TrajectoriesFile.hpp": [
+   "src/IO/path_writer.hpp"
+  ],
+  "src/IO/VtkWriter.cpp": [
+   "src/IO/vtk_output.cpp"
+  ],
+  "src/IO/VtkWriter.hpp": [
+   "src/IO/vtk_output.hpp"
+  ],
+  "src/Main.cpp": [
+   "src/simulation_main.cpp"
+  ],
+  "src/ParticleTracer/Intersection.cpp": [
+   "src/ParticleTracer/ray_box.cpp"
+  ],
+  "src/ParticleTracer/Intersection.hpp": [
+   "src/ParticleTracer/ray_box.hpp"
+  ],
+  "src/ParticleTracer/ParticleTracer.cpp": [
+   "src/ParticleTracer/particle_integrators.cpp"
+  ],
+  "src/ParticleTracer/ParticleTracer.hpp": [
+   "src/ParticleTracer/particle_integrators.hpp"
+  ],
+  "src/ParticleTracer/StreamlineTracer.cpp": [
+   "src/ParticleTracer/streamline_tracer.cpp"
+  ],
+  "src/ParticleTracer/StreamlineTracer.hpp": [
+   "src/ParticleTracer/streamline_tracer.hpp"
+  ],
+  "src/ParticleTracer/TrajectoryAttributes.cpp": [
+   "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "src/ParticleTracer/TrajectoryAttributes.hpp": [
+   "src/ParticleTracer/trajectory_output.hpp"
+  ]
+ },
+ "symbols": {
+  "calculateFghCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateRsCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateDtCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateUvwCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "calculateTemperatureCuda": "src/CfdSolver/cuda/momentum_kernels.cu",
+  "setBoundaryValuesCuda": "src/CfdSolver/cuda/boundary_kernels.cu",
+  "setBoundaryValuesScenarioSpecificCuda": "src/CfdSolver/cuda/boundary_kernels.cu",
+  "sorSolverCuda": "src/CfdSolver/cuda/poisson_kernels.cu",
+  "assignScenarioBorderValuesCpp": "src/CfdSolver/serial/scenario_boundary.cpp",
+  "hasPrefix": "src/IO/text_file_utils.cpp",
+  "hasSuffix": "src/IO/text_file_utils.cpp",
+  "setupOutputDirectory": "src/IO/text_file_utils.cpp",
+  "fileIsPresent": "src/IO/text_file_utils.cpp",
+  "NetCdfRecorder::getFileExtension": "src/IO/netcdf_output.cpp",
+  "VtkExporter::getFileExtension": "src/IO/vtk_output.cpp",
+  "CfdSolver::~CfdSolver": "src/CfdSolver/solver_interface.cpp"
+ },
+ "kept": {
+  "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/BoundaryValuesMpi.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/CfdSolverMpi.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/CfdSolverMpi.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/MpiHelpers.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/MpiHelpers.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/SorSolverMpi.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/SorSolverMpi.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/UvwMpi.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Mpi/UvwMpi.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/CfdSolverOpencl.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/CfdSolverOpencl.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/ClInterface.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/ClInterface.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/Singleton.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/SorSolverOpencl.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/SorSolverOpencl.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/UvwOpencl.cpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/CfdSolver/Opencl/UvwOpencl.hpp": "not compiled by any build configuration; path hard-coded in the frozen CMakeLists.txt, so left in place with only its #include lines updated",
+  "src/Defines.hpp": "tree-wide configuration header included by the kept OpenCL/MPI sources; left in place, content reorganised within the file",
+  "src/CfdSolver/Cuda/CudaDefines.hpp": "backend defines header; its macros and typedefs are duplicated by name in the kept OpenCL and MPI defines headers, so per-file definition order cannot be distinguished",
+  "src/CfdSolver/Opencl/OpenclDefines.hpp": "backend defines header duplicated by name across the backends; the OpenCL copy is not compiled by any build configuration",
+  "src/CfdSolver/Mpi/DefinesMpi.hpp": "backend defines header duplicated by name across the backends; the MPI copy is not compiled by any build configuration"
+ }
+}

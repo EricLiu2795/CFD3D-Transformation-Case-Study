@@ -1,0 +1,110 @@
+{
+  "entries": {
+    "calculateDtCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "1ee12cb13fd6045637429f0ce6f468babd17e15137bf5290fbf35d99dc536820",
+        "line": 274,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "1ee12cb13fd6045637429f0ce6f468babd17e15137bf5290fbf35d99dc536820",
+        "line": 274,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      }
+    },
+    "calculateFghCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "8b5771341808b835ee685ada502bf9ba7151535db7b7585ee5e4f77cecd08ba6",
+        "line": 199,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "8b5771341808b835ee685ada502bf9ba7151535db7b7585ee5e4f77cecd08ba6",
+        "line": 199,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      }
+    },
+    "calculateRsCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "672a206279ce7f9c48300edba5d1c901e7336317d757d8660a6c20bb85717bd1",
+        "line": 220,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "672a206279ce7f9c48300edba5d1c901e7336317d757d8660a6c20bb85717bd1",
+        "line": 220,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      }
+    },
+    "calculateTemperatureCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "5a4cb2eea0d0491199d81b4dbefa621d163aa06aca163a98ad56b863a8895958",
+        "line": 376,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "5a4cb2eea0d0491199d81b4dbefa621d163aa06aca163a98ad56b863a8895958",
+        "line": 376,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      }
+    },
+    "calculateUvwCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "76bb9cf6a06949464dcf5b9e1863b2c1d380427cc4cb1a096913d6e85f93d885",
+        "line": 434,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "76bb9cf6a06949464dcf5b9e1863b2c1d380427cc4cb1a096913d6e85f93d885",
+        "line": 434,
+        "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+      }
+    },
+    "setBoundaryValuesCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "a97e0185550720b17f6c2f2d49b1fd210d351810dc57e9e39ae5ff506c9e1fff",
+        "line": 442,
+        "path": "src/CfdSolver/cuda/boundary_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "a97e0185550720b17f6c2f2d49b1fd210d351810dc57e9e39ae5ff506c9e1fff",
+        "line": 452,
+        "path": "src/CfdSolver/cuda/boundary_kernels.cu"
+      }
+    },
+    "setBoundaryValuesScenarioSpecificCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "3e4d21c135157037ca3a2462d6223edf40cf214afe7615cce7b439abc27a8a1e",
+        "line": 516,
+        "path": "src/CfdSolver/cuda/boundary_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "3e4d21c135157037ca3a2462d6223edf40cf214afe7615cce7b439abc27a8a1e",
+        "line": 526,
+        "path": "src/CfdSolver/cuda/boundary_kernels.cu"
+      }
+    },
+    "sorSolverCuda": {
+      "implementation_body_bytes_changed": false,
+      "raw4": {
+        "body_sha256": "b23ba4075a2e1a6369bbdf1b45ad32ad21f90be019c3a91fb3004d09ac6d1125",
+        "line": 203,
+        "path": "src/CfdSolver/cuda/poisson_kernels.cu"
+      },
+      "raw6": {
+        "body_sha256": "b23ba4075a2e1a6369bbdf1b45ad32ad21f90be019c3a91fb3004d09ac6d1125",
+        "line": 203,
+        "path": "src/CfdSolver/cuda/poisson_kernels.cu"
+      }
+    }
+  },
+  "scope": "Body-byte comparison after layout-only RAW4 vs final RAW6; excludes called/helper changes and earlier743 renames. Not a scientific/semantic equivalence verdict.",
+  "target_bodies_changed": 0
+}

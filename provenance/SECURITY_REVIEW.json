@@ -1,0 +1,26 @@
+{
+  "schema": "case-study-security-review-v1",
+  "status": "pass",
+  "reviewed_utc": "2026-10-26T20:35:10.843083+00:00",
+  "included_files_expected": 519,
+  "scope": "All publication bytes, including source, docs, original report copies, selected logs/configs, manifests and this review; root .git metadata excluded. Final pass performed after manifest creation.",
+  "actual_host_key_bytes_checked_in_memory_only": true,
+  "credential_value_or_hash_recorded": false,
+  "secret_patterns": [
+    "provider_key",
+    "GitHub_token",
+    "private_key",
+    "AWS_key",
+    "Bearer_header",
+    "x_api_key_header"
+  ],
+  "populated_auth_fields_and_env_assignments_checked": true,
+  "findings": [],
+  "raw_tool_transcripts_private_homes_credentials_or_oracle_payloads_included": false,
+  "local_filesystem_paths": "Preserved only as provenance; path-resolution guide provided.",
+  "source_licenses_retained": true,
+  "all_original_report_copies_unchanged": true,
+  "new_document_relative_links": "pass",
+  "scientific_experiments_rerun": false,
+  "known_limit": "Automated screening is not proof that every conceivable private datum is absent; selected text and configs require human maintainer review before any visibility expansion."
+}

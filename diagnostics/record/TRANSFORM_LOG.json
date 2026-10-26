@@ -1,0 +1,1876 @@
+[
+ {
+  "step": 1,
+  "group": "S7",
+  "id": "S7",
+  "plan_id": "S7-1",
+  "direction": "forward",
+  "region": "src/ParticleTracer/particle_integrators.cpp:advanceParticleEuler",
+  "files": [
+   "src/ParticleTracer/particle_integrators.cpp",
+   "src/ParticleTracer/particle_integrators.hpp"
+  ],
+  "summary": "Drop unused Euler particle advance helper",
+  "lines_changed": 12,
+  "validated": [],
+  "instance_commit": "36d130e766",
+  "tests": [
+   "provenance/S7/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e221cad915"
+ },
+ {
+  "step": 2,
+  "group": "S7",
+  "id": "S7",
+  "plan_id": "S7-2",
+  "direction": "forward",
+  "region": "src/IO/text_file_utils.hpp:tokenizeByChar",
+  "files": [
+   "src/IO/text_file_utils.hpp"
+  ],
+  "summary": "Drop unused single-char tokenizer template",
+  "lines_changed": 19,
+  "validated": [],
+  "instance_commit": "5fb0e0d6b1",
+  "tests": [
+   "provenance/S7/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e221cad915"
+ },
+ {
+  "step": 3,
+  "group": "S7",
+  "id": "S7",
+  "plan_id": "S7-3",
+  "direction": "forward",
+  "region": "src/CfdSolver/cell_flags.hpp:isLinked",
+  "files": [
+   "src/CfdSolver/cell_flags.hpp",
+   "src/CfdSolver/cuda/cuda_runtime_check.hpp",
+   "src/CfdSolver/Opencl/OpenclFlags.hpp"
+  ],
+  "summary": "Drop unused linked-cell flag accessor across backends",
+  "lines_changed": 3,
+  "validated": [],
+  "instance_commit": "33bd699916",
+  "tests": [
+   "provenance/S7/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e221cad915"
+ },
+ {
+  "step": 4,
+  "group": "S11",
+  "id": "S11",
+  "plan_id": "S11-1",
+  "direction": "forward",
+  "region": "src/Defines.hpp:divCeil",
+  "files": [
+   "src/Defines.hpp"
+  ],
+  "summary": "Make divCeil generic over integer types via a template",
+  "lines_changed": 2,
+  "validated": [],
+  "instance_commit": "6eff0a6e04",
+  "tests": [
+   "provenance/S11/chain.bundle"
+  ],
+  "status": "corrected",
+  "commit": "d6b50722da",
+  "reason": "Template required both arguments to share a type, breaking CUDA grid-dim call sites that pass (int, unsigned). Corrected in follow-up commit a3ec92a by deducing the result type from the dividend and casting the divisor.",
+  "correction_commit": "a3ec92a"
+ },
+ {
+  "step": 5,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-1",
+  "direction": "forward",
+  "region": "src/CfdSolver/serial/boundary_conditions.cpp:assignLeftRightBordersCpp,assignDownUpBordersCpp,assignFrontBackBordersCpp,temperatureBorderValue",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.cpp"
+  ],
+  "summary": "Share the temperature border-value rule across the serial face setters",
+  "lines_changed": 61,
+  "validated": [],
+  "instance_commit": "760c9c8436",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 6,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-2",
+  "direction": "forward",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:computeFghCpp,donorCellFlux",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "summary": "Factor the donor-cell convective flux out of the momentum assembly",
+  "lines_changed": 118,
+  "validated": [],
+  "instance_commit": "8012b6878f",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 7,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-3",
+  "direction": "forward",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:computeTemperatureCpp,advectTemperature",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "summary": "Share the temperature advection term across the three directions",
+  "lines_changed": 41,
+  "validated": [],
+  "instance_commit": "51572dff1b",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 8,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-4",
+  "direction": "forward",
+  "region": "src/CfdSolver/Mpi/UvwMpi.cpp:computeFluxMpi",
+  "files": [
+   "src/CfdSolver/Mpi/UvwMpi.cpp"
+  ],
+  "summary": "Factor the donor-cell convective flux out of the distributed momentum assembly",
+  "lines_changed": 118,
+  "validated": [],
+  "instance_commit": "a8c767077c",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 9,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-5",
+  "direction": "forward",
+  "region": "src/CfdSolver/Mpi/UvwMpi.cpp:computeTemperatureMpi",
+  "files": [
+   "src/CfdSolver/Mpi/UvwMpi.cpp"
+  ],
+  "summary": "Share the temperature advection term in the distributed energy update",
+  "lines_changed": 41,
+  "validated": [],
+  "instance_commit": "863731b340",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 10,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-6",
+  "direction": "forward",
+  "region": "src/ParticleTracer/trajectory_output.cpp:trilinearSampleW,trilinearSampleV,trilinearSampleU,trilinearSample_dWdy,trilinearSample_dWdx,trilinearSample_dVdz,trilinearSample_dVdx,trilinearSample_dUdz,trilinearSample_dUdy,trilinearBlend",
+  "files": [
+   "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "summary": "Share the trilinear corner blend across the velocity and gradient samplers",
+  "lines_changed": 175,
+  "validated": [],
+  "instance_commit": "ff6768eaed",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 11,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-7",
+  "direction": "forward",
+  "region": "src/ParticleTracer/trajectory_output.cpp:fetchWAtNode,fetchVAtNode,fetchUAtNode,fetchdWdyAtNode,fetchdWdxAtNode,fetchdVdzAtNode,fetchdVdxAtNode,fetchdUdzAtNode,fetchdUdyAtNode,isNodeOutOfRange",
+  "files": [
+   "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "summary": "Share the node bounds check across the field and gradient fetchers",
+  "lines_changed": 32,
+  "validated": [],
+  "instance_commit": "cfb030c92b",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 12,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-8",
+  "direction": "forward",
+  "region": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalUBordersCuda,assignInternalVBordersCuda,assignInternalWBordersCuda,assignInternalTBordersCuda,computeInteriorCellIndex",
+  "files": [
+   "src/CfdSolver/cuda/boundary_kernels.cu"
+  ],
+  "summary": "Share the interior thread index setup in the internal border kernels",
+  "lines_changed": 26,
+  "validated": [],
+  "instance_commit": "de6e58f0aa",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 13,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-9",
+  "direction": "forward",
+  "region": "src/IO/pgm_image.cpp:nearestNeighborScalePgm2D,scaleIndex",
+  "files": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "summary": "Name the source index mapping in the edge-preserving scaler",
+  "lines_changed": 12,
+  "validated": [],
+  "instance_commit": "2c4784f833",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 14,
+  "group": "S2",
+  "id": "S2",
+  "plan_id": "S2-10",
+  "direction": "forward",
+  "region": "src/IO/pgm_image.cpp:nearestNeighborScale2D,mapNearestIndex",
+  "files": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "summary": "Name the source index mapping in the plain nearest-neighbour scaler",
+  "lines_changed": 8,
+  "validated": [],
+  "instance_commit": "de8ffde44b",
+  "tests": [
+   "provenance/S2/chain.bundle"
+  ],
+  "status": "kept",
+  "commit": "e4a249a275"
+ },
+ {
+  "step": 15,
+  "group": "S3",
+  "id": "S3",
+  "direction": "forward",
+  "plan_id": "S3-1",
+  "region": "src/CfdSolver/serial/poisson_sor.cpp:relaxSolverSweepCpp",
+  "files": [
+   "src/CfdSolver/serial/poisson_sor.cpp"
+  ],
+  "summary": "Iterate pressure neighbour taps from an offset table in the serial relaxation sweep",
+  "lines_changed": 27,
+  "validated": [],
+  "instance_commit": "cf0c18a36b",
+  "tests": [
+   "provenance/S3 static check"
+  ],
+  "status": "corrected",
+  "commit": "fe7d9da899",
+  "reason": "The extracted neighbour offset table is a static-const local referenced inside an OpenMP parallel-for with default(none); GCC requires it to appear in the shared clause, so the cpu-reference build failed (not caught by the static-only group check). Corrected in follow-up commit aaa1007 by adding pressureNeighbors to the shared list.",
+  "correction_commit": "aaa1007"
+ },
+ {
+  "step": 16,
+  "group": "S3",
+  "id": "S3",
+  "direction": "forward",
+  "plan_id": "S3-2",
+  "region": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalTBordersCpp",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.cpp"
+  ],
+  "summary": "Iterate temperature neighbour taps from an offset table in the serial border update",
+  "lines_changed": 27,
+  "validated": [],
+  "instance_commit": "764ab7b899",
+  "tests": [
+   "provenance/S3 static check"
+  ],
+  "status": "kept",
+  "commit": "fe7d9da899"
+ },
+ {
+  "step": 17,
+  "group": "S3",
+  "id": "S3",
+  "direction": "forward",
+  "plan_id": "S3-3",
+  "region": "src/CfdSolver/Mpi/SorSolverMpi.cpp:relaxSolverIterationMpi",
+  "files": [
+   "src/CfdSolver/Mpi/SorSolverMpi.cpp"
+  ],
+  "summary": "Drive the MPI relaxation neighbour sum from face offset tables",
+  "lines_changed": 22,
+  "validated": [],
+  "instance_commit": "af7af1f8d1",
+  "tests": [
+   "provenance/S3 static check"
+  ],
+  "status": "kept",
+  "commit": "fe7d9da899"
+ },
+ {
+  "group": "S1",
+  "id": "S1",
+  "direction": "forward",
+  "validated": [],
+  "status": "kept",
+  "commit": "319a472696",
+  "step": 18,
+  "plan_id": "S1-1",
+  "region": "src/IO/scenario_builder.cpp:buildElevationGeometry",
+  "files": [
+   "src/IO/scenario_builder.cpp"
+  ],
+  "summary": "Build the elevation height field with a transform",
+  "lines_changed": 5,
+  "instance_commit": "5c36993386",
+  "tests": [
+   "provenance/S1 static check"
+  ]
+ },
+ {
+  "group": "S1",
+  "id": "S1",
+  "direction": "forward",
+  "validated": [],
+  "status": "kept",
+  "commit": "319a472696",
+  "step": 19,
+  "plan_id": "S1-2",
+  "region": "src/IO/path_writer.cpp:writePathsToBinary",
+  "files": [
+   "src/IO/path_writer.cpp"
+  ],
+  "summary": "Convert path positions to float with a transform",
+  "lines_changed": 5,
+  "instance_commit": "35e079edda",
+  "tests": [
+   "provenance/S1 static check"
+  ]
+ },
+ {
+  "group": "S1",
+  "id": "S1",
+  "direction": "forward",
+  "validated": [],
+  "status": "kept",
+  "commit": "319a472696",
+  "step": 20,
+  "plan_id": "S1-3",
+  "region": "src/IO/path_writer.cpp:writePathsToBinary",
+  "files": [
+   "src/IO/path_writer.cpp"
+  ],
+  "summary": "Convert path attribute fields to float with a transform",
+  "lines_changed": 4,
+  "instance_commit": "6f12e54e41",
+  "tests": [
+   "provenance/S1 static check"
+  ]
+ },
+ {
+  "step": 21,
+  "group": "S4",
+  "id": "S4",
+  "direction": "forward",
+  "plan_id": "S4-1",
+  "region": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalUBordersCpp",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.cpp"
+  ],
+  "summary": "Guard non-wet U border work with a loop continue",
+  "lines_changed": 8,
+  "validated": [],
+  "instance_commit": "89c711e632",
+  "tests": [
+   "provenance/S4 static check"
+  ],
+  "status": "kept",
+  "commit": "32bec6a482"
+ },
+ {
+  "step": 22,
+  "group": "S4",
+  "id": "S4",
+  "direction": "forward",
+  "plan_id": "S4-2",
+  "region": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalTBordersCpp",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.cpp"
+  ],
+  "summary": "Guard non-wet T border work with a loop continue",
+  "lines_changed": 2,
+  "validated": [],
+  "instance_commit": "ed815a222c",
+  "tests": [
+   "provenance/S4 static check"
+  ],
+  "status": "kept",
+  "commit": "32bec6a482"
+ },
+ {
+  "step": 23,
+  "group": "S4",
+  "id": "S4",
+  "direction": "forward",
+  "plan_id": "S4-3",
+  "region": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalVBordersMpi",
+  "files": [
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp"
+  ],
+  "summary": "Guard non-wet V border work with a loop continue",
+  "lines_changed": 8,
+  "validated": [],
+  "instance_commit": "f0dc320cd1",
+  "tests": [
+   "provenance/S4 static check"
+  ],
+  "status": "kept",
+  "commit": "32bec6a482"
+ },
+ {
+  "step": 24,
+  "group": "S4",
+  "id": "S4",
+  "direction": "forward",
+  "plan_id": "S4-4",
+  "region": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setInternalUBordersMpi",
+  "files": [
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp"
+  ],
+  "summary": "Guard non-wet U border work with a loop continue",
+  "lines_changed": 8,
+  "validated": [],
+  "instance_commit": "e4013e0ee5",
+  "tests": [
+   "provenance/S4 static check"
+  ],
+  "status": "kept",
+  "commit": "32bec6a482"
+ },
+ {
+  "step": 25,
+  "group": "S4",
+  "id": "S4",
+  "direction": "forward",
+  "plan_id": "S4-5",
+  "region": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalWBordersCuda",
+  "files": [
+   "src/CfdSolver/cuda/boundary_kernels.cu"
+  ],
+  "summary": "Return early on out-of-range and wet cells in W border kernel",
+  "lines_changed": 6,
+  "validated": [],
+  "instance_commit": "be8b2f17be",
+  "tests": [
+   "provenance/S4 static check"
+  ],
+  "status": "kept",
+  "commit": "32bec6a482"
+ },
+ {
+  "step": 26,
+  "group": "S4",
+  "id": "S4",
+  "direction": "forward",
+  "plan_id": "S4-6",
+  "region": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalTBordersCuda",
+  "files": [
+   "src/CfdSolver/cuda/boundary_kernels.cu"
+  ],
+  "summary": "Return early on out-of-range and wet cells in T border kernel",
+  "lines_changed": 6,
+  "validated": [],
+  "instance_commit": "4c84b44e88",
+  "tests": [
+   "provenance/S4 static check"
+  ],
+  "status": "kept",
+  "commit": "32bec6a482"
+ },
+ {
+  "step": 27,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:computeFghCpp",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "summary": "Precompute squared grid spacings in FGH assembly",
+  "lines_changed": 9,
+  "validated": [],
+  "instance_commit": "a4c498b4ad",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 28,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1-2",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:computeTemperatureCpp",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "summary": "Precompute squared grid spacings in temperature update",
+  "lines_changed": 5,
+  "validated": [],
+  "instance_commit": "655d77bc26",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 29,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1-3",
+  "region": "src/CfdSolver/serial/poisson_sor.cpp:relaxSolverSweepCpp",
+  "files": [
+   "src/CfdSolver/serial/poisson_sor.cpp"
+  ],
+  "summary": "Precompute squared grid spacings in the pressure sweep",
+  "lines_changed": 16,
+  "validated": [],
+  "instance_commit": "2184850bb9",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 30,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1-4",
+  "region": "src/CfdSolver/Mpi/UvwMpi.cpp:computeFluxMpi",
+  "files": [
+   "src/CfdSolver/Mpi/UvwMpi.cpp"
+  ],
+  "summary": "Precompute squared grid spacings in distributed FGH assembly",
+  "lines_changed": 10,
+  "validated": [],
+  "instance_commit": "8c3ebe07c2",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 31,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1-5",
+  "region": "src/CfdSolver/Mpi/UvwMpi.cpp:computeTemperatureMpi",
+  "files": [
+   "src/CfdSolver/Mpi/UvwMpi.cpp"
+  ],
+  "summary": "Precompute squared grid spacings in distributed temperature update",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "967438ac95",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 32,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1-6",
+  "region": "src/CfdSolver/Mpi/SorSolverMpi.cpp:relaxSolverIterationMpi",
+  "files": [
+   "src/CfdSolver/Mpi/SorSolverMpi.cpp"
+  ],
+  "summary": "Precompute squared grid spacings in the distributed pressure sweep",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "66b4b1a452",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 33,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1-7",
+  "region": "src/IO/vtk_output.cpp:VtkExporter::emitPointValues",
+  "files": [
+   "src/IO/vtk_output.cpp"
+  ],
+  "summary": "Name the grid-point count in the VTK vector emitter",
+  "lines_changed": 3,
+  "validated": [],
+  "instance_commit": "c854ccae0f",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 34,
+  "group": "P1",
+  "id": "P1",
+  "direction": "forward",
+  "plan_id": "P1-8",
+  "region": "src/IO/vtk_output.cpp:VtkExporter::emitCellValues",
+  "files": [
+   "src/IO/vtk_output.cpp"
+  ],
+  "summary": "Name the cell count in the VTK scalar emitter",
+  "lines_changed": 8,
+  "validated": [],
+  "instance_commit": "5fcbf504b6",
+  "tests": [
+   "provenance/P1 static check"
+  ],
+  "status": "kept",
+  "commit": "128f627"
+ },
+ {
+  "step": 35,
+  "group": "S5",
+  "id": "S5",
+  "direction": "forward",
+  "plan_id": "S5-1",
+  "region": "src/IO/pgm_image.cpp:readPgmImage",
+  "files": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "summary": "Read PGM geometry images through std::ifstream",
+  "lines_changed": 12,
+  "validated": [],
+  "instance_commit": "088c1a35ff",
+  "tests": [
+   "provenance/S5 static check"
+  ],
+  "status": "kept",
+  "commit": "b2e27c7"
+ },
+ {
+  "step": 36,
+  "group": "S5",
+  "id": "S5",
+  "direction": "forward",
+  "plan_id": "S5-2",
+  "region": "src/IO/geometry_io.cpp:loadGeometryData",
+  "files": [
+   "src/IO/geometry_io.cpp"
+  ],
+  "summary": "Hold the geometry file contents in a std::vector buffer",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "e3c30e67fb",
+  "tests": [
+   "provenance/S5 static check"
+  ],
+  "status": "kept",
+  "commit": "b2e27c7"
+ },
+ {
+  "step": 37,
+  "group": "S5",
+  "id": "S5",
+  "direction": "forward",
+  "plan_id": "S5-3",
+  "region": "src/IO/byte_streams.cpp:ByteReadStream::read",
+  "files": [
+   "src/IO/byte_streams.cpp"
+  ],
+  "summary": "Use a std::vector scratch buffer when reading length-prefixed strings",
+  "lines_changed": 5,
+  "validated": [],
+  "instance_commit": "ecb7efe193",
+  "tests": [
+   "provenance/S5 static check"
+  ],
+  "status": "kept",
+  "commit": "b2e27c7"
+ },
+ {
+  "step": 38,
+  "group": "S5",
+  "id": "S5",
+  "direction": "forward",
+  "plan_id": "S5-4",
+  "region": "src/IO/netcdf_output.cpp:NetCdfRecorder::writeSnapshot",
+  "files": [
+   "src/IO/netcdf_output.cpp"
+  ],
+  "summary": "Allocate the geometry sample buffer with std::vector",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "662cde7210",
+  "tests": [
+   "provenance/S5 static check"
+  ],
+  "status": "kept",
+  "commit": "b2e27c7"
+ },
+ {
+  "step": 39,
+  "group": "R4",
+  "id": "R4",
+  "direction": "forward",
+  "plan_id": "R4-1",
+  "region": "src/IO/pgm_image.cpp:readPgmImage",
+  "files": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "summary": "Use a std::array for the PGM header line buffer",
+  "lines_changed": 9,
+  "validated": [],
+  "instance_commit": "c3f09db3ac",
+  "tests": [
+   "provenance/R4 static check"
+  ],
+  "status": "kept",
+  "commit": "b25a6987d0"
+ },
+ {
+  "step": 40,
+  "group": "R1",
+  "id": "R1",
+  "direction": "forward",
+  "plan_id": "R1-1",
+  "region": "src/IO/byte_streams.cpp:ByteWriteStream::write",
+  "files": [
+   "src/IO/byte_streams.cpp"
+  ],
+  "summary": "Skip the write copy when no bytes are pending",
+  "lines_changed": 3,
+  "validated": [],
+  "instance_commit": "d916cab",
+  "tests": [
+   "provenance/R1 static check"
+  ],
+  "status": "kept",
+  "commit": "28e721b578"
+ },
+ {
+  "step": 41,
+  "group": "R1",
+  "id": "R1",
+  "direction": "forward",
+  "plan_id": "R1-2",
+  "region": "src/IO/byte_streams.cpp:ByteReadStream::read",
+  "files": [
+   "src/IO/byte_streams.cpp"
+  ],
+  "summary": "Skip the read copy for an empty field",
+  "lines_changed": 3,
+  "validated": [],
+  "instance_commit": "de564d6",
+  "tests": [
+   "provenance/R1 static check"
+  ],
+  "status": "kept",
+  "commit": "28e721b578"
+ },
+ {
+  "step": 42,
+  "group": "R1",
+  "id": "R1",
+  "direction": "forward",
+  "plan_id": "R1-3",
+  "region": "src/CfdSolver/cell_flags.cpp:resizeNearest",
+  "files": [
+   "src/CfdSolver/cell_flags.cpp"
+  ],
+  "summary": "Guard the equal-extent shape copy against an empty grid",
+  "lines_changed": 3,
+  "validated": [],
+  "instance_commit": "d63cabf",
+  "tests": [
+   "provenance/R1 static check"
+  ],
+  "status": "kept",
+  "commit": "28e721b578"
+ },
+ {
+  "step": 43,
+  "group": "R1",
+  "id": "R1",
+  "direction": "forward",
+  "plan_id": "R1-4",
+  "region": "src/IO/pgm_image.cpp:nearestNeighborScale2D",
+  "files": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "summary": "Guard the equal-extent image copy against an empty image",
+  "lines_changed": 3,
+  "validated": [],
+  "instance_commit": "bf648cf",
+  "tests": [
+   "provenance/R1 static check"
+  ],
+  "status": "kept",
+  "commit": "28e721b578"
+ },
+ {
+  "step": 44,
+  "group": "R3",
+  "id": "R3",
+  "direction": "forward",
+  "plan_id": "R3-1",
+  "region": "src/IO/geometry_io.cpp:saveGeometryData",
+  "files": [
+   "src/IO/geometry_io.cpp"
+  ],
+  "summary": "Assert the geometry write stream stays good after flushing",
+  "lines_changed": 1,
+  "validated": [],
+  "instance_commit": "65d4f02b79",
+  "tests": [
+   "provenance/R3 static check"
+  ],
+  "status": "kept",
+  "commit": "163560ff8c"
+ },
+ {
+  "step": 45,
+  "group": "R3",
+  "id": "R3",
+  "direction": "forward",
+  "plan_id": "R3-2",
+  "region": "src/IO/geometry_io.cpp:loadGeometryData",
+  "files": [
+   "src/IO/geometry_io.cpp"
+  ],
+  "summary": "Bail out of geometry load when the file is shorter than its header claims",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "c5887e5cf2",
+  "tests": [
+   "provenance/R3 static check"
+  ],
+  "status": "kept",
+  "commit": "163560ff8c"
+ },
+ {
+  "step": 46,
+  "group": "R3",
+  "id": "R3",
+  "direction": "forward",
+  "plan_id": "R3-3",
+  "region": "src/IO/pgm_image.cpp:readPgmImage",
+  "files": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "summary": "Reject PGM headers whose dimension line does not parse",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "089530d6c4",
+  "tests": [
+   "provenance/R3 static check"
+  ],
+  "status": "kept",
+  "commit": "163560ff8c"
+ },
+ {
+  "step": 47,
+  "group": "R3",
+  "id": "R3",
+  "direction": "forward",
+  "plan_id": "R3-4",
+  "region": "src/IO/path_writer.cpp:writePathsToBinary",
+  "files": [
+   "src/IO/path_writer.cpp"
+  ],
+  "summary": "Report a failed binary path write to the caller",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "133462d7de",
+  "tests": [
+   "provenance/R3 static check"
+  ],
+  "status": "kept",
+  "commit": "163560ff8c"
+ },
+ {
+  "step": 48,
+  "group": "R3",
+  "id": "R3",
+  "direction": "forward",
+  "plan_id": "R3-5",
+  "region": "src/CfdSolver/Opencl/ClInterface.cpp:importProgramFromBinaryFile",
+  "files": [
+   "src/CfdSolver/Opencl/ClInterface.cpp"
+  ],
+  "summary": "Fail fast when the OpenCL binary kernel file cannot be opened",
+  "lines_changed": 4,
+  "validated": [],
+  "instance_commit": "2f3887b090",
+  "tests": [
+   "provenance/R3 static check"
+  ],
+  "status": "kept",
+  "commit": "163560ff8c"
+ },
+ {
+  "step": 49,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-1",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:computeFghCpp",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.hpp",
+   "src/CfdSolver/serial/momentum_eqs.cpp",
+   "src/CfdSolver/serial/serial_solver.cpp"
+  ],
+  "summary": "group momentum model constants into a MomentumConstants struct",
+  "call_sites": [
+   "src/CfdSolver/serial/serial_solver.cpp:FluidSolverCpp::calculateFgh"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "cb1e3eb9a4",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "kept",
+  "commit": "2684aef611"
+ },
+ {
+  "step": 50,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-2",
+  "region": "src/CfdSolver/serial/scenario_boundary.cpp:assignScenarioBorderValuesCpp",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.hpp",
+   "src/CfdSolver/serial/scenario_boundary.cpp",
+   "src/CfdSolver/serial/serial_solver.cpp"
+  ],
+  "summary": "group grid dimensions into a GridDimensions struct for scenario borders",
+  "call_sites": [
+   "src/CfdSolver/serial/serial_solver.cpp:FluidSolverCpp::setBoundaryValuesScenarioSpecific"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "3fe1b197e5",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "kept",
+  "commit": "2684aef611"
+ },
+ {
+  "step": 51,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-3",
+  "region": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp:setBorderValuesMpi",
+  "files": [
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.hpp",
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp"
+  ],
+  "summary": "group subdomain index bounds into an MpiSubdomainBounds struct",
+  "call_sites": [
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::setBoundaryValues"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "5ff16aa6bb",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "kept",
+  "commit": "2684aef611"
+ },
+ {
+  "step": 52,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-4",
+  "region": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiStartup",
+  "files": [
+   "src/CfdSolver/Mpi/MpiHelpers.hpp",
+   "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "group the MPI process-grid split into an MpiDecomposition struct",
+  "call_sites": [
+   "main"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "82a4093437",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "kept",
+  "commit": "2684aef611"
+ },
+ {
+  "step": 53,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-5",
+  "region": "src/IO/case_config.cpp:loadCaseConfigFromFile",
+  "files": [
+   "src/IO/case_config.hpp",
+   "src/IO/case_config.cpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "group domain geometry outputs into a DomainGeometry struct",
+  "call_sites": [
+   "main"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "c4cadd6023",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "kept",
+  "commit": "2684aef611"
+ },
+ {
+  "step": 54,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-6",
+  "region": "src/IO/vtk_output.cpp:VtkExporter::setupRecorder,src/IO/netcdf_output.cpp:NetCdfRecorder::setupRecorder",
+  "files": [
+   "src/IO/output_recorder.hpp",
+   "src/IO/vtk_output.hpp",
+   "src/IO/vtk_output.cpp",
+   "src/IO/netcdf_output.hpp",
+   "src/IO/netcdf_output.cpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "group output grid parameters into an OutputGrid struct for recorder setup",
+  "call_sites": [
+   "main"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "9a71cf9aec",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "kept",
+  "commit": "2684aef611"
+ },
+ {
+  "step": 55,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-7",
+  "region": "src/ParticleTracer/streamline_tracer.cpp:integrateFlowlineParticle",
+  "files": [
+   "src/ParticleTracer/streamline_tracer.cpp"
+  ],
+  "summary": "group flow field arrays into a FlowFieldData struct",
+  "call_sites": [
+   "src/ParticleTracer/streamline_tracer.cpp:FlowlineIntegrator::trace"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "273b5f65bf",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "kept",
+  "commit": "2684aef611"
+ },
+ {
+  "step": 56,
+  "group": "I1",
+  "id": "I1",
+  "direction": "forward",
+  "plan_id": "I1-8",
+  "region": "src/ParticleTracer/trajectory_output.cpp:appendTrajectoryFeatures",
+  "files": [
+   "src/ParticleTracer/trajectory_output.hpp",
+   "src/ParticleTracer/trajectory_output.cpp",
+   "src/ParticleTracer/streamline_tracer.cpp"
+  ],
+  "summary": "group the sampling grid into a SamplingGrid struct",
+  "call_sites": [
+   "src/ParticleTracer/streamline_tracer.cpp:integrateFlowlineParticle"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "a21fb907b7",
+  "tests": [
+   "provenance/I1 static check"
+  ],
+  "status": "corrected",
+  "commit": "2684aef611",
+  "corrected_by": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+  "reason": "The boundary-exit branch of integrateFlowlineParticle still passed the individual grid parameters to appendTrajectoryFeatures instead of a SamplingGrid, so the cpu-reference build failed to compile. The static group check (step 1 only) did not catch it. The follow-up commit builds the SamplingGrid descriptor at that call site too."
+ },
+ {
+  "step": 57,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-1",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:donorCellFlux",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "summary": "group high- and low-side operands in the donor-cell flux helper",
+  "call_sites": [
+   "computeFghCpp"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "47c2515225",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 58,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-2",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:advectTemperature",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "summary": "place the upwind coefficient next to the spacing in the temperature advection helper",
+  "call_sites": [
+   "computeTemperatureCpp"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "dadb65f171",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 59,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-3",
+  "region": "src/CfdSolver/Mpi/UvwMpi.cpp:computeRsMpi",
+  "files": [
+   "src/CfdSolver/Mpi/UvwMpi.hpp",
+   "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp"
+  ],
+  "summary": "group the mesh spacings ahead of the time step in the MPI right-hand side assembly",
+  "call_sites": [
+   "CfdSolverMpi::calculateRs"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "fdff8808c0",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 60,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-4",
+  "region": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiAssignRange",
+  "files": [
+   "src/CfdSolver/Mpi/MpiHelpers.hpp",
+   "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "lead the MPI range split with the decomposition context",
+  "call_sites": [
+   "main"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "5bd067c98a",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 61,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-5",
+  "region": "src/IO/geometry_io.cpp:saveGeometryData",
+  "files": [
+   "src/IO/geometry_io.hpp",
+   "src/IO/geometry_io.cpp",
+   "src/IO/scenario_builder.cpp"
+  ],
+  "summary": "pass geometry extents before the voxel payload when saving shapes",
+  "call_sites": [
+   "GeometryBuilder::saveGeometryFile"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "7125e6b17d",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 62,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-6",
+  "region": "src/IO/text_file_utils.cpp:setupOutputDirectory",
+  "files": [
+   "src/IO/text_file_utils.hpp",
+   "src/IO/text_file_utils.cpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "group the output directories together in the setup routine",
+  "call_sites": [
+   "main"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "705f9917ea",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 63,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-7",
+  "region": "src/ParticleTracer/ray_box.cpp:castRayAgainstBox",
+  "files": [
+   "src/ParticleTracer/ray_box.hpp",
+   "src/ParticleTracer/ray_box.cpp",
+   "src/ParticleTracer/streamline_tracer.cpp"
+  ],
+  "summary": "take the box bounds before the ray in the slab intersection test",
+  "call_sites": [
+   "integrateFlowlineParticle"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "14677e3a75",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 64,
+  "group": "I2",
+  "id": "I2",
+  "direction": "forward",
+  "plan_id": "I2-8",
+  "region": "src/ParticleTracer/particle_integrators.cpp:computeParticleSeedsForScenario",
+  "files": [
+   "src/ParticleTracer/particle_integrators.hpp",
+   "src/ParticleTracer/particle_integrators.cpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "order the seed generator as scenario, domain, then particle count",
+  "call_sites": [
+   "main"
+  ],
+  "lines_changed": 0,
+  "validated": [],
+  "instance_commit": "bb543d9b82",
+  "tests": [
+   "provenance/I2 static check"
+  ],
+  "status": "kept",
+  "commit": "7dd9413983"
+ },
+ {
+  "step": 65,
+  "group": "I3",
+  "id": "I3",
+  "direction": "forward",
+  "plan_id": "I3-1",
+  "region": "src/IO/pgm_image.cpp:nearestNeighborScalePgm2D",
+  "files": [
+   "src/IO/pgm_image.hpp",
+   "src/IO/pgm_image.cpp",
+   "src/IO/scenario_builder.cpp"
+  ],
+  "summary": "return the scaled image from the PGM resampler",
+  "call_sites": [
+   "GeometryBuilder::loadLayersFromPgm"
+  ],
+  "lines_changed": 12,
+  "validated": [
+   "provenance/I3 static check"
+  ],
+  "instance_commit": "9debeafc12",
+  "tests": [
+   "provenance/I3 static check"
+  ],
+  "status": "kept",
+  "commit": "b5686f730a"
+ },
+ {
+  "step": 66,
+  "group": "I3",
+  "id": "I3",
+  "direction": "forward",
+  "plan_id": "I3-2",
+  "region": "src/CfdSolver/cell_flags.cpp:resizeNearest",
+  "files": [
+   "src/CfdSolver/cell_flags.cpp"
+  ],
+  "summary": "return the resampled geometry grid by value",
+  "call_sites": [
+   "initFlagFromShapeFile"
+  ],
+  "lines_changed": 9,
+  "validated": [
+   "provenance/I3 static check"
+  ],
+  "instance_commit": "0a3e9aa253",
+  "tests": [
+   "provenance/I3 static check"
+  ],
+  "status": "kept",
+  "commit": "b5686f730a"
+ },
+ {
+  "step": 67,
+  "group": "I3",
+  "id": "I3",
+  "direction": "forward",
+  "plan_id": "I3-3",
+  "region": "src/CfdSolver/Mpi/MpiHelpers.cpp:mpiAssignRange",
+  "files": [
+   "src/CfdSolver/Mpi/MpiHelpers.hpp",
+   "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "return the partition bounds as a value from mpiAssignRange",
+  "call_sites": [
+   "main"
+  ],
+  "lines_changed": 18,
+  "validated": [
+   "provenance/I3 static check"
+  ],
+  "instance_commit": "ec3e1170dc",
+  "tests": [
+   "provenance/I3 static check"
+  ],
+  "status": "kept",
+  "commit": "b5686f730a"
+ },
+ {
+  "step": 68,
+  "group": "I4",
+  "id": "I4",
+  "direction": "forward",
+  "plan_id": "I4-1",
+  "region": "src/ParticleTracer/trajectory_output.cpp:fetchUAtNode,fetchVAtNode,fetchWAtNode,trilinearSampleU,trilinearSampleV,trilinearSampleW,evalVelocityAt",
+  "files": [
+   "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "summary": "pass staggered velocity components through a field view in the trilinear samplers",
+  "lines_changed": 70,
+  "validated": [
+   "provenance/I4 static check"
+  ],
+  "instance_commit": "a7b80f1c5c",
+  "tests": [
+   "provenance/I4 static check"
+  ],
+  "status": "kept",
+  "commit": "f5514a0e5f"
+ },
+ {
+  "step": 69,
+  "group": "I4",
+  "id": "I4",
+  "direction": "forward",
+  "plan_id": "I4-2",
+  "region": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalUBordersCpp,assignInternalVBordersCpp,assignInternalWBordersCpp,assignInternalTBordersCpp,assignBorderValuesCpp",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.cpp"
+  ],
+  "summary": "pass the interior border fields as a field view carrying their grid extent",
+  "lines_changed": 33,
+  "validated": [
+   "provenance/I4 static check"
+  ],
+  "instance_commit": "ff538bc363",
+  "tests": [
+   "provenance/I4 static check"
+  ],
+  "status": "kept",
+  "commit": "f5514a0e5f"
+ },
+ {
+  "step": 70,
+  "group": "I4",
+  "id": "I4",
+  "direction": "forward",
+  "plan_id": "I4-3",
+  "region": "src/ParticleTracer/trajectory_output.cpp:fetchdUdyAtNode,fetchdUdzAtNode,fetchdVdxAtNode,fetchdVdzAtNode,fetchdWdxAtNode,fetchdWdyAtNode,trilinearSample_dUdy,trilinearSample_dUdz,trilinearSample_dVdx,trilinearSample_dVdz,trilinearSample_dWdx,trilinearSample_dWdy,evalCurlAt",
+  "files": [
+   "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "summary": "pass the gradient sample sources through a field view in the curl evaluation",
+  "lines_changed": 83,
+  "validated": [
+   "provenance/I4 static check"
+  ],
+  "instance_commit": "17a3ecc792",
+  "tests": [
+   "provenance/I4 static check"
+  ],
+  "status": "kept",
+  "commit": "f5514a0e5f"
+ },
+ {
+  "step": 71,
+  "group": "I5",
+  "id": "I5",
+  "direction": "forward",
+  "validated": [
+   "provenance/I5 static check"
+  ],
+  "tests": [
+   "provenance/I5 static check"
+  ],
+  "status": "kept",
+  "commit": "671fab2431",
+  "plan_id": "I5-1",
+  "region": "src/IO/progress_report.cpp:reportFileWritten",
+  "files": [
+   "src/IO/progress_report.cpp",
+   "src/IO/progress_report.hpp",
+   "src/simulation_main.cpp"
+  ],
+  "call_sites": [
+   "main"
+  ],
+  "summary": "make reportFileWritten a free function instead of a static member",
+  "lines_changed": 8,
+  "instance_commit": "df5a749902"
+ },
+ {
+  "step": 72,
+  "group": "I5",
+  "id": "I5",
+  "direction": "forward",
+  "validated": [
+   "provenance/I5 static check"
+  ],
+  "tests": [
+   "provenance/I5 static check"
+  ],
+  "status": "kept",
+  "commit": "671fab2431",
+  "plan_id": "I5-2",
+  "region": "src/IO/vtk_output.cpp:VtkExporter::reverseByteOrder",
+  "files": [
+   "src/IO/vtk_output.cpp",
+   "src/IO/vtk_output.hpp"
+  ],
+  "summary": "make reverseByteOrder a private static member of VtkExporter",
+  "lines_changed": 5,
+  "instance_commit": "8fa64b13b2"
+ },
+ {
+  "step": 73,
+  "group": "I5",
+  "id": "I5",
+  "direction": "forward",
+  "validated": [
+   "provenance/I5 static check"
+  ],
+  "tests": [
+   "provenance/I5 static check"
+  ],
+  "status": "kept",
+  "commit": "671fab2431",
+  "plan_id": "I5-3",
+  "region": "src/IO/pgm_image.cpp:scaleIndex,mapNearestIndex",
+  "files": [
+   "src/IO/pgm_image.cpp"
+  ],
+  "summary": "place the PGM scaling helpers in an anonymous namespace",
+  "lines_changed": 8,
+  "instance_commit": "5ae7dc4bcb"
+ },
+ {
+  "step": 74,
+  "group": "I5",
+  "id": "I5",
+  "direction": "forward",
+  "validated": [
+   "provenance/I5 static check"
+  ],
+  "tests": [
+   "provenance/I5 static check"
+  ],
+  "status": "kept",
+  "commit": "671fab2431",
+  "plan_id": "I5-4",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:donorCellFlux,advectTemperature",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp"
+  ],
+  "summary": "group the donor-cell advection helpers into a file-local struct",
+  "lines_changed": 66,
+  "instance_commit": "568f786fed",
+  "call_sites": [
+   "computeFghCpp",
+   "computeTemperatureCpp"
+  ]
+ },
+ {
+  "step": 75,
+  "group": "I5",
+  "id": "I5",
+  "direction": "forward",
+  "validated": [
+   "provenance/I5 static check"
+  ],
+  "tests": [
+   "provenance/I5 static check"
+  ],
+  "status": "kept",
+  "commit": "671fab2431",
+  "plan_id": "I5-5",
+  "region": "src/CfdSolver/serial/boundary_conditions.cpp:temperatureBorderValue",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.cpp"
+  ],
+  "summary": "place the temperature border helper in an anonymous namespace",
+  "lines_changed": 6,
+  "instance_commit": "5d090fcac7"
+ },
+ {
+  "step": 76,
+  "group": "I6",
+  "id": "I6",
+  "direction": "forward",
+  "plan_id": "I6-1",
+  "region": "src/CfdSolver/serial/momentum_eqs.cpp:computeDtCpp",
+  "files": [
+   "src/CfdSolver/serial/momentum_eqs.cpp",
+   "src/CfdSolver/serial/momentum_eqs.hpp",
+   "src/CfdSolver/serial/serial_solver.cpp"
+  ],
+  "summary": "use a temperature-handling mode in the serial timestep computation",
+  "lines_changed": 8,
+  "call_sites": [
+   "FluidSolverCpp::calculateDt"
+  ],
+  "validated": [
+   "provenance/I6 static check"
+  ],
+  "tests": [
+   "provenance/I6 static check"
+  ],
+  "status": "kept",
+  "instance_commit": "dd9703325d",
+  "commit": "7a5bb92c47"
+ },
+ {
+  "step": 77,
+  "group": "I6",
+  "id": "I6",
+  "direction": "forward",
+  "plan_id": "I6-2",
+  "region": "src/CfdSolver/serial/poisson_sor.cpp:relaxSolverCpp",
+  "files": [
+   "src/CfdSolver/serial/poisson_sor.cpp",
+   "src/CfdSolver/serial/poisson_sor.hpp",
+   "src/CfdSolver/serial/serial_solver.cpp"
+  ],
+  "summary": "pass a logging mode to the serial SOR solver instead of a bool",
+  "lines_changed": 9,
+  "call_sites": [
+   "FluidSolverCpp::executeSorSolver"
+  ],
+  "validated": [
+   "provenance/I6 static check"
+  ],
+  "tests": [
+   "provenance/I6 static check"
+  ],
+  "status": "kept",
+  "instance_commit": "887bd15fc0",
+  "commit": "7a5bb92c47"
+ },
+ {
+  "step": 78,
+  "group": "I6",
+  "id": "I6",
+  "direction": "forward",
+  "plan_id": "I6-3",
+  "region": "src/IO/text_file_utils.cpp:setupOutputDirectory,clearStaleOutputFiles",
+  "files": [
+   "src/IO/text_file_utils.cpp",
+   "src/IO/text_file_utils.hpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "split stale-output cleanup out of the output directory setup into its own function",
+  "lines_changed": 14,
+  "call_sites": [
+   "main"
+  ],
+  "validated": [
+   "provenance/I6 static check"
+  ],
+  "tests": [
+   "provenance/I6 static check"
+  ],
+  "status": "kept",
+  "instance_commit": "03abd6d361",
+  "commit": "7a5bb92c47"
+ },
+ {
+  "step": 79,
+  "group": "I6",
+  "id": "I6",
+  "direction": "forward",
+  "plan_id": "I6-4",
+  "region": "src/IO/vtk_output.hpp:VtkExporter::VtkExporter",
+  "files": [
+   "src/IO/vtk_output.hpp",
+   "src/simulation_main.cpp"
+  ],
+  "summary": "select the VTK data format through an enum instead of a bool flag",
+  "lines_changed": 7,
+  "call_sites": [
+   "main"
+  ],
+  "validated": [
+   "provenance/I6 static check"
+  ],
+  "tests": [
+   "provenance/I6 static check"
+  ],
+  "status": "kept",
+  "instance_commit": "b81289939c",
+  "commit": "7a5bb92c47"
+ },
+ {
+  "step": 80,
+  "group": "I7",
+  "id": "I7",
+  "direction": "forward",
+  "plan_id": "I7-1",
+  "region": "src/CfdSolver/Mpi/CfdSolverMpi.cpp:CfdSolverMpi::CfdSolverMpi,calculateTemperature,executeSorSolver,calculateUvw",
+  "files": [
+   "src/CfdSolver/Mpi/CfdSolverMpi.hpp",
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp"
+  ],
+  "summary": "group the MPI neighbour ranks into a NeighborRanks sub-struct",
+  "lines_changed": 20,
+  "instance_commit": "05a5e963ed",
+  "validated": [
+   "provenance/I7 static check"
+  ],
+  "tests": [
+   "provenance/I7 static check"
+  ],
+  "status": "kept",
+  "commit": "b57eea5055"
+ },
+ {
+  "step": 81,
+  "group": "I7",
+  "id": "I7",
+  "direction": "forward",
+  "plan_id": "I7-2",
+  "region": "src/CfdSolver/serial/serial_solver.cpp:FluidSolverCpp::initialize,calculateFgh,calculateRs,calculateDt,calculateTemperature,calculateUvw,executeSorSolver",
+  "files": [
+   "src/CfdSolver/serial/serial_solver.hpp",
+   "src/CfdSolver/serial/serial_solver.cpp"
+  ],
+  "summary": "group the grid spacing into a GridSpacing sub-struct",
+  "lines_changed": 18,
+  "instance_commit": "170f8b4d38",
+  "validated": [
+   "provenance/I7 static check"
+  ],
+  "tests": [
+   "provenance/I7 static check"
+  ],
+  "status": "kept",
+  "commit": "b57eea5055"
+ },
+ {
+  "step": 82,
+  "group": "I7",
+  "id": "I7",
+  "direction": "forward",
+  "plan_id": "I7-3",
+  "region": "src/IO/vtk_output.cpp:VtkExporter::setupRecorder,writeSnapshot",
+  "files": [
+   "src/IO/vtk_output.hpp",
+   "src/IO/vtk_output.cpp"
+  ],
+  "summary": "group the grid spacing and origin into a GridGeometry sub-struct",
+  "lines_changed": 16,
+  "instance_commit": "fbd489dd97",
+  "validated": [
+   "provenance/I7 static check"
+  ],
+  "tests": [
+   "provenance/I7 static check"
+  ],
+  "status": "kept",
+  "commit": "b57eea5055"
+ },
+ {
+  "step": 83,
+  "group": "S8",
+  "id": "S8",
+  "direction": "forward",
+  "plan_id": "S8-1",
+  "region": "src/ParticleTracer/trajectory_output.cpp:fetchWAtNode,fetchVAtNode,fetchUAtNode,fetchdWdyAtNode,fetchdWdxAtNode,fetchdVdzAtNode,fetchdVdxAtNode,fetchdUdzAtNode,fetchdUdyAtNode,trilinearSampleW,trilinearSampleV,trilinearSampleU,trilinearSample_dWdy,trilinearSample_dWdx,trilinearSample_dVdz,trilinearSample_dVdx,trilinearSample_dUdz,trilinearSample_dUdy,evalCurlAt",
+  "files": [
+   "src/ParticleTracer/trajectory_output.cpp"
+  ],
+  "summary": "Name the staggered velocity field view used by the trajectory sampler",
+  "lines_changed": 40,
+  "instance_commit": "c4cd773796",
+  "validated": [
+   "batch:check --static"
+  ],
+  "tests": [
+   "provenance/S8/tests.jsonl"
+  ],
+  "status": "kept",
+  "commit": "923e70fa91"
+ },
+ {
+  "step": 84,
+  "group": "S8",
+  "id": "S8",
+  "direction": "forward",
+  "plan_id": "S8-2",
+  "region": "src/CfdSolver/serial/boundary_conditions.cpp:assignInternalUBordersCpp,assignInternalVBordersCpp,assignInternalWBordersCpp,assignInternalTBordersCpp",
+  "files": [
+   "src/CfdSolver/serial/boundary_conditions.cpp"
+  ],
+  "summary": "Name the per-component field view in the serial boundary handling",
+  "lines_changed": 10,
+  "instance_commit": "584cf6fd72",
+  "validated": [
+   "batch:check --static"
+  ],
+  "tests": [
+   "provenance/S8/tests.jsonl"
+  ],
+  "status": "kept",
+  "commit": "923e70fa91"
+ },
+ {
+  "step": 85,
+  "group": "S8",
+  "id": "S8",
+  "direction": "forward",
+  "plan_id": "S8-3",
+  "region": "src/IO/path_writer.cpp:writePathsToObj,writePathsToBinary",
+  "files": [
+   "src/IO/path_writer.hpp",
+   "src/IO/path_writer.cpp"
+  ],
+  "summary": "Name the path collection type in the path writer",
+  "lines_changed": 10,
+  "instance_commit": "09e408cdc1",
+  "validated": [
+   "batch:check --static"
+  ],
+  "tests": [
+   "provenance/S8/tests.jsonl"
+  ],
+  "status": "kept",
+  "commit": "923e70fa91"
+ }
+]

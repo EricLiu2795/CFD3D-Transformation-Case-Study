@@ -1,0 +1,25 @@
+commit d6b50722da2a343655d910cebc297e3930dc46ed
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 01:12:06 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 01:12:06 2026 -0400
+
+    Make divCeil generic over integer types
+    
+    Templatise the ceiling-division helper so it works for any integer type
+    instead of only int, deducing the type from its arguments.
+
+diff --git a/src/Defines.hpp b/src/Defines.hpp
+index 1009ab7..22c0402 100644
+--- a/src/Defines.hpp
++++ b/src/Defines.hpp
+@@ -47,7 +47,8 @@ typedef glm::vec<3, Real, glm::defaultp> fpvec3;
+ #define LINFLAG(i,j,k) ((i)*(jmax+2)*(kmax+2) + (j)*(kmax+2) + (k))
+ 
+ 
+-inline int divCeil(int x, int y) { return (x - 1) / y + 1; }
++template <typename T>
++inline T divCeil(T x, T y) { return (x - 1) / y + 1; }
+ 
+ #define SUPPRESS_UNUSED(x) ((void)(x))
+ 

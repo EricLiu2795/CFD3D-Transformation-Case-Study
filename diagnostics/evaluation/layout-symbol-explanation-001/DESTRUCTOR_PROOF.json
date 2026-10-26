@@ -1,0 +1,173 @@
+{
+  "interpretation": "Original inline virtual destructor was already =default. Head declares it in header and =default defines it out of line. No added numerical operation appears in that body. Original globally defined ELF destructor symbols are absent, even including weak; head emits strong D0/D1/D2 variants. Outlining changes linkage artifacts and is not a complete semantic proof.",
+  "profiles": [
+    {
+      "baseline_including_weak": [],
+      "baseline_raw_including_weak": [],
+      "build": "cpu-reference",
+      "classification": "ABSENT-to-strong emission; NOT observed weak-to-strong",
+      "finding_index": 0,
+      "head": [
+        {
+          "address": "0000000000012bd0",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        },
+        {
+          "address": "0000000000012bc0",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        },
+        {
+          "address": "0000000000012bc0",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        }
+      ],
+      "head_raw": [
+        {
+          "address": "0000000000012bd0",
+          "name": "_ZN9CfdSolverD0Ev",
+          "type": "T"
+        },
+        {
+          "address": "0000000000012bc0",
+          "name": "_ZN9CfdSolverD1Ev",
+          "type": "T"
+        },
+        {
+          "address": "0000000000012bc0",
+          "name": "_ZN9CfdSolverD2Ev",
+          "type": "T"
+        }
+      ]
+    },
+    {
+      "baseline_including_weak": [],
+      "baseline_raw_including_weak": [],
+      "build": "cuda-fma",
+      "classification": "ABSENT-to-strong emission; NOT observed weak-to-strong",
+      "finding_index": 7,
+      "head": [
+        {
+          "address": "000000000001b690",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        }
+      ],
+      "head_raw": [
+        {
+          "address": "000000000001b690",
+          "name": "_ZN9CfdSolverD0Ev",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "_ZN9CfdSolverD1Ev",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "_ZN9CfdSolverD2Ev",
+          "type": "T"
+        }
+      ]
+    },
+    {
+      "baseline_including_weak": [],
+      "baseline_raw_including_weak": [],
+      "build": "cuda-no-fma",
+      "classification": "ABSENT-to-strong emission; NOT observed weak-to-strong",
+      "finding_index": 20,
+      "head": [
+        {
+          "address": "000000000001b690",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "CfdSolver::~CfdSolver()",
+          "type": "T"
+        }
+      ],
+      "head_raw": [
+        {
+          "address": "000000000001b690",
+          "name": "_ZN9CfdSolverD0Ev",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "_ZN9CfdSolverD1Ev",
+          "type": "T"
+        },
+        {
+          "address": "000000000001b680",
+          "name": "_ZN9CfdSolverD2Ev",
+          "type": "T"
+        }
+      ]
+    }
+  ],
+  "source": [
+    {
+      "destructor_lines": [
+        {
+          "line": 85,
+          "text": "    virtual ~CfdSolver() = default;"
+        }
+      ],
+      "name": "base-header",
+      "path": "src/CfdSolver/CfdSolver.hpp",
+      "revision": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+      "sha256": "900b554512299c63816331e0adf565e98424d452394a3d5fb794a941ffdaff73"
+    },
+    {
+      "destructor_lines": [],
+      "name": "base-source",
+      "path": "src/CfdSolver/CfdSolver.cpp",
+      "revision": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+      "sha256": "4660882b457a9aba3c61893956471d712d0d3aac42ea1de99f553c782432b456"
+    },
+    {
+      "destructor_lines": [
+        {
+          "line": 18,
+          "text": "    virtual ~CfdSolver();"
+        }
+      ],
+      "name": "head-header",
+      "path": "src/CfdSolver/solver_interface.hpp",
+      "revision": "665762f304386d792e8795817a7b46af166002ec",
+      "sha256": "b1100e3ea73d7ced53e4ecb69152b97d4fc105526f95a34593269226a3bee140"
+    },
+    {
+      "destructor_lines": [
+        {
+          "line": 4,
+          "text": "CfdSolver::~CfdSolver() = default;"
+        }
+      ],
+      "name": "head-source",
+      "path": "src/CfdSolver/solver_interface.cpp",
+      "revision": "665762f304386d792e8795817a7b46af166002ec",
+      "sha256": "a28aaea1166de9cf7697ad06c0a3b78174b14ced922e12546c6612268089a4dc"
+    }
+  ]
+}

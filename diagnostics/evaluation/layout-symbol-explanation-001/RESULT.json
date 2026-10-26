@@ -1,0 +1,37 @@
+{
+  "CUDA_findings_explained": 24,
+  "CUDA_pairs": 12,
+  "GPU_runs": 0,
+  "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+  "destructor_findings_explained": 3,
+  "generated_utc": "2026-10-26T04:52:51.043347+00:00",
+  "head": "665762f304386d792e8795817a7b46af166002ec",
+  "inputs_unchanged": true,
+  "limitation": "Explanation is not a validator waiver, original stage PASS, or proof of full semantic equivalence. Any manual scientific checkpoint must retain strict symbol FAIL and Native12 resource ERROR.",
+  "model_calls": 0,
+  "profiles_compared": 3,
+  "proof_checks": "PASS",
+  "reported_findings": 27,
+  "schema": "independent-layout-symbol-explanation-v1",
+  "sealed_baseline_checks": {
+    "cpu-reference": {
+      "actual": "7202fb52ea7f16412c03f3aa888bbb278c2a5631aca253df3786aeb7150992b3",
+      "expected": "7202fb52ea7f16412c03f3aa888bbb278c2a5631aca253df3786aeb7150992b3",
+      "match": true
+    },
+    "cuda-fma": {
+      "actual": "dd4d37b9a1783ec0cb9003b5546680a7506fd47674fb76c7a90316ba1c0e65dd",
+      "expected": "dd4d37b9a1783ec0cb9003b5546680a7506fd47674fb76c7a90316ba1c0e65dd",
+      "match": true
+    },
+    "cuda-no-fma": {
+      "actual": "63ba9cc26b9d4732d60689e0b15a0dcec967308c34ed52137b9cf2c12fc45e49",
+      "expected": "63ba9cc26b9d4732d60689e0b15a0dcec967308c34ed52137b9cf2c12fc45e49",
+      "match": true
+    }
+  },
+  "source_rename_entries": 743,
+  "strict_official_layout_symbols": "FAIL",
+  "unexplained_findings": [],
+  "validator_or_source_modified": false
+}

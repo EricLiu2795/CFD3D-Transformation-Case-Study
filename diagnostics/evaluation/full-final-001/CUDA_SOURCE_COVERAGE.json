@@ -1,0 +1,1110 @@
+{
+  "candidate_pool": {
+    "I1": {
+      "cuda_rows": 10,
+      "held_entries": [],
+      "total": 92
+    },
+    "I2": {
+      "cuda_rows": 28,
+      "held_entries": [],
+      "total": 150
+    },
+    "I3": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 22
+    },
+    "I4": {
+      "cuda_rows": 27,
+      "held_entries": [],
+      "total": 111
+    },
+    "I5": {
+      "cuda_rows": 12,
+      "held_entries": [],
+      "total": 121
+    },
+    "I6": {
+      "cuda_rows": 1,
+      "held_entries": [],
+      "total": 18
+    },
+    "I7": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 8
+    },
+    "P1": {
+      "cuda_rows": 5,
+      "held_entries": [
+        "sorSolverCuda",
+        "calculateDtCuda"
+      ],
+      "total": 63
+    },
+    "R1": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 11
+    },
+    "R3": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 12
+    },
+    "R4": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 1
+    },
+    "S1": {
+      "cuda_rows": 1,
+      "held_entries": [],
+      "total": 10
+    },
+    "S11": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 1
+    },
+    "S2": {
+      "cuda_rows": 38,
+      "held_entries": [
+        "calculateTemperatureCuda",
+        "calculateDtCuda",
+        "sorSolverCuda",
+        "calculateUvwCuda",
+        "setBoundaryValuesCuda",
+        "setBoundaryValuesScenarioSpecificCuda",
+        "calculateFghCuda",
+        "calculateRsCuda"
+      ],
+      "total": 156
+    },
+    "S3": {
+      "cuda_rows": 1,
+      "held_entries": [
+        "setBoundaryValuesScenarioSpecificCuda"
+      ],
+      "total": 6
+    },
+    "S4": {
+      "cuda_rows": 16,
+      "held_entries": [
+        "calculateDtCuda",
+        "calculateUvwCuda",
+        "calculateTemperatureCuda"
+      ],
+      "total": 43
+    },
+    "S5": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 20
+    },
+    "S7": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 7
+    },
+    "S8": {
+      "cuda_rows": 0,
+      "held_entries": [],
+      "total": 14
+    }
+  },
+  "conclusion": "CUDA structural coverage is limited: held bodies were eligible for non-interface groups, not globally frozen. Actual retained CUDA edits are established from source/logs, not planned group counts.",
+  "files": {
+    "src/CfdSolver/cuda/boundary_kernels.cu": {
+      "bytes_changed": true,
+      "function_bodies_changed": [
+        "assignInternalTBordersCuda",
+        "assignInternalUBordersCuda",
+        "assignInternalVBordersCuda",
+        "assignInternalWBordersCuda"
+      ],
+      "functions_added": [
+        "computeInteriorCellIndex"
+      ],
+      "functions_new": {
+        "assignDownUpBordersCuda": {
+          "body_sha256": "30ada7073515fe8922ca247a47677d6281963fcbf4da894c38a059f78743fdfe",
+          "device": false,
+          "global_kernel": true,
+          "line": 329
+        },
+        "assignDrivenCavityBordersCuda": {
+          "body_sha256": "dcf21cbfd7eff87706af99e330dd3158e4a50fd1bb05a7fd3ef01cc0e097e529",
+          "device": false,
+          "global_kernel": true,
+          "line": 510
+        },
+        "assignFlowOverStepBordersCuda": {
+          "body_sha256": "c80e423b0e0ff09880463c2d0de6f87212ed1e6b48eab9edce2f6d8cb98f44d6",
+          "device": false,
+          "global_kernel": true,
+          "line": 498
+        },
+        "assignFrontBackBordersCuda": {
+          "body_sha256": "27cdd32a8c2fda37bb2a0791d86603cd0f0bf09b15fd7ac9cc5ee570add5121a",
+          "device": false,
+          "global_kernel": true,
+          "line": 383
+        },
+        "assignInternalTBordersCuda": {
+          "body_sha256": "973fb5fec0324ca96cc36ba40e9a7d8cea51dc7cb8fb321d7c7c73530f12ea3e",
+          "device": false,
+          "global_kernel": true,
+          "line": 216
+        },
+        "assignInternalUBordersCuda": {
+          "body_sha256": "0ab8ccd705122ec770473625d7b723c1de3bcdb7085d1162e000322b854277da",
+          "device": false,
+          "global_kernel": true,
+          "line": 12
+        },
+        "assignInternalVBordersCuda": {
+          "body_sha256": "9c519f374053a69aa3c573360f77e8b2c500685dc314fe98f18b4607ac51a224",
+          "device": false,
+          "global_kernel": true,
+          "line": 78
+        },
+        "assignInternalWBordersCuda": {
+          "body_sha256": "90a8cab190256700297dfce57e66fa47f1a715ce717431036dd70a5cc7b47739",
+          "device": false,
+          "global_kernel": true,
+          "line": 145
+        },
+        "assignLeftRightBordersCuda": {
+          "body_sha256": "f0cc14e2a9dd5cefe09de040154cbfce15e26f44c95ba547383d5944bd90166e",
+          "device": false,
+          "global_kernel": true,
+          "line": 271
+        },
+        "assignMountainBordersCuda": {
+          "body_sha256": "dfa6c99212d21b527f330f831b91289c59085fc0213727e687d6c003590ff1d5",
+          "device": false,
+          "global_kernel": true,
+          "line": 472
+        },
+        "assignSingleTowerBordersCuda": {
+          "body_sha256": "471b8be186e733b68879d128ceb8324eb2888cf19ad37339a261ac2d8d5fe4c4",
+          "device": false,
+          "global_kernel": true,
+          "line": 486
+        },
+        "computeInteriorCellIndex": {
+          "body_sha256": "959b8d66f3e41e979d44d110a34f0d21cede15c16c40c1f4877a475a8e838f5b",
+          "device": true,
+          "global_kernel": false,
+          "line": 6
+        },
+        "setBoundaryValuesCuda": {
+          "body_sha256": "cdd21c530b205a529e3a838563deb4fa62479b9fd318468ed4319e37f3932329",
+          "device": false,
+          "global_kernel": false,
+          "line": 447
+        },
+        "setBoundaryValuesScenarioSpecificCuda": {
+          "body_sha256": "ba9bfff11c4a6cc895ea246dfb27ed412209246e6c96737bb2dffa9e733f5707",
+          "device": false,
+          "global_kernel": false,
+          "line": 521
+        }
+      },
+      "functions_old": {
+        "assignDownUpBordersCuda": {
+          "body_sha256": "30ada7073515fe8922ca247a47677d6281963fcbf4da894c38a059f78743fdfe",
+          "device": false,
+          "global_kernel": true,
+          "line": 319
+        },
+        "assignDrivenCavityBordersCuda": {
+          "body_sha256": "dcf21cbfd7eff87706af99e330dd3158e4a50fd1bb05a7fd3ef01cc0e097e529",
+          "device": false,
+          "global_kernel": true,
+          "line": 500
+        },
+        "assignFlowOverStepBordersCuda": {
+          "body_sha256": "c80e423b0e0ff09880463c2d0de6f87212ed1e6b48eab9edce2f6d8cb98f44d6",
+          "device": false,
+          "global_kernel": true,
+          "line": 488
+        },
+        "assignFrontBackBordersCuda": {
+          "body_sha256": "27cdd32a8c2fda37bb2a0791d86603cd0f0bf09b15fd7ac9cc5ee570add5121a",
+          "device": false,
+          "global_kernel": true,
+          "line": 373
+        },
+        "assignInternalTBordersCuda": {
+          "body_sha256": "a08a2569e2fc97a69620a7d80a2ea74f907ef956d36c39576019e732685d5a1d",
+          "device": false,
+          "global_kernel": true,
+          "line": 209
+        },
+        "assignInternalUBordersCuda": {
+          "body_sha256": "1373074a39cf4a4ce8eff7f6811fcf970e8556c11f78f7a61c2efe31018d86f6",
+          "device": false,
+          "global_kernel": true,
+          "line": 6
+        },
+        "assignInternalVBordersCuda": {
+          "body_sha256": "956674585b58e3b369fbb3128f3870c6c8f2e1c2392b63b3ea4be6042129d947",
+          "device": false,
+          "global_kernel": true,
+          "line": 73
+        },
+        "assignInternalWBordersCuda": {
+          "body_sha256": "9223f9981a1a85e82a88165c49fbfc5b652571d100a10ed649b9153fb786584c",
+          "device": false,
+          "global_kernel": true,
+          "line": 141
+        },
+        "assignLeftRightBordersCuda": {
+          "body_sha256": "f0cc14e2a9dd5cefe09de040154cbfce15e26f44c95ba547383d5944bd90166e",
+          "device": false,
+          "global_kernel": true,
+          "line": 261
+        },
+        "assignMountainBordersCuda": {
+          "body_sha256": "dfa6c99212d21b527f330f831b91289c59085fc0213727e687d6c003590ff1d5",
+          "device": false,
+          "global_kernel": true,
+          "line": 462
+        },
+        "assignSingleTowerBordersCuda": {
+          "body_sha256": "471b8be186e733b68879d128ceb8324eb2888cf19ad37339a261ac2d8d5fe4c4",
+          "device": false,
+          "global_kernel": true,
+          "line": 476
+        },
+        "setBoundaryValuesCuda": {
+          "body_sha256": "cdd21c530b205a529e3a838563deb4fa62479b9fd318468ed4319e37f3932329",
+          "device": false,
+          "global_kernel": false,
+          "line": 437
+        },
+        "setBoundaryValuesScenarioSpecificCuda": {
+          "body_sha256": "ba9bfff11c4a6cc895ea246dfb27ed412209246e6c96737bb2dffa9e733f5707",
+          "device": false,
+          "global_kernel": false,
+          "line": 511
+        }
+      },
+      "functions_removed": [],
+      "new_sha256": "d89ecc02080caf1e0c5b5c1561f2495e2c433cdb92fe4207362567e246685b6a",
+      "old_sha256": "1c889044494c1aa063dc3b5e74e311f201bcd330a240ec71daa720e071d8dbed"
+    },
+    "src/CfdSolver/cuda/boundary_kernels.hpp": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {},
+      "functions_old": {},
+      "functions_removed": [],
+      "new_sha256": "98971b918bb52c1a849529c3187d497287026fb1807b1532cfe0a8a961baebcb",
+      "old_sha256": "98971b918bb52c1a849529c3187d497287026fb1807b1532cfe0a8a961baebcb"
+    },
+    "src/CfdSolver/cuda/cuda_runtime_check.cu": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {
+        "_ensureCudaOk": {
+          "body_sha256": "1b520ac962eb11ce068e3a459ead9228b41590c48cec2e29a34cc0b33e063bdd",
+          "device": false,
+          "global_kernel": false,
+          "line": 7
+        }
+      },
+      "functions_old": {
+        "_ensureCudaOk": {
+          "body_sha256": "1b520ac962eb11ce068e3a459ead9228b41590c48cec2e29a34cc0b33e063bdd",
+          "device": false,
+          "global_kernel": false,
+          "line": 7
+        }
+      },
+      "functions_removed": [],
+      "new_sha256": "516d3c76ff913452dbea46100bdc4a9dca345ec2623264eb44281c12d8d33d8c",
+      "old_sha256": "516d3c76ff913452dbea46100bdc4a9dca345ec2623264eb44281c12d8d33d8c"
+    },
+    "src/CfdSolver/cuda/cuda_runtime_check.hpp": {
+      "bytes_changed": true,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {
+        "B_B": {
+          "body_sha256": "ee2dc39854e2fb576b90858a823f4facd228ca07f3311c629808fb87675d2771",
+          "device": true,
+          "global_kernel": false,
+          "line": 14
+        },
+        "B_D": {
+          "body_sha256": "9c7ac4087de5f4f986bd5a8c4399e7c249f0c8a0fc2515befdae21f61e8aad77",
+          "device": true,
+          "global_kernel": false,
+          "line": 12
+        },
+        "B_F": {
+          "body_sha256": "9ac0d3d3599eda93fe571052676e5d4266652a436dc62ab773eee535e1352058",
+          "device": true,
+          "global_kernel": false,
+          "line": 15
+        },
+        "B_L": {
+          "body_sha256": "48d0e4aa2d24f00d19420405e73883eb027e1d8fde5bf06eeeb80cd3416c4832",
+          "device": true,
+          "global_kernel": false,
+          "line": 10
+        },
+        "B_R": {
+          "body_sha256": "8c04d0d3d1b5a6445cdffee90df8a7ac491de22d871b4c9e6c10b1ec9f5e300e",
+          "device": true,
+          "global_kernel": false,
+          "line": 11
+        },
+        "B_U": {
+          "body_sha256": "3df294a53ad5eb0f0248c7fcdd214018a0f47114ce5248b76c92ad899fcaf871",
+          "device": true,
+          "global_kernel": false,
+          "line": 13
+        },
+        "isChilled": {
+          "body_sha256": "eea8f2fe083ce81b1e1ed6a9df60dee648ff9ea23c29a933a4bf131f9f30b630",
+          "device": true,
+          "global_kernel": false,
+          "line": 17
+        },
+        "isFrictionless": {
+          "body_sha256": "8839cd802cec2946d2b3524ef94334d2453e91fb19f59c72ff70f401f094f39b",
+          "device": true,
+          "global_kernel": false,
+          "line": 7
+        },
+        "isHeated": {
+          "body_sha256": "fad3129f657f598d4b9d0c1e372c83605a94e31b4c4d766d33cf412d06a6d079",
+          "device": true,
+          "global_kernel": false,
+          "line": 16
+        },
+        "isInlet": {
+          "body_sha256": "175a84639efd20c3d44eb6afec58d3207873b1538be341cca198b77681af33d3",
+          "device": true,
+          "global_kernel": false,
+          "line": 9
+        },
+        "isOutlet": {
+          "body_sha256": "078cc9947ab09b57c3e24e57ba1b28ffcd2cfe74ec7891cb9ea6a8173191f80e",
+          "device": true,
+          "global_kernel": false,
+          "line": 8
+        },
+        "isSticky": {
+          "body_sha256": "d3af88011b354cc962635faf30fa2cc7a665152e1b153e3a6d58e37a1009e1c0",
+          "device": true,
+          "global_kernel": false,
+          "line": 6
+        },
+        "isWet": {
+          "body_sha256": "bdbd4729624a5f048211d4c1cf254eb9068673972536147d3949f5d5e3f01561",
+          "device": true,
+          "global_kernel": false,
+          "line": 5
+        }
+      },
+      "functions_old": {
+        "B_B": {
+          "body_sha256": "ee2dc39854e2fb576b90858a823f4facd228ca07f3311c629808fb87675d2771",
+          "device": true,
+          "global_kernel": false,
+          "line": 14
+        },
+        "B_D": {
+          "body_sha256": "9c7ac4087de5f4f986bd5a8c4399e7c249f0c8a0fc2515befdae21f61e8aad77",
+          "device": true,
+          "global_kernel": false,
+          "line": 12
+        },
+        "B_F": {
+          "body_sha256": "9ac0d3d3599eda93fe571052676e5d4266652a436dc62ab773eee535e1352058",
+          "device": true,
+          "global_kernel": false,
+          "line": 15
+        },
+        "B_L": {
+          "body_sha256": "48d0e4aa2d24f00d19420405e73883eb027e1d8fde5bf06eeeb80cd3416c4832",
+          "device": true,
+          "global_kernel": false,
+          "line": 10
+        },
+        "B_R": {
+          "body_sha256": "8c04d0d3d1b5a6445cdffee90df8a7ac491de22d871b4c9e6c10b1ec9f5e300e",
+          "device": true,
+          "global_kernel": false,
+          "line": 11
+        },
+        "B_U": {
+          "body_sha256": "3df294a53ad5eb0f0248c7fcdd214018a0f47114ce5248b76c92ad899fcaf871",
+          "device": true,
+          "global_kernel": false,
+          "line": 13
+        },
+        "isChilled": {
+          "body_sha256": "eea8f2fe083ce81b1e1ed6a9df60dee648ff9ea23c29a933a4bf131f9f30b630",
+          "device": true,
+          "global_kernel": false,
+          "line": 17
+        },
+        "isFrictionless": {
+          "body_sha256": "8839cd802cec2946d2b3524ef94334d2453e91fb19f59c72ff70f401f094f39b",
+          "device": true,
+          "global_kernel": false,
+          "line": 7
+        },
+        "isHeated": {
+          "body_sha256": "fad3129f657f598d4b9d0c1e372c83605a94e31b4c4d766d33cf412d06a6d079",
+          "device": true,
+          "global_kernel": false,
+          "line": 16
+        },
+        "isInlet": {
+          "body_sha256": "175a84639efd20c3d44eb6afec58d3207873b1538be341cca198b77681af33d3",
+          "device": true,
+          "global_kernel": false,
+          "line": 9
+        },
+        "isLinked": {
+          "body_sha256": "6ff69cd4c24f0891483cbf7d533050550dd1237fee47dbf24a9fa4102690ed2a",
+          "device": true,
+          "global_kernel": false,
+          "line": 18
+        },
+        "isOutlet": {
+          "body_sha256": "078cc9947ab09b57c3e24e57ba1b28ffcd2cfe74ec7891cb9ea6a8173191f80e",
+          "device": true,
+          "global_kernel": false,
+          "line": 8
+        },
+        "isSticky": {
+          "body_sha256": "d3af88011b354cc962635faf30fa2cc7a665152e1b153e3a6d58e37a1009e1c0",
+          "device": true,
+          "global_kernel": false,
+          "line": 6
+        },
+        "isWet": {
+          "body_sha256": "bdbd4729624a5f048211d4c1cf254eb9068673972536147d3949f5d5e3f01561",
+          "device": true,
+          "global_kernel": false,
+          "line": 5
+        }
+      },
+      "functions_removed": [
+        "isLinked"
+      ],
+      "new_sha256": "072fbb813ba438285ea02bf712d10e86f61281bc2c7942f17030de214bce0ecf",
+      "old_sha256": "56bf52e00d890046006223152c9b08276e8719e766dfdb0dd8725701d1cb1250"
+    },
+    "src/CfdSolver/cuda/cuda_solver.cu": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {
+        "FluidSolverCuda::FluidSolverCuda": {
+          "body_sha256": "0e6fdec6ed981b46cc61d74e8fa318ce2bfd79cee39b64d052e21c2221b83759",
+          "device": false,
+          "global_kernel": false,
+          "line": 11
+        },
+        "FluidSolverCuda::calculateDt": {
+          "body_sha256": "fd02e64017c35b59c252d8ed6c6b1ada4fed81108705844401384a3e64a57516",
+          "device": false,
+          "global_kernel": false,
+          "line": 148
+        },
+        "FluidSolverCuda::calculateFgh": {
+          "body_sha256": "3614a234d0c8d3aa528a99e0b0141847968bd21ec7d03ab7121c503d6e0f2abc",
+          "device": false,
+          "global_kernel": false,
+          "line": 136
+        },
+        "FluidSolverCuda::calculateRs": {
+          "body_sha256": "d74e8d2586cb2ab4b74b63020d59ef5c17fc7436be8e092f79b7053793701772",
+          "device": false,
+          "global_kernel": false,
+          "line": 142
+        },
+        "FluidSolverCuda::calculateTemperature": {
+          "body_sha256": "e2afc8c12bfd94eff6df96fd1a11e71a8924ef2ccdc6ab0665911e55d26c981c",
+          "device": false,
+          "global_kernel": false,
+          "line": 159
+        },
+        "FluidSolverCuda::calculateUvw": {
+          "body_sha256": "624fa016a0d57fc9f3ecdb2297234f24aec239db3fcfa385c38254dc968b58e4",
+          "device": false,
+          "global_kernel": false,
+          "line": 169
+        },
+        "FluidSolverCuda::executeSorSolver": {
+          "body_sha256": "8190583aef4d454135aa25ac2f7923e9d28d4d3d5147ac1893301f3f13da9f62",
+          "device": false,
+          "global_kernel": false,
+          "line": 176
+        },
+        "FluidSolverCuda::getDataForOutput": {
+          "body_sha256": "4b84fff27e8e4284c61a87e6c7e649fe6844870c790052446f131898e470ede3",
+          "device": false,
+          "global_kernel": false,
+          "line": 195
+        },
+        "FluidSolverCuda::initialize": {
+          "body_sha256": "475d418320fb3e5601740ea7842d220cfe51f0c4cb4b22109000ff7de5d23f67",
+          "device": false,
+          "global_kernel": false,
+          "line": 19
+        },
+        "FluidSolverCuda::setBoundaryValues": {
+          "body_sha256": "e824931009f235d666158365ba361b0c8e67bb86ad3d09a5c2e5e9e0b983e2d7",
+          "device": false,
+          "global_kernel": false,
+          "line": 185
+        },
+        "FluidSolverCuda::setBoundaryValuesScenarioSpecific": {
+          "body_sha256": "07b16f6bbd011ab0ca80924c11f02fd23f84a16db6b28288795756b0e798d4f8",
+          "device": false,
+          "global_kernel": false,
+          "line": 190
+        },
+        "FluidSolverCuda::~FluidSolverCuda": {
+          "body_sha256": "8ed2a2fc2c77d39d6b43791c39ca8116bedf309c8d0bad551bd9a2940a2ef1eb",
+          "device": false,
+          "global_kernel": false,
+          "line": 110
+        }
+      },
+      "functions_old": {
+        "FluidSolverCuda::FluidSolverCuda": {
+          "body_sha256": "0e6fdec6ed981b46cc61d74e8fa318ce2bfd79cee39b64d052e21c2221b83759",
+          "device": false,
+          "global_kernel": false,
+          "line": 11
+        },
+        "FluidSolverCuda::calculateDt": {
+          "body_sha256": "fd02e64017c35b59c252d8ed6c6b1ada4fed81108705844401384a3e64a57516",
+          "device": false,
+          "global_kernel": false,
+          "line": 148
+        },
+        "FluidSolverCuda::calculateFgh": {
+          "body_sha256": "3614a234d0c8d3aa528a99e0b0141847968bd21ec7d03ab7121c503d6e0f2abc",
+          "device": false,
+          "global_kernel": false,
+          "line": 136
+        },
+        "FluidSolverCuda::calculateRs": {
+          "body_sha256": "d74e8d2586cb2ab4b74b63020d59ef5c17fc7436be8e092f79b7053793701772",
+          "device": false,
+          "global_kernel": false,
+          "line": 142
+        },
+        "FluidSolverCuda::calculateTemperature": {
+          "body_sha256": "e2afc8c12bfd94eff6df96fd1a11e71a8924ef2ccdc6ab0665911e55d26c981c",
+          "device": false,
+          "global_kernel": false,
+          "line": 159
+        },
+        "FluidSolverCuda::calculateUvw": {
+          "body_sha256": "624fa016a0d57fc9f3ecdb2297234f24aec239db3fcfa385c38254dc968b58e4",
+          "device": false,
+          "global_kernel": false,
+          "line": 169
+        },
+        "FluidSolverCuda::executeSorSolver": {
+          "body_sha256": "8190583aef4d454135aa25ac2f7923e9d28d4d3d5147ac1893301f3f13da9f62",
+          "device": false,
+          "global_kernel": false,
+          "line": 176
+        },
+        "FluidSolverCuda::getDataForOutput": {
+          "body_sha256": "4b84fff27e8e4284c61a87e6c7e649fe6844870c790052446f131898e470ede3",
+          "device": false,
+          "global_kernel": false,
+          "line": 195
+        },
+        "FluidSolverCuda::initialize": {
+          "body_sha256": "475d418320fb3e5601740ea7842d220cfe51f0c4cb4b22109000ff7de5d23f67",
+          "device": false,
+          "global_kernel": false,
+          "line": 19
+        },
+        "FluidSolverCuda::setBoundaryValues": {
+          "body_sha256": "e824931009f235d666158365ba361b0c8e67bb86ad3d09a5c2e5e9e0b983e2d7",
+          "device": false,
+          "global_kernel": false,
+          "line": 185
+        },
+        "FluidSolverCuda::setBoundaryValuesScenarioSpecific": {
+          "body_sha256": "07b16f6bbd011ab0ca80924c11f02fd23f84a16db6b28288795756b0e798d4f8",
+          "device": false,
+          "global_kernel": false,
+          "line": 190
+        },
+        "FluidSolverCuda::~FluidSolverCuda": {
+          "body_sha256": "8ed2a2fc2c77d39d6b43791c39ca8116bedf309c8d0bad551bd9a2940a2ef1eb",
+          "device": false,
+          "global_kernel": false,
+          "line": 110
+        }
+      },
+      "functions_removed": [],
+      "new_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+      "old_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e"
+    },
+    "src/CfdSolver/cuda/cuda_solver.hpp": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {},
+      "functions_old": {},
+      "functions_removed": [],
+      "new_sha256": "52062cb9777c8fd644e2518aab688dc3111dc1ddf384f643e141d17e3beb65bb",
+      "old_sha256": "52062cb9777c8fd644e2518aab688dc3111dc1ddf384f643e141d17e3beb65bb"
+    },
+    "src/CfdSolver/cuda/momentum_kernels.cu": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {
+        "calculateDtCuda": {
+          "body_sha256": "0b3f39dcb150762825ceaf9767a920c582542454ef727c007256bb05dbd83601",
+          "device": false,
+          "global_kernel": false,
+          "line": 267
+        },
+        "calculateFghCuda": {
+          "body_sha256": "aa0e93e126159eb83a8c260a865b8ceaa84d2b89c40de5e8c9ff0fe86f8ef4d6",
+          "device": false,
+          "global_kernel": false,
+          "line": 195
+        },
+        "calculateRsCuda": {
+          "body_sha256": "36c5198756dbf8266c955483f090c3b87edaf7bc8bbbd526c07b4879f342998b",
+          "device": false,
+          "global_kernel": true,
+          "line": 218
+        },
+        "calculateTemperatureCuda": {
+          "body_sha256": "35ba84f06e2ff4d9f331533766b646bad2a6b3e1b0c586d2d852cfefa80edbd9",
+          "device": false,
+          "global_kernel": true,
+          "line": 372
+        },
+        "calculateUvwCuda": {
+          "body_sha256": "5f89aa32d4644d4775806c1e595d1d0f26cd915037eec8a85417638cd1d1d1ed",
+          "device": false,
+          "global_kernel": true,
+          "line": 432
+        },
+        "computeFluxCudaKernel": {
+          "body_sha256": "0e900acd3867ece001195be95b2cc33e0d914ce0b6393b3a4edf4af13d5ed660",
+          "device": false,
+          "global_kernel": true,
+          "line": 7
+        },
+        "computePeak": {
+          "body_sha256": "f6afeaeac59b78505fa7f6d4cccc5a6a1704797b0752ac537ba61dd9a562e458",
+          "device": false,
+          "global_kernel": true,
+          "line": 232
+        },
+        "setFBordersCuda": {
+          "body_sha256": "3767b4e6790699121b2563158226a36e0de995a9e226842701641c83726ef517",
+          "device": false,
+          "global_kernel": true,
+          "line": 183
+        },
+        "setGBordersCuda": {
+          "body_sha256": "a27f00e8a17dd78609bec984cf495cd146c4198365a39535d01832af0cc06f0f",
+          "device": false,
+          "global_kernel": true,
+          "line": 172
+        },
+        "setHBordersCuda": {
+          "body_sha256": "fbe1b0c6082a6b2289fd430f712284c33cecf69ae3d79837989e6643ce060365",
+          "device": false,
+          "global_kernel": true,
+          "line": 161
+        }
+      },
+      "functions_old": {
+        "calculateDtCuda": {
+          "body_sha256": "0b3f39dcb150762825ceaf9767a920c582542454ef727c007256bb05dbd83601",
+          "device": false,
+          "global_kernel": false,
+          "line": 267
+        },
+        "calculateFghCuda": {
+          "body_sha256": "aa0e93e126159eb83a8c260a865b8ceaa84d2b89c40de5e8c9ff0fe86f8ef4d6",
+          "device": false,
+          "global_kernel": false,
+          "line": 195
+        },
+        "calculateRsCuda": {
+          "body_sha256": "36c5198756dbf8266c955483f090c3b87edaf7bc8bbbd526c07b4879f342998b",
+          "device": false,
+          "global_kernel": true,
+          "line": 218
+        },
+        "calculateTemperatureCuda": {
+          "body_sha256": "35ba84f06e2ff4d9f331533766b646bad2a6b3e1b0c586d2d852cfefa80edbd9",
+          "device": false,
+          "global_kernel": true,
+          "line": 372
+        },
+        "calculateUvwCuda": {
+          "body_sha256": "5f89aa32d4644d4775806c1e595d1d0f26cd915037eec8a85417638cd1d1d1ed",
+          "device": false,
+          "global_kernel": true,
+          "line": 432
+        },
+        "computeFluxCudaKernel": {
+          "body_sha256": "0e900acd3867ece001195be95b2cc33e0d914ce0b6393b3a4edf4af13d5ed660",
+          "device": false,
+          "global_kernel": true,
+          "line": 7
+        },
+        "computePeak": {
+          "body_sha256": "f6afeaeac59b78505fa7f6d4cccc5a6a1704797b0752ac537ba61dd9a562e458",
+          "device": false,
+          "global_kernel": true,
+          "line": 232
+        },
+        "setFBordersCuda": {
+          "body_sha256": "3767b4e6790699121b2563158226a36e0de995a9e226842701641c83726ef517",
+          "device": false,
+          "global_kernel": true,
+          "line": 183
+        },
+        "setGBordersCuda": {
+          "body_sha256": "a27f00e8a17dd78609bec984cf495cd146c4198365a39535d01832af0cc06f0f",
+          "device": false,
+          "global_kernel": true,
+          "line": 172
+        },
+        "setHBordersCuda": {
+          "body_sha256": "fbe1b0c6082a6b2289fd430f712284c33cecf69ae3d79837989e6643ce060365",
+          "device": false,
+          "global_kernel": true,
+          "line": 161
+        }
+      },
+      "functions_removed": [],
+      "new_sha256": "ed6dd104b5c5fb89f220fad0492b06f2a78847b924766ce362c300f1cb51b168",
+      "old_sha256": "ed6dd104b5c5fb89f220fad0492b06f2a78847b924766ce362c300f1cb51b168"
+    },
+    "src/CfdSolver/cuda/momentum_kernels.hpp": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {},
+      "functions_old": {},
+      "functions_removed": [],
+      "new_sha256": "31511dc7962020731e8d6400efcf522b77c39445bf3177d4f1d685d7bb305141",
+      "old_sha256": "31511dc7962020731e8d6400efcf522b77c39445bf3177d4f1d685d7bb305141"
+    },
+    "src/CfdSolver/cuda/poisson_kernels.cu": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {
+        "arraySumCuda": {
+          "body_sha256": "9100008d3499c4a41aa0c670fc64e2f01064a3e6d4907d4e2fe3f078280ba0e5",
+          "device": false,
+          "global_kernel": false,
+          "line": 115
+        },
+        "arraySumCudaKernel": {
+          "body_sha256": "93efeb25efef16fc3f8bf37b6cfc359261b82b3c8a385c41e62fd0bcc99779ee",
+          "device": false,
+          "global_kernel": true,
+          "line": 86
+        },
+        "assignInteriorPressureBordersCuda": {
+          "body_sha256": "f0ac5a52418159e5e36ebe137fbee5f680532c0db8905a4448d5c30035dda80b",
+          "device": false,
+          "global_kernel": true,
+          "line": 37
+        },
+        "assignXYPlanesPressureBorders": {
+          "body_sha256": "b3ae5b20d919160e3c5cf4a1ec59fdcca471d82948f9579e9e9c5f9e08eb7615",
+          "device": false,
+          "global_kernel": true,
+          "line": 26
+        },
+        "assignXZPlanesPressureBorders": {
+          "body_sha256": "c53050e832efcf2c3725a5e3c82bf6a059416d7a421fe40cb7114bcb3039710c",
+          "device": false,
+          "global_kernel": true,
+          "line": 16
+        },
+        "assignYZPlanesPressureBorders": {
+          "body_sha256": "1cfabce8a7e5094b8d4bde4a6cab8dcc8ac2444d784da60e2165950de3eb8828",
+          "device": false,
+          "global_kernel": true,
+          "line": 6
+        },
+        "relaxSolverResidualArrayCuda": {
+          "body_sha256": "6aec7e7296fdd5a6088db0b80a0733bec223fe99e13c61e086cfe7e411937658",
+          "device": false,
+          "global_kernel": true,
+          "line": 154
+        },
+        "relaxSolverSweepCuda": {
+          "body_sha256": "b49bce2be2150017f9115fc77fa166bc60dcdb1a195a86f898866360c523dd9d",
+          "device": false,
+          "global_kernel": true,
+          "line": 179
+        },
+        "sorSolverCuda": {
+          "body_sha256": "97c8bbbe2575c0a62a31e143096044626aac2cb00e1e9b5038049716e6151835",
+          "device": false,
+          "global_kernel": false,
+          "line": 197
+        }
+      },
+      "functions_old": {
+        "arraySumCuda": {
+          "body_sha256": "9100008d3499c4a41aa0c670fc64e2f01064a3e6d4907d4e2fe3f078280ba0e5",
+          "device": false,
+          "global_kernel": false,
+          "line": 115
+        },
+        "arraySumCudaKernel": {
+          "body_sha256": "93efeb25efef16fc3f8bf37b6cfc359261b82b3c8a385c41e62fd0bcc99779ee",
+          "device": false,
+          "global_kernel": true,
+          "line": 86
+        },
+        "assignInteriorPressureBordersCuda": {
+          "body_sha256": "f0ac5a52418159e5e36ebe137fbee5f680532c0db8905a4448d5c30035dda80b",
+          "device": false,
+          "global_kernel": true,
+          "line": 37
+        },
+        "assignXYPlanesPressureBorders": {
+          "body_sha256": "b3ae5b20d919160e3c5cf4a1ec59fdcca471d82948f9579e9e9c5f9e08eb7615",
+          "device": false,
+          "global_kernel": true,
+          "line": 26
+        },
+        "assignXZPlanesPressureBorders": {
+          "body_sha256": "c53050e832efcf2c3725a5e3c82bf6a059416d7a421fe40cb7114bcb3039710c",
+          "device": false,
+          "global_kernel": true,
+          "line": 16
+        },
+        "assignYZPlanesPressureBorders": {
+          "body_sha256": "1cfabce8a7e5094b8d4bde4a6cab8dcc8ac2444d784da60e2165950de3eb8828",
+          "device": false,
+          "global_kernel": true,
+          "line": 6
+        },
+        "relaxSolverResidualArrayCuda": {
+          "body_sha256": "6aec7e7296fdd5a6088db0b80a0733bec223fe99e13c61e086cfe7e411937658",
+          "device": false,
+          "global_kernel": true,
+          "line": 154
+        },
+        "relaxSolverSweepCuda": {
+          "body_sha256": "b49bce2be2150017f9115fc77fa166bc60dcdb1a195a86f898866360c523dd9d",
+          "device": false,
+          "global_kernel": true,
+          "line": 179
+        },
+        "sorSolverCuda": {
+          "body_sha256": "97c8bbbe2575c0a62a31e143096044626aac2cb00e1e9b5038049716e6151835",
+          "device": false,
+          "global_kernel": false,
+          "line": 197
+        }
+      },
+      "functions_removed": [],
+      "new_sha256": "aa5cd12472820491f2738bdbc4ac35b19147d630fe3a5e6369086317ba2021b5",
+      "old_sha256": "aa5cd12472820491f2738bdbc4ac35b19147d630fe3a5e6369086317ba2021b5"
+    },
+    "src/CfdSolver/cuda/poisson_kernels.hpp": {
+      "bytes_changed": false,
+      "function_bodies_changed": [],
+      "functions_added": [],
+      "functions_new": {},
+      "functions_old": {},
+      "functions_removed": [],
+      "new_sha256": "eacb80c954ed013dbb2705f0a49eef3e5ab7fbf36ae58c628935dc956a86f12c",
+      "old_sha256": "eacb80c954ed013dbb2705f0a49eef3e5ab7fbf36ae58c628935dc956a86f12c"
+    },
+    "src/Defines.hpp": {
+      "bytes_changed": true,
+      "function_bodies_changed": [
+        "divCeil"
+      ],
+      "functions_added": [],
+      "functions_new": {
+        "divCeil": {
+          "body_sha256": "d57eb728ffbd1120b9580daa1851a19d37b80bc1364c9300a6f551a46cc98185",
+          "device": false,
+          "global_kernel": false,
+          "line": 51
+        }
+      },
+      "functions_old": {
+        "divCeil": {
+          "body_sha256": "5508e893c00cf150516e11784dea4bb191cbad4694257f57b052245474c32f35",
+          "device": false,
+          "global_kernel": false,
+          "line": 50
+        }
+      },
+      "functions_removed": [],
+      "new_sha256": "a4e58c253b2472aca2274f37c23d54fd94e69763a540dc406a922497dd9487fc",
+      "old_sha256": "a92efd775ad4331ffbaa4fa6c02a6a9d4bc2be50aceb4388c01851b34313914a"
+    }
+  },
+  "held_entry_bodies_changed": 0,
+  "observed_cuda_log_entries": [
+    {
+      "commit": "e221cad915",
+      "direction": "forward",
+      "files": [
+        "src/CfdSolver/cell_flags.hpp",
+        "src/CfdSolver/cuda/cuda_runtime_check.hpp",
+        "src/CfdSolver/Opencl/OpenclFlags.hpp"
+      ],
+      "group": "S7",
+      "id": "S7",
+      "instance_commit": "33bd699916",
+      "lines_changed": 3,
+      "plan_id": "S7-3",
+      "region": "src/CfdSolver/cell_flags.hpp:isLinked",
+      "status": "kept",
+      "step": 3,
+      "summary": "Drop unused linked-cell flag accessor across backends",
+      "tests": [
+        "provenance/S7/chain.bundle"
+      ],
+      "validated": []
+    },
+    {
+      "commit": "e4a249a275",
+      "direction": "forward",
+      "files": [
+        "src/CfdSolver/cuda/boundary_kernels.cu"
+      ],
+      "group": "S2",
+      "id": "S2",
+      "instance_commit": "de6e58f0aa",
+      "lines_changed": 26,
+      "plan_id": "S2-8",
+      "region": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalUBordersCuda,assignInternalVBordersCuda,assignInternalWBordersCuda,assignInternalTBordersCuda,computeInteriorCellIndex",
+      "status": "kept",
+      "step": 12,
+      "summary": "Share the interior thread index setup in the internal border kernels",
+      "tests": [
+        "provenance/S2/chain.bundle"
+      ],
+      "validated": []
+    },
+    {
+      "commit": "32bec6a482",
+      "direction": "forward",
+      "files": [
+        "src/CfdSolver/cuda/boundary_kernels.cu"
+      ],
+      "group": "S4",
+      "id": "S4",
+      "instance_commit": "be8b2f17be",
+      "lines_changed": 6,
+      "plan_id": "S4-5",
+      "region": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalWBordersCuda",
+      "status": "kept",
+      "step": 25,
+      "summary": "Return early on out-of-range and wet cells in W border kernel",
+      "tests": [
+        "provenance/S4 static check"
+      ],
+      "validated": []
+    },
+    {
+      "commit": "32bec6a482",
+      "direction": "forward",
+      "files": [
+        "src/CfdSolver/cuda/boundary_kernels.cu"
+      ],
+      "group": "S4",
+      "id": "S4",
+      "instance_commit": "4c84b44e88",
+      "lines_changed": 6,
+      "plan_id": "S4-6",
+      "region": "src/CfdSolver/cuda/boundary_kernels.cu:assignInternalTBordersCuda",
+      "status": "kept",
+      "step": 26,
+      "summary": "Return early on out-of-range and wet cells in T border kernel",
+      "tests": [
+        "provenance/S4 static check"
+      ],
+      "validated": []
+    }
+  ],
+  "pinned_policy": [
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "calculateRsCuda"
+    },
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "calculateUvwCuda"
+    },
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "calculateTemperatureCuda"
+    },
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "calculateFghCuda"
+    },
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "calculateDtCuda"
+    },
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "setBoundaryValuesCuda"
+    },
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "setBoundaryValuesScenarioSpecificCuda"
+    },
+    {
+      "body": "free",
+      "kind": "function",
+      "symbol": "sorSolverCuda"
+    }
+  ],
+  "policy_source_references": {
+    "body_free_filter": "tools/anonymous/candidates.py:119-134",
+    "interface_only_filter": "tools/anonymous/candidates.py:156-159",
+    "run_pinned_passthrough": "tools/anonymous/anonkit/core.py:60-61"
+  },
+  "runtime_selector_matches_official": true,
+  "scope": "Sealed layout-only RAW4 vs final RAW6 CUDA directory, plus shared Defines.hpp; no active source or transformation execution",
+  "shared_defines_detail": "S11 template remains in final source with corrected status; T/U arguments and explicit divisor cast. It is not source-reverted merely because literal-kept accounting excludes it."
+}

@@ -1,0 +1,50 @@
+{
+ "tool": "tells_lint",
+ "generated": "2026-10-26T04:11:11-04:00",
+ "checks": [
+  {
+   "id": "code.names",
+   "severity": "hard",
+   "status": "fail",
+   "summary": "822 new identifiers, 2 look generated",
+   "findings": [
+    {
+     "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+     "line": 413,
+     "symbol": "F1_count",
+     "detail": "identifier matches (?:^|_)(?:S(?:1[01]|[1-9])|R[1-6]|P[1-4]|I[1-7]|F[1-9])_"
+    },
+    {
+     "file": "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+     "line": 275,
+     "symbol": "R1_count",
+     "detail": "identifier matches (?:^|_)(?:S(?:1[01]|[1-9])|R[1-6]|P[1-4]|I[1-7]|F[1-9])_"
+    }
+   ],
+   "data": {
+    "new_identifiers": 822,
+    "project_idiom": []
+   }
+  },
+  {
+   "id": "code.comments",
+   "severity": "hard",
+   "status": "pass",
+   "summary": "0 new comments, 0 describe the change",
+   "data": {
+    "new_comments": 0
+   }
+  },
+  {
+   "id": "code.unused-new",
+   "severity": "warn",
+   "status": "pass",
+   "summary": "0 new definitions are never used"
+  }
+ ],
+ "verdict": "fail",
+ "run": "/home/junkun/genesis-transform-experiment/record/run.json",
+ "tree": "/home/junkun/genesis-transform-experiment/worktree",
+ "base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+ "head": "923e70fa915026ccf26f5dabf32280168175de26"
+}

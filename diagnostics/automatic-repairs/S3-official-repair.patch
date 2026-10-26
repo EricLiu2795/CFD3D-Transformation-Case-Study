@@ -1,0 +1,26 @@
+commit aaa10078a56a74cb5076b1088a99e8c513800555
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:38:37 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:38:37 2026 -0400
+
+    Share the pressure neighbour table into the parallel sweep
+    
+    The serial relaxation sweep runs under an OpenMP parallel region with an
+    explicit default(none) data-sharing clause. The neighbour offset table it
+    now iterates over must be named in the shared list so the loop body can see
+    it.
+
+diff --git a/src/CfdSolver/serial/poisson_sor.cpp b/src/CfdSolver/serial/poisson_sor.cpp
+index de6b288..660fc09 100644
+--- a/src/CfdSolver/serial/poisson_sor.cpp
++++ b/src/CfdSolver/serial/poisson_sor.cpp
+@@ -47,7 +47,7 @@ void relaxSolverSweepCpp(
+         {B_F,  0,  0,  1},
+     };
+ 
+-    #pragma omp parallel for shared(imax, jmax, kmax, P, Flag) default(none)
++    #pragma omp parallel for shared(imax, jmax, kmax, P, Flag, pressureNeighbors) default(none)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {

@@ -1,0 +1,10 @@
+{
+  "captured_utc": "2026-10-26T05:33:39.121852+00:00",
+  "first_bad_commit": "d6b50722da",
+  "first_good_commit": "e221cad915",
+  "batch_head": "e4a249a275",
+  "official_verifier": "batch.py verify",
+  "origin": "unmodified official group output before built-in repair; no supervising source repair",
+  "original_log": "/home/junkun/genesis-transform-experiment/record/verify/pass-1/check-e4a249a275.log",
+  "next_stage": "official configured fix round 1 (not a manual fix)"
+}

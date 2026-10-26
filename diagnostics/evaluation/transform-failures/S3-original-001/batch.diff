@@ -1,0 +1,1286 @@
+diff --git a/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp b/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
+index 72bcdcc..671b58e 100644
+--- a/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
++++ b/src/CfdSolver/Mpi/BoundaryValuesMpi.cpp
+@@ -266,60 +266,62 @@ void setInternalUBordersMpi(
+     for (int i = il; i <= iu-1; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int R_count = 0;
+                 int L_count = 0;
+                 int R1_count = 0;
+                 int L1_count = 0;
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i, j, k)] = Real(0);
+-                        R_count = 1;
+-                    }
++                if (B_R(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i, j, k)] = Real(0);
++                    R_count = 1;
++                }
+ 
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i - 1, j, k)] = Real(0);
+-                        L_count = 1;
+-                    }
++                if (B_L(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i - 1, j, k)] = Real(0);
++                    L_count = 1;
++                }
+ 
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_U(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
++                        L1_count = 1;
++                    }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
++                        R1_count = 1;
+                     }
++                }
+ 
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_D(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
++                        L1_count = 1;
++                    }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
++                        R1_count = 1;
+                     }
++                }
+ 
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
+-                        }
++                if (B_B(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
++                    }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
+                     }
++                }
+ 
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+-                        }
++                if (B_F(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
++                    }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+                     }
+                 }
+             }
+@@ -335,60 +337,62 @@ void setInternalVBordersMpi(
+     for (int i = il; i <= iu; i++) {
+         for (int j = jl; j <= ju-1; j++) {
+             for (int k = kl; k <= ku; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int U_count = 0;
+                 int D_count = 0;
+                 int U1_count = 0;
+                 int D1_count = 0;
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        V[LINV(i, j, k)] = Real(0);
+-                        U_count = 1;
+-                    }
++                if (B_U(Flag[LINFLAG(i, j, k)])) {
++                    V[LINV(i, j, k)] = Real(0);
++                    U_count = 1;
++                }
+ 
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        V[LINV(i, j - 1, k)] = Real(0);
+-                        D_count = 1;
+-                    }
++                if (B_D(Flag[LINFLAG(i, j, k)])) {
++                    V[LINV(i, j - 1, k)] = Real(0);
++                    D_count = 1;
++                }
+ 
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i + 1, j - 1, k)];
+-                            D1_count = 0;
+-                        }
+-                        if (U_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i + 1, j, k)];
+-                            U1_count = 0;
+-                        }
++                if (B_R(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i + 1, j - 1, k)];
++                        D1_count = 0;
++                    }
++                    if (U_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i + 1, j, k)];
++                        U1_count = 0;
+                     }
++                }
+ 
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i - 1, j - 1, k)];
+-                            D1_count = 0;
+-                        }
+-                        if (U_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i - 1, j, k)];
+-                            U1_count = 0;
+-                        }
++                if (B_L(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i - 1, j - 1, k)];
++                        D1_count = 0;
++                    }
++                    if (U_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i - 1, j, k)];
++                        U1_count = 0;
+                     }
++                }
+ 
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0 && D1_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k - 1)];
+-                        }
+-                        if (U_count == 0 && U1_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i, j, k - 1)];
+-                        }
++                if (B_B(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0 && D1_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k - 1)];
++                    }
++                    if (U_count == 0 && U1_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i, j, k - 1)];
+                     }
++                }
+ 
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        if (D_count == 0 && D1_count == 0) {
+-                            V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k + 1)];
+-                        }
+-                        if (U_count == 0 && U1_count == 0) {
+-                            V[LINV(i, j, k)] = -V[LINV(i, j, k + 1)];
+-                        }
++                if (B_F(Flag[LINFLAG(i, j, k)])) {
++                    if (D_count == 0 && D1_count == 0) {
++                        V[LINV(i, j - 1, k)] = -V[LINV(i, j - 1, k + 1)];
++                    }
++                    if (U_count == 0 && U1_count == 0) {
++                        V[LINV(i, j, k)] = -V[LINV(i, j, k + 1)];
+                     }
+                 }
+             }
+diff --git a/src/CfdSolver/Mpi/SorSolverMpi.cpp b/src/CfdSolver/Mpi/SorSolverMpi.cpp
+index 864969a..1db10cf 100644
+--- a/src/CfdSolver/Mpi/SorSolverMpi.cpp
++++ b/src/CfdSolver/Mpi/SorSolverMpi.cpp
+@@ -12,6 +12,7 @@ void relaxSolverIterationMpi(
+         int imax, int jmax, int kmax, int il, int iu, int jl, int ju, int kl, int ku,
+         int peerL, int peerR, int peerD, int peerU, int peerB, int peerF, Real *haloOut, Real *haloIn,
+         Real *P, Real *P_prev, Real *RS, FlagType *Flag, Real &residual) {
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+     if (kl == 1) {
+         for (int i = il; i <= iu; i++) {
+             for (int j = jl; j <= ju; j++) {
+@@ -57,6 +58,11 @@ void relaxSolverIterationMpi(
+         }
+     }
+ 
++    static bool (*const faceConnected[])(unsigned int) = {B_R, B_L, B_U, B_D, B_B, B_F};
++    static const int faceDi[] = { 1, -1,  0,  0,  0,  0};
++    static const int faceDj[] = { 0,  0,  1, -1,  0,  0};
++    static const int faceDk[] = { 0,  0,  0,  0, -1,  1};
++
+     for (int i = il; i <= iu; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+@@ -64,34 +70,11 @@ void relaxSolverIterationMpi(
+                 Real P_prev = Real(0);
+ 
+                 if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k + 1)];
+-                        numDirectFlag++;
++                    for (int n = 0; n < 6; n++) {
++                        if (faceConnected[n](Flag[LINFLAG(i, j, k)])) {
++                            P_prev += P[LINP(i + faceDi[n], j + faceDj[n], k + faceDk[n])];
++                            numDirectFlag++;
++                        }
+                     }
+ 
+                     if (numDirectFlag == 0) {
+@@ -122,9 +105,9 @@ void relaxSolverIterationMpi(
+                 for (int k = kl; k <= ku; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/(dx*dx)
+-                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/(dy*dy)
+-                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/(dz*dz)
++                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/dx2
++                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/dy2
++                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/dz2
+                                 - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -136,9 +119,9 @@ void relaxSolverIterationMpi(
+                 for (int k = kl; k <= ku; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])) {
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P_prev[LINP(i,j,k)] + coeff *
+-                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/(dx*dx)
+-                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/(dy*dy)
+-                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/(dz*dz)
++                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/dx2
++                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/dy2
++                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/dz2
+                                  - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -157,9 +140,9 @@ void relaxSolverIterationMpi(
+             for (int k = kl; k <= ku; k++) {
+                 if (isWet(Flag[LINFLAG(i,j,k)])){
+                     residual += SQR(
+-                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/(dx*dx)
+-                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/(dy*dy)
+-                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/(dz*dz)
++                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/dx2
++                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/dy2
++                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/dz2
+                              - RS[LINRS(i,j,k)]
+                     );
+                     fluidCellCount++;
+diff --git a/src/CfdSolver/Mpi/UvwMpi.cpp b/src/CfdSolver/Mpi/UvwMpi.cpp
+index d20959f..4becd2f 100644
+--- a/src/CfdSolver/Mpi/UvwMpi.cpp
++++ b/src/CfdSolver/Mpi/UvwMpi.cpp
+@@ -21,6 +21,7 @@ void computeFluxMpi(
+          uw_x,vw_y,ww_z;
+     
+     Real Dx = 1/dx, Dy = 1/dy, Dz = 1/dz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+ 
+     auto donorCellFlux = [](Real D, Real conv_hi, Real val_hi, Real conv_lo, Real val_lo,
+             Real diff_hi, Real diff_lo, Real alpha) {
+@@ -36,9 +37,9 @@ void computeFluxMpi(
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i+1,j,k)])){
+-                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/(dx*dx);
+-                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/(dy*dy);
+-                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/(dz*dz);
++                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/dx2;
++                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/dy2;
++                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/dz2;
+ 
+                     uu_x = donorCellFlux(Dx,
+                             U[LINU(i,j,k)]+U[LINU(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i+1,j,k)],
+@@ -73,9 +74,9 @@ void computeFluxMpi(
+         for (int j = jl-1; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j+1,k)])){
+-                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/(dx*dx);
+-                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/(dy*dy);
+-                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/(dz*dz);
++                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/dx2;
++                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/dy2;
++                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/dz2;
+ 
+                     uv_x = donorCellFlux(Dx,
+                             U[LINU(i,j,k)]+U[LINU(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i+1,j,k)],
+@@ -110,9 +111,9 @@ void computeFluxMpi(
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl-1; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j,k+1)])){
+-                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/(dx*dx);
+-                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/(dy*dy);
+-                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/(dz*dz);
++                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/dx2;
++                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/dy2;
++                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/dz2;
+ 
+                     uw_x = donorCellFlux(Dx,
+                             U[LINU(i,j,k)]+U[LINU(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i+1,j,k)],
+@@ -309,6 +310,7 @@ void computeTemperatureMpi(
+         int peerL, int peerR, int peerD, int peerU, int peerB, int peerF, Real *haloOut, Real *haloIn,
+         Real *U, Real *V, Real *W, Real *T, const Real *T_prev, FlagType *Flag) {
+     Real uT_x, vT_y, wT_z, T_xx, T_yy, T_zz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+ 
+     auto advectTemperature = [](Real d, Real vel_c, Real vel_m, Real T_m, Real T_c, Real T_p, Real alpha) {
+         return 1 / d * (
+@@ -335,13 +337,13 @@ void computeTemperatureMpi(
+                             T_prev[LINT(i, j, k - 1)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j, k + 1)], alpha);
+ 
+                     T_xx =
+-                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / (dx*dx);
++                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / dx2;
+ 
+                     T_yy =
+-                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / (dy*dy);
++                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / dy2;
+ 
+                     T_zz =
+-                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / (dz*dz);
++                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / dz2;
+ 
+                     T[LINT(i, j, k)] = T_prev[LINT(i, j, k)] + dt * (
+                             (1 / (Re*Pr))*(T_xx + T_yy + T_zz) -
+diff --git a/src/CfdSolver/cuda/boundary_kernels.cu b/src/CfdSolver/cuda/boundary_kernels.cu
+index a95c888..62a6a32 100644
+--- a/src/CfdSolver/cuda/boundary_kernels.cu
++++ b/src/CfdSolver/cuda/boundary_kernels.cu
+@@ -149,62 +149,66 @@ __global__ void assignInternalWBordersCuda(
+     int i, j, k;
+     computeInteriorCellIndex(i, j, k);
+ 
+-    if (i <= imax && j <= jmax && k <= kmax - 1){        
+-        int F_count = 0;
+-        int B_count = 0;
+-        int F1_count = 0;
+-        int B1_count = 0;
++    if (i > imax || j > jmax || k > kmax - 1) {
++        return;
++    }
+ 
+-        if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-            if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                W[LINW(i, j, k - 1)] = Real(0);
+-                B_count = 1;
+-            }
++    int F_count = 0;
++    int B_count = 0;
++    int F1_count = 0;
++    int B1_count = 0;
+ 
+-            if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                W[LINW(i, j, k)] = Real(0);
+-                F_count = 1;
+-            }
++    if (isWet(Flag[LINFLAG(i, j, k)])) {
++        return;
++    }
+ 
+-            if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i + 1, j, k - 1)];
+-                    B1_count = 1;
+-                }
+-                if (F_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i + 1, j, k)];
+-                    F1_count = 1;
+-                }
+-            }
++    if (B_B(Flag[LINFLAG(i, j, k)])) {
++        W[LINW(i, j, k - 1)] = Real(0);
++        B_count = 1;
++    }
+ 
+-            if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i - 1, j, k - 1)];
+-                    B1_count = 1;
+-                }
+-                if (F_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i - 1, j, k)];
+-                    F1_count = 1;
+-                }
+-            }
++    if (B_F(Flag[LINFLAG(i, j, k)])) {
++        W[LINW(i, j, k)] = Real(0);
++        F_count = 1;
++    }
+ 
+-            if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0 && B1_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i, j + 1, k - 1)];
+-                }
+-                if (F_count == 0 && F1_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i, j + 1, k)];
+-                }
+-            }
++    if (B_R(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i + 1, j, k - 1)];
++            B1_count = 1;
++        }
++        if (F_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i + 1, j, k)];
++            F1_count = 1;
++        }
++    }
+ 
+-            if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                if (B_count == 0 && B1_count == 0) {
+-                    W[LINW(i, j, k - 1)] = -W[LINW(i, j - 1, k - 1)];
+-                }
+-                if (F_count == 0 && F1_count == 0) {
+-                    W[LINW(i, j, k)] = -W[LINW(i, j - 1, k)];
+-                }
+-            }
++    if (B_L(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i - 1, j, k - 1)];
++            B1_count = 1;
++        }
++        if (F_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i - 1, j, k)];
++            F1_count = 1;
++        }
++    }
++
++    if (B_U(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0 && B1_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i, j + 1, k - 1)];
++        }
++        if (F_count == 0 && F1_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i, j + 1, k)];
++        }
++    }
++
++    if (B_D(Flag[LINFLAG(i, j, k)])) {
++        if (B_count == 0 && B1_count == 0) {
++            W[LINW(i, j, k - 1)] = -W[LINW(i, j - 1, k - 1)];
++        }
++        if (F_count == 0 && F1_count == 0) {
++            W[LINW(i, j, k)] = -W[LINW(i, j - 1, k)];
+         }
+     }
+ }
+@@ -216,48 +220,52 @@ __global__ void assignInternalTBordersCuda(
+     int i, j, k;
+     computeInteriorCellIndex(i, j, k);
+     
+-    if (i <= imax && j <= jmax && k <= kmax){
+-        int numDirectFlag = 0;
+-        Real T_prev = Real(0);
++    if (i > imax || j > jmax || k > kmax) {
++        return;
++    }
+ 
+-        if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-            if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i + 1, j, k)];
+-                numDirectFlag++;
+-            }
++    int numDirectFlag = 0;
++    Real T_prev = Real(0);
+ 
+-            if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i - 1, j, k)];
+-                numDirectFlag++;
+-            }
++    if (isWet(Flag[LINFLAG(i, j, k)])) {
++        return;
++    }
+ 
+-            if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j + 1, k)];
+-                numDirectFlag++;
+-            }
++    if (B_R(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i + 1, j, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j - 1, k)];
+-                numDirectFlag++;
+-            }
++    if (B_L(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i - 1, j, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j, k - 1)];
+-                numDirectFlag++;
+-            }
++    if (B_U(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j + 1, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                T_prev = T[LINT(i, j, k + 1)];
+-                numDirectFlag++;
+-            }
++    if (B_D(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j - 1, k)];
++        numDirectFlag++;
++    }
+ 
+-            if (numDirectFlag == 0) {
+-                T[LINT(i,j,k)] = 0;
+-            } else {
+-                T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
+-            }
+-        }
+-    }    
++    if (B_B(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j, k - 1)];
++        numDirectFlag++;
++    }
++
++    if (B_F(Flag[LINFLAG(i, j, k)])) {
++        T_prev = T[LINT(i, j, k + 1)];
++        numDirectFlag++;
++    }
++
++    if (numDirectFlag == 0) {
++        T[LINT(i,j,k)] = 0;
++    } else {
++        T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
++    }
+ }
+ 
+ __global__ void assignLeftRightBordersCuda(
+diff --git a/src/CfdSolver/serial/boundary_conditions.cpp b/src/CfdSolver/serial/boundary_conditions.cpp
+index c87173e..adc519a 100644
+--- a/src/CfdSolver/serial/boundary_conditions.cpp
++++ b/src/CfdSolver/serial/boundary_conditions.cpp
+@@ -20,60 +20,62 @@ void assignInternalUBordersCpp(
+     for (int i = 1; i <= imax-1; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int R_count = 0;
+                 int L_count = 0;
+                 int R1_count = 0;
+                 int L1_count = 0;
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i, j, k)] = Real(0);
+-                        R_count = 1;
+-                    }
++                if (B_R(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i, j, k)] = Real(0);
++                    R_count = 1;
++                }
+ 
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        U[LINU(i - 1, j, k)] = Real(0);
+-                        L_count = 1;
+-                    }
++                if (B_L(Flag[LINFLAG(i, j, k)])) {
++                    U[LINU(i - 1, j, k)] = Real(0);
++                    L_count = 1;
++                }
+ 
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_U(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j + 1, k)];
++                        L1_count = 1;
++                    }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j + 1, k)];
++                        R1_count = 1;
+                     }
++                }
+ 
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
+-                            L1_count = 1;
+-                        }
+-                        if (R_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
+-                            R1_count = 1;
+-                        }
++                if (B_D(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j - 1, k)];
++                        L1_count = 1;
++                    }
++                    if (R_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j - 1, k)];
++                        R1_count = 1;
+                     }
++                }
+ 
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
+-                        }
++                if (B_B(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k - 1)];
++                    }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k - 1)];
+                     }
++                }
+ 
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        if (L_count == 0 && L1_count == 0) {
+-                            U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
+-                        }
+-                        if (R_count == 0 && R1_count == 0) {
+-                            U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+-                        }
++                if (B_F(Flag[LINFLAG(i, j, k)])) {
++                    if (L_count == 0 && L1_count == 0) {
++                        U[LINU(i - 1, j, k)] = -U[LINU(i - 1, j, k + 1)];
++                    }
++                    if (R_count == 0 && R1_count == 0) {
++                        U[LINU(i, j, k)] = -U[LINU(i, j, k + 1)];
+                     }
+                 }
+             }
+@@ -223,49 +225,41 @@ void assignInternalTBordersCpp(
+         int imax, int jmax, int kmax,
+         Real *T,
+         FlagType *Flag) {
++    struct NeighborTap {
++        bool (*isConnected)(unsigned int);
++        int di, dj, dk;
++    };
++    static const NeighborTap temperatureNeighbors[] = {
++        {B_R,  1,  0,  0},
++        {B_L, -1,  0,  0},
++        {B_U,  0,  1,  0},
++        {B_D,  0, -1,  0},
++        {B_B,  0,  0, -1},
++        {B_F,  0,  0,  1},
++    };
++
+     #pragma omp parallel for
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
++                if (isWet(Flag[LINFLAG(i, j, k)])) {
++                    continue;
++                }
++
+                 int numDirectFlag = 0;
+                 Real T_prev = Real(0);
+ 
+-                if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        T_prev = T[LINT(i, j, k + 1)];
++                for (const NeighborTap &tap : temperatureNeighbors) {
++                    if (tap.isConnected(Flag[LINFLAG(i, j, k)])) {
++                        T_prev = T[LINT(i + tap.di, j + tap.dj, k + tap.dk)];
+                         numDirectFlag++;
+                     }
++                }
+ 
+-                    if (numDirectFlag == 0) {
+-                        T[LINT(i,j,k)] = 0;
+-                    } else {
+-                        T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
+-                    }
++                if (numDirectFlag == 0) {
++                    T[LINT(i,j,k)] = 0;
++                } else {
++                    T[LINT(i,j,k)] = T_prev / Real(numDirectFlag);
+                 }
+             }     
+         }
+diff --git a/src/CfdSolver/serial/momentum_eqs.cpp b/src/CfdSolver/serial/momentum_eqs.cpp
+index 1c2cb29..452cffc 100644
+--- a/src/CfdSolver/serial/momentum_eqs.cpp
++++ b/src/CfdSolver/serial/momentum_eqs.cpp
+@@ -54,16 +54,17 @@ void computeFghCpp(
+          uw_x,vw_y,ww_z;
+     
+     Real Dx = 1/dx, Dy = 1/dy, Dz = 1/dz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+ 
+     #pragma omp parallel for private(u_xx, u_yy, u_zz, uu_x, uv_y, uw_z) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, Dx, Dy, Dz, dt, Re, alpha, beta, GX, U, V, W, T, F, Flag)
++    shared(imax, jmax, kmax, dx2, dy2, dz2, Dx, Dy, Dz, dt, Re, alpha, beta, GX, U, V, W, T, F, Flag)
+     for (int i = 1; i <= imax-1; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i+1,j,k)])){
+-                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/(dx*dx);
+-                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/(dy*dy);
+-                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/(dz*dz);
++                    u_xx = (U[LINU(i+1,j,k)] - 2*U[LINU(i,j,k)] + U[LINU(i-1,j,k)])/dx2;
++                    u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/dy2;
++                    u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/dz2;
+ 
+                     uu_x = donorCellFlux(Dx,
+                             U[LINU(i,j,k)]+U[LINU(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i+1,j,k)],
+@@ -95,14 +96,14 @@ void computeFghCpp(
+     }
+ 
+     #pragma omp parallel for private(v_xx, v_yy, v_zz, uv_x, vv_y, vw_z) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, Dx, Dy, Dz, dt, Re, alpha, beta, GY, U, V, W, T, G, Flag)
++    shared(imax, jmax, kmax, dx2, dy2, dz2, Dx, Dy, Dz, dt, Re, alpha, beta, GY, U, V, W, T, G, Flag)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax-1; j++) {
+             for (int k = 1; k <= kmax; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j+1,k)])){
+-                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/(dx*dx);
+-                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/(dy*dy);
+-                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/(dz*dz);
++                    v_xx = (V[LINV(i+1,j,k)] - 2*V[LINV(i,j,k)] + V[LINV(i-1,j,k)])/dx2;
++                    v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/dy2;
++                    v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/dz2;
+ 
+                     uv_x = donorCellFlux(Dx,
+                             U[LINU(i,j,k)]+U[LINU(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i+1,j,k)],
+@@ -134,14 +135,14 @@ void computeFghCpp(
+     }
+ 
+     #pragma omp parallel for private(w_xx, w_yy, w_zz, uw_x, vw_y, ww_z) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, Dx, Dy, Dz, dt, Re, alpha, beta, GZ, U, V, W, T, H, Flag)
++    shared(imax, jmax, kmax, dx2, dy2, dz2, Dx, Dy, Dz, dt, Re, alpha, beta, GZ, U, V, W, T, H, Flag)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax-1; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)]) && isWet(Flag[LINFLAG(i,j,k+1)])){
+-                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/(dx*dx);
+-                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/(dy*dy);
+-                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/(dz*dz);
++                    w_xx = (W[LINW(i+1,j,k)] - 2*W[LINW(i,j,k)] + W[LINW(i-1,j,k)])/dx2;
++                    w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/dy2;
++                    w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/dz2;
+ 
+                     uw_x = donorCellFlux(Dx,
+                             U[LINU(i,j,k)]+U[LINU(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i+1,j,k)],
+@@ -241,9 +242,10 @@ void computeTemperatureCpp(
+         int imax, int jmax, int kmax,
+         Real *U, Real *V, Real *W, Real *T, Real *T_prev, FlagType *Flag) {
+     Real uT_x, vT_y, wT_z, T_xx, T_yy, T_zz;
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+ 
+     #pragma omp parallel for private(uT_x, vT_y, wT_z, T_xx, T_yy, T_zz) default(none) \
+-    shared(imax, jmax, kmax, dx, dy, dz, dt, Re, Pr, alpha, U, V, W, T, T_prev, Flag)
++    shared(imax, jmax, kmax, dx, dy, dz, dx2, dy2, dz2, dt, Re, Pr, alpha, U, V, W, T, T_prev, Flag)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
+@@ -258,13 +260,13 @@ void computeTemperatureCpp(
+                             T_prev[LINT(i, j, k - 1)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j, k + 1)], alpha);
+ 
+                     T_xx =
+-                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / (dx*dx);
++                            (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / dx2;
+ 
+                     T_yy =
+-                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / (dy*dy);
++                            (T_prev[LINT(i, j + 1, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j - 1, k)]) / dy2;
+ 
+                     T_zz =
+-                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / (dz*dz);
++                            (T_prev[LINT(i, j, k + 1)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k - 1)]) / dz2;
+ 
+                     T[LINT(i, j, k)] = T_prev[LINT(i, j, k)] + dt * (
+                             (1 / (Re*Pr))*(T_xx + T_yy + T_zz) -
+diff --git a/src/CfdSolver/serial/poisson_sor.cpp b/src/CfdSolver/serial/poisson_sor.cpp
+index 99bc70f..de6b288 100644
+--- a/src/CfdSolver/serial/poisson_sor.cpp
++++ b/src/CfdSolver/serial/poisson_sor.cpp
+@@ -9,6 +9,7 @@ void relaxSolverSweepCpp(
+         Real omg, Real dx, Real dy, Real dz, Real coeff, int imax, int jmax, int kmax,
+         LinearSystemSolverType linearSystemSolverType,
+         Real *P, Real *P_prev, Real *RS, FlagType *Flag, Real &residual) {
++    Real dx2 = dx*dx, dy2 = dy*dy, dz2 = dz*dz;
+     #pragma omp parallel for shared(imax, jmax, kmax, P) default(none)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+@@ -33,6 +34,19 @@ void relaxSolverSweepCpp(
+         }
+     }
+ 
++    struct NeighborTap {
++        bool (*isConnected)(unsigned int);
++        int di, dj, dk;
++    };
++    static const NeighborTap pressureNeighbors[] = {
++        {B_R,  1,  0,  0},
++        {B_L, -1,  0,  0},
++        {B_U,  0,  1,  0},
++        {B_D,  0, -1,  0},
++        {B_B,  0,  0, -1},
++        {B_F,  0,  0,  1},
++    };
++
+     #pragma omp parallel for shared(imax, jmax, kmax, P, Flag) default(none)
+     for (int i = 1; i <= imax; i++) {
+         for (int j = 1; j <= jmax; j++) {
+@@ -41,34 +55,11 @@ void relaxSolverSweepCpp(
+                 Real P_prev = Real(0);
+ 
+                 if (!isWet(Flag[LINFLAG(i, j, k)])) {
+-                    if (B_R(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i + 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_L(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i - 1, j, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_U(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j + 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_D(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j - 1, k)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_B(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k - 1)];
+-                        numDirectFlag++;
+-                    }
+-
+-                    if (B_F(Flag[LINFLAG(i, j, k)])) {
+-                        P_prev += P[LINP(i, j, k + 1)];
+-                        numDirectFlag++;
++                    for (const NeighborTap &tap : pressureNeighbors) {
++                        if (tap.isConnected(Flag[LINFLAG(i, j, k)])) {
++                            P_prev += P[LINP(i + tap.di, j + tap.dj, k + tap.dk)];
++                            numDirectFlag++;
++                        }
+                     }
+ 
+                     if (numDirectFlag == 0) {
+@@ -101,9 +92,9 @@ void relaxSolverSweepCpp(
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/(dx*dx)
+-                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/(dy*dy)
+-                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/(dz*dz)
++                                ((P[LINP(i+1,j,k)]+P[LINP(i-1,j,k)])/dx2
++                                + (P[LINP(i,j+1,k)]+P[LINP(i,j-1,k)])/dy2
++                                + (P[LINP(i,j,k+1)]+P[LINP(i,j,k-1)])/dz2
+                                 - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -111,15 +102,15 @@ void relaxSolverSweepCpp(
+         }
+     } else if (linearSystemSolverType == POISSON_RELAX_PARALLEL
+             || linearSystemSolverType == LINEAR_SOLVER_GAUSS_SEIDEL_PARALLEL) {
+-        #pragma omp parallel for shared(imax, jmax, kmax, dx, dy, dz, omg, coeff, P, P_prev, RS, Flag) default(none)
++        #pragma omp parallel for shared(imax, jmax, kmax, dx2, dy2, dz2, omg, coeff, P, P_prev, RS, Flag) default(none)
+         for (int i = 1; i <= imax; i++) {
+             for (int j = 1; j <= jmax; j++) {
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P_prev[LINP(i,j,k)] = (Real(1.0) - omg)*P[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i+1,j,k)])/(dx*dx)
+-                                + (P[LINP(i,j+1,k)])/(dy*dy)
+-                                + (P[LINP(i,j,k+1)])/(dz*dz)
++                                ((P[LINP(i+1,j,k)])/dx2
++                                + (P[LINP(i,j+1,k)])/dy2
++                                + (P[LINP(i,j,k+1)])/dz2
+                                 - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -131,23 +122,23 @@ void relaxSolverSweepCpp(
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])){
+                         P[LINP(i,j,k)] = P_prev[LINP(i,j,k)] + coeff *
+-                                ((P[LINP(i-1,j,k)])/(dx*dx)
+-                                 + (P[LINP(i,j-1,k)])/(dy*dy)
+-                                 + (P[LINP(i,j,k-1)])/(dz*dz));
++                                ((P[LINP(i-1,j,k)])/dx2
++                                 + (P[LINP(i,j-1,k)])/dy2
++                                 + (P[LINP(i,j,k-1)])/dz2);
+                     }
+                 }
+             }
+         }
+     } else if (linearSystemSolverType == LINEAR_SOLVER_JACOBI) {
+-        #pragma omp parallel for shared(imax, jmax, kmax, dx, dy, dz, omg, coeff, P, P_prev, RS, Flag) default(none)
++        #pragma omp parallel for shared(imax, jmax, kmax, dx2, dy2, dz2, omg, coeff, P, P_prev, RS, Flag) default(none)
+         for (int i = 1; i <= imax; i++) {
+             for (int j = 1; j <= jmax; j++) {
+                 for (int k = 1; k <= kmax; k++) {
+                     if (isWet(Flag[LINFLAG(i,j,k)])) {
+                         P[LINP(i,j,k)] = (Real(1.0) - omg)*P_prev[LINP(i,j,k)] + coeff *
+-                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/(dx*dx)
+-                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/(dy*dy)
+-                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/(dz*dz)
++                                ((P_prev[LINP(i+1,j,k)]+P_prev[LINP(i-1,j,k)])/dx2
++                                 + (P_prev[LINP(i,j+1,k)]+P_prev[LINP(i,j-1,k)])/dy2
++                                 + (P_prev[LINP(i,j,k+1)]+P_prev[LINP(i,j,k-1)])/dz2
+                                  - RS[LINRS(i,j,k)]);
+                     }
+                 }
+@@ -159,7 +150,7 @@ void relaxSolverSweepCpp(
+     residual = Real(0.0);
+     int fluidCellCount = 0;
+ #if _OPENMP >= 201107
+-    #pragma omp parallel for shared(imax, jmax, kmax, dx, dy, dz, P, RS, Flag) \
++    #pragma omp parallel for shared(imax, jmax, kmax, dx2, dy2, dz2, P, RS, Flag) \
+     reduction(+: residual) reduction(+: fluidCellCount) default(none)
+ #endif
+     for (int i = 1; i <= imax; i++) {
+@@ -167,9 +158,9 @@ void relaxSolverSweepCpp(
+             for (int k = 1; k <= kmax; k++) {
+                 if (isWet(Flag[LINFLAG(i,j,k)])){
+                     residual += SQR(
+-                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/(dx*dx)
+-                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/(dy*dy)
+-                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/(dz*dz)
++                               (P[LINP(i+1,j,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i-1,j,k)])/dx2
++                             + (P[LINP(i,j+1,k)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j-1,k)])/dy2
++                             + (P[LINP(i,j,k+1)] - Real(2.0)*P[LINP(i,j,k)] + P[LINP(i,j,k-1)])/dz2
+                              - RS[LINRS(i,j,k)]
+                     );
+                     fluidCellCount++;
+diff --git a/src/IO/byte_streams.cpp b/src/IO/byte_streams.cpp
+index 652564f..880b446 100644
+--- a/src/IO/byte_streams.cpp
++++ b/src/IO/byte_streams.cpp
+@@ -118,9 +118,8 @@ void ByteReadStream::read(std::string &str)
+         std::cerr << "FATAL ERROR: ByteReadStream::read(string&)" << std::endl;
+         return;
+     }
+-    char *charBuffer = new char[charCount + 1];
++    std::vector<char> charBuffer(charCount + 1);
+     charBuffer[charCount] = '\0';
+-    read((void*)charBuffer, charCount);
+-    str = charBuffer;
+-    delete[] charBuffer;
++    read((void*)charBuffer.data(), charCount);
++    str = charBuffer.data();
+ }
+diff --git a/src/IO/geometry_io.cpp b/src/IO/geometry_io.cpp
+index b8942f2..fcd542a 100644
+--- a/src/IO/geometry_io.cpp
++++ b/src/IO/geometry_io.cpp
+@@ -37,11 +37,11 @@ std::vector<uint32_t> loadGeometryData(
+     file.seekg(0, std::ifstream::end);
+     size_t size = file.tellg();
+     file.seekg(0);
+-    char *buffer = new char[size];
+-    file.read(buffer, std::streamsize(size));
++    std::vector<char> buffer(size);
++    file.read(buffer.data(), std::streamsize(size));
+     file.close();
+ 
+-    ByteReadStream stream(buffer, size);
++    ByteReadStream stream(static_cast<const void*>(buffer.data()), size);
+     uint32_t version;
+     stream.read(version);
+     if (version != GEOMETRY_FORMAT_REVISION) {
+diff --git a/src/IO/netcdf_output.cpp b/src/IO/netcdf_output.cpp
+index 333164f..fe23c91 100644
+--- a/src/IO/netcdf_output.cpp
++++ b/src/IO/netcdf_output.cpp
+@@ -1,5 +1,6 @@
+ 
+ #include <iostream>
++#include <vector>
+ #include <netcdf.h>
+ #include "IO/netcdf_output.hpp"
+ 
+@@ -156,7 +157,7 @@ void NetCdfRecorder::setTextAttribute(int varid, const std::string &name, const
+ void NetCdfRecorder::writeSnapshot(int stepIndex, Real time, Real *U, Real *V, Real *W, Real *P, Real *T,
+         FlagType *Flag) {
+     if (stepIndex == 0) {
+-        Real *geometrySamples = new Real[imax*jmax*kmax];
++        std::vector<Real> geometrySamples(imax*jmax*kmax);
+         #pragma omp parallel for shared(geometrySamples, Flag) default(none)
+         for (int i = 0; i < imax; i++) {
+             for (int j = 0; j < jmax; j++) {
+@@ -165,8 +166,7 @@ void NetCdfRecorder::writeSnapshot(int stepIndex, Real time, Real *U, Real *V, R
+                 }
+             }
+         }
+-        nc_put_var_fp(ncid, geometryHandle, geometrySamples);
+-        delete[] geometrySamples;
++        nc_put_var_fp(ncid, geometryHandle, geometrySamples.data());
+     }
+ 
+     #pragma omp parallel for shared(U, V, W) default(none)
+diff --git a/src/IO/path_writer.cpp b/src/IO/path_writer.cpp
+index 78bdf05..df96718 100644
+--- a/src/IO/path_writer.cpp
++++ b/src/IO/path_writer.cpp
+@@ -1,4 +1,5 @@
+ 
++#include <algorithm>
+ #include <iostream>
+ #include <fstream>
+ #include <iomanip>
+@@ -78,9 +79,8 @@ bool writePathsToBinary(const std::string &filename, const FlowCurves &flowCurve
+ #ifdef FP_DOUBLE
+         std::vector<glm::vec3> floatPoints;
+         floatPoints.resize(activePath.positions.size());
+-        for (size_t i = 0; i < activePath.positions.size(); i++) {
+-            floatPoints[i] = glm::vec3(activePath.positions[i]);
+-        }
++        std::transform(activePath.positions.begin(), activePath.positions.end(), floatPoints.begin(),
++                [](const auto &position) { return glm::vec3(position); });
+         stream.write((void*)&floatPoints.front(), sizeof(glm::vec3)*pathPointCount);
+ #endif
+         assert(numAttributes == activePath.attributes.size());
+@@ -92,9 +92,8 @@ bool writePathsToBinary(const std::string &filename, const FlowCurves &flowCurve
+             const std::vector<double> &activeFieldDouble = activePath.attributes.at(fieldIndex);
+             std::vector<float> activeField;
+             activeField.resize(activeFieldDouble.size());
+-            for (size_t i = 0; i < activeFieldDouble.size(); i++) {
+-                activeField[i] = static_cast<float>(activeFieldDouble[i]);
+-            }
++            std::transform(activeFieldDouble.begin(), activeFieldDouble.end(), activeField.begin(),
++                    [](double value) { return static_cast<float>(value); });
+ #endif
+             assert(pathPointCount == activeField.size());
+             stream.write(activeField.data(), sizeof(float) * pathPointCount);
+diff --git a/src/IO/pgm_image.cpp b/src/IO/pgm_image.cpp
+index 2bc6403..991a700 100644
+--- a/src/IO/pgm_image.cpp
++++ b/src/IO/pgm_image.cpp
+@@ -1,4 +1,5 @@
+ 
++#include <fstream>
+ #include <iostream>
+ #include <cassert>
+ #include <cstring>
+@@ -82,8 +83,8 @@ void nearestNeighborScalePgm2D(
+ }
+ 
+ std::vector<unsigned int> readPgmImage(const std::string &filename, int &width, int &height, int &levels) {
+-    FILE *file = nullptr;
+-    if ((file = fopen(filename.c_str(), "rb")) == nullptr) {
++    std::ifstream file(filename.c_str(), std::ifstream::binary);
++    if (!file.is_open()) {
+         std::cerr << "Cannot open file \"" << filename << "\"." << std::endl;
+         return {};
+     }
+@@ -91,33 +92,31 @@ std::vector<unsigned int> readPgmImage(const std::string &filename, int &width,
+     char line[1024];
+     std::vector<unsigned int> pgmResized;
+ 
+-    if (fread(line, 1, 3, file) != 3) {
+-        fclose(file);
++    file.read(line, 3);
++    if (file.gcount() != 3) {
+         std::cerr << "Wrong magic field in file \"" << filename << "\"." << std::endl;
+         return {};
+     }
+ 
+     do {
+-        assert(fgets(line, sizeof(line), file) != nullptr);
++        assert(file.getline(line, sizeof(line)));
+     } while (*line == '#');
+ 
+     sscanf(line, "%d %d\n", &width, &height);
+ 
+-    assert(fgets(line, sizeof line, file) != nullptr);
++    assert(file.getline(line, sizeof line));
+     sscanf(line, "%d\n", &levels);
+     pgmResized.resize(size_t(width) * size_t(height));
+ 
+     for (int y = 0; y < height; y++) {
+         for (int x = 0; x < width; ++x) {
+             unsigned int value;
+-            if (fscanf(file, "%u", &value) == EOF) {
+-                fclose(file);
++            if (!(file >> value)) {
+                 std::cerr << "Invalid number of lines in file \"" << filename << "\"." << std::endl;
+             }
+             pgmResized[size_t(x) * size_t(height) + size_t(y)] = value;
+         }
+     }
+ 
+-    fclose(file);
+     return pgmResized;
+ }
+diff --git a/src/IO/scenario_builder.cpp b/src/IO/scenario_builder.cpp
+index 330e947..adfacee 100644
+--- a/src/IO/scenario_builder.cpp
++++ b/src/IO/scenario_builder.cpp
+@@ -1,4 +1,5 @@
+ 
++#include <algorithm>
+ #include <glm/glm.hpp>
+ #include "IO/text_file_utils.hpp"
+ #include "IO/pgm_image.hpp"
+@@ -190,9 +191,8 @@ void buildElevationGeometry(
+     nearestNeighborScale2D(elevationPgmData, pgmCols, pgmRows, elevationPgmData, imax, kmax);
+     std::vector<Real> elevationFloats;
+     elevationFloats.resize(elevationPgmData.size());
+-    for (size_t i = 0; i < elevationPgmData.size(); i++) {
+-        elevationFloats[i] = Real(elevationPgmData[i]) / Real(levels);
+-    }
++    std::transform(elevationPgmData.begin(), elevationPgmData.end(), elevationFloats.begin(),
++            [levels](unsigned int sampleValue) { return Real(sampleValue) / Real(levels); });
+ 
+     GeometryBuilder geometryBuilder(imax, jmax, kmax, CELL_NO_SLIP);
+     geometryBuilder.fillLayersInRegion(CELL_NO_SLIP, 1, kmax, [&](int i, int j, int k) {
+diff --git a/src/IO/vtk_output.cpp b/src/IO/vtk_output.cpp
+index 74cf74b..fd81d08 100644
+--- a/src/IO/vtk_output.cpp
++++ b/src/IO/vtk_output.cpp
+@@ -131,7 +131,8 @@ void VtkExporter::emitPointPositions(FILE *file,
+ }
+ 
+ void VtkExporter::emitPointValues(FILE *file, Real *U, Real *V, Real *W, FlagType *Flag) {
+-    fprintf(file, "POINT_DATA %i\n", (iu-il+2)*(ju-jl+2)*(ku-kl+2));
++    int pointCount = (iu-il+2)*(ju-jl+2)*(ku-kl+2);
++    fprintf(file, "POINT_DATA %i\n", pointCount);
+     fprintf(file, "VECTORS velocity float\n");
+ 
+     if (useBinaryFormat) {
+@@ -175,8 +176,8 @@ void VtkExporter::emitPointValues(FILE *file, Real *U, Real *V, Real *W, FlagTyp
+                 }
+             }
+         }
+-        reverseByteOrder(pointBuffer, (iu-il+2)*(ju-jl+2)*(ku-kl+2)*3);
+-        fwrite(pointBuffer, sizeof(float), (iu-il+2)*(ju-jl+2)*(ku-kl+2)*3, file);
++        reverseByteOrder(pointBuffer, pointCount*3);
++        fwrite(pointBuffer, sizeof(float), pointCount*3, file);
+     } else {
+         if (mpiEnabled) {
+             for (int k = kl-1; k <= ku; k++) {
+@@ -219,10 +220,11 @@ void VtkExporter::emitPointValues(FILE *file, Real *U, Real *V, Real *W, FlagTyp
+ }
+ 
+ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
++    int cellCount = (iu-il+1)*(ju-jl+1)*(ku-kl+1);
+     if (mpiEnabled) {
+-        fprintf(file, "CELL_DATA %i\n", (iu-il+1)*(ju-jl+1)*(ku-kl+1));
++        fprintf(file, "CELL_DATA %i\n", cellCount);
+     } else {
+-        fprintf(file, "CELL_DATA %i\n", (iu-il+1)*(ju-jl+1)*(ku-kl+1));
++        fprintf(file, "CELL_DATA %i\n", cellCount);
+     }
+     fprintf(file, "SCALARS pressure float 1\n");
+     fprintf(file, "LOOKUP_TABLE default\n");
+@@ -253,8 +255,8 @@ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
+                 }
+             }
+         }
+-        reverseByteOrder(cellBuffer, (iu-il+1)*(ju-jl+1)*(ku-kl+1));
+-        fwrite(cellBuffer, sizeof(float), (iu-il+1)*(ju-jl+1)*(ku-kl+1), file);
++        reverseByteOrder(cellBuffer, cellCount);
++        fwrite(cellBuffer, sizeof(float), cellCount, file);
+     } else {
+         if (mpiEnabled) {
+             for (int k = kl; k <= ku; k++) {
+@@ -312,8 +314,8 @@ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
+                 }
+             }
+         }
+-        reverseByteOrder(cellBuffer, (iu-il+1)*(ju-jl+1)*(ku-kl+1));
+-        fwrite(cellBuffer, sizeof(float), (iu-il+1)*(ju-jl+1)*(ku-kl+1), file);
++        reverseByteOrder(cellBuffer, cellCount);
++        fwrite(cellBuffer, sizeof(float), cellCount, file);
+     } else {
+         if (mpiEnabled) {
+             for (int k = kl; k <= ku; k++) {
+@@ -363,7 +365,7 @@ void VtkExporter::emitCellValues(FILE *file, Real *P, Real *T, FlagType *Flag) {
+                 }
+             }
+         }
+-        fwrite(cellByteBuffer, sizeof(uint8_t), (iu-il+1)*(ju-jl+1)*(ku-kl+1), file);
++        fwrite(cellByteBuffer, sizeof(uint8_t), cellCount, file);
+     } else {
+         fprintf(file, "SCALARS geometry bit 1\n");
+         fprintf(file, "LOOKUP_TABLE default\n");

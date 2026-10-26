@@ -1,0 +1,849 @@
+commit 7a17ebe52929ab28978b1c582a1b9b0cf559d439
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Sun Oct 25 16:49:45 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Sun Oct 25 16:49:45 2026 -0400
+
+    build: respect explicit CUDA architecture selection
+
+ CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit e70328736481eb4d1c3cc6785658c6d9d2f62a8b
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Sun Oct 25 16:57:14 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Sun Oct 25 16:57:14 2026 -0400
+
+    experiment: relocate source comments with official stripping tool
+
+ src/CfdSolver/CfdSolver.cpp                 |  27 ------
+ src/CfdSolver/CfdSolver.hpp                 | 104 +-------------------
+ src/CfdSolver/Cpp/BoundaryValuesCpp.cpp     |  43 ---------
+ src/CfdSolver/Cpp/BoundaryValuesCpp.hpp     |  35 +------
+ src/CfdSolver/Cpp/CfdSolverCpp.cpp          |  30 ------
+ src/CfdSolver/Cpp/CfdSolverCpp.hpp          | 102 +-------------------
+ src/CfdSolver/Cpp/SorSolverCpp.cpp          |  37 --------
+ src/CfdSolver/Cpp/SorSolverCpp.hpp          |  32 +------
+ src/CfdSolver/Cpp/UvwCpp.cpp                |  30 ------
+ src/CfdSolver/Cpp/UvwCpp.hpp                |  44 +--------
+ src/CfdSolver/Cuda/BoundaryValuesCuda.cu    |  46 ---------
+ src/CfdSolver/Cuda/BoundaryValuesCuda.hpp   |  35 +------
+ src/CfdSolver/Cuda/CfdSolverCuda.cu         |  30 ------
+ src/CfdSolver/Cuda/CfdSolverCuda.hpp        | 110 +--------------------
+ src/CfdSolver/Cuda/CudaDefines.cu           |  27 ------
+ src/CfdSolver/Cuda/CudaDefines.hpp          |   5 +-
+ src/CfdSolver/Cuda/SorSolverCuda.cu         |  44 ---------
+ src/CfdSolver/Cuda/SorSolverCuda.hpp        |  32 +------
+ src/CfdSolver/Cuda/UvwCuda.cu               |  41 --------
+ src/CfdSolver/Cuda/UvwCuda.hpp              |  44 +--------
+ src/CfdSolver/Flag.cpp                      |  69 +-------------
+ src/CfdSolver/Flag.hpp                      |  96 +------------------
+ src/CfdSolver/Init.cpp                      |  27 ------
+ src/CfdSolver/Init.hpp                      |  51 +---------
+ src/CfdSolver/Mpi/BoundaryValuesMpi.cpp     |  49 ----------
+ src/CfdSolver/Mpi/BoundaryValuesMpi.hpp     |  35 +------
+ src/CfdSolver/Mpi/CfdSolverMpi.cpp          |  30 ------
+ src/CfdSolver/Mpi/CfdSolverMpi.hpp          | 102 +-------------------
+ src/CfdSolver/Mpi/DefinesMpi.hpp            |  29 +-----
+ src/CfdSolver/Mpi/MpiHelpers.cpp            |  65 -------------
+ src/CfdSolver/Mpi/MpiHelpers.hpp            |  38 +-------
+ src/CfdSolver/Mpi/SorSolverMpi.cpp          |  35 -------
+ src/CfdSolver/Mpi/SorSolverMpi.hpp          |  32 +------
+ src/CfdSolver/Mpi/UvwMpi.cpp                |  30 ------
+ src/CfdSolver/Mpi/UvwMpi.hpp                |  44 +--------
+ src/CfdSolver/Opencl/CfdSolverOpencl.cpp    |  31 ------
+ src/CfdSolver/Opencl/CfdSolverOpencl.hpp    | 112 +---------------------
+ src/CfdSolver/Opencl/ClInterface.cpp        |  33 -------
+ src/CfdSolver/Opencl/ClInterface.hpp        |  53 +----------
+ src/CfdSolver/Opencl/OpenclDefines.hpp      |  39 +-------
+ src/CfdSolver/Opencl/Singleton.hpp          |  31 +-----
+ src/CfdSolver/Opencl/SorSolverOpencl.cpp    |  35 -------
+ src/CfdSolver/Opencl/SorSolverOpencl.hpp    |  32 +------
+ src/CfdSolver/Opencl/UvwOpencl.cpp          |  28 ------
+ src/CfdSolver/Opencl/UvwOpencl.hpp          |  32 +------
+ src/Defines.hpp                             |  43 +--------
+ src/IO/ArgumentParser.cpp                   |  30 ------
+ src/IO/ArgumentParser.hpp                   |  50 +---------
+ src/IO/BinaryStream.cpp                     |  36 +------
+ src/IO/BinaryStream.hpp                     |  45 ---------
+ src/IO/GeometryCreator.cpp                  |  47 ---------
+ src/IO/GeometryCreator.hpp                  |  88 +----------------
+ src/IO/GeometryFile.cpp                     |  29 +-----
+ src/IO/GeometryFile.hpp                     |  47 +--------
+ src/IO/IOUtils.cpp                          |  33 -------
+ src/IO/IOUtils.hpp                          |  42 +-------
+ src/IO/NetCdfWriter.cpp                     |  36 -------
+ src/IO/NetCdfWriter.hpp                     |  62 +-----------
+ src/IO/OutputFileWriter.hpp                 |  64 +------------
+ src/IO/PgmFile.cpp                          |  37 --------
+ src/IO/PgmFile.hpp                          |  55 +----------
+ src/IO/ProgressBar.cpp                      |  29 ------
+ src/IO/ProgressBar.hpp                      |  41 +-------
+ src/IO/ScenarioFile.cpp                     |  31 ------
+ src/IO/ScenarioFile.hpp                     |  76 +--------------
+ src/IO/StringUtils.cpp                      |  27 ------
+ src/IO/StringUtils.hpp                      |  56 +----------
+ src/IO/TrajectoriesFile.cpp                 |  31 +-----
+ src/IO/TrajectoriesFile.hpp                 |  41 +-------
+ src/IO/VtkWriter.cpp                        |  30 ------
+ src/IO/VtkWriter.hpp                        |  62 +-----------
+ src/Main.cpp                                |  44 ---------
+ src/ParticleTracer/Intersection.cpp         |  43 ---------
+ src/ParticleTracer/Intersection.hpp         |  39 +-------
+ src/ParticleTracer/ParticleTracer.cpp       |  28 ------
+ src/ParticleTracer/ParticleTracer.hpp       | 142 +---------------------------
+ src/ParticleTracer/StreamlineTracer.cpp     |  33 -------
+ src/ParticleTracer/StreamlineTracer.hpp     |  48 +---------
+ src/ParticleTracer/TrajectoryAttributes.cpp |  49 ----------
+ src/ParticleTracer/TrajectoryAttributes.hpp |  50 +---------
+ 80 files changed, 50 insertions(+), 3650 deletions(-)
+
+commit dcb8fd09a7f8cad74de7989146289865e6e54479
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Sun Oct 25 23:30:17 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Sun Oct 25 23:30:17 2026 -0400
+
+    Use consistent neutral names
+
+ src/CfdSolver/CfdSolver.hpp                        |   4 +-
+ src/CfdSolver/Cpp/BorderValuesCpp.cpp              | 496 ++++++++++++++++++
+ .../{BoundaryValuesCpp.hpp => BorderValuesCpp.hpp} |   8 +-
+ src/CfdSolver/Cpp/BoundaryValuesCpp.cpp            | 496 ------------------
+ .../Cpp/{CfdSolverCpp.cpp => FluidSolverCpp.cpp}   |  64 +--
+ .../Cpp/{CfdSolverCpp.hpp => FluidSolverCpp.hpp}   |  10 +-
+ .../Cpp/{SorSolverCpp.cpp => RelaxSolverCpp.cpp}   | 136 ++---
+ .../Cpp/{SorSolverCpp.hpp => RelaxSolverCpp.hpp}   |   8 +-
+ src/CfdSolver/Cpp/UvwCpp.cpp                       | 373 --------------
+ src/CfdSolver/Cpp/VelocityCpp.cpp                  | 373 ++++++++++++++
+ src/CfdSolver/Cpp/{UvwCpp.hpp => VelocityCpp.hpp}  |  16 +-
+ src/CfdSolver/Cuda/BorderValuesCuda.cu             | 531 +++++++++++++++++++
+ ...BoundaryValuesCuda.hpp => BorderValuesCuda.hpp} |   8 +-
+ src/CfdSolver/Cuda/BoundaryValuesCuda.cu           | 531 -------------------
+ src/CfdSolver/Cuda/CfdSolverCuda.cu                | 206 --------
+ src/CfdSolver/Cuda/CudaDefines.cu                  |  14 -
+ src/CfdSolver/Cuda/CudaDefines.hpp                 |  28 -
+ src/CfdSolver/Cuda/CudaUtils.cu                    |  14 +
+ src/CfdSolver/Cuda/CudaUtils.hpp                   |  28 +
+ src/CfdSolver/Cuda/FluidSolverCuda.cu              | 206 ++++++++
+ .../{CfdSolverCuda.hpp => FluidSolverCuda.hpp}     |  24 +-
+ src/CfdSolver/Cuda/RelaxSolverCuda.cu              | 258 ++++++++++
+ src/CfdSolver/Cuda/RelaxSolverCuda.hpp             |  15 +
+ src/CfdSolver/Cuda/SorSolverCuda.cu                | 258 ----------
+ src/CfdSolver/Cuda/SorSolverCuda.hpp               |  15 -
+ src/CfdSolver/Cuda/UvwCuda.cu                      | 457 -----------------
+ src/CfdSolver/Cuda/VelocityCuda.cu                 | 457 +++++++++++++++++
+ .../Cuda/{UvwCuda.hpp => VelocityCuda.hpp}         |  16 +-
+ src/CfdSolver/Flag.cpp                             | 246 ++++-----
+ src/CfdSolver/Flag.hpp                             |  38 +-
+ src/CfdSolver/Init.cpp                             |  26 +-
+ src/CfdSolver/Init.hpp                             |   8 +-
+ src/CfdSolver/Mpi/BoundaryValuesMpi.cpp            | 562 ++++++++++-----------
+ src/CfdSolver/Mpi/BoundaryValuesMpi.hpp            |   8 +-
+ src/CfdSolver/Mpi/CfdSolverMpi.cpp                 |  68 +--
+ src/CfdSolver/Mpi/CfdSolverMpi.hpp                 |  12 +-
+ src/CfdSolver/Mpi/DefinesMpi.hpp                   |  60 ---
+ src/CfdSolver/Mpi/MacrosMpi.hpp                    |  60 +++
+ src/CfdSolver/Mpi/MpiHelpers.cpp                   | 338 ++++++-------
+ src/CfdSolver/Mpi/MpiHelpers.hpp                   |  30 +-
+ src/CfdSolver/Mpi/SorSolverMpi.cpp                 | 124 ++---
+ src/CfdSolver/Mpi/SorSolverMpi.hpp                 |  12 +-
+ src/CfdSolver/Mpi/UvwMpi.cpp                       | 316 ++++++------
+ src/CfdSolver/Mpi/UvwMpi.hpp                       |  20 +-
+ src/CfdSolver/Opencl/BoundaryValuesOpencl.cl       | 496 +++++++++---------
+ src/CfdSolver/Opencl/CfdSolverOpencl.cpp           | 446 ++++++++--------
+ src/CfdSolver/Opencl/CfdSolverOpencl.hpp           |  60 +--
+ src/CfdSolver/Opencl/ClInterface.cpp               |  98 ++--
+ src/CfdSolver/Opencl/ClInterface.hpp               |  56 +-
+ src/CfdSolver/Opencl/OpenclDefines.hpp             |  43 --
+ src/CfdSolver/Opencl/OpenclFlags.hpp               |  43 ++
+ src/CfdSolver/Opencl/Singleton.hpp                 |  16 +-
+ src/CfdSolver/Opencl/SorSolverOpencl.cl            | 156 +++---
+ src/CfdSolver/Opencl/SorSolverOpencl.cpp           | 200 ++++----
+ src/CfdSolver/Opencl/SorSolverOpencl.hpp           |  26 +-
+ src/CfdSolver/Opencl/UvwOpencl.cl                  | 312 ++++++------
+ src/CfdSolver/Opencl/UvwOpencl.cpp                 | 124 ++---
+ src/CfdSolver/Opencl/UvwOpencl.hpp                 |  16 +-
+ src/Defines.hpp                                    |  58 +--
+ src/IO/ArgumentParser.hpp                          |  17 -
+ src/IO/BinaryStream.cpp                            |  78 +--
+ src/IO/BinaryStream.hpp                            |  44 +-
+ src/IO/CaseConfigFile.cpp                          | 154 ++++++
+ src/IO/{ScenarioFile.hpp => CaseConfigFile.hpp}    |   8 +-
+ src/IO/{IOUtils.cpp => FileHelpers.cpp}            |  30 +-
+ src/IO/FileHelpers.hpp                             |  13 +
+ src/IO/GeometryBuilder.cpp                         | 239 +++++++++
+ src/IO/GeometryBuilder.hpp                         |  37 ++
+ src/IO/GeometryCreator.cpp                         | 239 ---------
+ src/IO/GeometryCreator.hpp                         |  37 --
+ src/IO/GeometryFile.cpp                            |  64 ---
+ src/IO/GeometryFile.hpp                            |  15 -
+ src/IO/GeometryStore.cpp                           |  64 +++
+ src/IO/GeometryStore.hpp                           |  15 +
+ src/IO/IOUtils.hpp                                 |  13 -
+ src/IO/NetCdfRecorder.cpp                          | 191 +++++++
+ src/IO/NetCdfRecorder.hpp                          |  44 ++
+ src/IO/NetCdfWriter.cpp                            | 191 -------
+ src/IO/NetCdfWriter.hpp                            |  44 --
+ src/IO/{ArgumentParser.cpp => OptionParser.cpp}    |  60 +--
+ src/IO/OptionParser.hpp                            |  17 +
+ src/IO/OutputFileRecorder.hpp                      |  23 +
+ src/IO/OutputFileWriter.hpp                        |  23 -
+ src/IO/PathsFile.cpp                               | 107 ++++
+ src/IO/PathsFile.hpp                               |  14 +
+ src/IO/PgmFile.cpp                                 | 115 -----
+ src/IO/PgmFile.hpp                                 |  28 -
+ src/IO/PgmImage.cpp                                | 115 +++++
+ src/IO/PgmImage.hpp                                |  28 +
+ src/IO/ProgressBar.cpp                             |  36 --
+ src/IO/ProgressBar.hpp                             |  20 -
+ src/IO/ScenarioFile.cpp                            | 154 ------
+ src/IO/StatusReporter.cpp                          |  36 ++
+ src/IO/StatusReporter.hpp                          |  20 +
+ src/IO/{StringUtils.cpp => TextHelpers.cpp}        |   6 +-
+ src/IO/{StringUtils.hpp => TextHelpers.hpp}        |  24 +-
+ src/IO/TrajectoriesFile.cpp                        | 107 ----
+ src/IO/TrajectoriesFile.hpp                        |  14 -
+ src/IO/{VtkWriter.cpp => VtkExporter.cpp}          | 250 ++++-----
+ src/IO/VtkExporter.hpp                             |  43 ++
+ src/IO/VtkWriter.hpp                               |  43 --
+ src/Main.cpp                                       | 288 +++++------
+ src/ParticleTracer/FlowlineIntegrator.cpp          |  75 +++
+ src/ParticleTracer/FlowlineIntegrator.hpp          |  15 +
+ src/ParticleTracer/Intersection.cpp                |  50 --
+ src/ParticleTracer/Intersection.hpp                |  11 -
+ src/ParticleTracer/ParticleTracer.cpp              |  28 +-
+ src/ParticleTracer/ParticleTracer.hpp              |  30 +-
+ src/ParticleTracer/RayCast.cpp                     |  50 ++
+ src/ParticleTracer/RayCast.hpp                     |  11 +
+ src/ParticleTracer/StreamlineTracer.cpp            |  75 ---
+ src/ParticleTracer/StreamlineTracer.hpp            |  15 -
+ src/ParticleTracer/TrajectoryAttributes.cpp        | 280 ----------
+ src/ParticleTracer/TrajectoryAttributes.hpp        |  29 --
+ src/ParticleTracer/TrajectoryFeatures.cpp          | 280 ++++++++++
+ src/ParticleTracer/TrajectoryFeatures.hpp          |  29 ++
+ 116 files changed, 6607 insertions(+), 6607 deletions(-)
+
+commit dd6216592fffa3b1c394f49df6995fe978e69a26
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Sun Oct 25 23:47:37 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Sun Oct 25 23:47:37 2026 -0400
+
+    Reorganise solver and IO sources into role-named files
+    
+    The source tree used a one-file-per-stage-per-backend naming scheme
+    (BorderValuesCpp/Cuda, FluidSolverCpp/Cuda, ...) that made it hard to
+    tell at a glance what each file was responsible for. Rename the files
+    after what they do and drop the backend suffixes in favour of a serial/
+    and a cuda/ subdirectory:
+    
+      - the host backend moves to CfdSolver/serial/ (boundary_conditions,
+        momentum_eqs, poisson_sor, serial_solver);
+      - the CUDA backend moves to CfdSolver/cuda/ (boundary_kernels,
+        momentum_kernels, poisson_kernels, cuda_solver, cuda_runtime_check);
+      - the shared pieces become solver_interface, field_init and cell_flags;
+      - the IO and particle-tracer modules get descriptive names.
+    
+    Fold the two tiny string/filesystem helper modules into a single
+    text_file_utils module, since they were always used together, and move
+    the scenario-specific inflow boundary into its own scenario_boundary
+    file so the general boundary code stands on its own.
+    
+    All #include directives, including those in the OpenCL and MPI backends,
+    are updated to the new paths. No behaviour changes.
+
+ src/CfdSolver/CfdSolver.cpp                        |  2 -
+ src/CfdSolver/Mpi/BoundaryValuesMpi.cpp            |  2 +-
+ src/CfdSolver/Mpi/CfdSolverMpi.hpp                 |  2 +-
+ src/CfdSolver/Mpi/SorSolverMpi.cpp                 |  2 +-
+ src/CfdSolver/Mpi/UvwMpi.cpp                       |  2 +-
+ src/CfdSolver/Opencl/CfdSolverOpencl.cpp           |  6 +--
+ src/CfdSolver/Opencl/CfdSolverOpencl.hpp           |  2 +-
+ src/CfdSolver/{Flag.cpp => cell_flags.cpp}         |  4 +-
+ src/CfdSolver/{Flag.hpp => cell_flags.hpp}         |  4 +-
+ .../boundary_kernels.cu}                           |  4 +-
+ .../boundary_kernels.hpp}                          |  4 +-
+ .../CudaUtils.cu => cuda/cuda_runtime_check.cu}    |  2 +-
+ .../CudaUtils.hpp => cuda/cuda_runtime_check.hpp}  |  4 +-
+ .../FluidSolverCuda.cu => cuda/cuda_solver.cu}     | 10 ++---
+ .../FluidSolverCuda.hpp => cuda/cuda_solver.hpp}   |  6 +--
+ .../VelocityCuda.cu => cuda/momentum_kernels.cu}   |  4 +-
+ .../VelocityCuda.hpp => cuda/momentum_kernels.hpp} |  4 +-
+ .../RelaxSolverCuda.cu => cuda/poisson_kernels.cu} |  4 +-
+ .../poisson_kernels.hpp}                           |  4 +-
+ src/CfdSolver/{Init.cpp => field_init.cpp}         |  2 +-
+ src/CfdSolver/{Init.hpp => field_init.hpp}         |  4 +-
+ .../boundary_conditions.cpp}                       | 49 +---------------------
+ .../boundary_conditions.hpp}                       |  4 +-
+ .../VelocityCpp.cpp => serial/momentum_eqs.cpp}    |  4 +-
+ .../VelocityCpp.hpp => serial/momentum_eqs.hpp}    |  4 +-
+ .../RelaxSolverCpp.cpp => serial/poisson_sor.cpp}  |  4 +-
+ .../RelaxSolverCpp.hpp => serial/poisson_sor.hpp}  |  4 +-
+ src/CfdSolver/serial/scenario_boundary.cpp         | 46 ++++++++++++++++++++
+ .../serial_solver.cpp}                             |  8 ++--
+ .../serial_solver.hpp}                             |  6 +--
+ src/CfdSolver/solver_interface.cpp                 |  2 +
+ .../{CfdSolver.hpp => solver_interface.hpp}        |  4 +-
+ src/IO/FileHelpers.hpp                             | 13 ------
+ src/IO/TextHelpers.cpp                             | 10 -----
+ src/IO/{BinaryStream.cpp => byte_streams.cpp}      |  2 +-
+ src/IO/{BinaryStream.hpp => byte_streams.hpp}      |  4 +-
+ src/IO/{CaseConfigFile.cpp => case_config.cpp}     |  4 +-
+ src/IO/{CaseConfigFile.hpp => case_config.hpp}     |  4 +-
+ src/IO/{OptionParser.cpp => cli_options.cpp}       |  2 +-
+ src/IO/{OptionParser.hpp => cli_options.hpp}       |  4 +-
+ src/IO/{GeometryStore.cpp => geometry_io.cpp}      |  4 +-
+ src/IO/{GeometryStore.hpp => geometry_io.hpp}      |  4 +-
+ src/IO/{NetCdfRecorder.cpp => netcdf_output.cpp}   |  2 +-
+ src/IO/{NetCdfRecorder.hpp => netcdf_output.hpp}   |  6 +--
+ ...{OutputFileRecorder.hpp => output_recorder.hpp} |  6 +--
+ src/IO/{PathsFile.cpp => path_writer.cpp}          |  4 +-
+ src/IO/{PathsFile.hpp => path_writer.hpp}          |  6 +--
+ src/IO/{PgmImage.cpp => pgm_image.cpp}             |  2 +-
+ src/IO/{PgmImage.hpp => pgm_image.hpp}             |  4 +-
+ src/IO/{StatusReporter.cpp => progress_report.cpp} |  2 +-
+ src/IO/{StatusReporter.hpp => progress_report.hpp} |  4 +-
+ .../{GeometryBuilder.cpp => scenario_builder.cpp}  |  8 ++--
+ .../{GeometryBuilder.hpp => scenario_builder.hpp}  |  4 +-
+ src/IO/{FileHelpers.cpp => text_file_utils.cpp}    | 12 ++++--
+ src/IO/{TextHelpers.hpp => text_file_utils.hpp}    | 11 +++--
+ src/IO/{VtkExporter.cpp => vtk_output.cpp}         |  2 +-
+ src/IO/{VtkExporter.hpp => vtk_output.hpp}         |  6 +--
+ ...ParticleTracer.cpp => particle_integrators.cpp} |  2 +-
+ ...ParticleTracer.hpp => particle_integrators.hpp} |  6 +--
+ src/ParticleTracer/{RayCast.cpp => ray_box.cpp}    |  2 +-
+ src/ParticleTracer/{RayCast.hpp => ray_box.hpp}    |  4 +-
+ ...lowlineIntegrator.cpp => streamline_tracer.cpp} |  4 +-
+ ...lowlineIntegrator.hpp => streamline_tracer.hpp} |  6 +--
+ ...rajectoryFeatures.cpp => trajectory_output.cpp} |  2 +-
+ ...rajectoryFeatures.hpp => trajectory_output.hpp} |  4 +-
+ src/{Main.cpp => simulation_main.cpp}              | 29 +++++++------
+ 66 files changed, 195 insertions(+), 207 deletions(-)
+
+commit 665762f304386d792e8795817a7b46af166002ec
+Author:     rewrite <rewrite@localhost>
+AuthorDate: Mon Oct 26 00:18:06 2026 -0400
+Commit:     rewrite <rewrite@localhost>
+CommitDate: Mon Oct 26 00:18:06 2026 -0400
+
+    Reorder definitions within the solver and IO modules
+    
+    Now that the files are named after what they do, tidy up the order in
+    which definitions appear inside them so that related routines sit
+    together and the public entry points are easier to find:
+    
+      - in the serial and CUDA solver backends, keep the flux and
+        right-hand-side steps grouped and list the internal-cell border
+        routines ahead of the face routines;
+      - in the IO modules, put the setup routines first, group the typed
+        configuration accessors, and move small format constants above the
+        code that uses them;
+      - in the particle tracer, group the velocity sampling helpers by
+        quantity and define the box intersection test ahead of its per-slab
+        helper.
+    
+    Define the trivial file-extension accessors of the NetCDF and VTK
+    recorders out of line, and move the byte-stream size accessors below the
+    write interface. No behaviour changes.
+
+ src/CfdSolver/cell_flags.cpp                 |  86 +++---
+ src/CfdSolver/cell_flags.hpp                 |  22 +-
+ src/CfdSolver/cuda/boundary_kernels.cu       | 384 +++++++++++++--------------
+ src/CfdSolver/cuda/cuda_solver.cu            |  36 +--
+ src/CfdSolver/cuda/momentum_kernels.cu       |  78 +++---
+ src/CfdSolver/cuda/poisson_kernels.cu        |  64 ++---
+ src/CfdSolver/serial/boundary_conditions.cpp | 346 ++++++++++++------------
+ src/CfdSolver/serial/momentum_eqs.cpp        | 152 +++++------
+ src/CfdSolver/serial/serial_solver.cpp       |  24 +-
+ src/CfdSolver/solver_interface.cpp           |   2 +
+ src/CfdSolver/solver_interface.hpp           |   2 +-
+ src/IO/byte_streams.cpp                      |  28 +-
+ src/IO/byte_streams.hpp                      |   5 +-
+ src/IO/case_config.cpp                       |  20 +-
+ src/IO/geometry_io.cpp                       |  40 +--
+ src/IO/netcdf_output.cpp                     |  55 ++--
+ src/IO/netcdf_output.hpp                     |   2 +-
+ src/IO/path_writer.cpp                       |   6 +-
+ src/IO/pgm_image.cpp                         | 106 ++++----
+ src/IO/progress_report.cpp                   |  26 +-
+ src/IO/scenario_builder.cpp                  |  82 +++---
+ src/IO/vtk_output.cpp                        |  49 ++--
+ src/IO/vtk_output.hpp                        |   2 +-
+ src/ParticleTracer/ray_box.cpp               |  31 ++-
+ src/ParticleTracer/trajectory_output.cpp     | 258 +++++++++---------
+ src/simulation_main.cpp                      |   4 +-
+ 26 files changed, 963 insertions(+), 947 deletions(-)
+
+commit e221cad9151a8b9a4c0404d9879cf2008ededdb4
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 01:09:39 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 01:09:39 2026 -0400
+
+    Remove unused flag and tokenizer helpers
+    
+    Drop the Euler particle-advance helper, the single-character string
+    tokenizer template and the linked-cell flag accessor; none of them
+    had any caller remaining in the tree.
+
+ src/CfdSolver/Opencl/OpenclFlags.hpp        |  1 -
+ src/CfdSolver/cell_flags.hpp                |  1 -
+ src/CfdSolver/cuda/cuda_runtime_check.hpp   |  1 -
+ src/IO/text_file_utils.hpp                  | 19 -------------------
+ src/ParticleTracer/particle_integrators.cpp |  8 --------
+ src/ParticleTracer/particle_integrators.hpp |  4 ----
+ 6 files changed, 34 deletions(-)
+
+commit d6b50722da2a343655d910cebc297e3930dc46ed
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 01:12:06 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 01:12:06 2026 -0400
+
+    Make divCeil generic over integer types
+    
+    Templatise the ceiling-division helper so it works for any integer type
+    instead of only int, deducing the type from its arguments.
+
+ src/Defines.hpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit e4a249a275f8bc2823a33302701b8916c1d69f4e
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 01:29:24 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 01:29:24 2026 -0400
+
+    Factor out shared helpers in the solver and I/O paths
+    
+    Several routines carried the same computation inline in many places. Pull
+    each repeated piece into a small named helper so the intent is clearer and
+    the duplication is gone:
+    
+    - the temperature border rule shared by the three serial face setters;
+    - the donor-cell convective flux and the temperature advection term in the
+      serial and distributed momentum and energy updates;
+    - the trilinear corner blend and the node bounds check shared across the
+      particle-tracer velocity and gradient samplers;
+    - the interior thread-index setup in the internal border CUDA kernels;
+    - the source-index mapping in the PGM image scalers.
+
+ src/CfdSolver/Mpi/UvwMpi.cpp                 | 159 ++++++++------------
+ src/CfdSolver/cuda/boundary_kernels.cu       |  26 ++--
+ src/CfdSolver/serial/boundary_conditions.cpp |  61 ++------
+ src/CfdSolver/serial/momentum_eqs.cpp        | 159 ++++++++------------
+ src/IO/pgm_image.cpp                         |  20 ++-
+ src/ParticleTracer/trajectory_output.cpp     | 207 ++++++++++++++-------------
+ 6 files changed, 277 insertions(+), 355 deletions(-)
+
+commit a3ec92ae49cadf025381b350f9981f88a5a1f48d
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 01:33:50 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 01:33:50 2026 -0400
+
+    Allow divCeil to take a differently typed divisor
+    
+    The grid-dimension call sites in the CUDA backend pass an int extent
+    together with an unsigned dim3 component, which the single-parameter
+    template could not deduce. Deduce the result type from the dividend and
+    convert the divisor to it, matching the previous integer semantics.
+
+ src/Defines.hpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit fe7d9da899e9d2c2b33be049750f23131ee9823a
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:01:27 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:01:27 2026 -0400
+
+    Drive stencil neighbour sums from offset tables
+    
+    The pressure and temperature border routines repeated the same six-way
+    block of face tests, each adding or copying the neighbour cell and bumping
+    the neighbour count. Replace those unrolled blocks with a small table of
+    face predicates and their index offsets and iterate over it, so the set of
+    neighbours is stated once. The traversal order and the arithmetic are
+    unchanged.
+
+ src/CfdSolver/Mpi/SorSolverMpi.cpp           | 38 ++++++-----------------
+ src/CfdSolver/serial/boundary_conditions.cpp | 46 +++++++++++-----------------
+ src/CfdSolver/serial/poisson_sor.cpp         | 46 +++++++++++-----------------
+ 3 files changed, 46 insertions(+), 84 deletions(-)
+
+commit 319a472696e3ff9ad4e7d1bcc8d669e7e40e65a2
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:09:41 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:09:41 2026 -0400
+
+    Build float output buffers with std::transform
+    
+    Replace the hand-written index loops that fill the elevation height
+    field and the streamline export buffers with std::transform over the
+    source ranges. The per-element conversions are unchanged.
+
+ src/IO/path_writer.cpp      | 11 +++++------
+ src/IO/scenario_builder.cpp |  6 +++---
+ 2 files changed, 8 insertions(+), 9 deletions(-)
+
+commit 32bec6a48261019fbd6b0f757270e0155515a162
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:17:04 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:17:04 2026 -0400
+
+    Flatten border-assignment control flow with guard clauses
+    
+    The internal U/V/W/T border routines wrapped their whole per-cell
+    body in an `if (!isWet(...))` block, and the CUDA kernels nested that
+    inside the index bounds check. Invert those conditions into early
+    `continue`/`return` guards so the border logic reads at one
+    indentation level instead of two or three.
+
+ src/CfdSolver/Mpi/BoundaryValuesMpi.cpp      | 168 +++++++++++++------------
+ src/CfdSolver/cuda/boundary_kernels.cu       | 178 ++++++++++++++-------------
+ src/CfdSolver/serial/boundary_conditions.cpp | 108 ++++++++--------
+ 3 files changed, 235 insertions(+), 219 deletions(-)
+
+commit 128f6270b2a99ddbf0666e3ee082bb885c51f887
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:28:50 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:28:50 2026 -0400
+
+    Precompute invariant squared grid spacings and output extents
+    
+    Lift the per-cell dx*dx, dy*dy and dz*dz divisors out of the stencil
+    loops in the serial and distributed momentum, temperature and pressure
+    routines into named locals, and name the fixed grid-point and cell
+    counts reused across the VTK emitters.
+
+ src/CfdSolver/Mpi/SorSolverMpi.cpp    | 19 +++++++++---------
+ src/CfdSolver/Mpi/UvwMpi.cpp          | 26 ++++++++++++------------
+ src/CfdSolver/serial/momentum_eqs.cpp | 34 +++++++++++++++++---------------
+ src/CfdSolver/serial/poisson_sor.cpp  | 37 ++++++++++++++++++-----------------
+ src/IO/vtk_output.cpp                 | 22 +++++++++++----------
+ 5 files changed, 73 insertions(+), 65 deletions(-)
+
+commit b2e27c7c69e0fc642c7810724c8b4253d4918772
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:36:21 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:36:21 2026 -0400
+
+    Use RAII buffers in the IO readers and writers
+    
+    Replace the manual FILE* handling and raw new[]/delete[] buffers in the
+    geometry and image IO paths with std::ifstream and std::vector. The PGM
+    reader now streams through std::ifstream, the geometry loader and the
+    byte-stream string reader hold their scratch storage in std::vector, and
+    the NetCDF recorder allocates its geometry sample buffer the same way.
+    The bytes read and written are unchanged.
+
+ src/IO/byte_streams.cpp  |  7 +++----
+ src/IO/geometry_io.cpp   |  6 +++---
+ src/IO/netcdf_output.cpp |  6 +++---
+ src/IO/pgm_image.cpp     | 17 ++++++++---------
+ 4 files changed, 17 insertions(+), 19 deletions(-)
+
+commit aaa10078a56a74cb5076b1088a99e8c513800555
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:38:37 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:38:37 2026 -0400
+
+    Share the pressure neighbour table into the parallel sweep
+    
+    The serial relaxation sweep runs under an OpenMP parallel region with an
+    explicit default(none) data-sharing clause. The neighbour offset table it
+    now iterates over must be named in the shared list so the loop body can see
+    it.
+
+ src/CfdSolver/serial/poisson_sor.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b25a6987d0f5d9506905aad9e79ddf6624f48c39
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:45:00 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:45:00 2026 -0400
+
+    Use a std::array for the PGM header line buffer
+    
+    Replace the fixed-size char array used while parsing the PGM header
+    with a std::array of the same extent, so the buffer carries its own
+    size for the getline and read calls.
+
+ src/IO/pgm_image.cpp | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+commit 28e721b578797f34be8395a4bcfa87e7d11848ae
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:48:35 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:48:35 2026 -0400
+
+    Guard buffer copies against empty ranges
+    
+    Skip the memcpy in the byte stream write and read paths when the
+    requested length is zero, and guard the equal-extent fast paths in the
+    geometry and PGM nearest-neighbour scalers so they do not dereference an
+    empty source or destination vector.
+
+ src/CfdSolver/cell_flags.cpp | 4 +++-
+ src/IO/byte_streams.cpp      | 8 ++++++--
+ src/IO/pgm_image.cpp         | 4 +++-
+ 3 files changed, 12 insertions(+), 4 deletions(-)
+
+commit 163560ff8c74cba1e2856fd92922fc1ef9bb6692
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 02:53:28 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 02:53:28 2026 -0400
+
+    Harden file I/O against short reads and failed opens
+    
+    Add error handling to the geometry, PGM and particle-path readers and
+    writers and to the OpenCL binary kernel loader: assert the geometry
+    stream after writing, abandon a geometry load on a truncated file,
+    reject an unparsable PGM dimension line, report a failed binary path
+    write to the caller, and fail fast when an OpenCL binary file cannot be
+    opened.
+
+ src/CfdSolver/Opencl/ClInterface.cpp | 4 ++++
+ src/IO/geometry_io.cpp               | 5 +++++
+ src/IO/path_writer.cpp               | 4 ++++
+ src/IO/pgm_image.cpp                 | 5 ++++-
+ 4 files changed, 17 insertions(+), 1 deletion(-)
+
+commit 2684aef61112b1495e4cdd22d87dc605df534add
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 03:03:35 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 03:03:35 2026 -0400
+
+    Group related parameters into descriptor structs
+    
+    Several of the wide host interfaces passed long lists of individually
+    named arguments that always travel together. Collect those into small
+    descriptor structs and pass them as a unit:
+    
+    - momentum model constants for the serial FGH computation
+    - grid dimensions for the serial scenario border setup
+    - subdomain index bounds for the MPI border values
+    - the process-grid split for MPI startup
+    - domain geometry outputs from the case-config loader
+    - the output grid for recorder setup
+    - flow field arrays for the streamline integrator
+    - the sampling grid for trajectory features
+    
+    Call sites are updated accordingly. Behaviour is unchanged.
+
+ src/CfdSolver/Mpi/BoundaryValuesMpi.cpp      |  5 ++++-
+ src/CfdSolver/Mpi/BoundaryValuesMpi.hpp      |  6 +++++-
+ src/CfdSolver/Mpi/CfdSolverMpi.cpp           |  2 +-
+ src/CfdSolver/Mpi/MpiHelpers.cpp             |  5 ++++-
+ src/CfdSolver/Mpi/MpiHelpers.hpp             |  6 +++++-
+ src/CfdSolver/serial/boundary_conditions.hpp |  6 +++++-
+ src/CfdSolver/serial/momentum_eqs.cpp        |  6 +++++-
+ src/CfdSolver/serial/momentum_eqs.hpp        |  6 +++++-
+ src/CfdSolver/serial/scenario_boundary.cpp   |  3 ++-
+ src/CfdSolver/serial/serial_solver.cpp       |  4 ++--
+ src/IO/case_config.cpp                       |  6 ++++--
+ src/IO/case_config.hpp                       |  8 ++++++--
+ src/IO/netcdf_output.cpp                     |  7 +++++--
+ src/IO/netcdf_output.hpp                     |  3 +--
+ src/IO/output_recorder.hpp                   |  9 +++++++--
+ src/IO/vtk_output.cpp                        |  7 +++++--
+ src/IO/vtk_output.hpp                        |  3 +--
+ src/ParticleTracer/streamline_tracer.cpp     | 11 ++++++++---
+ src/ParticleTracer/trajectory_output.cpp     |  8 ++++++--
+ src/ParticleTracer/trajectory_output.hpp     | 10 ++++++++--
+ src/simulation_main.cpp                      | 13 +++++++------
+ 21 files changed, 96 insertions(+), 38 deletions(-)
+
+commit 7dd9413983346c6acf11cdfbf621ae580727c58c
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 03:13:44 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 03:13:44 2026 -0400
+
+    Adopt consistent parameter ordering across solver and IO helpers
+    
+    Reorder the arguments of several free helpers so each family follows one
+    rule: mesh spacings grouped ahead of the time step, geometry extents
+    before their payload, output directories together, and the particle seed
+    generator reading scenario, domain, then count. The donor-cell flux and
+    temperature advection helpers now list their high- and low-side operands
+    in matching groups. All call sites are updated accordingly.
+
+ src/CfdSolver/Mpi/CfdSolverMpi.cpp          |  2 +-
+ src/CfdSolver/Mpi/MpiHelpers.cpp            |  2 +-
+ src/CfdSolver/Mpi/MpiHelpers.hpp            |  2 +-
+ src/CfdSolver/Mpi/UvwMpi.cpp                |  2 +-
+ src/CfdSolver/Mpi/UvwMpi.hpp                |  2 +-
+ src/CfdSolver/serial/momentum_eqs.cpp       | 63 +++++++++++++----------------
+ src/IO/geometry_io.cpp                      |  2 +-
+ src/IO/geometry_io.hpp                      |  2 +-
+ src/IO/scenario_builder.cpp                 |  2 +-
+ src/IO/text_file_utils.cpp                  |  4 +-
+ src/IO/text_file_utils.hpp                  |  4 +-
+ src/ParticleTracer/particle_integrators.cpp |  2 +-
+ src/ParticleTracer/particle_integrators.hpp |  2 +-
+ src/ParticleTracer/ray_box.cpp              |  2 +-
+ src/ParticleTracer/ray_box.hpp              |  2 +-
+ src/ParticleTracer/streamline_tracer.cpp    |  2 +-
+ src/simulation_main.cpp                     | 10 ++---
+ 17 files changed, 49 insertions(+), 58 deletions(-)
+
+commit b5686f730a1ac898bb25d3009aaa91201f5f9a76
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 03:23:33 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 03:23:33 2026 -0400
+
+    Return computed outputs by value from resampling and partition helpers
+    
+    The PGM resampler, the geometry grid resampler and the MPI partition
+    range helper each wrote their single result through an output parameter.
+    Return the result directly instead, which reads more naturally at the
+    call sites.
+
+ src/CfdSolver/Mpi/MpiHelpers.cpp | 10 ++++------
+ src/CfdSolver/Mpi/MpiHelpers.hpp |  6 +++++-
+ src/CfdSolver/cell_flags.cpp     | 10 ++++++----
+ src/IO/pgm_image.cpp             |  8 +++++---
+ src/IO/pgm_image.hpp             |  3 +--
+ src/IO/scenario_builder.cpp      |  3 +--
+ src/simulation_main.cpp          |  9 ++++++---
+ 7 files changed, 28 insertions(+), 21 deletions(-)
+
+commit f5514a0e5f746b65b927edb017746932d394c3a3
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 03:36:25 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 03:36:25 2026 -0400
+
+    Thread staggered fields through lightweight field views
+    
+    Bundle a field pointer with its grid extent into a small view so the
+    streamline samplers and the interior boundary helpers take one field
+    descriptor instead of a loose pointer and three dimension arguments.
+
+ src/CfdSolver/serial/boundary_conditions.cpp |  33 ++--
+ src/ParticleTracer/trajectory_output.cpp     | 231 +++++++++++++++------------
+ 2 files changed, 153 insertions(+), 111 deletions(-)
+
+commit 671fab2431e6ee01df93dbb53f03b2cb804a0233
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 03:45:11 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 03:45:11 2026 -0400
+
+    Tidy the scoping of solver and IO helper functions
+    
+    Give small internal helpers a clearer home: the PGM scaling helpers
+    and the temperature border helper move into anonymous namespaces, the
+    donor-cell advection helpers are grouped into a file-local struct, the
+    VTK byte-swap routine becomes a private member of the exporter it serves,
+    and the file-written notice becomes a plain free function. Behaviour is
+    unchanged; only where these helpers live changes.
+
+ src/CfdSolver/serial/boundary_conditions.cpp |  6 ++-
+ src/CfdSolver/serial/momentum_eqs.cpp        | 66 +++++++++++++++-------------
+ src/IO/pgm_image.cpp                         |  8 +++-
+ src/IO/progress_report.cpp                   |  2 +-
+ src/IO/progress_report.hpp                   |  4 +-
+ src/IO/vtk_output.cpp                        |  2 +-
+ src/IO/vtk_output.hpp                        |  3 ++
+ src/simulation_main.cpp                      |  2 +-
+ 8 files changed, 55 insertions(+), 38 deletions(-)
+
+commit 7a5bb92c473af0c839106ecf3db6ad04e2626736
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 03:54:22 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 03:54:22 2026 -0400
+
+    Replace bool flags with modes in the serial solver and output layer
+    
+    Several entry points took opaque bool flags that read poorly at the call
+    site. Give the serial timestep routine an explicit temperature-handling
+    mode and the serial SOR solver a logging mode, and choose the VTK writer's
+    data format through a VtkDataFormat enum. Split the stale-output cleanup out
+    of setupOutputDirectory so the caller decides whether to run it rather than
+    threading a shallWriteOutput flag through the directory setup.
+
+ src/CfdSolver/serial/momentum_eqs.cpp  |  6 +++---
+ src/CfdSolver/serial/momentum_eqs.hpp  |  6 +++++-
+ src/CfdSolver/serial/poisson_sor.cpp   |  4 ++--
+ src/CfdSolver/serial/poisson_sor.hpp   |  6 +++++-
+ src/CfdSolver/serial/serial_solver.cpp |  6 ++++--
+ src/IO/text_file_utils.cpp             | 26 +++++++++++++-------------
+ src/IO/text_file_utils.hpp             |  6 ++++--
+ src/IO/vtk_output.hpp                  |  7 ++++++-
+ src/simulation_main.cpp                | 10 ++++++----
+ 9 files changed, 48 insertions(+), 29 deletions(-)
+
+commit b57eea505504a1c0a67312bf1a54eaeac9717337
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 04:01:53 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 04:01:53 2026 -0400
+
+    Group geometry and topology scalars into structs
+    
+    Collect the loosely related scalar members of several solver and output
+    classes into small purpose-named aggregates: the neighbour ranks of the
+    distributed solver, the grid spacing of the serial solver, and the grid
+    spacing and origin of the VTK exporter. Members are regrouped only; every
+    assignment and call site is updated to go through the new sub-structs.
+
+ src/CfdSolver/Mpi/CfdSolverMpi.cpp     | 21 ++++++++++++---------
+ src/CfdSolver/Mpi/CfdSolverMpi.hpp     |  7 ++++++-
+ src/CfdSolver/serial/serial_solver.cpp | 18 +++++++++---------
+ src/CfdSolver/serial/serial_solver.hpp |  6 +++++-
+ src/IO/vtk_output.cpp                  | 15 ++++++++-------
+ src/IO/vtk_output.hpp                  |  7 ++++++-
+ 6 files changed, 46 insertions(+), 28 deletions(-)
+
+commit 923e70fa915026ccf26f5dabf32280168175de26
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 04:10:22 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 04:10:22 2026 -0400
+
+    Name the field-view and path collection types
+    
+    Introduce descriptive type aliases for a few frequently used aggregate
+    types: the staggered velocity field view used by the trajectory
+    sampler, the per-component field view in the serial boundary handling,
+    and the path collection handled by the path writer. The underlying
+    types are unchanged; the aliases just make the signatures read closer
+    to the concepts they carry.
+
+ src/CfdSolver/serial/boundary_conditions.cpp | 10 ++++---
+ src/IO/path_writer.cpp                       |  4 +--
+ src/IO/path_writer.hpp                       |  6 +++--
+ src/ParticleTracer/trajectory_output.cpp     | 40 +++++++++++++++-------------
+ 4 files changed, 33 insertions(+), 27 deletions(-)
+
+commit fc82bc131faa1922769fd501cf3e83779af1dc1c
+Author:     Genesis Transformation Experiment <genesis-local@example.invalid>
+AuthorDate: Mon Oct 26 04:13:16 2026 -0400
+Commit:     Genesis Transformation Experiment <genesis-local@example.invalid>
+CommitDate: Mon Oct 26 04:13:16 2026 -0400
+
+    Convert remaining trajectory feature call to the sampling grid struct
+    
+    The boundary-exit branch in integrateFlowlineParticle still passed the
+    individual grid parameters to appendTrajectoryFeatures, which now takes a
+    SamplingGrid descriptor. Build the descriptor at that call site too so the
+    code compiles.
+
+ src/ParticleTracer/streamline_tracer.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)

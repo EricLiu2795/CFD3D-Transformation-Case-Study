@@ -1,0 +1,709 @@
+{
+ "src/CfdSolver/CfdSolver.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/CfdSolver.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/CfdSolver.cpp",
+   "src/CfdSolver/Cpp/FluidSolverCpp.hpp",
+   "src/CfdSolver/Cuda/FluidSolverCuda.hpp",
+   "src/CfdSolver/Mpi/CfdSolverMpi.hpp",
+   "src/CfdSolver/Opencl/CfdSolverOpencl.hpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Cpp/BorderValuesCpp.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cpp/BorderValuesCpp.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cpp/BorderValuesCpp.cpp",
+   "src/CfdSolver/Cpp/FluidSolverCpp.cpp",
+   "src/CfdSolver/Opencl/CfdSolverOpencl.cpp"
+  ]
+ },
+ "src/CfdSolver/Cpp/FluidSolverCpp.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cpp/FluidSolverCpp.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cpp/FluidSolverCpp.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Cpp/RelaxSolverCpp.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cpp/RelaxSolverCpp.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cpp/FluidSolverCpp.cpp",
+   "src/CfdSolver/Cpp/RelaxSolverCpp.cpp",
+   "src/CfdSolver/Opencl/CfdSolverOpencl.cpp"
+  ]
+ },
+ "src/CfdSolver/Cpp/VelocityCpp.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cpp/VelocityCpp.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cpp/FluidSolverCpp.cpp",
+   "src/CfdSolver/Cpp/VelocityCpp.cpp",
+   "src/CfdSolver/Opencl/CfdSolverOpencl.cpp"
+  ]
+ },
+ "src/CfdSolver/Cuda/BorderValuesCuda.cu": {
+  "ext": ".cu",
+  "compiled_by": [
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cuda/BorderValuesCuda.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cuda/BorderValuesCuda.cu",
+   "src/CfdSolver/Cuda/FluidSolverCuda.cu"
+  ]
+ },
+ "src/CfdSolver/Cuda/CudaUtils.cu": {
+  "ext": ".cu",
+  "compiled_by": [
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cuda/CudaUtils.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cuda/BorderValuesCuda.cu",
+   "src/CfdSolver/Cuda/CudaUtils.cu",
+   "src/CfdSolver/Cuda/FluidSolverCuda.cu",
+   "src/CfdSolver/Cuda/RelaxSolverCuda.cu",
+   "src/CfdSolver/Cuda/VelocityCuda.cu"
+  ]
+ },
+ "src/CfdSolver/Cuda/FluidSolverCuda.cu": {
+  "ext": ".cu",
+  "compiled_by": [
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cuda/FluidSolverCuda.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cuda/FluidSolverCuda.cu",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Cuda/RelaxSolverCuda.cu": {
+  "ext": ".cu",
+  "compiled_by": [
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cuda/RelaxSolverCuda.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cuda/FluidSolverCuda.cu",
+   "src/CfdSolver/Cuda/RelaxSolverCuda.cu"
+  ]
+ },
+ "src/CfdSolver/Cuda/VelocityCuda.cu": {
+  "ext": ".cu",
+  "compiled_by": [
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Cuda/VelocityCuda.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cuda/FluidSolverCuda.cu",
+   "src/CfdSolver/Cuda/VelocityCuda.cu"
+  ]
+ },
+ "src/CfdSolver/Flag.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Flag.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Cpp/BorderValuesCpp.cpp",
+   "src/CfdSolver/Cpp/RelaxSolverCpp.cpp",
+   "src/CfdSolver/Cpp/VelocityCpp.cpp",
+   "src/CfdSolver/Flag.cpp",
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+   "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "src/IO/OutputFileRecorder.hpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Init.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/CfdSolver/Init.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Init.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Mpi/BoundaryValuesMpi.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp"
+  ]
+ },
+ "src/CfdSolver/Mpi/CfdSolverMpi.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Mpi/CfdSolverMpi.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Mpi/MacrosMpi.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Init.cpp",
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.cpp",
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+   "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "src/IO/VtkExporter.cpp"
+  ]
+ },
+ "src/CfdSolver/Mpi/MpiHelpers.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Mpi/MpiHelpers.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "src/CfdSolver/Mpi/MpiHelpers.cpp",
+   "src/CfdSolver/Mpi/SorSolverMpi.cpp",
+   "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Mpi/SorSolverMpi.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Mpi/SorSolverMpi.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "src/CfdSolver/Mpi/SorSolverMpi.cpp"
+  ]
+ },
+ "src/CfdSolver/Mpi/UvwMpi.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Mpi/UvwMpi.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Mpi/CfdSolverMpi.cpp",
+   "src/CfdSolver/Mpi/UvwMpi.cpp"
+  ]
+ },
+ "src/CfdSolver/Opencl/BoundaryValuesOpencl.cl": {
+  "ext": ".cl",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/CfdSolverOpencl.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/CfdSolverOpencl.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/CfdSolver/Opencl/ClInterface.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/ClInterface.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Opencl/CfdSolverOpencl.hpp",
+   "src/CfdSolver/Opencl/ClInterface.cpp",
+   "src/CfdSolver/Opencl/SorSolverOpencl.hpp",
+   "src/CfdSolver/Opencl/UvwOpencl.hpp"
+  ]
+ },
+ "src/CfdSolver/Opencl/OpenclFlags.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/Singleton.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Opencl/ClInterface.hpp"
+  ]
+ },
+ "src/CfdSolver/Opencl/SorSolverOpencl.cl": {
+  "ext": ".cl",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/SorSolverOpencl.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/SorSolverOpencl.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "src/CfdSolver/Opencl/SorSolverOpencl.cpp"
+  ]
+ },
+ "src/CfdSolver/Opencl/UvwOpencl.cl": {
+  "ext": ".cl",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/UvwOpencl.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [],
+  "included_by": []
+ },
+ "src/CfdSolver/Opencl/UvwOpencl.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "src/CfdSolver/Opencl/UvwOpencl.cpp"
+  ]
+ },
+ "src/Defines.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/CfdSolver.hpp",
+   "src/CfdSolver/Cpp/BorderValuesCpp.hpp",
+   "src/CfdSolver/Cpp/RelaxSolverCpp.hpp",
+   "src/CfdSolver/Cpp/VelocityCpp.cpp",
+   "src/CfdSolver/Cpp/VelocityCpp.hpp",
+   "src/CfdSolver/Cuda/BorderValuesCuda.cu",
+   "src/CfdSolver/Cuda/BorderValuesCuda.hpp",
+   "src/CfdSolver/Cuda/FluidSolverCuda.cu",
+   "src/CfdSolver/Cuda/RelaxSolverCuda.hpp",
+   "src/CfdSolver/Cuda/VelocityCuda.hpp",
+   "src/CfdSolver/Flag.hpp",
+   "src/CfdSolver/Init.hpp",
+   "src/CfdSolver/Mpi/BoundaryValuesMpi.hpp",
+   "src/CfdSolver/Mpi/MpiHelpers.hpp",
+   "src/CfdSolver/Mpi/SorSolverMpi.hpp",
+   "src/CfdSolver/Mpi/UvwMpi.cpp",
+   "src/CfdSolver/Mpi/UvwMpi.hpp",
+   "src/CfdSolver/Opencl/CfdSolverOpencl.cpp",
+   "src/CfdSolver/Opencl/SorSolverOpencl.hpp",
+   "src/CfdSolver/Opencl/UvwOpencl.hpp",
+   "src/IO/CaseConfigFile.hpp",
+   "src/IO/GeometryBuilder.hpp",
+   "src/IO/OptionParser.hpp",
+   "src/IO/PathsFile.hpp",
+   "src/IO/StatusReporter.hpp",
+   "src/ParticleTracer/ParticleTracer.hpp",
+   "src/ParticleTracer/RayCast.hpp",
+   "src/ParticleTracer/TrajectoryFeatures.hpp"
+  ]
+ },
+ "src/IO/BinaryStream.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/BinaryStream.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/BinaryStream.cpp",
+   "src/IO/GeometryStore.cpp",
+   "src/IO/PathsFile.cpp"
+  ]
+ },
+ "src/IO/CaseConfigFile.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/CaseConfigFile.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/CaseConfigFile.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/FileHelpers.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/FileHelpers.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/FileHelpers.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/GeometryBuilder.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/GeometryBuilder.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/GeometryBuilder.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/GeometryStore.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/GeometryStore.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/CfdSolver/Flag.cpp",
+   "src/IO/GeometryBuilder.cpp",
+   "src/IO/GeometryStore.cpp"
+  ]
+ },
+ "src/IO/NetCdfRecorder.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/NetCdfRecorder.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/NetCdfRecorder.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/OptionParser.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/OptionParser.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/OptionParser.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/OutputFileRecorder.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/NetCdfRecorder.hpp",
+   "src/IO/VtkExporter.hpp"
+  ]
+ },
+ "src/IO/PathsFile.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/PathsFile.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/PathsFile.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/PgmImage.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/PgmImage.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/GeometryBuilder.cpp",
+   "src/IO/PgmImage.cpp"
+  ]
+ },
+ "src/IO/StatusReporter.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/StatusReporter.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/StatusReporter.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/TextHelpers.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/TextHelpers.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/CaseConfigFile.cpp",
+   "src/IO/FileHelpers.cpp",
+   "src/IO/GeometryBuilder.cpp",
+   "src/IO/TextHelpers.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/IO/VtkExporter.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/IO/VtkExporter.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/VtkExporter.cpp",
+   "src/Main.cpp"
+  ]
+ },
+ "src/Main.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/ParticleTracer/FlowlineIntegrator.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/ParticleTracer/FlowlineIntegrator.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/Main.cpp",
+   "src/ParticleTracer/FlowlineIntegrator.cpp"
+  ]
+ },
+ "src/ParticleTracer/ParticleTracer.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/ParticleTracer/ParticleTracer.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/IO/PathsFile.hpp",
+   "src/ParticleTracer/FlowlineIntegrator.hpp",
+   "src/ParticleTracer/ParticleTracer.cpp"
+  ]
+ },
+ "src/ParticleTracer/RayCast.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/ParticleTracer/RayCast.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/ParticleTracer/FlowlineIntegrator.cpp",
+   "src/ParticleTracer/RayCast.cpp"
+  ]
+ },
+ "src/ParticleTracer/TrajectoryFeatures.cpp": {
+  "ext": ".cpp",
+  "compiled_by": [
+   "cpu-reference",
+   "cuda-fma",
+   "cuda-no-fma"
+  ],
+  "included_by": []
+ },
+ "src/ParticleTracer/TrajectoryFeatures.hpp": {
+  "ext": ".hpp",
+  "compiled_by": [],
+  "included_by": [
+   "src/ParticleTracer/ParticleTracer.hpp",
+   "src/ParticleTracer/TrajectoryFeatures.cpp"
+  ]
+ }
+}

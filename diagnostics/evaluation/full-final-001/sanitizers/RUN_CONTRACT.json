@@ -1,0 +1,1079 @@
+{
+  "block": [
+    7,
+    3,
+    2
+  ],
+  "block_index": 2,
+  "conditions": {
+    "baseline": {
+      "contract": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/contract-bound/contract.json",
+      "contract_sha256": "82e157b7ed824164755b0812a8cf1be4a9cd0dec8ece485903287fc61af207b9",
+      "phases": {
+        "boundary": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        },
+        "dt": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        },
+        "fgh": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        },
+        "pressure": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        },
+        "rs": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        },
+        "scenario": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        },
+        "temperature": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        },
+        "uvw": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-false",
+              "sha256": "a3235ae18fa66130a9eb7cc3ec9c8dee012a81c6094eb1370482b1d3ab1bf0ff"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/build/harness-true",
+              "sha256": "f9761f61f5a39e59adae698e35c36c0a62199f199739ae49492fffc243af8580"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/sanitizer-baseline/compile/RESULT.json",
+          "positive_result_sha256": "e893e28d9740f606356849558d8b34b2fccc8d4b8dc4a4c19e04735926544a53",
+          "positive_scientific_status": "not_run"
+        }
+      },
+      "source": "/home/junkun/genesis-transform-experiment/evaluation/pristine-source"
+    },
+    "transformed": {
+      "contract": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/contract-bound/contract.json",
+      "contract_sha256": "b3c2a762e401e6f719323d589365cf8ca9e8ca6a36db4618d6847322f0ba5e2e",
+      "phases": {
+        "boundary": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/RESULT.json",
+          "positive_result_sha256": "940b9d921ceb0a2d854adaee4b37bbca63fbfa7d4b0d4931b5b1c0f8455da672",
+          "positive_scientific_status": "pass"
+        },
+        "dt": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/RESULT.json",
+          "positive_result_sha256": "940b9d921ceb0a2d854adaee4b37bbca63fbfa7d4b0d4931b5b1c0f8455da672",
+          "positive_scientific_status": "pass"
+        },
+        "fgh": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/RESULT.json",
+          "positive_result_sha256": "940b9d921ceb0a2d854adaee4b37bbca63fbfa7d4b0d4931b5b1c0f8455da672",
+          "positive_scientific_status": "pass"
+        },
+        "pressure": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/RESULT.json",
+          "positive_result_sha256": "940b9d921ceb0a2d854adaee4b37bbca63fbfa7d4b0d4931b5b1c0f8455da672",
+          "positive_scientific_status": "pass"
+        },
+        "rs": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/rs/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/rs/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/rs/RESULT.json",
+          "positive_result_sha256": "958845c08d33321f8b5e2dd90c9fde7e88771f0fd768a96e62dc2e1be8b2eb2e",
+          "positive_scientific_status": "pass"
+        },
+        "scenario": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/RESULT.json",
+          "positive_result_sha256": "940b9d921ceb0a2d854adaee4b37bbca63fbfa7d4b0d4931b5b1c0f8455da672",
+          "positive_scientific_status": "pass"
+        },
+        "temperature": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/RESULT.json",
+          "positive_result_sha256": "940b9d921ceb0a2d854adaee4b37bbca63fbfa7d4b0d4931b5b1c0f8455da672",
+          "positive_scientific_status": "pass"
+        },
+        "uvw": {
+          "binaries": {
+            "false": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-false",
+              "sha256": "79aafa59284f773138c3da339d9d03c5ff26b9ecb7b02508e25c90c37b712ce8"
+            },
+            "true": {
+              "path": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/build/harness-true",
+              "sha256": "f053d3e020e767d492f2e9c7399a3e8a389686633459c6eb864cfc965090a754"
+            }
+          },
+          "positive_result": "/home/junkun/genesis-transform-experiment/evaluation/full-final-001/remaining-seven/RESULT.json",
+          "positive_result_sha256": "940b9d921ceb0a2d854adaee4b37bbca63fbfa7d4b0d4931b5b1c0f8455da672",
+          "positive_scientific_status": "pass"
+        }
+      },
+      "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/source"
+    }
+  },
+  "fixture_manifest_sha256": "135358d4b0d30b8c197f958961a788e2eeef4b8dbc58240a7f7149c64901287e",
+  "fixtures": {
+    "boundary": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "boundary-11",
+      "options": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "013e523a7009dd2e2fe5bded0b89c9d4f06523423671e54197baa60ec83c6a0b"
+    },
+    "dt": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "dt-11",
+      "options": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "157771f9e20de37da5909f1396e31646117fff7c4dce55d01ddd54ce01f0ed9e"
+    },
+    "fgh": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "fgh-11",
+      "options": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "f54e9acc68993b2f83abdaa24244ba5391120252cbe71819c411b106fb329b01"
+    },
+    "pressure": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "pressure-11",
+      "options": [
+        1,
+        3,
+        4,
+        1
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "936eea56d6e79eed7b5b79ea5371efca7b10b4e0d253b0d95c83f43e22fbb771"
+    },
+    "rs": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "rs-11",
+      "options": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "157771f9e20de37da5909f1396e31646117fff7c4dce55d01ddd54ce01f0ed9e"
+    },
+    "scenario": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "scenario-11",
+      "options": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "3f5dacfad40e827834725a33e148164b07bc4aa79da61206317f04fe004f2f0c"
+    },
+    "temperature": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "temperature-11",
+      "options": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "157771f9e20de37da5909f1396e31646117fff7c4dce55d01ddd54ce01f0ed9e"
+    },
+    "uvw": {
+      "dims": [
+        7,
+        11,
+        29
+      ],
+      "name": "uvw-11",
+      "options": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "params": {
+        "GX": 0.23,
+        "GY": -0.37,
+        "GZ": 0.41,
+        "Pr": 0.71,
+        "Re": 37.0,
+        "T_c": -0.75,
+        "T_h": 1.25,
+        "alpha": 1.0,
+        "beta": 0.19,
+        "dt": 0.017,
+        "dx": 0.37,
+        "dy": 0.53,
+        "dz": 0.79,
+        "eps": 0.0,
+        "omg": 1.2,
+        "tau": 0.47
+      },
+      "purpose": "long reduction tails and partial blocks",
+      "sha256": "157771f9e20de37da5909f1396e31646117fff7c4dce55d01ddd54ce01f0ed9e"
+    }
+  },
+  "fma_modes": [
+    "true",
+    "false"
+  ],
+  "helper_sha256": "0bd4ca0d62930ed3ac75217ffea2fc0e5d772142233e1d249d1970f92fd8ecce",
+  "matrix": [
+    [
+      "baseline",
+      "memcheck",
+      "rs",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "rs",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "rs",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "rs",
+      "false"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "uvw",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "uvw",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "uvw",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "uvw",
+      "false"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "temperature",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "temperature",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "temperature",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "temperature",
+      "false"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "dt",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "dt",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "dt",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "dt",
+      "false"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "fgh",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "fgh",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "fgh",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "fgh",
+      "false"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "boundary",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "boundary",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "boundary",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "boundary",
+      "false"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "scenario",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "scenario",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "scenario",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "scenario",
+      "false"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "baseline",
+      "memcheck",
+      "pressure",
+      "false"
+    ],
+    [
+      "transformed",
+      "memcheck",
+      "pressure",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "rs",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "rs",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "rs",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "rs",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "uvw",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "uvw",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "uvw",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "uvw",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "temperature",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "temperature",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "temperature",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "temperature",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "dt",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "dt",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "dt",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "dt",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "fgh",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "fgh",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "fgh",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "fgh",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "boundary",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "boundary",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "boundary",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "boundary",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "scenario",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "scenario",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "scenario",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "scenario",
+      "false"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "baseline",
+      "initcheck",
+      "pressure",
+      "false"
+    ],
+    [
+      "transformed",
+      "initcheck",
+      "pressure",
+      "false"
+    ],
+    [
+      "baseline",
+      "synccheck",
+      "dt",
+      "true"
+    ],
+    [
+      "transformed",
+      "synccheck",
+      "dt",
+      "true"
+    ],
+    [
+      "baseline",
+      "synccheck",
+      "dt",
+      "false"
+    ],
+    [
+      "transformed",
+      "synccheck",
+      "dt",
+      "false"
+    ],
+    [
+      "baseline",
+      "synccheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "transformed",
+      "synccheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "baseline",
+      "synccheck",
+      "pressure",
+      "false"
+    ],
+    [
+      "transformed",
+      "synccheck",
+      "pressure",
+      "false"
+    ],
+    [
+      "baseline",
+      "racecheck",
+      "dt",
+      "true"
+    ],
+    [
+      "transformed",
+      "racecheck",
+      "dt",
+      "true"
+    ],
+    [
+      "baseline",
+      "racecheck",
+      "dt",
+      "false"
+    ],
+    [
+      "transformed",
+      "racecheck",
+      "dt",
+      "false"
+    ],
+    [
+      "baseline",
+      "racecheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "transformed",
+      "racecheck",
+      "pressure",
+      "true"
+    ],
+    [
+      "baseline",
+      "racecheck",
+      "pressure",
+      "false"
+    ],
+    [
+      "transformed",
+      "racecheck",
+      "pressure",
+      "false"
+    ]
+  ],
+  "oracle_assets": {
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/.gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/README.md": "1debb74a16447aca3a0441724ec4e867b0b3c3d87e8446a50c409af9369a5299",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/__init__.py": "0c85f661aedba00b872e071e0e9d5682941b996f122fceced1549fd7c6102b4e",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/audit_controls.py": "14ff2f7556dbaec78a7be04bbb0345247b9d75f1d0a2e81d20a44433b5093bef",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/controls.py": "59b9d6d4f135b02f14cb4ec58570954602dc4b7b5a2e537c656b123ad687f7c4",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/evaluate_stage.py": "7bf8e465221dae156aa3a21d01939cbef847a8cc5a3f31486cbb96607f0617bb",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/laptop-profile.json": "3a32ce61a028bd2b9eb8b6f80ef15ce53a3750171c29a2acde8bb9d020942e10",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/local_worker.py": "58e30386cbe85d03b2fb8ef7ad947c7688c8442c08936d3da3c12a3518d2b427",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/parser.py": "901d692789119f01f12659f9c460758e3bf3884c685f51ea6012bac0cb6e047c",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/integration/verify_isolation.py": "d93eea13edca6573695dc4c7c2b1fcbddbe40f4b7715cd98982b8657582c4ad4",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/README.md": "a5c3dcfe62a681a4538aa73b5008d5a3a32a9a89d490f43e0aed17d503a79afd",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/__init__.py": "1d105fae552a405be4f5df5610d605d54f057a9dc763d9c6d106ddc2b42fd9ee",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/common.py": "57231b79881f100d8f17b47e04085f42e590317ec1252f00fd61ec508977c33d",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/controls.py": "3d20643c5783d8a7dcd835e53ea1d2dd866e8ee62829cc3cb388339dd988661f",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/evaluate.py": "518eae31d898b6443d2881c30c77131992efcc1f3dced96bcc4a270a3a3c542d",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/freeze.py": "ee9c778ba4a2f0f4cca3f4b32c9eca635940c81ba87ec1f4637be9b70f2a4bc8",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/harness.cu": "52a9f92f2ed088eb7d9dc102ed777c6d87b21bc36bc085e8a924e903409d82c1",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/integrity.py": "40ad74c587fd363d3e0e2954f4594fe62d784989e6ca2f211cce4f1f4e2d928a",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/isolation.py": "5135080ebf7c5235159f1be00dce807fbd78eff82b67c8d266ca6f28582c1ee7",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/boundary.json": "bf37e36a0239ea1142a655eefa3cf837e4d1d7d54c215111f1fd7c7f6e477980",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/dt.json": "c77bedb8481106c592b98327931a260d0c0f9ec104a5abde5d22c0734c77a4d0",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/fgh.json": "a1658be6767668d297fb7eb6d6a4463bcc8925a316877604835eef92a7c6126d",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/pressure.json": "a66c993c9fcdc1f3c19895c88c8a12c5987cdde5ae3871b6941f8fb037b00285",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/pristine.json": "2deb6711387d5d4dafa4ae02220183280a29f93b9e2bfc83b632a8f41086168d",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/rs.json": "8b4eae6915e2f44802fa552a75d3449d1abc3357e513731e85f6953ca7cca002",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/scenario.json": "fcb84d0b257e2de2903d94b2e19c393633f3650def69c9ae8c0dfb5c82a520a1",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/temperature.json": "afc95057388f0216fe7e1125d9da3d10649df929bf964fc187516ee089c29914",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/manifests/uvw.json": "94facc9ba17d9ce5c793ae5b1de7013afaaffa792143317e51be4d3cf6363907",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/reference.py": "e222d5a83e2cfb5a878d4dadd7cc4b271ff087d2345b1edfd9787946f47d8186",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/reference_extended.py": "3b8e10681099359d557241d7480e212c3d0fb6ceff94d486deece871ebbd9c4b",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/boundary_values.json": "aa7c1127ba9bce8b041d473fca9cdafdc14b76c1114e953849ec1c967d614470",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/dt.json": "ced11bfb0041e91e04444e971355a0d34e6be8182b44b5a9d64002c5d796adca",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/fgh.json": "5ea7a26c7ce2fe7473b429dc11b8ef558099a9fe0676f46b1d70d3c8a0f08925",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/rs.json": "d38049550f0869fb9638c24084c74c3781ab662bc5947da8b1d6624246d2749c",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/scenario_boundary_values.json": "451e2cebf09b78e835cc32a8547125717dc3fa33ff811e0e2341ec1751e78cf0",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/sor_pressure_solve.json": "8b36f7686d7f90119f0db8d48e2ff5da1ccdb8dc5200d5efe52e73443cab9895",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/temperature.json": "26290502b4b11d0f56941fbe0a73329290a14fa4c858341abf53d5ec4d9c9b64",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/oracles/suites/uvw.json": "58c6930ab1428821775d1efbd7459acfc3289400bbcc73f66da7886b3f37916b",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/provenance/baseline.json": "135001f6f0652e2f405b1b5f7b78997e1346d434b0d3b11cb5544f5a42c369c0",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/provenance/fixtures-v2.json": "cbdec7b0629f97a0a42b0fe868ce96da8252556ea88eb282454ec3abbf8176b6",
+    "/home/junkun/genesis-curator-rs-pilot/reviewed-tasks/rs-native-002-reviewed-001/numerical-validation/trusted/benchmark/cfd3d_v2/provenance/fixtures-v4.json": "135358d4b0d30b8c197f958961a788e2eeef4b8dbc58240a7f7149c64901287e"
+  },
+  "racecheck_zero_hazard_policy": "Require no displayed hazards/errors/warnings at info-level detection",
+  "reduction_block": 128,
+  "schema": "cfd3d-private-sanitizer-freeze-v1",
+  "timeout": 600,
+  "tool": {
+    "metadata_probe_exit": 0,
+    "path": "/usr/local/cuda-13.2/bin/compute-sanitizer",
+    "sha256": "5cba659e1cd603aa2370e103425f184368e6ed405da90ce85743c4399c324dbc",
+    "version": "NVIDIA (R) Compute Sanitizer\nCopyright (c) 2020-2026 NVIDIA Corporation\nVersion 2026.1.1.0 (build 38000597) (public-release)\n"
+  }
+}

@@ -1,0 +1,42 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+    "name": "cfd3d",
+    "version": "0.1.0",
+    "dependencies": [
+        "glm",
+        "netcdf-c"
+    ],
+    "features" : {
+        "cuda": {
+            "description": "Build with CUDA support.",
+            "dependencies": [
+                "cuda"
+            ]
+        },
+        "opencl": {
+            "description": "Build with OpenCL support.",
+            "dependencies": [
+                "opencl"
+            ]
+        },
+        "mpi": {
+            "description": "Build with MPI support. OpenMPI is used on Unix-based systems, and MSMPI on Windows.",
+            "dependencies": [
+                "mpi"
+            ]
+        },
+        "openmpi": {
+            "description": "Build with OpenMPI support. This does not enable any MPI support if on Windows.",
+            "dependencies": [
+                {
+                    "name": "openmpi",
+                    "platform": "!windows"
+                }
+            ]
+        }
+    },
+    "default-features": [
+        "opencl",
+        "openmpi"
+    ]
+}

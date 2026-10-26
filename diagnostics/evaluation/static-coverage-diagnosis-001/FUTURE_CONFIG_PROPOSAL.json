@@ -1,0 +1,19 @@
+{
+  "status": "PROPOSAL ONLY ? NOT APPLIED OR EXECUTED",
+  "scope": "Separate future experimental condition with fresh record/history; preserve current testbed and CONTRACTS",
+  "per_build_addition": {
+    "depfile": {
+      "from": ".o",
+      "to": ".o.d"
+    }
+  },
+  "apply_to_build_names": [
+    "cpu-reference",
+    "cuda-fma",
+    "cuda-no-fma"
+  ],
+  "schema": "tools/anonymous/contract/testbed.schema.json:144-157",
+  "supported_resolution": "tools/anonymous/anonkit/builds.py:119-124",
+  "remaining_gap": "MPI/OpenCL-disabled code is outside current build matrix; dependency mapping does not create backend coverage",
+  "grading_policy": "Empty/unknown mandatory static coverage must not count as compile validation; requires separate policy/framework correction"
+}

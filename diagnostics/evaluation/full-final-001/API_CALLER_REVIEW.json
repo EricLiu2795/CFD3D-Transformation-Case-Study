@@ -1,0 +1,457 @@
+{
+  "entries": {
+    "calculateDtCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n        Real Re, Real Pr, Real tau,\n        Real &dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax, int blockExtent1D,\n        Real *U, Real *V, Real *W,\n        Real *cudaReduceBufferU1, Real *cudaFoldArrayU2,\n        Real *cudaReduceBufferV1, Real *cudaFoldArrayV2,\n        Real *cudaReduceBufferW1, Real *cudaFoldArrayW2,\n        bool useTemperature",
+          "file_sha256": "ed6dd104b5c5fb89f220fad0492b06f2a78847b924766ce362c300f1cb51b168",
+          "kind": "definition",
+          "launch": false,
+          "line": 267,
+          "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+        },
+        {
+          "args": "\n            Re, Pr, tau, dt, dx, dy, dz, imax, jmax, kmax, blockExtent1D, U, V, W,\n            cudaReduceBufferU1, cudaFoldArrayU2,\n            cudaReduceBufferV1, cudaFoldArrayV2,\n            cudaReduceBufferW1, cudaFoldArrayW2,\n            useTemperature",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": false,
+          "line": 149,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        },
+        {
+          "args": "\n        Real Re, Real Pr, Real tau,\n        Real &dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax, int blockExtent1D,\n        Real *U, Real *V, Real *W,\n        Real *cudaReduceBufferU1, Real *cudaFoldArrayU2,\n        Real *cudaReduceBufferV1, Real *cudaFoldArrayV2,\n        Real *cudaReduceBufferW1, Real *cudaFoldArrayW2,\n        bool useTemperature",
+          "file_sha256": "31511dc7962020731e8d6400efcf522b77c39445bf3177d4f1d685d7bb305141",
+          "kind": "declaration",
+          "launch": false,
+          "line": 17,
+          "path": "src/CfdSolver/cuda/momentum_kernels.hpp"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n        Real Re, Real Pr, Real tau,\n        Real &dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax, int blockSize1D,\n        Real *U, Real *V, Real *W,\n        Real *cudaReductionArrayU1, Real *cudaReductionArrayU2,\n        Real *cudaReductionArrayV1, Real *cudaReductionArrayV2,\n        Real *cudaReductionArrayW1, Real *cudaReductionArrayW2,\n        bool useTemperature",
+          "file_sha256": "57536a973cded8b301724949ca1a8783d3cba2259e1b379082a9e992eda9619b",
+          "kind": "definition",
+          "launch": false,
+          "line": 306,
+          "path": "src/CfdSolver/Cuda/UvwCuda.cu"
+        },
+        {
+          "args": "\n            Re, Pr, tau, dt, dx, dy, dz, imax, jmax, kmax, blockSize1D, U, V, W,\n            cudaReductionArrayU1, cudaReductionArrayU2,\n            cudaReductionArrayV1, cudaReductionArrayV2,\n            cudaReductionArrayW1, cudaReductionArrayW2,\n            useTemperature",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": false,
+          "line": 176,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        Real Re, Real Pr, Real tau,\n        Real &dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax, int blockSize1D,\n        Real *U, Real *V, Real *W,\n        Real *cudaReductionArrayU1, Real *cudaReductionArrayU2,\n        Real *cudaReductionArrayV1, Real *cudaReductionArrayV2,\n        Real *cudaReductionArrayW1, Real *cudaReductionArrayW2,\n        bool useTemperature",
+          "file_sha256": "02ae0cc379ea460bd654675884bebde6492b6062fb79c7e7e9d35cb523481421",
+          "kind": "declaration",
+          "launch": false,
+          "line": 53,
+          "path": "src/CfdSolver/Cuda/UvwCuda.hpp"
+        }
+      ]
+    },
+    "calculateFghCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ,\n        Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag",
+          "file_sha256": "ed6dd104b5c5fb89f220fad0492b06f2a78847b924766ce362c300f1cb51b168",
+          "kind": "definition",
+          "launch": false,
+          "line": 195,
+          "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+        },
+        {
+          "args": "\n            Re, GX, GY, GZ, alpha, beta, dt, dx, dy, dz, imax, jmax, kmax,\n            tileSizeX, blockExtentY, blockExtentZ, U, V, W, T, F, G, H, Flag",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": false,
+          "line": 137,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        },
+        {
+          "args": "\n        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ,\n        Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag",
+          "file_sha256": "31511dc7962020731e8d6400efcf522b77c39445bf3177d4f1d685d7bb305141",
+          "kind": "declaration",
+          "launch": false,
+          "line": 7,
+          "path": "src/CfdSolver/cuda/momentum_kernels.hpp"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ,\n        Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag",
+          "file_sha256": "57536a973cded8b301724949ca1a8783d3cba2259e1b379082a9e992eda9619b",
+          "kind": "definition",
+          "launch": false,
+          "line": 225,
+          "path": "src/CfdSolver/Cuda/UvwCuda.cu"
+        },
+        {
+          "args": "\n            Re, GX, GY, GZ, alpha, beta, dt, dx, dy, dz, imax, jmax, kmax,\n            blockSizeX, blockSizeY, blockSizeZ, U, V, W, T, F, G, H, Flag",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": false,
+          "line": 197,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        Real Re, Real GX, Real GY, Real GZ, Real alpha, Real beta,\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ,\n        Real *U, Real *V, Real *W, Real *T, Real *F, Real *G, Real *H, FlagType *Flag",
+          "file_sha256": "02ae0cc379ea460bd654675884bebde6492b6062fb79c7e7e9d35cb523481421",
+          "kind": "declaration",
+          "launch": false,
+          "line": 37,
+          "path": "src/CfdSolver/Cuda/UvwCuda.hpp"
+        }
+      ]
+    },
+    "calculateRsCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        Real *F, Real *G, Real *H, Real *RS",
+          "file_sha256": "ed6dd104b5c5fb89f220fad0492b06f2a78847b924766ce362c300f1cb51b168",
+          "kind": "definition",
+          "launch": false,
+          "line": 218,
+          "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+        },
+        {
+          "args": "dt, dx, dy, dz, imax, jmax, kmax, F, G, H, RS",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": true,
+          "line": 145,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        },
+        {
+          "args": "\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        Real *F, Real *G, Real *H, Real *RS",
+          "file_sha256": "31511dc7962020731e8d6400efcf522b77c39445bf3177d4f1d685d7bb305141",
+          "kind": "declaration",
+          "launch": false,
+          "line": 13,
+          "path": "src/CfdSolver/cuda/momentum_kernels.hpp"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        Real *F, Real *G, Real *H, Real *RS",
+          "file_sha256": "57536a973cded8b301724949ca1a8783d3cba2259e1b379082a9e992eda9619b",
+          "kind": "definition",
+          "launch": false,
+          "line": 248,
+          "path": "src/CfdSolver/Cuda/UvwCuda.cu"
+        },
+        {
+          "args": "dt, dx, dy, dz, imax, jmax, kmax, F, G, H, RS",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": true,
+          "line": 205,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        Real *F, Real *G, Real *H, Real *RS",
+          "file_sha256": "02ae0cc379ea460bd654675884bebde6492b6062fb79c7e7e9d35cb523481421",
+          "kind": "declaration",
+          "launch": false,
+          "line": 46,
+          "path": "src/CfdSolver/Cuda/UvwCuda.hpp"
+        }
+      ]
+    },
+    "calculateTemperatureCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n    Real Re, Real Pr, Real alpha,\n    Real dt, Real dx, Real dy, Real dz,\n    int imax, int jmax, int kmax,\n    Real *U, Real *V, Real *W, Real *T, const Real *T_prev, FlagType *Flag",
+          "file_sha256": "ed6dd104b5c5fb89f220fad0492b06f2a78847b924766ce362c300f1cb51b168",
+          "kind": "definition",
+          "launch": false,
+          "line": 372,
+          "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+        },
+        {
+          "args": "\n            Re, Pr, alpha, dt, dx, dy, dz, imax, jmax, kmax, U, V, W, T, T_prev, Flag",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": true,
+          "line": 165,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        },
+        {
+          "args": "\n        Real Re, Real Pr, Real alpha,\n        Real dt, Real dx, Real dy, Real dz,\n        int imax, int jmax, int kmax,\n        Real *U, Real *V, Real *W, Real *T, const Real *T_prev, FlagType *Flag",
+          "file_sha256": "31511dc7962020731e8d6400efcf522b77c39445bf3177d4f1d685d7bb305141",
+          "kind": "declaration",
+          "launch": false,
+          "line": 30,
+          "path": "src/CfdSolver/cuda/momentum_kernels.hpp"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n    Real Re, Real Pr, Real alpha,\n    Real dt, Real dx, Real dy, Real dz,\n    int imax, int jmax, int kmax,\n    Real *U, Real *V, Real *W, Real *T, const Real *T_temp, FlagType *Flag",
+          "file_sha256": "57536a973cded8b301724949ca1a8783d3cba2259e1b379082a9e992eda9619b",
+          "kind": "definition",
+          "launch": false,
+          "line": 440,
+          "path": "src/CfdSolver/Cuda/UvwCuda.cu"
+        },
+        {
+          "args": "\n            Re, Pr, alpha, dt, dx, dy, dz, imax, jmax, kmax, U, V, W, T, T_temp, Flag",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": true,
+          "line": 192,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        Real Re, Real Pr, Real alpha,\n        Real dt, Real dx, Real dy, Real dz,\n        int imax, int jmax, int kmax,\n        Real *U, Real *V, Real *W, Real *T, const Real *T_temp, FlagType *Flag",
+          "file_sha256": "02ae0cc379ea460bd654675884bebde6492b6062fb79c7e7e9d35cb523481421",
+          "kind": "declaration",
+          "launch": false,
+          "line": 72,
+          "path": "src/CfdSolver/Cuda/UvwCuda.hpp"
+        }
+      ]
+    },
+    "calculateUvwCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n    Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n    Real *U, Real *V, Real *W, Real *F, Real *G, Real *H, Real *P, FlagType *Flag",
+          "file_sha256": "ed6dd104b5c5fb89f220fad0492b06f2a78847b924766ce362c300f1cb51b168",
+          "kind": "definition",
+          "launch": false,
+          "line": 432,
+          "path": "src/CfdSolver/cuda/momentum_kernels.cu"
+        },
+        {
+          "args": "dt, dx, dy, dz, imax, jmax, kmax, U, V, W, F, G, H, P, Flag",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": true,
+          "line": 172,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        },
+        {
+          "args": "\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        Real *U, Real *V, Real *W, Real *F, Real *G, Real *H, Real *P, FlagType *Flag",
+          "file_sha256": "31511dc7962020731e8d6400efcf522b77c39445bf3177d4f1d685d7bb305141",
+          "kind": "declaration",
+          "launch": false,
+          "line": 26,
+          "path": "src/CfdSolver/cuda/momentum_kernels.hpp"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n    Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n    Real *U, Real *V, Real *W, Real *F, Real *G, Real *H, Real *P, FlagType *Flag",
+          "file_sha256": "57536a973cded8b301724949ca1a8783d3cba2259e1b379082a9e992eda9619b",
+          "kind": "definition",
+          "launch": false,
+          "line": 413,
+          "path": "src/CfdSolver/Cuda/UvwCuda.cu"
+        },
+        {
+          "args": "dt, dx, dy, dz, imax, jmax, kmax, U, V, W, F, G, H, P, Flag",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": true,
+          "line": 221,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        Real *U, Real *V, Real *W, Real *F, Real *G, Real *H, Real *P, FlagType *Flag",
+          "file_sha256": "02ae0cc379ea460bd654675884bebde6492b6062fb79c7e7e9d35cb523481421",
+          "kind": "declaration",
+          "launch": false,
+          "line": 65,
+          "path": "src/CfdSolver/Cuda/UvwCuda.hpp"
+        }
+      ]
+    },
+    "setBoundaryValuesCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n            T_h, T_c, imax, jmax, kmax, tileSizeX, blockExtentY, blockExtentZ, U, V, W, T, Flag",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": false,
+          "line": 186,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        },
+        {
+          "args": "\n        Real T_h, Real T_c,\n        int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ,\n        Real *U, Real *V, Real *W, Real *T,\n        FlagType *Flag",
+          "file_sha256": "98971b918bb52c1a849529c3187d497287026fb1807b1532cfe0a8a961baebcb",
+          "kind": "declaration",
+          "launch": false,
+          "line": 8,
+          "path": "src/CfdSolver/cuda/boundary_kernels.hpp"
+        },
+        {
+          "args": "\n        Real T_h, Real T_c,\n        int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ,\n        Real *U, Real *V, Real *W, Real *T,\n        FlagType *Flag",
+          "file_sha256": "d89ecc02080caf1e0c5b5c1561f2495e2c433cdb92fe4207362567e246685b6a",
+          "kind": "definition",
+          "launch": false,
+          "line": 447,
+          "path": "src/CfdSolver/cuda/boundary_kernels.cu"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n            T_h, T_c, imax, jmax, kmax, blockSizeX, blockSizeY, blockSizeZ, U, V, W, T, Flag",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": false,
+          "line": 166,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        Real T_h, Real T_c,\n        int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ,\n        Real *U, Real *V, Real *W, Real *T,\n        FlagType *Flag",
+          "file_sha256": "6615618ca6aa8c8bad9050cf4a306fca9f9d75722ec4e0aeeed3dccb9815d439",
+          "kind": "definition",
+          "launch": false,
+          "line": 479,
+          "path": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu"
+        },
+        {
+          "args": "\n        Real T_h, Real T_c,\n        int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ,\n        Real *U, Real *V, Real *W, Real *T,\n        FlagType *Flag",
+          "file_sha256": "5f0f08f176a8db1c48d47bc3b5b0a85cc1e0c4af684b603d0b4373b81a587502",
+          "kind": "declaration",
+          "launch": false,
+          "line": 38,
+          "path": "src/CfdSolver/Cuda/BoundaryValuesCuda.hpp"
+        }
+      ]
+    },
+    "setBoundaryValuesScenarioSpecificCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n            scenarioName, imax, jmax, kmax, tileSizeX, blockExtentY, blockExtentZ, U, V, W, Flag",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": false,
+          "line": 191,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        },
+        {
+          "args": "\n        const std::string &scenarioName,\n        int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ,\n        Real *U, Real *V, Real *W,\n        FlagType *Flag",
+          "file_sha256": "98971b918bb52c1a849529c3187d497287026fb1807b1532cfe0a8a961baebcb",
+          "kind": "declaration",
+          "launch": false,
+          "line": 15,
+          "path": "src/CfdSolver/cuda/boundary_kernels.hpp"
+        },
+        {
+          "args": "\n        const std::string &scenarioName,\n        int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ,\n        Real *U, Real *V, Real *W,\n        FlagType *Flag",
+          "file_sha256": "d89ecc02080caf1e0c5b5c1561f2495e2c433cdb92fe4207362567e246685b6a",
+          "kind": "definition",
+          "launch": false,
+          "line": 521,
+          "path": "src/CfdSolver/cuda/boundary_kernels.cu"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n            scenarioName, imax, jmax, kmax, blockSizeX, blockSizeY, blockSizeZ, U, V, W, Flag",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": false,
+          "line": 171,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        const std::string &scenarioName,\n        int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ,\n        Real *U, Real *V, Real *W,\n        FlagType *Flag",
+          "file_sha256": "6615618ca6aa8c8bad9050cf4a306fca9f9d75722ec4e0aeeed3dccb9815d439",
+          "kind": "definition",
+          "launch": false,
+          "line": 557,
+          "path": "src/CfdSolver/Cuda/BoundaryValuesCuda.cu"
+        },
+        {
+          "args": "\n        const std::string &scenarioName,\n        int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ,\n        Real *U, Real *V, Real *W,\n        FlagType *Flag",
+          "file_sha256": "5f0f08f176a8db1c48d47bc3b5b0a85cc1e0c4af684b603d0b4373b81a587502",
+          "kind": "declaration",
+          "launch": false,
+          "line": 48,
+          "path": "src/CfdSolver/Cuda/BoundaryValuesCuda.hpp"
+        }
+      ]
+    },
+    "sorSolverCuda": {
+      "caller_argument_order_matches_original_roles": true,
+      "final": [
+        {
+          "args": "\n        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, bool shallWriteOutput,\n        Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ, int blockExtent1D,\n        Real *P, Real *P_prev, Real *RS, FlagType *Flag,\n        Real *cudaReduceBufferResidual1, Real *cudaReduceBufferResidual2,\n        unsigned int *cudaReduceBufferCellCount1, unsigned int *cudaReduceBufferCellCount2",
+          "file_sha256": "aa5cd12472820491f2738bdbc4ac35b19147d630fe3a5e6369086317ba2021b5",
+          "kind": "definition",
+          "launch": false,
+          "line": 197,
+          "path": "src/CfdSolver/cuda/poisson_kernels.cu"
+        },
+        {
+          "args": "\n        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, bool shallWriteOutput,\n        Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int tileSizeX, int blockExtentY, int blockExtentZ, int blockExtent1D,\n        Real *P, Real *P_prev, Real *RS, FlagType *Flag,\n        Real *cudaReduceBufferResidual1, Real *cudaReduceBufferResidual2,\n        unsigned int *cudaReduceBufferCellCount1, unsigned int *cudaReduceBufferCellCount2",
+          "file_sha256": "eacb80c954ed013dbb2705f0a49eef3e5ab7fbf36ae58c628935dc956a86f12c",
+          "kind": "declaration",
+          "launch": false,
+          "line": 7,
+          "path": "src/CfdSolver/cuda/poisson_kernels.hpp"
+        },
+        {
+          "args": "\n            omg, eps, itermax, linearSystemSolverType, shallWriteOutput,\n            dx, dy, dz, imax, jmax, kmax,\n            tileSizeX, blockExtentY, blockExtentZ, blockExtent1D, P, P_prev, RS, Flag,\n            cudaReduceBufferResidual1, cudaReduceBufferResidual2,\n            cudaReduceBufferCellCount1, cudaReduceBufferCellCount2",
+          "file_sha256": "9576e3d520b3f4073c6e7b16c71146541201de4fca8528278f57fdda2b7cec6e",
+          "kind": "call",
+          "launch": false,
+          "line": 177,
+          "path": "src/CfdSolver/cuda/cuda_solver.cu"
+        }
+      ],
+      "formal_and_definition_order_matches_original_roles": true,
+      "original": [
+        {
+          "args": "\n        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, bool shallWriteOutput,\n        Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ, int blockSize1D,\n        Real *P, Real *P_temp, Real *RS, FlagType *Flag,\n        Real *cudaReductionArrayResidual1, Real *cudaReductionArrayResidual2,\n        unsigned int *cudaReductionArrayNumCells1, unsigned int *cudaReductionArrayNumCells2",
+          "file_sha256": "3f6b9ae33e278c77003f134f3f3c701f7d909ce8acd884f5c533f768369a1f48",
+          "kind": "declaration",
+          "launch": false,
+          "line": 37,
+          "path": "src/CfdSolver/Cuda/SorSolverCuda.hpp"
+        },
+        {
+          "args": "\n            omg, eps, itermax, linearSystemSolverType, shallWriteOutput,\n            dx, dy, dz, imax, jmax, kmax,\n            blockSizeX, blockSizeY, blockSizeZ, blockSize1D, P, P_temp, RS, Flag,\n            cudaReductionArrayResidual1, cudaReductionArrayResidual2,\n            cudaReductionArrayNumCells1, cudaReductionArrayNumCells2",
+          "file_sha256": "4fe5ce0d4c81a0ce281536d7e66d3cb7fff6b57da374f5a8afa9b985871e6072",
+          "kind": "call",
+          "launch": false,
+          "line": 210,
+          "path": "src/CfdSolver/Cuda/CfdSolverCuda.cu"
+        },
+        {
+          "args": "\n        Real omg, Real eps, int itermax, LinearSystemSolverType linearSystemSolverType, bool shallWriteOutput,\n        Real dx, Real dy, Real dz, int imax, int jmax, int kmax,\n        int blockSizeX, int blockSizeY, int blockSizeZ, int blockSize1D,\n        Real *P, Real *P_temp, Real *RS, FlagType *Flag,\n        Real *cudaReductionArrayResidual1, Real *cudaReductionArrayResidual2,\n        unsigned int *cudaReductionArrayNumCells1, unsigned int *cudaReductionArrayNumCells2",
+          "file_sha256": "327472a4ad6b5d4ff16d709eab2aa0403403a602974f09ca81a32cfdb6abccd5",
+          "kind": "definition",
+          "launch": false,
+          "line": 239,
+          "path": "src/CfdSolver/Cuda/SorSolverCuda.cu"
+        }
+      ]
+    }
+  },
+  "head": "fc82bc131faa1922769fd501cf3e83779af1dc1c",
+  "mapping_adjustment_needed": false,
+  "method": "Balanced-token extraction; compare all formal parameter tokens and actual CUDA-class caller argument order against pristine after applying frozen rename map. No assumption based only on identical C++ parameter types.",
+  "source": "/home/junkun/genesis-transform-experiment/RAW_TRANSFORMER_OUTPUT_LIVE_006/source",
+  "status": "pass"
+}

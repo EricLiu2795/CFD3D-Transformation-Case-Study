@@ -1,0 +1,55 @@
+{
+  "status": "STATIC_VALIDATED_NOT_EXECUTED",
+  "files": {
+    "/home/junkun/genesis-transform-experiment/record/run.json": "1208dcfe69a6cb717f6fd80d2a2484d9c1528cbfc924926077f5945df2e4f256",
+    "/home/junkun/genesis-transform-experiment/record/testbed.json": "fb749758a782f69e76c73c162854a26020bdceb52e288e62ea610251e71b7ed8",
+    "/home/junkun/genesis-transform-experiment/record/runner.json": "5b34d38fdd01de4bad3431dcd2013b60229448a33820c4e27d774453f20a50ec",
+    "/home/junkun/genesis-transform-experiment/public/abi-freeze.txt": "3b0762b0f0b440e87ab98ce635ca9ab23fa0351256614922e0c1fd80e975f267"
+  },
+  "framework_commit": "f772f81d83f32bf852af335868379d75759681ac",
+  "upstream_commit": "5943ae78be7334888b7f7b1f4622f9cf61626a2c",
+  "compatibility_base": "7a17ebe52929ab28978b1c582a1b9b0cf559d439",
+  "tree": "/home/junkun/genesis-transform-experiment/worktree",
+  "scope": "all src; no alternate-backend blanket freeze",
+  "pinned_function_count": 8,
+  "additional_manual_name_freezes": [
+    "Real",
+    "FlagType",
+    "LinearSystemSolverType",
+    "LINEAR_SOLVER_JACOBI",
+    "LINEAR_SOLVER_GAUSS_SEIDEL_PARALLEL"
+  ],
+  "no_internal_helper_or_idx_macro_freezes": true,
+  "default_pattern_count": 19,
+  "layout_group_count": 2,
+  "clang": {
+    "status": "BLOCKED",
+    "reason": "LLVM20 development/build toolchain unavailable; no fictitious clang stage configured"
+  },
+  "scientific_acceptance": {
+    "mandatory_separate_post_raw_stage": true,
+    "all_eight_original_oracles": true,
+    "original_fp64_tolerances_unchanged": true,
+    "bitwise_differential_separately_reported": true,
+    "runner_validate_scope": "public application within-backend numeric differential only"
+  },
+  "native_model_resources": "Configured by root-owned claude shim, not these official runner keys",
+  "naming_parallelism": 1,
+  "plan_max_turns": 40,
+  "timeout_hours": 1,
+  "retry_rounds": 2,
+  "fix_rounds": 2,
+  "prepared_comment_stripping": "Parent will run unchanged official strip_comments.py --doc RECORD/comments.md before all; optional runner rename.strip omitted",
+  "output_inventory": "Pre-existing immutable public application smoke outputs only; excludes build objects/databases and avoids asynchronous-baseline inventory race",
+  "empty_output_map_policy": "Only main rename map declared. Original apply may still reject generated empty output_map; preserve original failure/checkpoint before any explicit manual workaround. No fake map/official code edit.",
+  "schema_validation": {
+    "run": "PASS official Draft202012 schema",
+    "testbed": "PASS official Draft202012 schema"
+  },
+  "not_executed": [
+    "transformer CLI/import",
+    "Claude/model",
+    "new scientific suite",
+    "install"
+  ]
+}

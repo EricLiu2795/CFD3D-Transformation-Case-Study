@@ -1,0 +1,208 @@
+{
+  "groups": [
+    {
+      "group": "S7",
+      "budget": 3,
+      "regions": ["src/IO", "src/CfdSolver", "src/ParticleTracer"],
+      "constraints": [
+        "Remove a helper only if it is dead in every build configuration, not just absent from the CPU reference build: check the Opencl and Cuda arms before dropping a device-side helper.",
+        "The pool lists functions with no caller in the tree (isLinked, fetchStringSettingOrDefault, fetchIntSettingOrDefault, tokenizeByChar, advanceParticleEuler). Confirm each has no reference under any arm, including preprocessor-guarded code, before removing it; drop it from the batch if a guarded caller exists.",
+        "Dead-code removal runs first so later passes never transform code that is about to go; do not extract or restructure a function you then delete.",
+        "Remove the declaration and the definition together, and any now-unused include that only served it."
+      ]
+    },
+    {
+      "group": "S11",
+      "budget": 1,
+      "regions": ["src/Defines.hpp"],
+      "constraints": [
+        "divCeil is the only natural candidate: a small free function over (int, int). Templatise it only if every current call still instantiates with the original integer types; add no call that would deduce a narrower or wider type.",
+        "Keep AMREX_GPU_HOST_DEVICE / inline qualifiers if present so device callers still compile."
+      ]
+    },
+    {
+      "group": "S2",
+      "budget": 14,
+      "regions": ["src/CfdSolver/Cpp", "src/CfdSolver/Mpi", "src/CfdSolver/Cuda", "src/IO", "src/ParticleTracer"],
+      "constraints": [
+        "Spread the 14 extractions across the regions: no more than three or four in any one file, and prefer the large repetitive bodies (the border/boundary assignment families, the flux and temperature kernels, the VTK emitters) where a genuine shared helper reads naturally.",
+        "Keep expression order and operand types exactly; a helper parameter of a different type inserts a conversion and breaks bit-identity. Suffix literals (1.0 vs 1.0f) stay.",
+        "In Cuda/Opencl bodies the helper must carry the same qualifiers (AMREX_GPU_HOST_DEVICE / __device__, inline/AMREX_FORCE_INLINE) and live in a header the kernel already includes; a non-inlined device helper can change FMA contraction, so verify bit-exactness.",
+        "Vary the extraction form between sites: a file-static free function, a member helper, a local lambda. Do not apply one template everywhere.",
+        "The Cuda functions calculateRsCuda, calculateUvwCuda, calculateTemperatureCuda, calculateFghCuda, calculateDtCuda, setBoundaryValuesCuda, setBoundaryValuesScenarioSpecificCuda and sorSolverCuda are pinned: their signatures must not change, but their bodies may be refactored, so extraction inside them is allowed.",
+        "Leave no half-applied extraction: remove the inline copy the helper replaces."
+      ]
+    },
+    {
+      "group": "S3",
+      "budget": 3,
+      "regions": ["src/CfdSolver", "src/Main.cpp"],
+      "constraints": [
+        "Convert an equality if/else-if ladder to a lookup table only where the table holds exactly the same constants with the same literal types and the control flow is unchanged on every key.",
+        "The scenario-specific boundary ladders (assignScenarioBorderValuesCpp, setBorderValuesCaseSpecificMpi, setBoundaryValuesScenarioSpecificCuda, CfdSolverOpencl::setBoundaryValuesScenarioSpecific) are parallel across backends; pick at most one or two so the backends do not all change identically.",
+        "In device code use a constexpr array or amrex::GpuArray in the kernel's own scope, never a host global.",
+        "setBoundaryValuesScenarioSpecificCuda is pinned: its body may change but its signature may not."
+      ]
+    },
+    {
+      "group": "S1",
+      "budget": 4,
+      "regions": ["src/IO", "src/CfdSolver", "src/Main.cpp"],
+      "constraints": [
+        "Host code only; device lambdas rarely compile with <numeric>. Avoid the Cuda candidate (arraySumCudaKernel).",
+        "Use only order-preserving algorithms (accumulate, transform, for_each, inner_product with sequential semantics). Never std::reduce / transform_reduce or execution policies: they reassociate floating point.",
+        "Keep the accumulator type: accumulate(.., 0) gives an int accumulator, so write 0.0 or Real(0) for a floating sum.",
+        "Prefer the simple scalar accumulations (parseOptions, tokenizers, NetCdfRecorder::setupRecorder) over the relaxation-sweep reductions, whose loop order the output depends on."
+      ]
+    },
+    {
+      "group": "S4",
+      "budget": 10,
+      "regions": ["src/CfdSolver/Cpp", "src/CfdSolver/Cuda", "src/CfdSolver/Mpi", "src/IO"],
+      "constraints": [
+        "Turn nested ifs into guard clauses only where the control flow is identical on every path; watch for code after the nested block that an early return would skip.",
+        "The internal-border assignment families (assignInternalU/V/W/TBorders* across Cpp, Cuda, Mpi) are the richest sites; spread picks across the three backends rather than converting all variants of one border.",
+        "Keep guard-clause style consistent with the surrounding file's early-return idiom.",
+        "Pinned Cuda functions may have their bodies restructured but not their signatures."
+      ]
+    },
+    {
+      "group": "P1",
+      "budget": 8,
+      "regions": ["src/CfdSolver/Cpp", "src/CfdSolver/Mpi", "src/IO"],
+      "constraints": [
+        "Hoist a loop-invariant subexpression only as the exact same expression with the same type. Never turn a division into a reciprocal multiply: that is a different value.",
+        "Hoisting can change FMA contraction; the CPU reference build emits no FMA, but still confirm bit-identity before keeping each instance.",
+        "Prefer the long CPU/MPI bodies (computeFghCpp, computeFluxMpi, the relax sweeps, the VTK emitters) where a named invariant reads as a real cleanup. Keep order of floating operations inside reduction loops unchanged.",
+        "Do not hoist out of loops that carry a reduction, RNG or I/O in a way that changes their iteration order."
+      ]
+    },
+    {
+      "group": "S5",
+      "budget": 6,
+      "regions": ["src/IO", "src/CfdSolver", "src/Main.cpp"],
+      "constraints": [
+        "Host code only. Convert manual fopen/fclose to std::ifstream/std::ofstream and new[]/delete[] to std::vector; <fstream> is an allowed standard include to add.",
+        "Do not change who allocates GPU, managed or arena memory, and do not change the lifetime of buffers that asynchronous kernels still read.",
+        "The IO readers/writers (readPgmImage, loadGeometryData, the VTK and NetCDF recorders, BinaryStream) are the natural sites; vary the replacement (ifstream vs ofstream vs vector) per site.",
+        "Keep the exact byte sequence written/read: RAII must not reorder or change the I/O that the oracle parses."
+      ]
+    },
+    {
+      "group": "R4",
+      "budget": 1,
+      "regions": ["src/IO"],
+      "constraints": [
+        "readPgmImage's fixed-size local array is the only candidate. Replace with std::array or std::vector of the same extent; host only.",
+        "Keep the buffer contents and read sizes identical."
+      ]
+    },
+    {
+      "group": "R1",
+      "budget": 4,
+      "regions": ["src/IO", "src/CfdSolver"],
+      "constraints": [
+        "Guard a memory or range copy only where the guard is true on every valid run or a provable no-op when false (e.g. skip a zero-length memcpy).",
+        "Add nothing to the success path and no output; the guard must not change behaviour on any tested input.",
+        "Prefer the host buffer copies (BinaryStream, resizeNearest, the PGM scalers, getDataForOutput) over anything inside a kernel."
+      ]
+    },
+    {
+      "group": "R3",
+      "budget": 5,
+      "regions": ["src/IO", "src/CfdSolver/Opencl"],
+      "constraints": [
+        "Add a checked error path to unchecked I/O (fread/fwrite/fopen return values) where the error path is unreachable on valid runs and the success path is unchanged.",
+        "No prints and no extra calls on the success path; the oracle parses stdout, so emit nothing new there.",
+        "The IO readers/writers and the Opencl file loaders are the natural sites; vary between abort, throw and early-return styles to match each file."
+      ]
+    },
+    {
+      "group": "I1",
+      "budget": 8,
+      "regions": ["src/CfdSolver/Cpp", "src/CfdSolver/Mpi", "src/IO", "src/ParticleTracer"],
+      "constraints": [
+        "Introduce a parameter object only where every call site is in scope and not frozen; edit every call site in the same instance (call sites cost no CAP but must be listed).",
+        "Field types match the parameters' exact types; pass the struct by const& where the parameters were by value or const&.",
+        "The very wide host signatures (the initialize family, computeFghCpp, the border setters, the flowline integrator, loadCaseConfigFromFile) are strong candidates; group logically related parameters (grid extents, physical constants, iteration controls) rather than all into one blob.",
+        "Do NOT touch the pinned Cuda signatures (calculateRsCuda, calculateUvwCuda, calculateTemperatureCuda, calculateFghCuda, calculateDtCuda, setBoundaryValuesCuda, setBoundaryValuesScenarioSpecificCuda, sorSolverCuda).",
+        "A device struct must be trivially copyable and defined in a header the kernel already includes. Keep the composition varied: not every wide function needs the same split.",
+        "Respect CAP: the biggest functions appear in several interface groups, so do not stack I1, I2, I3 and I4 all on the same function."
+      ]
+    },
+    {
+      "group": "I2",
+      "budget": 8,
+      "regions": ["src/CfdSolver/Cpp", "src/CfdSolver/Mpi", "src/IO", "src/ParticleTracer"],
+      "constraints": [
+        "Reorder parameters under one consistent rule per family (inputs, then options, then outputs); update every call site in the same instance.",
+        "Arguments must stay free of side effects (evaluation order is unspecified anyway).",
+        "Spread across functions that I1 did not already restructure, to keep CAP low per function; prefer the medium-width signatures where a clean inputs/outputs reordering reads naturally.",
+        "Do not reorder the pinned Cuda signatures."
+      ]
+    },
+    {
+      "group": "I3",
+      "budget": 5,
+      "regions": ["src/CfdSolver", "src/IO", "src/ParticleTracer"],
+      "constraints": [
+        "Convert output parameters to a returned struct only for outputs the function ALWAYS writes; prefer the candidates with several reference outputs (loadCaseConfigFromFile, relaxSolverOpencl, mpiStartup, parseOptions, computeDtOpencl) over the single-output ones.",
+        "Keep the computation order inside the body. In device code return only small trivially copyable structs.",
+        "Edit every call site in the instance; avoid the pinned Cuda functions.",
+        "Mind CAP interaction with I1/I2 on the same wide functions."
+      ]
+    },
+    {
+      "group": "I4",
+      "budget": 8,
+      "regions": ["src/CfdSolver/Cpp", "src/CfdSolver/Mpi", "src/CfdSolver/Cuda", "src/ParticleTracer"],
+      "constraints": [
+        "Replace a raw pointer with a typed view of the same element type and extent; never change which memory a kernel reads or writes, or when.",
+        "Device candidates are allowed only under the device rules (GpuArray/Array4 views) and must keep the memory space; the pinned Cuda signatures are off limits.",
+        "The flux/velocity/border functions carry the most raw pointers; spread picks and vary the view type to match each site.",
+        "Update every call site in the instance."
+      ]
+    },
+    {
+      "group": "I5",
+      "budget": 8,
+      "regions": ["src/IO", "src/CfdSolver"],
+      "constraints": [
+        "Change a function's home within the SAME file only (free function <-> static member, namespace <-> struct, merge/split a namespace): no file moves, that is the layout stage's job, already done.",
+        "Keep AMREX_GPU_HOST_DEVICE and inline qualifiers.",
+        "The IO recorders and the solver classes have many members to convert; spread across files and vary the direction (some to free functions, some to static members).",
+        "Update every call site; do not touch pinned signatures."
+      ]
+    },
+    {
+      "group": "I6",
+      "budget": 5,
+      "regions": ["src/CfdSolver", "src/IO"],
+      "constraints": [
+        "Replace a bool flag parameter with an enum, or split the function into two, only where every call site selects the same branch as before; update all call sites.",
+        "The initialize family and the compute-dt / relax variants carry bool flags; prefer an enum where the flag names a mode, a split where it gates a distinct path.",
+        "Vary enum-vs-split between sites; avoid pinned signatures."
+      ]
+    },
+    {
+      "group": "I7",
+      "budget": 3,
+      "regions": ["src/CfdSolver", "src/IO"],
+      "constraints": [
+        "Regroup struct fields (nest sub-structs, split or merge) only for structs that are NOT serialised, written to output, or mirrored byte-wise to the device; P4's rules apply and every aggregate initialiser and member access must be updated.",
+        "The solver context structs (FluidSolverCpp, CfdSolverMpi, FluidSolverCuda, VtkExporter) are candidates, but verify none is copied byte-wise to the device or written to a checkpoint/plotfile before regrouping; skip ByteWriteStream/ByteReadStream if their layout is relied on by serialisation.",
+        "This pass runs after the interface passes, so apply it over the final struct shapes, including any struct I1 introduced."
+      ]
+    },
+    {
+      "group": "S8",
+      "budget": 5,
+      "regions": ["src/CfdSolver", "src/IO", "src/ParticleTracer"],
+      "constraints": [
+        "Introduce type aliases only (using/typedef); bulk renaming is the renamer's job. Apply over the final types, including any struct the interface passes introduced.",
+        "Alias a frequently used type at a natural boundary (e.g. a solver or recorder type at its public header) and use the alias consistently where it reads naturally; do not alias every type the same way.",
+        "Keep the underlying type unchanged; add no behaviour."
+      ]
+    }
+  ]
+}

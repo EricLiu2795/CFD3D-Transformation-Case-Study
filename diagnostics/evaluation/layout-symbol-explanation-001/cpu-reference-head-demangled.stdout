@@ -1,0 +1,217 @@
+0000000000032010 V DW.ref.__gxx_personality_v0
+000000000002a000 R _IO_stdin_used
+0000000000028e70 T evalCurlAt(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double, double, double*, double*, double*)
+0000000000009750 T initFields(double, double, double, double, double, int, int, int, double*, double*, double*, double*, double*, unsigned int*)
+000000000000fae0 T computeDtCpp(double, double, double, double&, double, double, double, int, int, int, double*, double*, double*, bool)
+000000000000f3a0 T computeRsCpp(double, double, double, double, int, int, int, double*, double*, double*, double*)
+0000000000026580 T fetchUAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*)
+0000000000026520 T fetchVAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*)
+00000000000264c0 T fetchWAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*)
+0000000000016d20 T parseOptions(int, char**, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, bool&, LinearSystemSolverType&, int&, bool&, int&, int&, int&, int&, int&, int&, int&, int&, int&)
+000000000001bf00 T readPgmImage(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&)
+000000000001f740 T buildScenario(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+000000000000f420 T computeFghCpp(double, double, double, double, double, double, double, double, double, double, int, int, int, double*, double*, double*, double*, double*, double*, double*, unsigned int*)
+000000000000f8a0 T computeUvwCpp(double, double, double, double, int, int, int, double*, double*, double*, double*, double*, double*, double*, unsigned int*)
+000000000001ffd0 T fileIsPresent(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000098a0 T initFieldsMpi(double, double, double, double, double, int, int, int, int, int, int, double*, double*, double*, double*, double*, unsigned int*)
+000000000001e0f0 T isCellAllowed(int, int, int, int, int, int, unsigned int const*)
+00000000000086c0 T resizeNearest(std::vector<unsigned int, std::allocator<unsigned int> >, int, int, int, std::vector<unsigned int, std::allocator<unsigned int> >&, int, int, int)
+00000000000271f0 T evalVelocityAt(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*, double*, double*)
+0000000000011590 T relaxSolverCpp(double, double, int, LinearSystemSolverType, bool, double, double, double, int, int, int, double*, double*, double*, unsigned int*)
+00000000000135a0 T fetchIntSetting(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000027510 T fetchdUdyAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+00000000000274a0 T fetchdUdzAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+0000000000027420 T fetchdVdxAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+00000000000273b0 T fetchdVdzAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+0000000000027330 T fetchdWdxAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+00000000000272b0 T fetchdWdyAtNode(glm::vec<3, int, (glm::qualifier)0> const&, int, int, int, double*, double)
+000000000001b6e0 T writePathsToObj(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<FlowCurve, std::allocator<FlowCurve> > const&)
+0000000000013660 T fetchRealSetting(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000018450 T loadGeometryData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&)
+00000000000137a0 T readSettingsFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000017e30 T saveGeometryData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<unsigned int, std::allocator<unsigned int> > const&, int, int, int)
+0000000000026df0 T trilinearSampleU(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*)
+00000000000269f0 T trilinearSampleV(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*)
+00000000000265e0 T trilinearSampleW(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*)
+00000000000255b0 T castRayAgainstBox(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, double&, double&)
+000000000001ea70 T buildTowerGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+00000000000256e0 T castRayAgainstSlab(double, double, double, double, double&, double&)
+00000000000134a0 T fetchStringSetting(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000008620 T initFlagNoBarriers(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, unsigned int*&)
+000000000001acc0 T writePathsToBinary(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<FlowCurve, std::allocator<FlowCurve> > const&)
+0000000000026450 T mapWorldToStaggered(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int)
+0000000000010cd0 T relaxSolverSweepCpp(double, double, double, double, double, int, int, int, LinearSystemSolverType, double*, double*, double*, unsigned int*, double&)
+0000000000024f40 T advanceParticleEuler(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double*, double*, double*, double)
+0000000000020190 T setupOutputDirectory(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)
+0000000000028a40 T trilinearSample_dUdy(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000028620 T trilinearSample_dUdz(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+00000000000281f0 T trilinearSample_dVdx(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000027dd0 T trilinearSample_dVdz(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+00000000000279b0 T trilinearSample_dWdx(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+0000000000027590 T trilinearSample_dWdy(glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double*)
+000000000000c370 T assignBorderValuesCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+000000000001ee40 T buildStepFlowGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+000000000000fa30 T computeTemperatureCpp(double, double, double, double, double, double, double, int, int, int, double*, double*, double*, double*, double*, unsigned int*)
+0000000000008cf0 T initFlagFromShapeFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, unsigned int*&)
+000000000000c270 T assignDownUpBordersCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+000000000001f150 T buildElevationGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+0000000000014d30 T loadCaseConfigFromFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, double&, int&, double&, double&, double&, double&, bool&, double&, double&, int&, int&, int&, double&, double&, double&)
+000000000001c370 T nearestNeighborScale2D(std::vector<unsigned int, std::allocator<unsigned int> > const&, int, int, std::vector<unsigned int, std::allocator<unsigned int> >&, int, int)
+0000000000028ff0 T appendTrajectoryFeatures(FlowCurve&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, int, int, int, double, double, double, double*, double*, double*, double*, double*)
+0000000000013600 T fetchIntSettingOrDefault(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, bool&)
+000000000000c2f0 T assignFrontBackBordersCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+000000000000c190 T assignInternalTBordersCpp(int, int, int, double*, unsigned int*)
+000000000000c070 T assignInternalUBordersCpp(int, int, int, double*, unsigned int*)
+000000000000c0d0 T assignInternalVBordersCpp(int, int, int, double*, unsigned int*)
+000000000000c130 T assignInternalWBordersCpp(int, int, int, double*, unsigned int*)
+000000000000c1f0 T assignLeftRightBordersCpp(double, double, int, int, int, double*, double*, double*, double*, unsigned int*)
+00000000000136b0 T fetchRealSettingOrDefault(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, double, bool&)
+00000000000257a0 T integrateFlowlineParticle(FlowCurve&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, double, int, int, int, double, double, double, double*, double*, double*, double*, double*)
+000000000001c4e0 T nearestNeighborScalePgm2D(std::vector<unsigned int, std::allocator<unsigned int> > const&, int, int, std::vector<unsigned int, std::allocator<unsigned int> >&, int, int)
+000000000001e810 T buildFreeConvectionGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+000000000001e5b0 T buildRayleighBenardGeometry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int)
+0000000000013710 T fetchStringSettingOrDefault(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool&)
+0000000000011cd0 T assignScenarioBorderValuesCpp(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, double*, double*, double*, unsigned int*)
+0000000000024fe0 T computeParticleSeedsForScenario(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&)
+000000000001ff10 T hasPrefix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000001ff60 T hasSuffix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000020b80 T VtkExporter::setMpiBounds(int, int, int, int, int, int)
+0000000000021a90 T VtkExporter::emitVtkHeader(_IO_FILE*)
+0000000000020bc0 T VtkExporter::setupRecorder(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, double, double, double, double, double, double)
+0000000000023680 T VtkExporter::writeSnapshot(int, double, double*, double*, double*, double*, double*, unsigned int*)
+0000000000022950 T VtkExporter::emitCellValues(_IO_FILE*, double*, double*, unsigned int*)
+0000000000021df0 T VtkExporter::emitPointValues(_IO_FILE*, double*, double*, double*, unsigned int*)
+0000000000021980 T VtkExporter::getFileExtension[abi:cxx11]()
+0000000000021b60 T VtkExporter::emitPointPositions(_IO_FILE*, double, double, double, double, double, double)
+0000000000029720 W VtkExporter::VtkExporter(int, int, bool)
+0000000000029720 W VtkExporter::VtkExporter(int, int, bool)
+0000000000021a20 T VtkExporter::~VtkExporter()
+00000000000219b0 T VtkExporter::~VtkExporter()
+00000000000219b0 T VtkExporter::~VtkExporter()
+0000000000012ee0 T ByteReadStream::read(void*, unsigned long)
+0000000000012fc0 T ByteReadStream::read(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+0000000000012e70 T ByteReadStream::ByteReadStream(void const*, unsigned long)
+0000000000012e50 T ByteReadStream::ByteReadStream(void*, unsigned long)
+0000000000012e20 T ByteReadStream::ByteReadStream(ByteWriteStream&)
+0000000000012e70 T ByteReadStream::ByteReadStream(void const*, unsigned long)
+0000000000012e50 T ByteReadStream::ByteReadStream(void*, unsigned long)
+0000000000012e20 T ByteReadStream::ByteReadStream(ByteWriteStream&)
+0000000000012ec0 T ByteReadStream::~ByteReadStream()
+0000000000012ec0 T ByteReadStream::~ByteReadStream()
+0000000000011f00 T FluidSolverCpp::initialize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, LinearSystemSolverType, bool, double, double, double, double, int, double, double, double, double, double, double, double, bool, double, double, int, int, int, double, double, double, double*, double*, double*, double*, double*, unsigned int*)
+00000000000127e0 T FluidSolverCpp::calculateDt()
+0000000000012780 T FluidSolverCpp::calculateRs()
+00000000000126e0 T FluidSolverCpp::calculateFgh()
+00000000000128e0 T FluidSolverCpp::calculateUvw()
+0000000000012960 T FluidSolverCpp::executeSorSolver()
+0000000000012580 T FluidSolverCpp::getDataForOutput(double*, double*, double*, double*, double*)
+00000000000129d0 T FluidSolverCpp::setBoundaryValues()
+0000000000012850 T FluidSolverCpp::calculateTemperature()
+0000000000012a30 T FluidSolverCpp::setBoundaryValuesScenarioSpecific()
+0000000000012b90 T FluidSolverCpp::~FluidSolverCpp()
+0000000000012a80 T FluidSolverCpp::~FluidSolverCpp()
+0000000000012a80 T FluidSolverCpp::~FluidSolverCpp()
+0000000000018c20 T NetCdfRecorder::setMpiBounds(int, int, int, int, int, int)
+0000000000019180 T NetCdfRecorder::setupRecorder(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, double, double, double, double, double, double)
+000000000001aab0 T NetCdfRecorder::writeSnapshot(int, double, double*, double*, double*, double*, double*, unsigned int*)
+0000000000019150 T NetCdfRecorder::getFileExtension[abi:cxx11]()
+000000000001ac70 T NetCdfRecorder::setTextAttribute(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000001a950 T NetCdfRecorder::writeField3D_Staggered(int, int, int, double*)
+000000000001a820 T NetCdfRecorder::writeField3D_Collocated(int, int, int, double*)
+0000000000019090 T NetCdfRecorder::~NetCdfRecorder()
+00000000000190f0 T NetCdfRecorder::~NetCdfRecorder()
+00000000000190f0 T NetCdfRecorder::~NetCdfRecorder()
+000000000001c7e0 T StatusReporter::renderProgress(double, double, unsigned long)
+000000000001ceb0 T StatusReporter::reportFileWritten(int, double, unsigned long)
+0000000000012d40 T ByteWriteStream::write(char const*)
+0000000000012cd0 T ByteWriteStream::write(void const*, unsigned long)
+0000000000012db0 T ByteWriteStream::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000012c40 T ByteWriteStream::reserve(unsigned long)
+0000000000012be0 T ByteWriteStream::ByteWriteStream(unsigned long)
+0000000000012be0 T ByteWriteStream::ByteWriteStream(unsigned long)
+0000000000012c20 T ByteWriteStream::~ByteWriteStream()
+0000000000012c20 T ByteWriteStream::~ByteWriteStream()
+000000000001e000 T GeometryBuilder::saveGeometryFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000001e030 T GeometryBuilder::fillLayersUniform(unsigned int, int, int)
+000000000001e360 T GeometryBuilder::loadLayersFromPgm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int)
+000000000001e090 T GeometryBuilder::fillLayersInRegion(unsigned int, int, int, std::function<bool (int, int, int)> const&)
+000000000001e290 T GeometryBuilder::pruneDisallowedCells()
+000000000001e480 T GeometryBuilder::GeometryBuilder(int, int, int, unsigned int)
+000000000001e480 T GeometryBuilder::GeometryBuilder(int, int, int, unsigned int)
+00000000000261e0 T FlowlineIntegrator::trace(std::vector<glm::vec<3, double, (glm::qualifier)0>, std::allocator<glm::vec<3, double, (glm::qualifier)0> > > const&, glm::vec<3, double, (glm::qualifier)0> const&, glm::vec<3, double, (glm::qualifier)0> const&, double, int, int, int, double, double, double, double*, double*, double*, double*, double*)
+0000000000012bd0 T CfdSolver::~CfdSolver()
+0000000000012bc0 T CfdSolver::~CfdSolver()
+0000000000012bc0 T CfdSolver::~CfdSolver()
+0000000000016940 W double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+0000000000016840 W int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+00000000000118e0 W std::ctype<char>::do_widen(char) const
+0000000000020b40 W std::unique_ptr<std::filesystem::__cxx11::path::_List::_Impl, std::filesystem::__cxx11::path::_List::_Impl_deleter>::~unique_ptr()
+0000000000020b40 W std::unique_ptr<std::filesystem::__cxx11::path::_List::_Impl, std::filesystem::__cxx11::path::_List::_Impl_deleter>::~unique_ptr()
+0000000000029890 W std::_Vector_base<glm::vec<3, double, (glm::qualifier)0>, std::allocator<glm::vec<3, double, (glm::qualifier)0> > >::~_Vector_base()
+0000000000029890 W std::_Vector_base<glm::vec<3, double, (glm::qualifier)0>, std::allocator<glm::vec<3, double, (glm::qualifier)0> > >::~_Vector_base()
+0000000000009040 W std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base()
+0000000000009040 W std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base()
+000000000001fdb0 W std::_Function_base::~_Function_base()
+000000000001fdb0 W std::_Function_base::~_Function_base()
+00000000000209e0 W std::_Sp_counted_ptr<decltype(nullptr), (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+00000000000209f0 W std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_destroy()
+0000000000020a90 W std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release()
+0000000000020a00 W std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release_last_use_cold()
+0000000000025370 W std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand()
+00000000000263a0 W std::vector<FlowCurve, std::allocator<FlowCurve> >::~vector()
+00000000000263a0 W std::vector<FlowCurve, std::allocator<FlowCurve> >::~vector()
+0000000000016b00 W void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000029280 W std::vector<std::vector<double, std::allocator<double> >, std::allocator<std::vector<double, std::allocator<double> > > >::_M_default_append(unsigned long)
+0000000000029460 W void std::vector<double, std::allocator<double> >::_M_realloc_append<double>(double&&)
+0000000000009070 W std::vector<unsigned int, std::allocator<unsigned int> >::_M_default_append(unsigned long)
+0000000000016a30 W void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<true>(char const*, unsigned long)
+0000000000029790 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+0000000000029790 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+0000000000025470 W double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
+0000000000032180 B std::cerr@GLIBCXX_3.4
+0000000000032040 B std::cout@GLIBCXX_3.4
+00000000000298c0 W bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
+0000000000031a00 V typeinfo for VtkExporter
+0000000000031860 V typeinfo for FluidSolverCpp
+0000000000031910 V typeinfo for NetCdfRecorder
+0000000000031a28 V typeinfo for FlowlineIntegrator
+0000000000031900 V typeinfo for OutputFileRecorder
+0000000000031a18 V typeinfo for SteadyFlowParticleIntegrator
+0000000000031878 V typeinfo for CfdSolver
+000000000002b2a8 V typeinfo name for VtkExporter
+000000000002ac80 V typeinfo name for FluidSolverCpp
+000000000002acd0 V typeinfo name for NetCdfRecorder
+000000000002b2e0 V typeinfo name for FlowlineIntegrator
+000000000002acb0 V typeinfo name for OutputFileRecorder
+000000000002b2c0 V typeinfo name for SteadyFlowParticleIntegrator
+000000000002ac98 V typeinfo name for CfdSolver
+00000000000317a0 V VTT for std::basic_ifstream<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000031660 V VTT for std::basic_ofstream<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000031608 V vtable for VtkExporter
+00000000000314f0 V vtable for FluidSolverCpp
+0000000000031560 V vtable for NetCdfRecorder
+0000000000031648 V vtable for FlowlineIntegrator
+0000000000031888 V vtable for CfdSolver
+00000000000317e0 V vtable for std::basic_filebuf<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000031680 V vtable for std::basic_ifstream<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000031750 V vtable for std::basic_ofstream<char, std::char_traits<char> >@GLIBCXX_3.4
+00000000000316d0 V vtable for std::basic_streambuf<char, std::char_traits<char> >@GLIBCXX_3.4
+00000000000317c0 V vtable for std::basic_ios<char, std::char_traits<char> >@GLIBCXX_3.4
+0000000000032018 D __TMC_END__
+0000000000032040 B __bss_start
+0000000000032000 D __data_start
+0000000000032008 D __dso_handle
+0000000000032160 B __libc_single_threaded@GLIBC_2.32
+000000000002b2f8 R __offload_func_table
+000000000002b2f8 R __offload_funcs_end
+000000000002b2f8 R __offload_ind_func_table
+000000000002b2f8 R __offload_ind_funcs_end
+000000000002b2f8 R __offload_var_table
+000000000002b2f8 R __offload_vars_end
+0000000000032018 D _edata
+0000000000032320 B _end
+0000000000029914 T _fini
+0000000000004000 T _init
+0000000000007d10 T _start
+0000000000032000 W data_start
+0000000000006890 T main

@@ -1,0 +1,1077 @@
+diff --git a/src/CfdSolver/Mpi/UvwMpi.cpp b/src/CfdSolver/Mpi/UvwMpi.cpp
+index 294c946..d20959f 100644
+--- a/src/CfdSolver/Mpi/UvwMpi.cpp
++++ b/src/CfdSolver/Mpi/UvwMpi.cpp
+@@ -22,6 +22,16 @@ void computeFluxMpi(
+     
+     Real Dx = 1/dx, Dy = 1/dy, Dz = 1/dz;
+ 
++    auto donorCellFlux = [](Real D, Real conv_hi, Real val_hi, Real conv_lo, Real val_lo,
++            Real diff_hi, Real diff_lo, Real alpha) {
++        return Real(0.25)*D*(
++                conv_hi*val_hi - conv_lo*val_lo +
++                alpha*(
++                        std::abs(conv_hi)*diff_hi - std::abs(conv_lo)*diff_lo
++                )
++        );
++    };
++
+     for (int i = il-1; i <= iu; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+@@ -30,32 +40,20 @@ void computeFluxMpi(
+                     u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/(dy*dy);
+                     u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/(dz*dz);
+ 
+-                    uu_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uu_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i,j,k)], U[LINU(i-1,j,k)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i+1,j,k)], U[LINU(i-1,j,k)]-U[LINU(i,j,k)], alpha);
+ 
+-                    uv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uv_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)], U[LINU(i,j-1,k)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i,j+1,k)], U[LINU(i,j-1,k)]-U[LINU(i,j,k)], alpha);
+ 
+-                    uw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uw_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)], U[LINU(i,j,k-1)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i,j,k+1)], U[LINU(i,j,k-1)]-U[LINU(i,j,k)], alpha);
+ 
+                     F[LINF(i,j,k)] = U[LINU(i,j,k)] + dt * (
+                             (1/Re)*(u_xx+u_yy+u_zz)-
+@@ -79,32 +77,20 @@ void computeFluxMpi(
+                     v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/(dy*dy);
+                     v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/(dz*dz);
+ 
+-                    uv_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    uv_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)], V[LINV(i-1,j,k)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i+1,j,k)], V[LINV(i-1,j,k)]-V[LINV(i,j,k)], alpha);
+ 
+-                    vv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    vv_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j,k)], V[LINV(i,j-1,k)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i,j+1,k)], V[LINV(i,j-1,k)]-V[LINV(i,j,k)], alpha);
+ 
+-                    vw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    vw_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)], V[LINV(i,j,k-1)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i,j,k+1)], V[LINV(i,j-1,k)]-V[LINV(i,j,k)], alpha);
+ 
+                     G[LING(i,j,k)] = V[LINV(i,j,k)] + dt * (
+                             (1/Re)*(v_xx+v_yy+v_zz)-
+@@ -128,32 +114,20 @@ void computeFluxMpi(
+                     w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/(dy*dy);
+                     w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/(dz*dz);
+ 
+-                    uw_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    uw_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)], W[LINW(i-1,j,k)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i+1,j,k)], W[LINW(i-1,j,k)]-W[LINW(i,j,k)], alpha);
+ 
+-                    vw_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    vw_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)], W[LINW(i,j-1,k)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i,j+1,k)], W[LINW(i,j-1,k)]-W[LINW(i,j,k)], alpha);
+ 
+-                    ww_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    ww_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j,k)], W[LINW(i,j,k-1)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i,j,k+1)], W[LINW(i,j,k-1)]-W[LINW(i,j,k)], alpha);
+ 
+                     H[LINH(i,j,k)] = W[LINW(i,j,k)] +  dt * (
+                             (1/Re)*(w_xx+w_yy+w_zz)-
+@@ -336,36 +310,29 @@ void computeTemperatureMpi(
+         Real *U, Real *V, Real *W, Real *T, const Real *T_prev, FlagType *Flag) {
+     Real uT_x, vT_y, wT_z, T_xx, T_yy, T_zz;
+ 
++    auto advectTemperature = [](Real d, Real vel_c, Real vel_m, Real T_m, Real T_c, Real T_p, Real alpha) {
++        return 1 / d * (
++                vel_c * ((T_c + T_p) / 2) -
++                vel_m * ((T_m + T_c) / 2) +
++                alpha * (
++                        std::abs(vel_c)*((T_c - T_p) / 2) -
++                        std::abs(vel_m)*((T_m - T_c) / 2)
++                )
++        );
++    };
++
+     for (int i = il; i <= iu; i++) {
+         for (int j = jl; j <= ju; j++) {
+             for (int k = kl; k <= ku; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)])){
+-                    uT_x = 1 / dx * (
+-                            U[LINU(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i + 1, j, k)]) / 2) -
+-                            U[LINU(i - 1, j, k)] * ((T_prev[LINT(i - 1, j, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(U[LINU(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i + 1, j, k)]) / 2) -
+-                                    std::abs(U[LINU(i - 1, j, k)])*((T_prev[LINT(i - 1, j, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    uT_x = advectTemperature(dx, U[LINU(i, j, k)], U[LINU(i - 1, j, k)],
++                            T_prev[LINT(i - 1, j, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i + 1, j, k)], alpha);
+ 
+-                    vT_y = 1 / dy * (
+-                            V[LINV(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j + 1, k)]) / 2) -
+-                            V[LINV(i, j - 1, k)] * ((T_prev[LINT(i, j - 1, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(V[LINV(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j + 1, k)]) / 2) -
+-                                    std::abs(V[LINV(i, j - 1, k)])*((T_prev[LINT(i, j - 1, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    vT_y = advectTemperature(dy, V[LINV(i, j, k)], V[LINV(i, j - 1, k)],
++                            T_prev[LINT(i, j - 1, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j + 1, k)], alpha);
+ 
+-                    wT_z = 1 / dz * (
+-                            W[LINW(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k + 1)]) / 2) -
+-                            W[LINW(i, j, k - 1)] * ((T_prev[LINT(i, j, k - 1)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(W[LINW(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j, k + 1)]) / 2) -
+-                                    std::abs(W[LINW(i, j, k - 1)])*((T_prev[LINT(i, j, k - 1)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    wT_z = advectTemperature(dz, W[LINW(i, j, k)], W[LINW(i, j, k - 1)],
++                            T_prev[LINT(i, j, k - 1)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j, k + 1)], alpha);
+ 
+                     T_xx =
+                             (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / (dx*dx);
+diff --git a/src/CfdSolver/Opencl/OpenclFlags.hpp b/src/CfdSolver/Opencl/OpenclFlags.hpp
+index bbf1806..610be34 100644
+--- a/src/CfdSolver/Opencl/OpenclFlags.hpp
++++ b/src/CfdSolver/Opencl/OpenclFlags.hpp
+@@ -38,6 +38,5 @@ inline bool B_B(unsigned int flag) { return (flag >> 9) & 1; }
+ inline bool B_F(unsigned int flag) { return (flag >> 10) & 1; }
+ inline bool isHeated(unsigned int flag) { return (flag >> 11) & 1; }
+ inline bool isChilled(unsigned int flag) { return (flag >> 12) & 1; }
+-inline bool isLinked(unsigned int flag) { return (flag >> 13) & 1; }
+ 
+ #endif
+diff --git a/src/CfdSolver/cell_flags.hpp b/src/CfdSolver/cell_flags.hpp
+index aec28f1..39b9856 100644
+--- a/src/CfdSolver/cell_flags.hpp
++++ b/src/CfdSolver/cell_flags.hpp
+@@ -18,7 +18,6 @@ inline bool B_D(unsigned int flag) { return (flag >> 7) & 1 ; }
+ inline bool B_R(unsigned int flag) { return (flag >> 6) & 1 ; }
+ 
+ inline bool B_L(unsigned int flag) { return (flag >> 5) & 1 ; }
+-inline bool isLinked(unsigned int flag) { return (flag >> 13) & 1; }
+ inline bool isChilled(unsigned int flag) { return (flag >> 12) & 1; }
+ 
+ inline bool isHeated(unsigned int flag) { return (flag >> 11) & 1; }
+diff --git a/src/CfdSolver/cuda/boundary_kernels.cu b/src/CfdSolver/cuda/boundary_kernels.cu
+index e378f68..a95c888 100644
+--- a/src/CfdSolver/cuda/boundary_kernels.cu
++++ b/src/CfdSolver/cuda/boundary_kernels.cu
+@@ -3,12 +3,17 @@
+ #include "../../Defines.hpp"
+ #include "CfdSolver/cuda/cuda_runtime_check.hpp"
+ 
++static __device__ inline void computeInteriorCellIndex(int &i, int &j, int &k) {
++    i = blockIdx.z * blockDim.z + threadIdx.z + 1;
++    j = blockIdx.y * blockDim.y + threadIdx.y + 1;
++    k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++}
++
+ __global__ void assignInternalUBordersCuda(
+         int imax, int jmax, int kmax,
+         Real *U, FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+ 
+     if (i <= imax - 1 && j <= jmax && k <= kmax){
+         int R_count = 0;
+@@ -74,9 +79,8 @@ __global__ void assignInternalVBordersCuda(
+     int imax, int jmax, int kmax,
+     Real *V,
+     FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+ 
+     if (i <= imax && j <= jmax - 1 && k <= kmax){
+         int U_count = 0;
+@@ -142,9 +146,8 @@ __global__ void assignInternalWBordersCuda(
+     int imax, int jmax, int kmax,
+     Real *W,
+     FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+ 
+     if (i <= imax && j <= jmax && k <= kmax - 1){        
+         int F_count = 0;
+@@ -210,9 +213,8 @@ __global__ void assignInternalTBordersCuda(
+     int imax, int jmax, int kmax,
+     Real *T,
+     FlagType *Flag) {
+-    int i = blockIdx.z * blockDim.z + threadIdx.z + 1;
+-    int j = blockIdx.y * blockDim.y + threadIdx.y + 1;
+-    int k = blockIdx.x * blockDim.x + threadIdx.x + 1;
++    int i, j, k;
++    computeInteriorCellIndex(i, j, k);
+     
+     if (i <= imax && j <= jmax && k <= kmax){
+         int numDirectFlag = 0;
+diff --git a/src/CfdSolver/cuda/cuda_runtime_check.hpp b/src/CfdSolver/cuda/cuda_runtime_check.hpp
+index d741373..afb4800 100644
+--- a/src/CfdSolver/cuda/cuda_runtime_check.hpp
++++ b/src/CfdSolver/cuda/cuda_runtime_check.hpp
+@@ -15,7 +15,6 @@ __device__ inline bool B_B(unsigned int flag) { return (flag >> 9) & 1; }
+ __device__ inline bool B_F(unsigned int flag) { return (flag >> 10) & 1; }
+ __device__ inline bool isHeated(unsigned int flag) { return (flag >> 11) & 1; }
+ __device__ inline bool isChilled(unsigned int flag) { return (flag >> 12) & 1; }
+-__device__ inline bool isLinked(unsigned int flag) { return (flag >> 13) & 1; }
+ 
+ #ifndef EXPAND_STRING
+ #define MAKE_STRING(x) #x
+diff --git a/src/CfdSolver/serial/boundary_conditions.cpp b/src/CfdSolver/serial/boundary_conditions.cpp
+index dfc63da..c87173e 100644
+--- a/src/CfdSolver/serial/boundary_conditions.cpp
++++ b/src/CfdSolver/serial/boundary_conditions.cpp
+@@ -2,6 +2,15 @@
+ #include "CfdSolver/serial/boundary_conditions.hpp"
+ #include "CfdSolver/cell_flags.hpp"
+ 
++static Real temperatureBorderValue(FlagType flag, Real T_h, Real T_c, Real T_interior) {
++    if (isHeated(flag)) {
++        return 2 * T_h - T_interior;
++    } else if (isChilled(flag)) {
++        return 2 * T_c - T_interior;
++    } else {
++        return T_interior;
++    }
++}
+ 
+ void assignInternalUBordersCpp(
+         int imax, int jmax, int kmax,
+@@ -299,21 +308,9 @@ void assignLeftRightBordersCpp(
+                 W[LINW(imax+1,j,k)] = W[LINW(imax,j,k)];
+             }
+ 
+-            if (isHeated(Flag[LINFLAG(0,j,k)])) {
+-                T[LINT(0,j,k)] = 2 * T_h - T[LINT(1,j,k)];
+-            } else if (isChilled(Flag[LINFLAG(0,j,k)])) {
+-                T[LINT(0,j,k)] = 2 * T_c - T[LINT(1,j,k)];
+-            } else {
+-                T[LINT(0,j,k)] = T[LINT(1,j,k)];
+-            }
++            T[LINT(0,j,k)] = temperatureBorderValue(Flag[LINFLAG(0,j,k)], T_h, T_c, T[LINT(1,j,k)]);
+ 
+-            if (isHeated(Flag[LINFLAG(imax+1,j,k)])) {
+-                T[LINT(imax+1,j,k)] = 2 * T_h - T[LINT(imax,j,k)];
+-            }  else if (isChilled(Flag[LINFLAG(imax+1,j,k)])) {
+-                T[LINT(imax+1,j,k)] = 2 * T_c - T[LINT(imax,j,k)];
+-            } else {
+-                T[LINT(imax+1,j,k)] = T[LINT(imax,j,k)];
+-            }
++            T[LINT(imax+1,j,k)] = temperatureBorderValue(Flag[LINFLAG(imax+1,j,k)], T_h, T_c, T[LINT(imax,j,k)]);
+         }
+     }
+ }
+@@ -354,21 +351,9 @@ void assignDownUpBordersCpp(
+                 W[LINW(i,jmax+1,k)] = W[LINW(i,jmax,k)];
+             }
+ 
+-            if (isHeated(Flag[LINFLAG(i,0,k)])) {
+-                T[LINT(i,0,k)] = 2 * T_h - T[LINT(i,1,k)];
+-            } else if (isChilled(Flag[LINFLAG(i,0,k)])) {
+-                T[LINT(i,0,k)] = 2 * T_c - T[LINT(i,1,k)];
+-            } else {
+-                T[LINT(i,0,k)] = T[LINT(i,1,k)];
+-            }
++            T[LINT(i,0,k)] = temperatureBorderValue(Flag[LINFLAG(i,0,k)], T_h, T_c, T[LINT(i,1,k)]);
+ 
+-            if (isHeated(Flag[LINFLAG(i,jmax+1,k)])) {
+-                T[LINT(i,jmax+1,k)] = 2 * T_h - T[LINT(i,jmax,k)];
+-            } else if (isChilled(Flag[LINFLAG(i,jmax+1,k)])) {
+-                T[LINT(i,jmax+1,k)] = 2 * T_c - T[LINT(i,jmax,k)];
+-            } else {
+-                T[LINT(i,jmax+1,k)] = T[LINT(i,jmax,k)];
+-            }
++            T[LINT(i,jmax+1,k)] = temperatureBorderValue(Flag[LINFLAG(i,jmax+1,k)], T_h, T_c, T[LINT(i,jmax,k)]);
+         }
+     }
+ }
+@@ -413,25 +398,9 @@ void assignFrontBackBordersCpp(
+                 W[LINW(i,j,kmax)] = W[LINW(i,j,kmax-1)];
+             }
+ 
+-            if (isHeated(Flag[LINFLAG(i,j,0)])) {
+-                T[LINT(i,j,0)] = 2 * T_h - T[LINT(i,j,1)];
+-            }
+-            else if (isChilled(Flag[LINFLAG(i,j,0)])) {
+-                T[LINT(i,j,0)] = 2 * T_c - T[LINT(i,j,1)];
+-            }
+-            else {
+-                T[LINT(i,j,0)] = T[LINT(i,j,1)];
+-            }
++            T[LINT(i,j,0)] = temperatureBorderValue(Flag[LINFLAG(i,j,0)], T_h, T_c, T[LINT(i,j,1)]);
+ 
+-            if (isHeated(Flag[LINFLAG(i,j,kmax+1)])) {
+-                T[LINT(i,j,kmax+1)] = 2 * T_h - T[LINT(i,j,kmax)];
+-            }
+-            else if (isChilled(Flag[LINFLAG(i,j,kmax+1)])) {
+-                T[LINT(i,j,kmax+1)] = 2 * T_c - T[LINT(i,j,kmax)];
+-            }
+-            else {
+-                T[LINT(i,j,kmax+1)] = T[LINT(i,j,kmax)];
+-            }
++            T[LINT(i,j,kmax+1)] = temperatureBorderValue(Flag[LINFLAG(i,j,kmax+1)], T_h, T_c, T[LINT(i,j,kmax)]);
+         }
+     }
+ }
+diff --git a/src/CfdSolver/serial/momentum_eqs.cpp b/src/CfdSolver/serial/momentum_eqs.cpp
+index 429bd9b..1c2cb29 100644
+--- a/src/CfdSolver/serial/momentum_eqs.cpp
++++ b/src/CfdSolver/serial/momentum_eqs.cpp
+@@ -5,6 +5,27 @@
+ #include "CfdSolver/serial/momentum_eqs.hpp"
+ #include "CfdSolver/cell_flags.hpp"
+ 
++static Real donorCellFlux(Real D, Real conv_hi, Real val_hi, Real conv_lo, Real val_lo,
++        Real diff_hi, Real diff_lo, Real alpha) {
++    return Real(0.25)*D*(
++            conv_hi*val_hi - conv_lo*val_lo +
++            alpha*(
++                    std::abs(conv_hi)*diff_hi - std::abs(conv_lo)*diff_lo
++            )
++    );
++}
++
++static Real advectTemperature(Real d, Real vel_c, Real vel_m, Real T_m, Real T_c, Real T_p, Real alpha) {
++    return 1 / d * (
++            vel_c * ((T_c + T_p) / 2) -
++            vel_m * ((T_m + T_c) / 2) +
++            alpha * (
++                    std::abs(vel_c)*((T_c - T_p) / 2) -
++                    std::abs(vel_m)*((T_m - T_c) / 2)
++            )
++    );
++}
++
+ void computeRsCpp(
+         Real dt, Real dx, Real dy, Real dz, int imax, int jmax, int kmax,
+         Real *F, Real *G, Real *H, Real *RS) {
+@@ -44,32 +65,20 @@ void computeFghCpp(
+                     u_yy = (U[LINU(i,j+1,k)] - 2*U[LINU(i,j,k)] + U[LINU(i,j-1,k)])/(dy*dy);
+                     u_zz = (U[LINU(i,j,k+1)] - 2*U[LINU(i,j,k)] + U[LINU(i,j,k-1)])/(dz*dz);
+ 
+-                    uu_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i,j,k)])*(U[LINU(i-1,j,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uu_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i,j,k)], U[LINU(i-1,j,k)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i+1,j,k)], U[LINU(i-1,j,k)]-U[LINU(i,j,k)], alpha);
+ 
+-                    uv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)])*(U[LINU(i,j-1,k)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uv_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i+1,j-1,k)], U[LINU(i,j-1,k)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i,j+1,k)], U[LINU(i,j-1,k)]-U[LINU(i,j,k)], alpha);
+ 
+-                    uw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]+U[LINU(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]+U[LINU(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i+1,j,k)])*(U[LINU(i,j,k)]-U[LINU(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)])*(U[LINU(i,j,k-1)]-U[LINU(i,j,k)]))
+-                            )
+-                    );
++                    uw_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i+1,j,k)], U[LINU(i,j,k)]+U[LINU(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i+1,j,k-1)], U[LINU(i,j,k-1)]+U[LINU(i,j,k)],
++                            U[LINU(i,j,k)]-U[LINU(i,j,k+1)], U[LINU(i,j,k-1)]-U[LINU(i,j,k)], alpha);
+ 
+                     F[LINF(i,j,k)] = U[LINU(i,j,k)] + dt * (
+                             (1/Re)*(u_xx+u_yy+u_zz)-
+@@ -95,32 +104,20 @@ void computeFghCpp(
+                     v_yy = (V[LINV(i,j+1,k)] - 2*V[LINV(i,j,k)] + V[LINV(i,j-1,k)])/(dy*dy);
+                     v_zz = (V[LINV(i,j,k+1)] - 2*V[LINV(i,j,k)] + V[LINV(i,j,k-1)])/(dz*dz);
+ 
+-                    uv_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)])*(V[LINV(i-1,j,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    uv_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j+1,k)], V[LINV(i-1,j,k)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i+1,j,k)], V[LINV(i-1,j,k)]-V[LINV(i,j,k)], alpha);
+ 
+-                    vv_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j,k)])*(V[LINV(i,j-1,k)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    vv_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j,k)], V[LINV(i,j-1,k)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i,j+1,k)], V[LINV(i,j-1,k)]-V[LINV(i,j,k)], alpha);
+ 
+-                    vw_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]+V[LINV(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]+V[LINV(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j+1,k)])*(V[LINV(i,j,k)]-V[LINV(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)])*(V[LINV(i,j,k-1)]-V[LINV(i,j,k)]))
+-                            )
+-                    );
++                    vw_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j+1,k)], V[LINV(i,j,k)]+V[LINV(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j+1,k-1)], V[LINV(i,j,k-1)]+V[LINV(i,j,k)],
++                            V[LINV(i,j,k)]-V[LINV(i,j,k+1)], V[LINV(i,j,k-1)]-V[LINV(i,j,k)], alpha);
+ 
+                     G[LING(i,j,k)] = V[LINV(i,j,k)] + dt * (
+                             (1/Re)*(v_xx+v_yy+v_zz)-
+@@ -146,32 +143,20 @@ void computeFghCpp(
+                     w_yy = (W[LINW(i,j+1,k)] - 2*W[LINW(i,j,k)] + W[LINW(i,j-1,k)])/(dy*dy);
+                     w_zz = (W[LINW(i,j,k+1)] - 2*W[LINW(i,j,k)] + W[LINW(i,j,k-1)])/(dz*dz);
+ 
+-                    uw_x = Real(0.25)*Dx*(
+-                            (U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i+1,j,k)]) -
+-                            (U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(U[LINU(i,j,k)]+U[LINU(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i+1,j,k)]))-
+-                                    (std::abs(U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)])*(W[LINW(i-1,j,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    uw_x = donorCellFlux(Dx,
++                            U[LINU(i,j,k)]+U[LINU(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i+1,j,k)],
++                            U[LINU(i-1,j,k)]+U[LINU(i-1,j,k+1)], W[LINW(i-1,j,k)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i+1,j,k)], W[LINW(i-1,j,k)]-W[LINW(i,j,k)], alpha);
+ 
+-                    vw_y = Real(0.25)*Dy*(
+-                            (V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j+1,k)]) -
+-                            (V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(V[LINV(i,j,k)]+V[LINV(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j+1,k)]))-
+-                                    (std::abs(V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)])*(W[LINW(i,j-1,k)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    vw_y = donorCellFlux(Dy,
++                            V[LINV(i,j,k)]+V[LINV(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j+1,k)],
++                            V[LINV(i,j-1,k)]+V[LINV(i,j-1,k+1)], W[LINW(i,j-1,k)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i,j+1,k)], W[LINW(i,j-1,k)]-W[LINW(i,j,k)], alpha);
+ 
+-                    ww_z = Real(0.25)*Dz*(
+-                            (W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]+W[LINW(i,j,k+1)]) -
+-                            (W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]+W[LINW(i,j,k)]) +
+-                            alpha*(
+-                                    (std::abs(W[LINW(i,j,k)]+W[LINW(i,j,k+1)])*(W[LINW(i,j,k)]-W[LINW(i,j,k+1)]))-
+-                                    (std::abs(W[LINW(i,j,k-1)]+W[LINW(i,j,k)])*(W[LINW(i,j,k-1)]-W[LINW(i,j,k)]))
+-                            )
+-                    );
++                    ww_z = donorCellFlux(Dz,
++                            W[LINW(i,j,k)]+W[LINW(i,j,k+1)], W[LINW(i,j,k)]+W[LINW(i,j,k+1)],
++                            W[LINW(i,j,k-1)]+W[LINW(i,j,k)], W[LINW(i,j,k-1)]+W[LINW(i,j,k)],
++                            W[LINW(i,j,k)]-W[LINW(i,j,k+1)], W[LINW(i,j,k-1)]-W[LINW(i,j,k)], alpha);
+ 
+                     H[LINH(i,j,k)] = W[LINW(i,j,k)] +  dt * (
+                             (1/Re)*(w_xx+w_yy+w_zz)-
+@@ -263,32 +248,14 @@ void computeTemperatureCpp(
+         for (int j = 1; j <= jmax; j++) {
+             for (int k = 1; k <= kmax; k++) {
+                 if(isWet(Flag[LINFLAG(i,j,k)])){
+-                    uT_x = 1 / dx * (
+-                            U[LINU(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i + 1, j, k)]) / 2) -
+-                            U[LINU(i - 1, j, k)] * ((T_prev[LINT(i - 1, j, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(U[LINU(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i + 1, j, k)]) / 2) -
+-                                    std::abs(U[LINU(i - 1, j, k)])*((T_prev[LINT(i - 1, j, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    uT_x = advectTemperature(dx, U[LINU(i, j, k)], U[LINU(i - 1, j, k)],
++                            T_prev[LINT(i - 1, j, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i + 1, j, k)], alpha);
+ 
+-                    vT_y = 1 / dy * (
+-                            V[LINV(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j + 1, k)]) / 2) -
+-                            V[LINV(i, j - 1, k)] * ((T_prev[LINT(i, j - 1, k)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(V[LINV(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j + 1, k)]) / 2) -
+-                                    std::abs(V[LINV(i, j - 1, k)])*((T_prev[LINT(i, j - 1, k)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    vT_y = advectTemperature(dy, V[LINV(i, j, k)], V[LINV(i, j - 1, k)],
++                            T_prev[LINT(i, j - 1, k)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j + 1, k)], alpha);
+ 
+-                    wT_z = 1 / dz * (
+-                            W[LINW(i, j, k)] * ((T_prev[LINT(i, j, k)] + T_prev[LINT(i, j, k + 1)]) / 2) -
+-                            W[LINW(i, j, k - 1)] * ((T_prev[LINT(i, j, k - 1)] + T_prev[LINT(i, j, k)]) / 2) +
+-                            alpha * (
+-                                    std::abs(W[LINW(i, j, k)])*((T_prev[LINT(i, j, k)] - T_prev[LINT(i, j, k + 1)]) / 2) -
+-                                    std::abs(W[LINW(i, j, k - 1)])*((T_prev[LINT(i, j, k - 1)] - T_prev[LINT(i, j, k)]) / 2)
+-                            )
+-                    );
++                    wT_z = advectTemperature(dz, W[LINW(i, j, k)], W[LINW(i, j, k - 1)],
++                            T_prev[LINT(i, j, k - 1)], T_prev[LINT(i, j, k)], T_prev[LINT(i, j, k + 1)], alpha);
+ 
+                     T_xx =
+                             (T_prev[LINT(i + 1, j, k)] - 2 * T_prev[LINT(i, j, k)] + T_prev[LINT(i - 1, j, k)]) / (dx*dx);
+diff --git a/src/Defines.hpp b/src/Defines.hpp
+index 1009ab7..22c0402 100644
+--- a/src/Defines.hpp
++++ b/src/Defines.hpp
+@@ -47,7 +47,8 @@ typedef glm::vec<3, Real, glm::defaultp> fpvec3;
+ #define LINFLAG(i,j,k) ((i)*(jmax+2)*(kmax+2) + (j)*(kmax+2) + (k))
+ 
+ 
+-inline int divCeil(int x, int y) { return (x - 1) / y + 1; }
++template <typename T>
++inline T divCeil(T x, T y) { return (x - 1) / y + 1; }
+ 
+ #define SUPPRESS_UNUSED(x) ((void)(x))
+ 
+diff --git a/src/IO/pgm_image.cpp b/src/IO/pgm_image.cpp
+index f249b98..2bc6403 100644
+--- a/src/IO/pgm_image.cpp
++++ b/src/IO/pgm_image.cpp
+@@ -4,6 +4,14 @@
+ #include <cstring>
+ #include "IO/pgm_image.hpp"
+ 
++static int scaleIndex(int dstIdx, int srcExtent, int dstExtent) {
++    return (dstIdx-1) * (srcExtent-2) / (dstExtent-2) + 1;
++}
++
++static int mapNearestIndex(int dstIdx, int srcExtent, int dstExtent) {
++    return dstIdx * srcExtent / dstExtent;
++}
++
+ void nearestNeighborScale2D(
+         const std::vector<unsigned int> &pixelsIn,
+         int widthSrc,
+@@ -23,8 +31,8 @@ void nearestNeighborScale2D(
+ 
+     for (int y = 0; y < heightDst; y++) {
+         for (int x = 0; x < widthDst; x++) {
+-            int srcX = x * widthSrc / widthDst;
+-            int fetchY = y * heightSrc / heightDst;
++            int srcX = mapNearestIndex(x, widthSrc, widthDst);
++            int fetchY = mapNearestIndex(y, heightSrc, heightDst);
+             pixelsOut[x*heightDst + y*widthDst] = pixelsIn[srcX*heightSrc + fetchY];
+         }
+     }
+@@ -53,21 +61,21 @@ void nearestNeighborScalePgm2D(
+     pixelsOut[(widthDst-1)*heightDst + heightDst-1] = pixelsIn[(widthSrc-1)*heightSrc + heightSrc-1];
+ 
+     for (int y = 1; y < heightDst-1; y++) {
+-        int fetchY = (y-1) * (heightSrc-2) / (heightDst-2) + 1;
++        int fetchY = scaleIndex(y, heightSrc, heightDst);
+         pixelsOut[0*heightDst + y] = pixelsIn[0*heightSrc + fetchY];
+         pixelsOut[(widthDst-1)*heightDst + y] = pixelsIn[(widthSrc-1)*heightSrc + fetchY];
+     }
+ 
+     for (int x = 1; x < widthDst-1; x++) {
+-        int srcX = (x-1) * (widthSrc-2) / (widthDst-2) + 1;
++        int srcX = scaleIndex(x, widthSrc, widthDst);
+         pixelsOut[x*heightDst + 0] = pixelsIn[srcX*heightSrc + 0];
+         pixelsOut[x*heightDst + heightDst-1] = pixelsIn[srcX*heightSrc + heightSrc-1];
+     }
+ 
+     for (int y = 1; y < heightDst-1; y++) {
+         for (int x = 1; x < widthDst-1; x++) {
+-            int srcX = (x-1) * (widthSrc-2) / (widthDst-2) + 1;
+-            int fetchY = (y-1) * (heightSrc-2) / (heightDst-2) + 1;
++            int srcX = scaleIndex(x, widthSrc, widthDst);
++            int fetchY = scaleIndex(y, heightSrc, heightDst);
+             pixelsOut[x*heightDst + y*widthDst] = pixelsIn[srcX*heightSrc + fetchY];
+         }
+     }
+diff --git a/src/IO/text_file_utils.hpp b/src/IO/text_file_utils.hpp
+index 65dc654..e403d5d 100644
+--- a/src/IO/text_file_utils.hpp
++++ b/src/IO/text_file_utils.hpp
+@@ -13,25 +13,6 @@ void setupOutputDirectory(
+ 
+ bool fileIsPresent(const std::string& filename);
+ 
+-template<class InputIterator>
+-void tokenizeByChar(const std::string &inputText, char separator, InputIterator& outputList) {
+-    std::string buffer;
+-    for (char c : inputText) {
+-        if (c != separator) {
+-            buffer += c;
+-        } else {
+-            if (buffer.length() > 0) {
+-                outputList.push_back(buffer);
+-                buffer = "";
+-            }
+-        }
+-    }
+-    if (buffer.length() > 0) {
+-        outputList.push_back(buffer);
+-        buffer = "";
+-    }
+-}
+-
+ template<class InputIterator>
+ void tokenizeBySpace(const std::string &inputText, InputIterator& outputList) {
+     std::string buffer;
+diff --git a/src/ParticleTracer/particle_integrators.cpp b/src/ParticleTracer/particle_integrators.cpp
+index fc0cc03..2c96f46 100644
+--- a/src/ParticleTracer/particle_integrators.cpp
++++ b/src/ParticleTracer/particle_integrators.cpp
+@@ -3,14 +3,6 @@
+ #include <cassert>
+ #include "ParticleTracer/particle_integrators.hpp"
+ 
+-fpvec3 advanceParticleEuler(
+-        const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real *U, Real *V, Real *W, Real dt) {
+-    fpvec3 nextPosition = walkerPosition + dt*evalVelocityAt(
+-            walkerPosition, domainOrigin, domainExtent, imax, jmax, kmax, U, V, W);
+-    return nextPosition;
+-}
+-
+ std::vector<fpvec3> computeParticleSeedsForScenario(
+         const std::string &scenarioName, int particleCount, const fpvec3 &domainOrigin, const fpvec3 &domainExtent) {
+     std::vector<fpvec3> seedPoints;
+diff --git a/src/ParticleTracer/particle_integrators.hpp b/src/ParticleTracer/particle_integrators.hpp
+index 91d12d6..a4bc47c 100644
+--- a/src/ParticleTracer/particle_integrators.hpp
++++ b/src/ParticleTracer/particle_integrators.hpp
+@@ -33,10 +33,6 @@ public:
+             Real *U, Real *V, Real *W, Real *P, Real *T)=0;
+ };
+ 
+-fpvec3 advanceParticleEuler(
+-        const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent,
+-        int imax, int jmax, int kmax, Real *U, Real *V, Real *W, Real dt);
+-
+ std::vector<fpvec3> computeParticleSeedsForScenario(
+         const std::string &scenarioName, int particleCount, const fpvec3 &domainOrigin, const fpvec3 &domainExtent);
+ 
+diff --git a/src/ParticleTracer/trajectory_output.cpp b/src/ParticleTracer/trajectory_output.cpp
+index 4ca2b6e..1ee838a 100644
+--- a/src/ParticleTracer/trajectory_output.cpp
++++ b/src/ParticleTracer/trajectory_output.cpp
+@@ -1,28 +1,43 @@
+ 
+ #include "ParticleTracer/trajectory_output.hpp"
+ 
++static bool isNodeOutOfRange(const glm::ivec3 &staggeredCell, const glm::ivec3 &upperBound) {
++    return glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
++            || glm::any(glm::greaterThanEqual(staggeredCell, upperBound));
++}
++
++static Real trilinearBlend(const fpvec3 &frac, const fpvec3 &compFrac,
++        Real c000, Real c100, Real c010, Real c110,
++        Real c001, Real c101, Real c011, Real c111) {
++    return compFrac.x*compFrac.y*compFrac.z*c000
++            + frac.x*compFrac.y*compFrac.z*c100
++            + compFrac.x*frac.y*compFrac.z*c010
++            + frac.x*frac.y*compFrac.z*c110
++            + compFrac.x*compFrac.y*frac.z*c001
++            + frac.x*compFrac.y*frac.z*c101
++            + compFrac.x*frac.y*frac.z*c011
++            + frac.x*frac.y*frac.z*c111;
++}
++
+ fpvec3 mapWorldToStaggered(
+         const fpvec3 &walkerPosition, const fpvec3 &domainOrigin, const fpvec3 &domainExtent, int imax, int jmax, int kmax) {
+     return (walkerPosition - domainOrigin) / domainExtent * fpvec3(imax, jmax, kmax) + fpvec3(1, 1, 1);
+ }
+ Real fetchWAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *W) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax+1,kmax)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax+1,kmax))) {
+         return 0;
+     }
+     return W[LINW(staggeredCell.x, staggeredCell.y, staggeredCell.z)];
+ }
+ Real fetchVAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *V) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax,kmax+1)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax,kmax+1))) {
+         return 0;
+     }
+     return V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z)];
+ }
+ 
+ Real fetchUAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *U) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax+1,kmax+1)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax+1,kmax+1))) {
+         return 0;
+     }
+     return U[LINU(staggeredCell.x, staggeredCell.y, staggeredCell.z)];
+@@ -35,15 +50,15 @@ Real trilinearSampleW(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W)
+-            + frac.x*compFrac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W)
+-            + compFrac.x*frac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W)
+-            + frac.x*frac.y*compFrac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W)
+-            + compFrac.x*compFrac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W)
+-            + frac.x*compFrac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W)
+-            + compFrac.x*frac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W)
+-            + frac.x*frac.y*frac.z*fetchWAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchWAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W),
++            fetchWAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W),
++            fetchWAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W),
++            fetchWAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W),
++            fetchWAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W));
+     return blendedValue;
+ }
+ 
+@@ -54,15 +69,15 @@ Real trilinearSampleV(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V)
+-            + frac.x*compFrac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V)
+-            + compFrac.x*frac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V)
+-            + frac.x*frac.y*compFrac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V)
+-            + compFrac.x*compFrac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V)
+-            + frac.x*compFrac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V)
+-            + compFrac.x*frac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V)
+-            + frac.x*frac.y*frac.z*fetchVAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchVAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V),
++            fetchVAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V),
++            fetchVAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V),
++            fetchVAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V),
++            fetchVAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V));
+     return blendedValue;
+ }
+ 
+@@ -73,15 +88,15 @@ Real trilinearSampleU(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U)
+-            + frac.x*compFrac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U)
+-            + compFrac.x*frac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U)
+-            + frac.x*frac.y*compFrac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U)
+-            + compFrac.x*compFrac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U)
+-            + frac.x*compFrac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U)
+-            + compFrac.x*frac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U)
+-            + frac.x*frac.y*frac.z*fetchUAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchUAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U),
++            fetchUAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U),
++            fetchUAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U),
++            fetchUAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U),
++            fetchUAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U));
+     return blendedValue;
+ }
+ 
+@@ -94,40 +109,35 @@ fpvec3 evalVelocityAt(
+     return fpvec3(u, v, w);
+ }
+ Real fetchdWdyAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *W, Real dy) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax,kmax)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax,kmax))) {
+         return 0;
+     }
+     return (W[LINW(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - W[LINW(staggeredCell.x, staggeredCell.y+1, staggeredCell.z)])/dy;
+ }
+ Real fetchdWdxAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *W, Real dx) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax+1,kmax)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax+1,kmax))) {
+         return 0;
+     }
+     return (W[LINW(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - W[LINW(staggeredCell.x+1, staggeredCell.y, staggeredCell.z)])/dx;
+ }
+ Real fetchdVdzAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *V, Real dz) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax+1,jmax,kmax)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax+1,jmax,kmax))) {
+         return 0;
+     }
+     return (V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z+1)])/dz;
+ }
+ Real fetchdVdxAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *V, Real dx) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax,kmax+1)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax,kmax+1))) {
+         return 0;
+     }
+     return (V[LINV(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+             - V[LINV(staggeredCell.x+1, staggeredCell.y, staggeredCell.z)])/dx;
+ }
+ Real fetchdUdzAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *U, Real dz) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-        || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax+1,kmax)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax+1,kmax))) {
+         return 0;
+     }
+     return (U[LINU(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+@@ -135,8 +145,7 @@ Real fetchdUdzAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int km
+ }
+ 
+ Real fetchdUdyAtNode(const glm::ivec3 &staggeredCell, int imax, int jmax, int kmax, Real *U, Real dy) {
+-    if (glm::any(glm::lessThan(staggeredCell, glm::ivec3(1,1,1)))
+-            || glm::any(glm::greaterThanEqual(staggeredCell, glm::ivec3(imax,jmax,kmax+1)))) {
++    if (isNodeOutOfRange(staggeredCell, glm::ivec3(imax,jmax,kmax+1))) {
+         return 0;
+     }
+     return (U[LINU(staggeredCell.x, staggeredCell.y, staggeredCell.z)]
+@@ -149,15 +158,15 @@ Real trilinearSample_dWdy(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W, dy)
+-            + frac.x*compFrac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W, dy)
+-            + compFrac.x*frac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W, dy)
+-            + frac.x*frac.y*compFrac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W, dy)
+-            + compFrac.x*compFrac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W, dy)
+-            + frac.x*compFrac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W, dy)
+-            + compFrac.x*frac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W, dy)
+-            + frac.x*frac.y*frac.z*fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W, dy);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W, dy),
++            fetchdWdyAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W, dy));
+     return blendedValue;
+ }
+ Real trilinearSample_dWdx(
+@@ -167,15 +176,15 @@ Real trilinearSample_dWdx(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W, dx)
+-            + frac.x*compFrac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W, dx)
+-            + compFrac.x*frac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W, dx)
+-            + frac.x*frac.y*compFrac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W, dx)
+-            + compFrac.x*compFrac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W, dx)
+-            + frac.x*compFrac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W, dx)
+-            + compFrac.x*frac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W, dx)
+-            + frac.x*frac.y*frac.z*fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W, dx);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, W, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, W, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, W, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, W, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, W, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, W, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, W, dx),
++            fetchdWdxAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, W, dx));
+     return blendedValue;
+ }
+ Real trilinearSample_dVdz(
+@@ -185,15 +194,15 @@ Real trilinearSample_dVdz(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V, dz)
+-            + frac.x*compFrac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V, dz)
+-            + compFrac.x*frac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V, dz)
+-            + frac.x*frac.y*compFrac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V, dz)
+-            + compFrac.x*compFrac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V, dz)
+-            + frac.x*compFrac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V, dz)
+-            + compFrac.x*frac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V, dz)
+-            + frac.x*frac.y*frac.z*fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V, dz);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V, dz),
++            fetchdVdzAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V, dz));
+     return blendedValue;
+ }
+ Real trilinearSample_dVdx(
+@@ -203,15 +212,15 @@ Real trilinearSample_dVdx(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V, dx)
+-            + frac.x*compFrac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V, dx)
+-            + compFrac.x*frac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V, dx)
+-            + frac.x*frac.y*compFrac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V, dx)
+-            + compFrac.x*compFrac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V, dx)
+-            + frac.x*compFrac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V, dx)
+-            + compFrac.x*frac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V, dx)
+-            + frac.x*frac.y*frac.z*fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V, dx);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, V, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, V, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, V, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, V, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, V, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, V, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, V, dx),
++            fetchdVdxAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, V, dx));
+     return blendedValue;
+ }
+ Real trilinearSample_dUdz(
+@@ -221,15 +230,15 @@ Real trilinearSample_dUdz(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U, dz)
+-            + frac.x*compFrac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U, dz)
+-            + compFrac.x*frac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U, dz)
+-            + frac.x*frac.y*compFrac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U, dz)
+-            + compFrac.x*compFrac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U, dz)
+-            + frac.x*compFrac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U, dz)
+-            + compFrac.x*frac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U, dz)
+-            + frac.x*frac.y*frac.z*fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U, dz);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U, dz),
++            fetchdUdzAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U, dz));
+     return blendedValue;
+ }
+ 
+@@ -240,15 +249,15 @@ Real trilinearSample_dUdy(
+     glm::ivec3 staggeredCell = glm::ivec3(staggeredCoord);
+     fpvec3 frac = glm::fract(staggeredCoord);
+     fpvec3 compFrac = fpvec3(1.0) - frac;
+-    Real blendedValue =
+-            compFrac.x*compFrac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U, dy)
+-            + frac.x*compFrac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U, dy)
+-            + compFrac.x*frac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U, dy)
+-            + frac.x*frac.y*compFrac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U, dy)
+-            + compFrac.x*compFrac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U, dy)
+-            + frac.x*compFrac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U, dy)
+-            + compFrac.x*frac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U, dy)
+-            + frac.x*frac.y*frac.z*fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U, dy);
++    Real blendedValue = trilinearBlend(frac, compFrac,
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,0), imax, jmax, kmax, U, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,0), imax, jmax, kmax, U, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,0), imax, jmax, kmax, U, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,0), imax, jmax, kmax, U, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,0,1), imax, jmax, kmax, U, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,0,1), imax, jmax, kmax, U, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(0,1,1), imax, jmax, kmax, U, dy),
++            fetchdUdyAtNode(staggeredCell + glm::ivec3(1,1,1), imax, jmax, kmax, U, dy));
+     return blendedValue;
+ }
+ 
